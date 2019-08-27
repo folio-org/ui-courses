@@ -1,0 +1,7 @@
+{
+  "extends": "@folio/eslint-config-stripes",
+  "parser": "babel-eslint",
+  "rules": {
+    "react/jsx-one-expression-per-line": ["warning", { "allow": "single-child" }]
+  }
+}

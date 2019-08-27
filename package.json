@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Maintain courses and reserve items for them",
   "license": "Apache-2.0",
+  "scripts": {
+    "lint": "eslint ."
+  },
   "stripes": {
     "actsAs": ["app"],
     "displayName": "ui-courses.meta.title",
@@ -30,5 +33,11 @@
         "visible": true
       }
     ]
+  },
+  "devDependencies": {
+    "@folio/eslint-config-stripes": "^4.2.100042"
+  },
+  "peerDependencies": {
+    "react": "*"
   }
 }
