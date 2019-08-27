@@ -3,6 +3,11 @@
   "settings.roles": "Roles",
   "objectName.roles": "Roles",
   "objectName.role": "Role",
+  "settings.schedules": "Schedules",
+  "objectName.schedules": "Schedules",
+  "objectName.schedule": "Schedule",
   "headings.name": "Name",
-  "headings.description": "Description"
+  "headings.description": "Description",
+  "headings.startDate": "Start Date",
+  "headings.endDate": "End Date"
 }
