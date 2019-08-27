@@ -4,6 +4,7 @@
   "description": "Maintain courses and reserve items for them",
   "repository": "https://github.com/folio-org/ui-courses",
   "license": "Apache-2.0",
+  "main": "src/index.js",
   "scripts": {
     "lint": "eslint ."
   },
