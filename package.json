@@ -43,6 +43,10 @@
     "@folio/eslint-config-stripes": "^4.2.100042"
   },
   "peerDependencies": {
-    "react": "*"
+    "@folio/stripes": "*",
+    "prop-types": "*",
+    "react": "*",
+    "react-intl": "*",
+    "react-router-dom": "*"
   }
 }
