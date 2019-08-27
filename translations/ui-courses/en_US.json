@@ -1,3 +1,8 @@
 {
-  "meta.title": "Courses"
+  "meta.title": "Courses",
+  "settings.roles": "Roles",
+  "objectName.roles": "Roles",
+  "objectName.role": "Role",
+  "headings.name": "Name",
+  "headings.description": "Description"
 }
