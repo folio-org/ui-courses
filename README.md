@@ -11,9 +11,7 @@ The Course Reserves UI Module, or `ui-courses`, is a Stripes UI module used for 
 
 ## Additional information
 
-Other [modules](https://dev.folio.org/source-code/#client-side).
-
-See project [UIC](https://issues.folio.org/browse/UIC)
-at the [FOLIO issue tracker](https://dev.folio.org/guidelines/issue-tracker).
-
-Other FOLIO Developer documentation is at [dev.folio.org](https://dev.folio.org/)
+* [The corresponding server-side module](https://github.com/folio-org/mod-courses).
+* Other [UI modules](https://dev.folio.org/source-code/#client-side).
+* See project [UICR](https://issues.folio.org/browse/UIC) at the [FOLIO issue tracker](https://dev.folio.org/guidelines/issue-tracker).
+* Other FOLIO Developer documentation is at [dev.folio.org](https://dev.folio.org/)
