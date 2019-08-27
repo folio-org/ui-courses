@@ -2,12 +2,16 @@
   "name": "@folio/courses",
   "version": "1.0.0",
   "description": "Maintain courses and reserve items for them",
+  "repository": "https://github.com/folio-org/ui-courses",
   "license": "Apache-2.0",
   "scripts": {
     "lint": "eslint ."
   },
   "stripes": {
-    "actsAs": ["app"],
+    "actsAs": [
+      "app",
+      "settings"
+    ],
     "displayName": "ui-courses.meta.title",
     "route": "/courses",
     "queryResource": "query",
