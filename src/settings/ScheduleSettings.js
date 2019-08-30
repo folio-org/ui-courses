@@ -1,8 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { injectIntl } from 'react-intl';
+import { Field, reduxForm } from 'redux-form';
 import { ControlledVocab } from '@folio/stripes/smart-components';
 import { withStripes } from '@folio/stripes/core';
+import { Datepicker } from '@folio/stripes/components';
+
+const fieldComponents = {
+  'expirationDate': ({ fieldProps }) => (
+    <Field
+      {...fieldProps}
+      component={Datepicker}
+      marginBottom0
+      fullWidth
+    />
+  )
+};
 
 class ScheduleSettings extends React.Component {
   static propTypes = {
@@ -25,30 +38,26 @@ class ScheduleSettings extends React.Component {
     return (
       <this.connectedControlledVocab
         stripes={stripes}
-        baseUrl="courses/schedules"
+        baseUrl="users"
+        records="users"
         label={intl.formatMessage({ id: 'ui-courses.objectName.schedules' })}
         labelSingular={intl.formatMessage({ id: 'ui-courses.objectName.schedule' })}
         objectLabel="Entries"
-        visibleFields={['name', 'startDate', 'endDate']}
+        visibleFields={['username', 'expirationDate']}
+        fieldComponents={fieldComponents}
         columnMapping={{
           name: intl.formatMessage({ id: 'ui-courses.headings.name' }),
           startDate: intl.formatMessage({ id: 'ui-courses.headings.startDate' }),
           endDate: intl.formatMessage({ id: 'ui-courses.headings.endDate' }),
         }}
         id="schedules"
-        sortby="name"
+        sortby="username"
         hiddenFields={['lastUpdated', 'numberOfObjects']}
       />
     );
   }
 }
 
-export default injectIntl(withStripes(ScheduleSettings));
-
-/*
-   Using non-text fields in a <ControlledVocab>:
-
-   https://github.com/folio-org/ui-inventory/blob/master/src/settings/StatisticalCodeSettings.js
-   https://github.com/folio-org/ui-users/blob/master/src/settings/OwnerSettings.js#L96
-   https://github.com/folio-org/ui-users/blob/master/src/settings/FeeFineSettings.js#L203
-*/
+export default reduxForm({
+  form: 'course-reserves-schedules'
+})(injectIntl(withStripes(ScheduleSettings)));
