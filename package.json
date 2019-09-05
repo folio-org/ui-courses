@@ -23,6 +23,11 @@
         "title": "Courses"
       }
     ],
+    "okapiInterfaces": {
+      "courses-storage": "0.1",
+      "roles-storage": "0.1",
+      "schedules-storage": "0.1"
+    },
     "permissionSets": [
       {
         "permissionName": "module.courses.enabled",
