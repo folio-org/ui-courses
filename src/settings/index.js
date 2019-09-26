@@ -7,7 +7,6 @@ import CourseTypeSettings from './CourseTypeSettings';
 import DepartmentSettings from './DepartmentSettings';
 import ProcessingStatusSettings from './ProcessingStatusSettings';
 import CopyrightStatusSettings from './CopyrightStatusSettings';
-import ScheduleSettings from './ScheduleSettings';
 
 export default class CoursesSettings extends React.Component {
   pages = [
@@ -40,11 +39,6 @@ export default class CoursesSettings extends React.Component {
       route: 'copyrightstatuses',
       label: <FormattedMessage id="ui-courses.settings.copyrightstatuses" />,
       component: CopyrightStatusSettings,
-    },
-    {
-      route: 'schedules',
-      label: <FormattedMessage id="ui-courses.settings.schedules" />,
-      component: ScheduleSettings,
     },
   ];
 
