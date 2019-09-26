@@ -3,6 +3,10 @@ import { FormattedMessage } from 'react-intl';
 import { Settings } from '@folio/stripes/smart-components';
 import RoleSettings from './RoleSettings';
 import TermSettings from './TermSettings';
+import CourseTypeSettings from './CourseTypeSettings';
+import DepartmentSettings from './DepartmentSettings';
+import ProcessingStatusSettings from './ProcessingStatusSettings';
+import CopyrightStatusSettings from './CopyrightStatusSettings';
 import ScheduleSettings from './ScheduleSettings';
 
 export default class CoursesSettings extends React.Component {
@@ -16,6 +20,26 @@ export default class CoursesSettings extends React.Component {
       route: 'terms',
       label: <FormattedMessage id="ui-courses.settings.terms" />,
       component: TermSettings,
+    },
+    {
+      route: 'coursetypes',
+      label: <FormattedMessage id="ui-courses.settings.coursetypes" />,
+      component: CourseTypeSettings,
+    },
+    {
+      route: 'departments',
+      label: <FormattedMessage id="ui-courses.settings.departments" />,
+      component: DepartmentSettings,
+    },
+    {
+      route: 'processingstatuses',
+      label: <FormattedMessage id="ui-courses.settings.processingstatuses" />,
+      component: ProcessingStatusSettings,
+    },
+    {
+      route: 'copyrightstatuses',
+      label: <FormattedMessage id="ui-courses.settings.copyrightstatuses" />,
+      component: CopyrightStatusSettings,
     },
     {
       route: 'schedules',
