@@ -24,9 +24,13 @@
       }
     ],
     "okapiInterfaces": {
-      "courses-storage": "0.1",
-      "roles-storage": "0.1",
-      "schedules-storage": "0.1"
+      "course-reserves-storage": "0.1",
+      "term-storage": "0.1",
+      "department-storage": "0.1",
+      "course-type-storage": "0.1",
+      "processing-status-storage": "0.1",
+      "copyright-status-storage": "0.1",
+      "role-storage": "0.1"
     },
     "permissionSets": [
       {
