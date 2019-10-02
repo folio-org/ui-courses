@@ -26,6 +26,7 @@ class RoleSettings extends React.Component {
       <this.connectedControlledVocab
         stripes={stripes}
         baseUrl="coursereserves/roles"
+        records="roles"
         label={intl.formatMessage({ id: 'ui-courses.objectName.roles' })}
         labelSingular={intl.formatMessage({ id: 'ui-courses.objectName.role' })}
         objectLabel="Entries"

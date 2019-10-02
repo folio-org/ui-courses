@@ -26,6 +26,7 @@ class DepartmentSettings extends React.Component {
       <this.connectedControlledVocab
         stripes={stripes}
         baseUrl="coursereserves/departments"
+        records="departments"
         label={intl.formatMessage({ id: 'ui-courses.objectName.departments' })}
         labelSingular={intl.formatMessage({ id: 'ui-courses.objectName.department' })}
         objectLabel="Entries"

@@ -26,6 +26,7 @@ class CopyrightStatusSettings extends React.Component {
       <this.connectedControlledVocab
         stripes={stripes}
         baseUrl="coursereserves/copyrightstatuses"
+        records="copyrightStatuses"
         label={intl.formatMessage({ id: 'ui-courses.objectName.copyrightstatuses' })}
         labelSingular={intl.formatMessage({ id: 'ui-courses.objectName.copyrightstatus' })}
         objectLabel="Entries"

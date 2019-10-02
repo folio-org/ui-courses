@@ -26,6 +26,7 @@ class ProcessingStatusSettings extends React.Component {
       <this.connectedControlledVocab
         stripes={stripes}
         baseUrl="coursereserves/processingstatuses"
+        id="processingstatuses"
         label={intl.formatMessage({ id: 'ui-courses.objectName.processingstatuses' })}
         labelSingular={intl.formatMessage({ id: 'ui-courses.objectName.processingstatus' })}
         objectLabel="Entries"
