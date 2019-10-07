@@ -6,15 +6,18 @@ import { ControlledVocab } from '@folio/stripes/smart-components';
 import { withStripes } from '@folio/stripes/core';
 import { Datepicker } from '@folio/stripes/components';
 
+const dateFieldType = ({ fieldProps }) => (
+  <Field
+    {...fieldProps}
+    component={Datepicker}
+    marginBottom0
+    fullWidth
+  />
+);
+
 const fieldComponents = {
-  'expirationDate': ({ fieldProps }) => (
-    <Field
-      {...fieldProps}
-      component={Datepicker}
-      marginBottom0
-      fullWidth
-    />
-  )
+  'startDate': dateFieldType,
+  'endDate': dateFieldType,
 };
 
 class TermSettings extends React.Component {
@@ -39,21 +42,20 @@ class TermSettings extends React.Component {
       <this.connectedControlledVocab
         stripes={stripes}
         REAL__baseUrl="coursereserves/terms"
-        baseUrl="users"
-        records="users"
+        baseUrl="coursereserves/terms"
+        records="terms"
         label={intl.formatMessage({ id: 'ui-courses.objectName.terms' })}
         labelSingular={intl.formatMessage({ id: 'ui-courses.objectName.term' })}
         objectLabel="Entries"
-        visibleFields={['username', 'expirationDate']}
+        visibleFields={['name', 'startDate', 'endDate']}
         fieldComponents={fieldComponents}
         columnMapping={{
           name: intl.formatMessage({ id: 'ui-courses.headings.name' }),
-          description: intl.formatMessage({ id: 'ui-courses.headings.description' }),
           startDate: intl.formatMessage({ id: 'ui-courses.headings.startDate' }),
           endDate: intl.formatMessage({ id: 'ui-courses.headings.endDate' }),
         }}
         id="terms"
-        sortby="username"
+        sortby="name"
         hiddenFields={['lastUpdated', 'numberOfObjects']}
       />
     );
