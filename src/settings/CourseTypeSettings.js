@@ -26,7 +26,7 @@ class CourseTypeSettings extends React.Component {
       <this.connectedControlledVocab
         stripes={stripes}
         baseUrl="coursereserves/coursetypes"
-        records="coursetypes"
+        records="courseTypes"
         label={intl.formatMessage({ id: 'ui-courses.objectName.coursetypes' })}
         labelSingular={intl.formatMessage({ id: 'ui-courses.objectName.coursetypes' })}
         objectLabel="Entries"
