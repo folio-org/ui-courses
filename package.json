@@ -14,7 +14,7 @@
       "settings"
     ],
     "displayName": "ui-courses.meta.title",
-    "route": "/courses",
+    "route": "/cr",
     "queryResource": "query",
     "icons": [
       {
