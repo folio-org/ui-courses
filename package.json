@@ -58,5 +58,8 @@
     "react-intl": "*",
     "react-router-dom": "*",
     "redux-form": "*"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
   }
 }
