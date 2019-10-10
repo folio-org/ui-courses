@@ -4,9 +4,9 @@ import Switch from 'react-router-dom/Switch';
 import Redirect from 'react-router-dom/Redirect';
 import { Route as NestedRoute } from '@folio/stripes/core';
 import Settings from './settings';
-import Courses from './routes/Courses';
+import CoursesRoute from './routes/CoursesRoute';
 import ViewCourse from './routes/ViewCourse';
-import Reserves from './routes/Reserves';
+import ReservesRoute from './routes/ReservesRoute';
 import ViewReserve from './routes/ViewReserve';
 
 class CoursesApp extends React.Component {
@@ -29,12 +29,12 @@ class CoursesApp extends React.Component {
     return (
       <Switch>
         <Redirect exact from={path} to={`${path}/courses`} />
-        <NestedRoute path={`${path}/courses`} component={Courses}>
+        <NestedRoute path={`${path}/courses`} component={CoursesRoute}>
           <Switch>
             <NestedRoute path={`${path}/courses/:id`} exact component={ViewCourse} />
           </Switch>
         </NestedRoute>
-        <NestedRoute path={`${path}/reserves`} component={Reserves}>
+        <NestedRoute path={`${path}/reserves`} component={ReservesRoute}>
           <Switch>
             <NestedRoute path={`${path}/reserves/:id`} exact component={ViewReserve} />
           </Switch>
