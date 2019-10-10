@@ -30,7 +30,7 @@ class TEMPORARYCourseSettings extends React.Component {
         label="Courses"
         labelSingular="Course"
         objectLabel="Entries"
-      visibleFields={['name', 'courseListingId', 'departmentId']}
+        visibleFields={['name', 'courseListingId', 'departmentId']}
         columnMapping={{
           name: intl.formatMessage({ id: 'ui-courses.headings.name' }),
           courseListingId: 'CLID',
