@@ -5,7 +5,7 @@ import { get } from 'lodash';
 import { stripesConnect } from '@folio/stripes/core';
 import { makeQueryFunction, StripesConnectedSource } from '@folio/stripes/smart-components';
 
-import SearchCourses from '../components/SearchCourses';
+import Courses from '../components/Courses';
 
 
 const INITIAL_RESULT_COUNT = 100;
@@ -84,7 +84,7 @@ class ViewCourses extends React.Component {
     if (this.source) this.source.update(this.props, 'courses');
 
     return (
-      <SearchCourses
+      <Courses
         shippingData={{
           courses: get(resources, 'courses.records', []),
         }}
@@ -95,7 +95,7 @@ class ViewCourses extends React.Component {
         history={this.props.history}
       >
         { children }
-      </SearchCourses>
+      </Courses>
     );
   }
 }
