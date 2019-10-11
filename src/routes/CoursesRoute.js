@@ -22,7 +22,6 @@ const filterConfig = [];
 class ViewCourses extends React.Component {
   static propTypes = {
     children: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired,
     stripes: PropTypes.shape({
       logger: PropTypes.object.isRequired,
     }).isRequired,
@@ -59,6 +58,7 @@ class ViewCourses extends React.Component {
     super(props);
     this.logger = props.stripes.logger;
     this.searchField = React.createRef();
+    console.log('CoursesRoute constructor: props =', props);
   }
 
   componentDidMount() {
@@ -66,10 +66,12 @@ class ViewCourses extends React.Component {
     if (this.searchField.current) this.searchField.current.focus();
   }
 
+  // XXX Do we need this or is it the default?
   querySetter = ({ nsValues }) => {
     this.props.mutator.query.update(nsValues);
   }
 
+  // XXX Do we need this or is it the default?
   queryGetter = () => {
     return get(this.props.resources, 'query', {});
   }
@@ -85,14 +87,13 @@ class ViewCourses extends React.Component {
 
     return (
       <Courses
-        shippingData={{
+        coursesData={{
           courses: get(resources, 'courses.records', []),
         }}
         onNeedMoreData={this.handleNeedMoreData}
         queryGetter={this.queryGetter}
         querySetter={this.querySetter}
         source={this.source}
-        history={this.props.history}
       >
         { children }
       </Courses>
