@@ -43,12 +43,14 @@ class ViewCourses extends React.Component {
       perRequest: RESULT_COUNT_INCREMENT,
       limitParam: 'perPage',
       path: 'coursereserves/courses',
-      params: makeQueryFunction(
-        'cql.allRecords=1',
-        'name="%{query}*" or description="%{query}*"',
-        sortMap,
-        filterConfig,
-      ),
+      params: {
+        query: makeQueryFunction(
+          'cql.allRecords=1',
+          'name="%{query}*" or description="%{query}*"',
+          sortMap,
+          filterConfig,
+        ),
+      },
     },
     query: { initialValue: {} },
     resultCount: { initialValue: INITIAL_RESULT_COUNT },
@@ -58,7 +60,6 @@ class ViewCourses extends React.Component {
     super(props);
     this.logger = props.stripes.logger;
     this.searchField = React.createRef();
-    console.log('CoursesRoute constructor: props =', props);
   }
 
   componentDidMount() {
