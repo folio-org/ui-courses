@@ -28,7 +28,7 @@ class Courses extends React.Component {
     children: PropTypes.object.isRequired,
     coursesData: PropTypes.shape({
       courses: PropTypes.arrayOf(
-        PropTypes.string, // XXX almost certainly wrong
+        PropTypes.object,
       ).isRequired,
     }).isRequired,
     onNeedMoreData: PropTypes.func.isRequired,
@@ -53,27 +53,6 @@ class Courses extends React.Component {
       // For some reason, ESLint doesn't pick up the use of filterPaneIsVisible in toggleFilterPane
       filterPaneIsVisible: true, // eslint-disable-line react/no-unused-state
     };
-  }
-
-  __unusedRowFormatter = (row) => {
-    const { rowClass, rowData, rowIndex, rowProps = {}, cells } = row;
-    const RowComponent = Link;
-    rowProps.to = `/cr/courses/${rowData.id}`;
-
-    return (
-      <RowComponent
-        aria-rowindex={rowIndex + 2}
-        className={rowClass}
-        data-label={[
-          rowData.name,
-        ].join('...')}
-        key={`row-${rowIndex}`}
-        role="row"
-        {...rowProps}
-      >
-        {cells}
-      </RowComponent>
-    );
   }
 
   toggleFilterPane = () => {
@@ -174,7 +153,6 @@ class Courses extends React.Component {
       queryGetter,
       querySetter,
       source,
-      visibleColumns,
     } = this.props;
 
     const query = queryGetter() || {};
@@ -268,13 +246,12 @@ class Courses extends React.Component {
                     isEmptyMessage={this.renderIsEmptyMessage(query, source)}
                     onHeaderClick={onSort}
                     onNeedMoreData={onNeedMoreData}
-                      // onRowClick={onSelectRow}
-                    rowFormatter={this.rowFormatter}
+                    // onRowClick={onSelectRow}
                     sortDirection={sortOrder.startsWith('-') ? 'descending' : 'ascending'}
                     sortOrder={sortOrder.replace(/^-/, '').replace(/,.*/, '')}
                     totalCount={count}
                     virtualize
-                    visibleColumns={visibleColumns}
+                    visibleColumns={['id', 'name']}
                   />
                 </Pane>
 
