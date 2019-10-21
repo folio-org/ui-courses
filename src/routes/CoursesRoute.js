@@ -46,7 +46,7 @@ class ViewCourses extends React.Component {
       params: {
         query: makeQueryFunction(
           'cql.allRecords=1',
-          'name="%{query}*" or description="%{query}*"',
+          'name="%{query.query}*" or description="%{query.query}*"',
           sortMap,
           filterConfig,
         ),
