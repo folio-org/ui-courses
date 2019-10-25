@@ -24,5 +24,10 @@
   "headings.endDate": "End Date",
   "createCourse": "Create course",
   "searchInputLabel": "Search courses",
+  "column.name": "Name",
+  "column.description": "Description",
+  "column.courseNumber": "Number",
+  "column.sectionName": "Section",
+  "column.externalId": "External ID",
   "SENTINEL": "SENTINEL"
 }

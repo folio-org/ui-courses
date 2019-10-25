@@ -39,10 +39,6 @@ class Courses extends React.Component {
     }),
   };
 
-  static columnMapping = {
-    id: <FormattedMessage id="ui-courses.prop.id" />,
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -238,7 +234,6 @@ class Courses extends React.Component {
                 >
                   <MultiColumnList
                     autosize
-                    columnMapping={this.columnMapping}
                     columnWidths={this.columnWidths}
                     contentData={coursesData.courses}
                     id="list-courses"
@@ -251,6 +246,13 @@ class Courses extends React.Component {
                     totalCount={count}
                     virtualize
                     visibleColumns={['name', 'description', 'courseNumber', 'sectionName', 'externalId']}
+                    columnMapping={{
+                      name: <FormattedMessage id="ui-courses.column.name" />,
+                      description: <FormattedMessage id="ui-courses.column.description" />,
+                      courseNumber: <FormattedMessage id="ui-courses.column.courseNumber" />,
+                      sectionName: <FormattedMessage id="ui-courses.column.sectionName" />,
+                      externalId: <FormattedMessage id="ui-courses.column.externalId" />,
+                    }}
                     formatter={resultsFormatter}
                   />
                 </Pane>
