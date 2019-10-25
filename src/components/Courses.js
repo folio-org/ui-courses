@@ -43,9 +43,6 @@ class Courses extends React.Component {
     id: <FormattedMessage id="ui-courses.prop.id" />,
   };
 
-  static formatter = {
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -158,6 +155,10 @@ class Courses extends React.Component {
     const count = source ? source.totalCount() : 0;
     const sortOrder = query.sort || '';
 
+    const resultsFormatter = {
+      externalId: r => r.courseListingObject.externalId,
+    };
+
     return (
       <SearchAndSortQuery
         querySetter={querySetter}
@@ -240,7 +241,6 @@ class Courses extends React.Component {
                     columnMapping={this.columnMapping}
                     columnWidths={this.columnWidths}
                     contentData={coursesData.courses}
-                    formatter={this.formatter}
                     id="list-courses"
                     isEmptyMessage={this.renderIsEmptyMessage(query, source)}
                     onHeaderClick={onSort}
@@ -250,7 +250,8 @@ class Courses extends React.Component {
                     sortOrder={sortOrder.replace(/^-/, '').replace(/,.*/, '')}
                     totalCount={count}
                     virtualize
-                    visibleColumns={['id', 'name']}
+                    visibleColumns={['name', 'description', 'courseNumber', 'sectionName', 'externalId']}
+                    formatter={resultsFormatter}
                   />
                 </Pane>
 
