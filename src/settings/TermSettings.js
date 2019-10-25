@@ -6,6 +6,8 @@ import { ControlledVocab } from '@folio/stripes/smart-components';
 import { withStripes } from '@folio/stripes/core';
 import { Datepicker } from '@folio/stripes/components';
 
+// Somehow, ESLint has got it into its head that fieldProps is a named prop passed to a component
+// eslint-disable-next-line react/prop-types
 const dateFieldType = ({ fieldProps }) => (
   <Field
     {...fieldProps}
