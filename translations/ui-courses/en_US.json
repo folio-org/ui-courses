@@ -23,5 +23,6 @@
   "headings.startDate": "Start Date",
   "headings.endDate": "End Date",
   "createCourse": "Create course",
-  "searchInputLabel": "Search courses"
+  "searchInputLabel": "Search courses",
+  "SENTINEL": "SENTINEL"
 }
