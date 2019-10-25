@@ -127,16 +127,6 @@ class Courses extends React.Component {
     );
   }
 
-  __unusedRender() {
-    return (
-      <div>
-        <p>This is the list of courses</p>
-        <Links />
-        {this.props.children}
-      </div>
-    );
-  }
-
   render() {
     const {
       children,
