@@ -24,7 +24,7 @@
       }
     ],
     "okapiInterfaces": {
-      "course-reserves-storage": "0.1",
+      "course-reserves-storage": "0.2",
       "term-storage": "0.1",
       "department-storage": "0.1",
       "course-type-storage": "0.1",
