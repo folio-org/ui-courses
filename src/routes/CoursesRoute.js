@@ -13,8 +13,7 @@ const RESULT_COUNT_INCREMENT = 100;
 
 
 const sortMap = {
-  'Name': 'name',
-  'reserve': 'reserve.title',
+  'externalId': 'courseListingObject.externalId',
 };
 const filterConfig = [];
 
