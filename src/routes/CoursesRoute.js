@@ -18,7 +18,7 @@ const sortMap = {
 const filterConfig = [];
 
 
-class ViewCourses extends React.Component {
+class CoursesRoute extends React.Component {
   static propTypes = {
     children: PropTypes.object.isRequired,
     stripes: PropTypes.shape({
@@ -102,4 +102,4 @@ class ViewCourses extends React.Component {
 }
 
 
-export default stripesConnect(ViewCourses);
+export default stripesConnect(CoursesRoute);
