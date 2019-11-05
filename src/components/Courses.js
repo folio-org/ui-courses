@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 import { AppIcon, IfPermission } from '@folio/stripes/core';
 
@@ -19,8 +20,6 @@ import {
   SearchAndSortSearchButton as FilterPaneToggle,
 } from '@folio/stripes/smart-components';
 
-import Links from './Links';
-
 
 class Courses extends React.Component {
   static propTypes = {
@@ -36,6 +35,9 @@ class Courses extends React.Component {
       loaded: PropTypes.func.isRequired,
       totalCount: PropTypes.func.isRequired,
     }),
+    history: PropTypes.shape({ // provided by withRouter
+      push: PropTypes.func.isRequired,
+    }).isRequired,
   };
 
   constructor(props) {
@@ -44,6 +46,10 @@ class Courses extends React.Component {
       // For some reason, ESLint doesn't pick up the use of filterPaneIsVisible in toggleFilterPane
       filterPaneIsVisible: true, // eslint-disable-line react/no-unused-state
     };
+  }
+
+  onRowClick = (e, row) => {
+    this.props.history.push(`/cr/courses/${row.id}`);
   }
 
   toggleFilterPane = () => {
@@ -225,7 +231,7 @@ class Courses extends React.Component {
                     isEmptyMessage={this.renderIsEmptyMessage(query, source)}
                     onHeaderClick={onSort}
                     onNeedMoreData={onNeedMoreData}
-                    // onRowClick={onSelectRow}
+                    onRowClick={this.onRowClick}
                     sortDirection={sortOrder.startsWith('-') ? 'descending' : 'ascending'}
                     sortOrder={sortOrder.replace(/^-/, '').replace(/,.*/, '')}
                     totalCount={count}
@@ -253,4 +259,4 @@ class Courses extends React.Component {
   }
 }
 
-export default Courses;
+export default withRouter(Courses);
