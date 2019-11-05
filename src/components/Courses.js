@@ -20,6 +20,8 @@ import {
   SearchAndSortSearchButton as FilterPaneToggle,
 } from '@folio/stripes/smart-components';
 
+import css from './Courses.css';
+
 
 class Courses extends React.Component {
   static propTypes = {
@@ -171,12 +173,13 @@ class Courses extends React.Component {
                     paneTitle={<FormattedMessage id="stripes-smart-components.searchAndFilter" />}
                   >
                     <form onSubmit={onSubmitSearch}>
-                      <div>
+                      <div className={css.searchGroupWrap}>
                         <FormattedMessage id="ui-courses.searchInputLabel">
                           { ariaLabel => (
                             <SearchField
                               aria-label={ariaLabel}
                               autoFocus
+                              className={css.searchField}
                               data-test-courses-search-input
                               id="input-courses-search"
                               inputRef={this.searchField}
@@ -199,7 +202,7 @@ class Courses extends React.Component {
                           <FormattedMessage id="stripes-smart-components.search" />
                         </Button>
                       </div>
-                      <div>
+                      <div className={css.resetButtonWrap}>
                         <Button
                           buttonStyle="none"
                           id="clickable-reset-all"
