@@ -31,8 +31,7 @@ class Courses extends React.Component {
       ).isRequired,
     }).isRequired,
     onNeedMoreData: PropTypes.func.isRequired,
-    queryGetter: PropTypes.func.isRequired,
-    querySetter: PropTypes.func.isRequired,
+    query: PropTypes.object.isRequired,
     source: PropTypes.shape({
       loaded: PropTypes.func.isRequired,
       totalCount: PropTypes.func.isRequired,
@@ -132,12 +131,10 @@ class Courses extends React.Component {
       children,
       coursesData,
       onNeedMoreData,
-      queryGetter,
-      querySetter,
+      query,
       source,
     } = this.props;
 
-    const query = queryGetter() || {};
     const count = source ? source.totalCount() : 0;
     const sortOrder = query.sort || '';
 
@@ -147,8 +144,6 @@ class Courses extends React.Component {
 
     return (
       <SearchAndSortQuery
-        querySetter={querySetter}
-        queryGetter={queryGetter}
         initialSearchState={{ query: '' }}
         initialSortState={{ sort: 'name' }}
       >

@@ -66,16 +66,6 @@ class CoursesRoute extends React.Component {
     if (this.searchField.current) this.searchField.current.focus();
   }
 
-  // XXX Do we need this or is it the default?
-  querySetter = ({ nsValues }) => {
-    this.props.mutator.query.update(nsValues);
-  }
-
-  // XXX Do we need this or is it the default?
-  queryGetter = () => {
-    return get(this.props.resources, 'query', {});
-  }
-
   handleNeedMoreData = () => {
     if (this.source) this.source.fetchMore(RESULT_COUNT_INCREMENT);
   }
@@ -91,8 +81,7 @@ class CoursesRoute extends React.Component {
           courses: get(resources, 'courses.records', []),
         }}
         onNeedMoreData={this.handleNeedMoreData}
-        queryGetter={this.queryGetter}
-        querySetter={this.querySetter}
+        query={resources.query || {}}
         source={this.source}
       >
         { children }
