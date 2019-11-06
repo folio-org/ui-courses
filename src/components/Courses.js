@@ -25,6 +25,9 @@ import css from './Courses.css';
 
 class Courses extends React.Component {
   static propTypes = {
+    location: PropTypes.shape({
+      search: PropTypes.string.isRequired,
+    }).isRequired,
     children: PropTypes.object.isRequired,
     coursesData: PropTypes.shape({
       courses: PropTypes.arrayOf(
@@ -51,7 +54,7 @@ class Courses extends React.Component {
   }
 
   onRowClick = (e, row) => {
-    this.props.history.push(`/cr/courses/${row.id}`);
+    this.props.history.push(`/cr/courses/${row.id}${this.props.location.search}`);
   }
 
   toggleFilterPane = () => {
