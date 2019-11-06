@@ -41,8 +41,8 @@ class ViewCourse extends React.Component {
   }
 
   handleClose = () => {
-    console.log('props.location.pathname =', this.props.location.pathname);
-    this.props.history.push('/cr/courses');
+    const { pathname, search } = this.props.location;
+    this.props.history.push(`${pathname.replace(/(.*)\/.*/, '$1')}${search}`);
   }
 
   render() {
