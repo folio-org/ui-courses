@@ -34,5 +34,8 @@
   "column.status": "Status",
   "loading": "Loading...",
   "editCourse": "Edit course",
+  "status.pending": "Pending",
+  "status.active": "Active",
+  "status.inactive": "Inactive",
   "SENTINEL": "SENTINEL"
 }

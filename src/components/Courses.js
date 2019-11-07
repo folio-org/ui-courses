@@ -34,7 +34,8 @@ function calculateStatus(termObject) {
   const now = new Date();
   const startDate = makeDate(termObject.startDate);
   const endDate = makeDate(termObject.endDate);
-  return (now < startDate) ? 'Pending' : (endDate < now) ? 'Inactive' : 'Active';
+  const tag = (now < startDate) ? 'pending' : (endDate < now) ? 'inactive' : 'active';
+  return <FormattedMessage id={`ui-courses.status.${tag}`} />;
 }
 
 
