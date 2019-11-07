@@ -23,6 +23,21 @@ import {
 import css from './Courses.css';
 
 
+// Returns a date object corresponding with the date string in format YYYY-MM-DD'
+function makeDate(s) {
+  const a = s.split('-');
+  const date = new Date(a[0], a[1] - 1, a[2]); // month is zero-based!
+  return date;
+}
+
+function calculateStatus(termObject) {
+  const now = new Date();
+  const startDate = makeDate(termObject.startDate);
+  const endDate = makeDate(termObject.endDate);
+  return (now < startDate) ? 'Pending' : (endDate < now) ? 'Inactive' : 'Active';
+}
+
+
 class Courses extends React.Component {
   static propTypes = {
     location: PropTypes.shape({
@@ -150,7 +165,12 @@ class Courses extends React.Component {
     const sortOrder = query.sort || '';
 
     const resultsFormatter = {
-      externalId: r => r.courseListingObject.externalId,
+      department: r => r.departmentObject.name,
+      serviceDesk: r => r.courseListingObject.servicepointId,
+      startDate: r => r.courseListingObject.termObject.startDate,
+      endDate: r => r.courseListingObject.termObject.endDate,
+      taughtBy: _r => '[NYI]',
+      status: r => calculateStatus(r.courseListingObject.termObject),
     };
 
     return (
@@ -242,13 +262,16 @@ class Courses extends React.Component {
                     sortOrder={sortOrder.replace(/^-/, '').replace(/,.*/, '')}
                     totalCount={count}
                     virtualize
-                    visibleColumns={['name', 'description', 'courseNumber', 'sectionName', 'externalId']}
+                    visibleColumns={['name', 'courseNumber', 'department', 'serviceDesk', 'startDate', 'endDate', 'taughtBy', 'status']}
                     columnMapping={{
                       name: <FormattedMessage id="ui-courses.column.name" />,
-                      description: <FormattedMessage id="ui-courses.column.description" />,
                       courseNumber: <FormattedMessage id="ui-courses.column.courseNumber" />,
-                      sectionName: <FormattedMessage id="ui-courses.column.sectionName" />,
-                      externalId: <FormattedMessage id="ui-courses.column.externalId" />,
+                      department: <FormattedMessage id="ui-courses.column.department" />,
+                      serviceDesk: <FormattedMessage id="ui-courses.column.serviceDesk" />,
+                      startDate: <FormattedMessage id="ui-courses.column.startDate" />,
+                      endDate: <FormattedMessage id="ui-courses.column.endDate" />,
+                      taughtBy: <FormattedMessage id="ui-courses.column.taughtBy" />,
+                      status: <FormattedMessage id="ui-courses.column.status" />,
                     }}
                     formatter={resultsFormatter}
                   />
