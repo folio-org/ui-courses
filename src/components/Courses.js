@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { FormattedMessage } from 'react-intl';
+import get from 'lodash/get';
 import { AppIcon, IfPermission } from '@folio/stripes/core';
 
 import {
@@ -31,6 +32,7 @@ function makeDate(s) {
 }
 
 function calculateStatus(termObject) {
+  if (!termObject) return '?';
   const now = new Date();
   const startDate = makeDate(termObject.startDate);
   const endDate = makeDate(termObject.endDate);
@@ -166,12 +168,12 @@ class Courses extends React.Component {
     const sortOrder = query.sort || '';
 
     const resultsFormatter = {
-      department: r => r.departmentObject.name,
-      serviceDesk: r => r.courseListingObject.servicepointId,
-      startDate: r => r.courseListingObject.termObject.startDate,
-      endDate: r => r.courseListingObject.termObject.endDate,
-      taughtBy: _r => '[NYI]',
-      status: r => calculateStatus(r.courseListingObject.termObject),
+      department: r => get(r, 'departmentObject.name'),
+      serviceDesk: r => get(r, 'courseListingObject.servicepointId'),
+      startDate: r => get(r, 'courseListingObject.termObject.startDate'),
+      endDate: r => get(r, 'courseListingObject.termObject.endDate'),
+      instructor: _r => '[NYI]',
+      status: r => calculateStatus(get(r, 'courseListingObject.termObject')),
     };
 
     return (
@@ -263,7 +265,7 @@ class Courses extends React.Component {
                     sortOrder={sortOrder.replace(/^-/, '').replace(/,.*/, '')}
                     totalCount={count}
                     virtualize
-                    visibleColumns={['name', 'courseNumber', 'department', 'serviceDesk', 'startDate', 'endDate', 'taughtBy', 'status']}
+                    visibleColumns={['name', 'courseNumber', 'department', 'serviceDesk', 'startDate', 'endDate', 'instructor', 'status']}
                     columnMapping={{
                       name: <FormattedMessage id="ui-courses.column.name" />,
                       courseNumber: <FormattedMessage id="ui-courses.column.courseNumber" />,
@@ -271,7 +273,7 @@ class Courses extends React.Component {
                       serviceDesk: <FormattedMessage id="ui-courses.column.serviceDesk" />,
                       startDate: <FormattedMessage id="ui-courses.column.startDate" />,
                       endDate: <FormattedMessage id="ui-courses.column.endDate" />,
-                      taughtBy: <FormattedMessage id="ui-courses.column.taughtBy" />,
+                      instructor: <FormattedMessage id="ui-courses.column.instructor" />,
                       status: <FormattedMessage id="ui-courses.column.status" />,
                     }}
                     formatter={resultsFormatter}
