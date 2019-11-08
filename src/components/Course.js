@@ -61,6 +61,9 @@ class Course extends React.Component {
     const { data, isLoading, handlers } = this.props;
     const id = (data.course.id ? data.course.id : 'Course ID [Missing]');
     const record = data.course;
+    const departmentObject = record.departmentObject || {};
+    const courseListingObject = record.courseListingObject || {};
+    const termObject = courseListingObject.termObject || {};
 
     if (isLoading) return this.renderLoadingPane();
 
@@ -79,14 +82,14 @@ class Course extends React.Component {
           <ul>
             <li><b>Name:</b>{record.name}</li>
             <li><b>Description:</b>{record.description}</li>
-            <li><b>Department:</b>{record.departmentObject.name}</li>
-            <li><b>Department description:</b>{record.departmentObject.description}</li>
-            <li><b>Registrar ID:</b>{record.courseListingObject.registrarId}</li>
-            <li><b>External ID:</b>{record.courseListingObject.externalId}</li>
-            <li><b>Term:</b>{record.courseListingObject.termObject.name}</li>
-            <li><b>Start date:</b>{record.courseListingObject.termObject.startDate}</li>
-            <li><b>End date:</b>{record.courseListingObject.termObject.endDate}</li>
-            <li><b>Course type ID:</b>{record.courseListingObject.courseTypeId}</li>
+            <li><b>Department:</b>{departmentObject.name}</li>
+            <li><b>Department description:</b>{departmentObject.description}</li>
+            <li><b>Registrar ID:</b>{courseListingObject.registrarId}</li>
+            <li><b>External ID:</b>{courseListingObject.externalId}</li>
+            <li><b>Term:</b>{termObject.name}</li>
+            <li><b>Start date:</b>{termObject.startDate}</li>
+            <li><b>End date:</b>{termObject.endDate}</li>
+            <li><b>Course type ID:</b>{courseListingObject.courseTypeId}</li>
             <li><b>Course number:</b>{record.courseNumber}</li>
             <li><b>Section:</b>{record.sectionName}</li>
           </ul>
