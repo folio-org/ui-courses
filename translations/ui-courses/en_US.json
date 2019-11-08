@@ -37,5 +37,9 @@
   "status.pending": "Pending",
   "status.active": "Active",
   "status.inactive": "Inactive",
+  "accordion.summary": "Summary",
+  "accordion.summary.help": "Ugly summary of all data",
+  "accordion.developer": "Developer info",
+  "accordion.developer.help": "(JSON dump of raw record)",
   "SENTINEL": "SENTINEL"
 }
