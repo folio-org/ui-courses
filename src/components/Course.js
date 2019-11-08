@@ -64,6 +64,7 @@ class Course extends React.Component {
     const departmentObject = record.departmentObject || {};
     const courseListingObject = record.courseListingObject || {};
     const termObject = courseListingObject.termObject || {};
+    const courseTypeObject = courseListingObject.courseTypeObject || {};
 
     if (isLoading) return this.renderLoadingPane();
 
@@ -89,7 +90,7 @@ class Course extends React.Component {
             <li><b>Term:</b>{termObject.name}</li>
             <li><b>Start date:</b>{termObject.startDate}</li>
             <li><b>End date:</b>{termObject.endDate}</li>
-            <li><b>Course type ID:</b>{courseListingObject.courseTypeId}</li>
+            <li><b>Course type:</b>{courseTypeObject.name}</li>
             <li><b>Course number:</b>{record.courseNumber}</li>
             <li><b>Section:</b>{record.sectionName}</li>
           </ul>
