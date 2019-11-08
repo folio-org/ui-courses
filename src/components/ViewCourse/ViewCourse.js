@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
-import { AccordionSet, Accordion } from '@folio/stripes/components';
+import { AccordionSet } from '@folio/stripes/components';
 import ViewCourseSummary from './sections/ViewCourseSummary';
 import ViewCourseDeveloper from './sections/ViewCourseDeveloper';
+import VCAccordion from './VCAccordion';
 
 class ViewCourse extends React.Component {
   static propTypes = {
@@ -16,21 +16,12 @@ class ViewCourse extends React.Component {
 
     return (
       <AccordionSet>
-        <Accordion
-          id="view-course-summary"
-          label={<FormattedMessage id="ui-courses.accordion.summary" />}
-          displayWhenClosed={<FormattedMessage id="ui-courses.accordion.summary.help" />}
-        >
+        <VCAccordion id="summary">
           <ViewCourseSummary record={record} />
-        </Accordion>
-        <Accordion
-          id="view-course-developer"
-          closedByDefault
-          label={<FormattedMessage id="ui-courses.accordion.developer" />}
-          displayWhenClosed={<FormattedMessage id="ui-courses.accordion.developer.help" />}
-        >
+        </VCAccordion>
+        <VCAccordion id="developer" closedByDefault>
           <ViewCourseDeveloper record={record} />
-        </Accordion>
+        </VCAccordion>
       </AccordionSet>
     );
   }
