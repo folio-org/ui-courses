@@ -59,14 +59,13 @@ class Course extends React.Component {
 
   render() {
     const { data, isLoading, handlers } = this.props;
-    const id = (data.course.id ? data.course.id : 'Course ID [Missing]');
+    if (isLoading) return this.renderLoadingPane();
+
     const record = data.course;
     const departmentObject = record.departmentObject || {};
     const courseListingObject = record.courseListingObject || {};
     const termObject = courseListingObject.termObject || {};
     const courseTypeObject = courseListingObject.courseTypeObject || {};
-
-    if (isLoading) return this.renderLoadingPane();
 
     return (
       <Pane
@@ -76,10 +75,10 @@ class Course extends React.Component {
         id="pane-view-course"
         lastMenu={this.renderLastMenu()}
         onClose={handlers.onClose}
-        paneTitle={'Course ' + id}
+        paneTitle={record.name}
         paneSub="Pane Subtitle"
       >
-        <TitleManager record={id.substring(0, 8)}>
+        <TitleManager record={record.id.substring(0, 8)}>
           <ul>
             <li><b>Name:</b>{record.name}</li>
             <li><b>Description:</b>{record.description}</li>
@@ -94,7 +93,7 @@ class Course extends React.Component {
             <li><b>Course number:</b>{record.courseNumber}</li>
             <li><b>Section:</b>{record.sectionName}</li>
           </ul>
-          <pre>{JSON.stringify(data.course, null, 2)}</pre>
+          <pre>{JSON.stringify(record, null, 2)}</pre>
         </TitleManager>
       </Pane>
     );
