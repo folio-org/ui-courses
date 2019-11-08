@@ -30,7 +30,7 @@
   "column.serviceDesk": "Service desk",
   "column.startDate": "Start date",
   "column.endDate": "End date",
-  "column.taughtBy": "Instructor",
+  "column.instructor": "Instructor",
   "column.status": "Status",
   "loading": "Loading...",
   "editCourse": "Edit course",
