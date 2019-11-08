@@ -5,7 +5,7 @@ import { stripesConnect } from '@folio/stripes/core';
 import Course from '../components/Course';
 
 
-class ViewCourse extends React.Component {
+class CourseRoute extends React.Component {
   static manifest = Object.freeze({
     course: {
       type: 'okapi',
@@ -65,4 +65,4 @@ class ViewCourse extends React.Component {
     );
   }
 }
-export default stripesConnect(ViewCourse);
+export default stripesConnect(CourseRoute);

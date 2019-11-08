@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ViewReserve = (props) => (
+const ReserveRoute = (props) => (
   <p>This is the single reserve {props.match.params.id}</p>
 );
 
-ViewReserve.propTypes = {
+ReserveRoute.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -13,4 +13,4 @@ ViewReserve.propTypes = {
   }).isRequired,
 };
 
-export default ViewReserve;
+export default ReserveRoute;
