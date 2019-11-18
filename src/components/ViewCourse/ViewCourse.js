@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { AccordionSet } from '@folio/stripes/components';
+import VCAccordion from './VCAccordion';
 import ViewCourseSummary from './sections/ViewCourseSummary';
 import ViewCourseDeveloper from './sections/ViewCourseDeveloper';
-import VCAccordion from './VCAccordion';
 
 class ViewCourse extends React.Component {
   static propTypes = {
