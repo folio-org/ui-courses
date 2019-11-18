@@ -38,6 +38,7 @@
   "status.active": "Active",
   "status.inactive": "Inactive",
   "accordion.data": "Course data",
+  "accordion.data.help": "Principal data",
   "accordion.summary": "Summary",
   "accordion.summary.help": "Ugly summary of all data",
   "accordion.developer": "Developer info",
