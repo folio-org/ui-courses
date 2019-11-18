@@ -2,20 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { AccordionSet } from '@folio/stripes/components';
 import VCAccordion from './VCAccordion';
+import ViewCourseData from './sections/ViewCourseData';
 import ViewCourseSummary from './sections/ViewCourseSummary';
 import ViewCourseDeveloper from './sections/ViewCourseDeveloper';
 
 class ViewCourse extends React.Component {
   static propTypes = {
     record: PropTypes.object.isRequired,
-    handlers: PropTypes.object,
   };
 
   render() {
-    const { record, handlers } = this.props;
+    const { record } = this.props;
 
     return (
       <AccordionSet>
+        <VCAccordion id="data">
+          <ViewCourseData record={record} />
+        </VCAccordion>
         <VCAccordion id="summary">
           <ViewCourseSummary record={record} />
         </VCAccordion>

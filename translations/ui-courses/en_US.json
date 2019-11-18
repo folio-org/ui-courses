@@ -37,9 +37,16 @@
   "status.pending": "Pending",
   "status.active": "Active",
   "status.inactive": "Inactive",
+  "accordion.data": "Course data",
   "accordion.summary": "Summary",
   "accordion.summary.help": "Ugly summary of all data",
   "accordion.developer": "Developer info",
   "accordion.developer.help": "(JSON dump of raw record)",
+  "field.name": "Course name",
+  "field.department": "Department",
+  "field.number": "Course code/number",
+  "field.section": "Section",
+  "field.registrarId": "Registrar ID",
+  "field.externalId": "External ID",
   "SENTINEL": "SENTINEL"
 }
