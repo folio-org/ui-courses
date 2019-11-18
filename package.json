@@ -62,6 +62,7 @@
     "redux-form": "*"
   },
   "dependencies": {
+    "@folio/stripes-components": "^5.9.1000914",
     "lodash": "^4.17.15"
   }
 }
