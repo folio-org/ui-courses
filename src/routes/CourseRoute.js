@@ -5,6 +5,25 @@ import { stripesConnect } from '@folio/stripes/core';
 import Course from '../components/Course';
 
 
+// There are two basic approaches to fetching the cross-listed courses
+// as well as the main course we're interested in. Either way, we need
+// to find courses that share a courseListingId with the main course.
+//
+// 1. We can include here a second manifest entry that fetches the
+// cross-listed courses using a `params` function to formulate a query
+// based on the courseListingId of the main course. An example of this
+// approach can be found in the `orderLines` entry of the Agreement
+// manifest at https://github.com/folio-org/ui-agreements/blob/cafd42444bcb718ede5af8ca2e4332b52617b230/src/routes/AgreementViewRoute.js#L66-L82
+//
+// 2. We can fetch the cross-listed courses with a simpler manifest in
+// a subcomponent. An example of this approach can be found in the
+// handling of <JobLogContainer> in the Local KB Admin module at https://github.com/folio-org/ui-local-kb-admin/blob/abfecd4b10465b7d3acc4659f5487ba9deebfa1f/src/components/Logs/Logs.js#L29-L36
+//
+// In general, approach 2 is favoured only when lazy-loading
+// potentially expensive data within a hidden accordion. Otherwise, we
+// prefer approach 1 because it concentrates all data access in a
+// single place.
+
 class CourseRoute extends React.Component {
   static manifest = Object.freeze({
     course: {
