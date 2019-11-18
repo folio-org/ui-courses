@@ -39,6 +39,8 @@
   "status.inactive": "Inactive",
   "accordion.data": "Course data",
   "accordion.data.help": "Principal data",
+  "accordion.crosslistings": "Cross-listed courses",
+  "accordion.crosslistings.help": "Cross-listed with present course",
   "accordion.summary": "Summary",
   "accordion.summary.help": "Ugly summary of all data",
   "accordion.developer": "Developer info",
