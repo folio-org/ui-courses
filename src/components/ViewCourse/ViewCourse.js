@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { AccordionSet } from '@folio/stripes/components';
 import VCAccordion from './VCAccordion';
-import { ViewCourseData, ViewCourseCrosslistings, ViewCourseSummary, ViewCourseDeveloper } from './sections';
+import {
+  ViewCourseData,
+  ViewCourseCrosslistings,
+  ViewCourseSummary,
+  ViewCourseDeveloper,
+  ViewCourseInstructors
+} from './sections';
 
 class ViewCourse extends React.Component {
   static propTypes = {
@@ -23,6 +29,9 @@ class ViewCourse extends React.Component {
         </VCAccordion>
         <VCAccordion id="crosslistings">
           <ViewCourseCrosslistings crossListed={data.crossListed} />
+        </VCAccordion>
+        <VCAccordion id="instructors">
+          <ViewCourseInstructors record={record} />
         </VCAccordion>
         <VCAccordion id="summary">
           <ViewCourseSummary record={record} />
