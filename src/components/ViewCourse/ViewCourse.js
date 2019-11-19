@@ -5,9 +5,9 @@ import VCAccordion from './VCAccordion';
 import {
   ViewCourseData,
   ViewCourseCrosslistings,
+  ViewCourseInstructors,
   ViewCourseSummary,
   ViewCourseDeveloper,
-  ViewCourseInstructors
 } from './sections';
 
 class ViewCourse extends React.Component {
