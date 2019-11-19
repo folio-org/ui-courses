@@ -43,6 +43,10 @@
   "accordion.crosslistings.help": "Cross-listed with present course",
   "accordion.instructors": "Instructors",
   "accordion.instructors.help": "Instructing the present course",
+  "accordion.term": "Term",
+  "accordion.term.help": "Schedule for the present course",
+  "accordion.organization": "Organization",
+  "accordion.organization.help": "Local information",
   "accordion.summary": "Summary",
   "accordion.summary.help": "Ugly summary of all data",
   "accordion.developer": "Developer info",
@@ -55,5 +59,10 @@
   "field.externalId": "External ID",
   "field.barcode": "Barcode",
   "field.patronGroup": "Patron group",
+  "field.term": "Term",
+  "field.startDate": "Start date",
+  "field.endDate": "End date",
+  "field.location": "Location",
+  "field.serviceDesk": "Service desk",
   "SENTINEL": "SENTINEL"
 }
