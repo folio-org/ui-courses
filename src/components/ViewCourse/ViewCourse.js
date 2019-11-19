@@ -6,11 +6,15 @@ import { ViewCourseData, ViewCourseCrosslistings, ViewCourseSummary, ViewCourseD
 
 class ViewCourse extends React.Component {
   static propTypes = {
-    record: PropTypes.object.isRequired,
+    data: PropTypes.shape({
+      course: PropTypes.object,
+      crossListed: PropTypes.arrayOf(PropTypes.object),
+    }),
   };
 
   render() {
-    const { record } = this.props;
+    const { data } = this.props;
+    const record = data.course;
 
     return (
       <AccordionSet>
@@ -18,7 +22,7 @@ class ViewCourse extends React.Component {
           <ViewCourseData record={record} />
         </VCAccordion>
         <VCAccordion id="crosslistings">
-          <ViewCourseCrosslistings record={record} />
+          <ViewCourseCrosslistings crossListed={data.crossListed} />
         </VCAccordion>
         <VCAccordion id="summary">
           <ViewCourseSummary record={record} />

@@ -3,22 +3,37 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Card, Col, Row, KeyValue } from '@folio/stripes/components';
 
-const ViewCourseData = ({ record }) => {
-  const courseListingObject = record.courseListingObject || {};
-
+const ViewCourseData = ({ crossListed }) => {
   return (
-    <Card headerStart="Cross-listed course">
-      <Row>
-        <Col xs={3}>
-          <KeyValue label={<FormattedMessage id="ui-courses.field.externalId" />} value={courseListingObject.externalId} />
-        </Col>
-      </Row>
-    </Card>
+    <React.Fragment>
+      {
+        crossListed.map((record, index) => (
+          <Card key={index} headerStart={`Cross listed course #${index + 1}`}>
+            <Row>
+              <Col xs={3}>
+                <KeyValue label={<FormattedMessage id="ui-courses.field.name" />} value={record.name} />
+              </Col>
+              <Col xs={3}>
+                <KeyValue label={<FormattedMessage id="ui-courses.field.department" />} value={(record.departmentObject || {}).name} />
+              </Col>
+              <Col xs={3}>
+                <KeyValue label={<FormattedMessage id="ui-courses.field.number" />} value={record.courseNumber} />
+              </Col>
+              <Col xs={3}>
+                <KeyValue label={<FormattedMessage id="ui-courses.field.section" />} value={record.sectionName} />
+              </Col>
+            </Row>
+          </Card>
+        ))
+      }
+    </React.Fragment>
   );
 };
 
 ViewCourseData.propTypes = {
-  record: PropTypes.object.isRequired,
+  crossListed: PropTypes.arrayOf(
+    PropTypes.object.isRequired,
+  ).isRequired,
 };
 
 export default ViewCourseData;

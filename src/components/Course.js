@@ -14,7 +14,10 @@ import ViewCourse from './ViewCourse';
 
 class Course extends React.Component {
   static propTypes = {
-    data: PropTypes.object,
+    data: PropTypes.shape({
+      course: PropTypes.object,
+      crossListed: PropTypes.arrayOf(PropTypes.object),
+    }),
     urls: PropTypes.object,
     isLoading: PropTypes.bool,
     handlers: PropTypes.shape({
@@ -75,8 +78,8 @@ class Course extends React.Component {
         paneTitle={record.name}
         paneSub={`Course ${record.courseNumber}`}
       >
-        <TitleManager record={record.id.substring(0, 8)}>
-          <ViewCourse record={record} />
+        <TitleManager record={record.name}>
+          <ViewCourse data={data} />
         </TitleManager>
       </Pane>
     );
