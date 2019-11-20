@@ -8,7 +8,7 @@ import {
   ViewCourseInstructors,
   ViewCourseTerm,
   ViewCourseOrganization,
-  ViewCourseSummary,
+  ViewCourseLeftovers,
   ViewCourseDeveloper,
 } from './sections';
 
@@ -41,8 +41,8 @@ class ViewCourse extends React.Component {
         <VCAccordion id="organization">
           <ViewCourseOrganization record={record} />
         </VCAccordion>
-        <VCAccordion id="summary">
-          <ViewCourseSummary record={record} />
+        <VCAccordion id="leftovers">
+          <ViewCourseLeftovers record={record} />
         </VCAccordion>
         <VCAccordion id="developer" closedByDefault>
           <ViewCourseDeveloper record={record} />

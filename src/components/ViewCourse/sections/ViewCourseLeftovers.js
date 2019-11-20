@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ViewCourseSummary = ({ record }) => {
+const ViewCourseLeftovers = ({ record }) => {
   const departmentObject = record.departmentObject || {};
   const courseListingObject = record.courseListingObject || {};
-  const termObject = courseListingObject.termObject || {};
   const courseTypeObject = courseListingObject.courseTypeObject || {};
 
   return (
@@ -16,8 +15,8 @@ const ViewCourseSummary = ({ record }) => {
   );
 };
 
-ViewCourseSummary.propTypes = {
+ViewCourseLeftovers.propTypes = {
   record: PropTypes.object.isRequired,
 };
 
-export default ViewCourseSummary;
+export default ViewCourseLeftovers;
