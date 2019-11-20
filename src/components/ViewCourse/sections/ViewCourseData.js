@@ -1,20 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import { Card, Col, Row, KeyValue } from '@folio/stripes/components';
+import { Card, Col, Row, KeyValue, Tooltip } from '@folio/stripes/components';
 
 const ViewCourseData = ({ record }) => {
   const departmentObject = record.departmentObject || {};
   const courseListingObject = record.courseListingObject || {};
 
+  const courseNameAndDescription = (
+    <Tooltip text={record.description}>
+      {({ ref, ariaIds }) => (
+        <span ref={ref} aria-labelledby={ariaIds.text}>
+          {record.name}
+        </span>
+      )}
+    </Tooltip>
+  );
+
+  const departmentNameAndDescription = (
+    <Tooltip text={departmentObject.description}>
+      {({ ref, ariaIds }) => (
+        <span ref={ref} aria-labelledby={ariaIds.text}>
+          {departmentObject.name}
+        </span>
+      )}
+    </Tooltip>
+  );
+
   return (
     <Card headerStart="Course">
       <Row>
         <Col xs={3}>
-          <KeyValue label={<FormattedMessage id="ui-courses.field.name" />} value={record.name} />
+          <KeyValue label={<FormattedMessage id="ui-courses.field.name" />} value={courseNameAndDescription} />
         </Col>
         <Col xs={3}>
-          <KeyValue label={<FormattedMessage id="ui-courses.field.department" />} value={departmentObject.name} />
+          <KeyValue label={<FormattedMessage id="ui-courses.field.department" />} value={departmentNameAndDescription} />
         </Col>
         <Col xs={3}>
           <KeyValue label={<FormattedMessage id="ui-courses.field.number" />} value={record.courseNumber} />

@@ -1,16 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 
 const ViewCourseLeftovers = ({ record }) => {
-  const departmentObject = record.departmentObject || {};
-  const courseListingObject = record.courseListingObject || {};
-  const courseTypeObject = courseListingObject.courseTypeObject || {};
-
   return (
     <ul>
-      <li><b>Description:</b> {record.description}</li>
-      <li><b>Department description:</b> {departmentObject.description}</li>
-      <li><b>Course type:</b> {courseTypeObject.name}</li>
+      <li><b>Course type:</b> {get(record, 'courseListingObject.courseTypeObject.name')}</li>
     </ul>
   );
 };
