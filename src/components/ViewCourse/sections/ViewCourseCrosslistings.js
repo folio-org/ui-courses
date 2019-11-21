@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Card, Col, Row, KeyValue } from '@folio/stripes/components';
 
-const ViewCourseData = ({ crossListed }) => {
+const ViewCourseCrosslistings = ({ crossListed }) => {
   return (
     <React.Fragment>
       {
@@ -30,10 +30,10 @@ const ViewCourseData = ({ crossListed }) => {
   );
 };
 
-ViewCourseData.propTypes = {
+ViewCourseCrosslistings.propTypes = {
   crossListed: PropTypes.arrayOf(
     PropTypes.object.isRequired,
   ).isRequired,
 };
 
-export default ViewCourseData;
+export default ViewCourseCrosslistings;
