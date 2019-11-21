@@ -9,7 +9,7 @@ const ViewCourseData = ({ record }) => {
   const courseType = (courseListingObject.courseTypeObject || {}).name;
 
   const courseNameAndDescription = (
-    <Tooltip text={record.description}>
+    <Tooltip id="courseNameAndDescription" text={record.description}>
       {({ ref, ariaIds }) => (
         <span ref={ref} aria-labelledby={ariaIds.text}>
           {record.name}
@@ -19,7 +19,7 @@ const ViewCourseData = ({ record }) => {
   );
 
   const departmentNameAndDescription = (
-    <Tooltip text={departmentObject.description}>
+    <Tooltip id="courseNameAndDescription" text={departmentObject.description}>
       {({ ref, ariaIds }) => (
         <span ref={ref} aria-labelledby={ariaIds.text}>
           {departmentObject.name}
