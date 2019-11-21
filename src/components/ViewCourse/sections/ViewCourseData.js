@@ -6,6 +6,7 @@ import { Card, Col, Row, KeyValue, Tooltip } from '@folio/stripes/components';
 const ViewCourseData = ({ record }) => {
   const departmentObject = record.departmentObject || {};
   const courseListingObject = record.courseListingObject || {};
+  const courseType = (courseListingObject.courseTypeObject || {}).name;
 
   const courseNameAndDescription = (
     <Tooltip text={record.description}>
@@ -44,6 +45,9 @@ const ViewCourseData = ({ record }) => {
         </Col>
       </Row>
       <Row>
+        <Col xs={3}>
+          <KeyValue label={<FormattedMessage id="ui-courses.field.courseType" />} value={courseType} />
+        </Col>
         <Col xs={3}>
           <KeyValue label={<FormattedMessage id="ui-courses.field.registrarId" />} value={courseListingObject.registrarId} />
         </Col>
