@@ -43,6 +43,31 @@ const ViewCourseReserves = ({ reserves }) => {
                 </Col>
               </Row>
               <Row>
+                <Col xs={3}>
+                  <KeyValue label={<FormattedMessage id="ui-courses.field.temporaryLocation" />} value={copiedItem.temporaryLocationId} />
+                </Col>
+                <Col xs={3}>
+                  <KeyValue label={<FormattedMessage id="ui-courses.field.temporaryLoanType" />} value={record.temporaryLoanTypeId} />
+                </Col>
+                <Col xs={3}>
+                  <KeyValue label={<FormattedMessage id="ui-courses.field.processingStatus" />} value={record.processingStatusId} />
+                </Col>
+                <Col xs={3}>
+                  <KeyValue label={<FormattedMessage id="ui-courses.field.urlLink" />} value={copiedItem.XXX} />
+                  {/* XXX There is no such field in the "reserve.json" schema */}
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={3}>
+                  <KeyValue label={<FormattedMessage id="ui-courses.field.startDate" />} value={record.startDate} />
+                  {/* XXX Should default to startDate of the course's term */}
+                </Col>
+                <Col xs={3}>
+                  <KeyValue label={<FormattedMessage id="ui-courses.field.endDate" />} value={record.endDate} />
+                  {/* XXX Should default to endDate of the course's term */}
+                </Col>
+              </Row>
+              <Row>
                 <Col xs={12}>
                   This item requires copyright tracking:
                   XXX checkbox

@@ -73,5 +73,9 @@
   "field.copy": "Copy",
   "field.enumeration": "Enumeration",
   "field.status": "Status",
+  "field.temporaryLocation": "Temporary location",
+  "field.temporaryLoanType": "Temporary loan type",
+  "field.processingStatus": "Processing status",
+  "field.urlLink": "URL/PDF link",
   "SENTINEL": "SENTINEL"
 }
