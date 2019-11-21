@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
-import { Card, Col, Row, KeyValue } from '@folio/stripes/components';
+import { Card, Col, Row } from '@folio/stripes/components';
+import VCKeyValue from './VCKeyValue';
 
 const ViewCourseReserves = ({ reserves }) => {
   return (
@@ -15,55 +15,55 @@ const ViewCourseReserves = ({ reserves }) => {
             <Card key={index} headerStart={<span>Item title: <i>{copiedItem.title}</i></span>}>
               <Row>
                 <Col xs={2}>
-                  <KeyValue label={<FormattedMessage id="ui-courses.field.itemBarcode" />} value={copiedItem.barcode} />
+                  <VCKeyValue id="itemBarcode" value={copiedItem.barcode} />
                 </Col>
                 <Col xs={2}>
-                  <KeyValue label={<FormattedMessage id="ui-courses.field.contributor" />} value={contributors} />
+                  <VCKeyValue id="contributor" value={contributors} />
                 </Col>
                 <Col xs={2}>
-                  <KeyValue label={<FormattedMessage id="ui-courses.field.permanentLocation" />} value={copiedItem.permanentLocation} />
+                  <VCKeyValue id="permanentLocation" value={copiedItem.permanentLocation} />
                 </Col>
                 <Col xs={2}>
-                  <KeyValue label={<FormattedMessage id="ui-courses.field.callNumber" />} value={copiedItem.callNumber} />
+                  <VCKeyValue id="callNumber" value={copiedItem.callNumber} />
                 </Col>
                 <Col xs={1}>
-                  <KeyValue label={<FormattedMessage id="ui-courses.field.volume" />} value={copiedItem.volume} />
+                  <VCKeyValue id="volume" value={copiedItem.volume} />
                 </Col>
                 <Col xs={1}>
-                  <KeyValue label={<FormattedMessage id="ui-courses.field.copy" />} value={copiedItem.copy} />
+                  <VCKeyValue id="copy" value={copiedItem.copy} />
                   {/* XXX There is no such field in the "reserve.json" schema */}
                 </Col>
                 <Col xs={1}>
-                  <KeyValue label={<FormattedMessage id="ui-courses.field.enumeration" />} value={copiedItem.enumeration} />
+                  <VCKeyValue id="enumeration" value={copiedItem.enumeration} />
                   {/* XXX There is no such field in the "reserve.json" schema */}
                 </Col>
                 <Col xs={1}>
-                  <KeyValue label={<FormattedMessage id="ui-courses.field.status" />} value="XXX" />
+                  <VCKeyValue id="status" value="XXX" />
                   {/* XXX This needs to be fetched live */}
                 </Col>
               </Row>
               <Row>
                 <Col xs={3}>
-                  <KeyValue label={<FormattedMessage id="ui-courses.field.temporaryLocation" />} value={copiedItem.temporaryLocationId} />
+                  <VCKeyValue id="temporaryLocation" value={copiedItem.temporaryLocationId} />
                 </Col>
                 <Col xs={3}>
-                  <KeyValue label={<FormattedMessage id="ui-courses.field.temporaryLoanType" />} value={record.temporaryLoanTypeId} />
+                  <VCKeyValue id="temporaryLoanType" value={record.temporaryLoanTypeId} />
                 </Col>
                 <Col xs={3}>
-                  <KeyValue label={<FormattedMessage id="ui-courses.field.processingStatus" />} value={record.processingStatusId} />
+                  <VCKeyValue id="processingStatus" value={record.processingStatusId} />
                 </Col>
                 <Col xs={3}>
-                  <KeyValue label={<FormattedMessage id="ui-courses.field.urlLink" />} value={copiedItem.XXX} />
+                  <VCKeyValue id="urlLink" value={copiedItem.XXX} />
                   {/* XXX There is no such field in the "reserve.json" schema */}
                 </Col>
               </Row>
               <Row>
                 <Col xs={3}>
-                  <KeyValue label={<FormattedMessage id="ui-courses.field.startDate" />} value={record.startDate} />
+                  <VCKeyValue id="startDate" value={record.startDate} />
                   {/* XXX Should default to startDate of the course's term */}
                 </Col>
                 <Col xs={3}>
-                  <KeyValue label={<FormattedMessage id="ui-courses.field.endDate" />} value={record.endDate} />
+                  <VCKeyValue id="endDate" value={record.endDate} />
                   {/* XXX Should default to endDate of the course's term */}
                 </Col>
               </Row>
