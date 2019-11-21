@@ -8,6 +8,7 @@ import {
   ViewCourseInstructors,
   ViewCourseTerm,
   ViewCourseOrganization,
+  ViewCourseReserves,
   ViewCourseDeveloper,
 } from './sections';
 
@@ -16,32 +17,36 @@ class ViewCourse extends React.Component {
     data: PropTypes.shape({
       course: PropTypes.object,
       crossListed: PropTypes.arrayOf(PropTypes.object),
+      reserves: PropTypes.arrayOf(PropTypes.object),
     }),
   };
 
   render() {
     const { data } = this.props;
-    const record = data.course;
+    const { course, crossListed, reserves } = data;
 
     return (
       <AccordionSet>
         <VCAccordion id="data">
-          <ViewCourseData record={record} />
+          <ViewCourseData record={course} />
         </VCAccordion>
         <VCAccordion id="crosslistings">
-          <ViewCourseCrosslistings crossListed={data.crossListed} />
+          <ViewCourseCrosslistings crossListed={crossListed} />
         </VCAccordion>
         <VCAccordion id="instructors">
-          <ViewCourseInstructors record={record} />
+          <ViewCourseInstructors record={course} />
         </VCAccordion>
         <VCAccordion id="term">
-          <ViewCourseTerm record={record} />
+          <ViewCourseTerm record={course} />
         </VCAccordion>
         <VCAccordion id="organization">
-          <ViewCourseOrganization record={record} />
+          <ViewCourseOrganization record={course} />
+        </VCAccordion>
+        <VCAccordion id="reserves">
+          <ViewCourseReserves reserves={reserves} />
         </VCAccordion>
         <VCAccordion id="developer" closedByDefault>
-          <ViewCourseDeveloper record={record} />
+          <ViewCourseDeveloper record={course} />
         </VCAccordion>
       </AccordionSet>
     );

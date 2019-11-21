@@ -47,6 +47,8 @@
   "accordion.term.help": "Schedule for the present course",
   "accordion.organization": "Organization",
   "accordion.organization.help": "Local information",
+  "accordion.reserves": "Items",
+  "accordion.reserves.help": "Items reserved to this course",
   "accordion.developer": "Developer info",
   "accordion.developer.help": "(JSON dump of raw record)",
   "field.name": "Course name",
@@ -63,5 +65,13 @@
   "field.endDate": "End date",
   "field.location": "Location",
   "field.serviceDesk": "Service desk",
+  "field.itemBarcode": "Item barcode",
+  "field.contributor": "Contributor",
+  "field.permanentLocation": "Permanent location",
+  "field.callNumber": "Call number",
+  "field.volume": "Volume",
+  "field.copy": "Copy",
+  "field.enumeration": "Enumeration",
+  "field.status": "Status",
   "SENTINEL": "SENTINEL"
 }

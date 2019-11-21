@@ -16,7 +16,6 @@ class Course extends React.Component {
   static propTypes = {
     data: PropTypes.shape({
       course: PropTypes.object,
-      crossListed: PropTypes.arrayOf(PropTypes.object),
     }),
     urls: PropTypes.object,
     isLoading: PropTypes.bool,

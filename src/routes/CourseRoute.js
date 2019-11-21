@@ -39,7 +39,16 @@ class CourseRoute extends React.Component {
         return { query: `courseListingId=="${rec.courseListingId}" not (id=="${rec.id}")` };
       },
       records: 'courses',
-    }
+    },
+    reserves: {
+      type: 'okapi',
+      path: (_q, _p, _r, _l, props) => {
+        const rec = get(props.resources, 'course.records.0');
+        if (!rec) return null;
+        return `coursereserves/courselistings/${rec.courseListingId}/reserves`;
+      },
+      records: 'reserves',
+    },
   });
 
   static propTypes = {
@@ -81,6 +90,7 @@ class CourseRoute extends React.Component {
         data={{
           course: { ...get(resources, 'course.records[0]', {}) },
           crossListed: get(resources, 'crossListed.records', []),
+          reserves: get(resources, 'reserves.records', []),
         }}
         handlers={{
           ...handlers,
