@@ -7,7 +7,6 @@ import omit from 'lodash/omit';
 class VCKeyValue extends React.Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
-    children: PropTypes.object.isRequired,
   };
 
   render() {
