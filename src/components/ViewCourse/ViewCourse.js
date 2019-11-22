@@ -18,12 +18,13 @@ class ViewCourse extends React.Component {
       course: PropTypes.object,
       crossListed: PropTypes.arrayOf(PropTypes.object),
       reserves: PropTypes.arrayOf(PropTypes.object),
+      items: PropTypes.arrayOf(PropTypes.object),
     }),
   };
 
   render() {
     const { data } = this.props;
-    const { course, crossListed, reserves } = data;
+    const { course, crossListed, reserves, items } = data;
 
     return (
       <AccordionSet>
@@ -43,7 +44,7 @@ class ViewCourse extends React.Component {
           <ViewCourseOrganization record={course} />
         </VCAccordion>
         <VCAccordion id="reserves">
-          <ViewCourseReserves course={course} reserves={reserves} />
+          <ViewCourseReserves course={course} reserves={reserves} items={items} />
         </VCAccordion>
         <VCAccordion id="developer" closedByDefault>
           <ViewCourseDeveloper record={data} />

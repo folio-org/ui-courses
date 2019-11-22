@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 import { Card, Col, Row } from '@folio/stripes/components';
 import VCKeyValue from './VCKeyValue';
 
-const ViewCourseReserves = ({ course, reserves }) => {
+const ViewCourseReserves = ({ course, reserves, items }) => {
+  const itemMap = {};
+  items.forEach(item => { itemMap[item.id] = item; });
+
   return (
     <React.Fragment>
       {
@@ -12,6 +16,7 @@ const ViewCourseReserves = ({ course, reserves }) => {
           const contributors = (copiedItem.contributors || []).map(x => x.name).join(', ');
           const courseListingObject = course.courseListingObject || {};
           const termObject = courseListingObject.termObject || {};
+          const item = itemMap[record.itemId];
 
           return (
             <Card key={index} headerStart={<span>Item title: <i>{copiedItem.title}</i></span>}>
@@ -42,7 +47,7 @@ const ViewCourseReserves = ({ course, reserves }) => {
                   {/* XXX There is no such field in the "reserve.json" schema */}
                 </Col>
                 <Col xs={3}>
-                  <VCKeyValue id="status" value="XXX" />
+                  <VCKeyValue id="status" value={get(item, 'status.name')} />
                   {/* XXX This needs to be fetched live */}
                 </Col>
               </Row>
@@ -86,6 +91,9 @@ const ViewCourseReserves = ({ course, reserves }) => {
 ViewCourseReserves.propTypes = {
   course: PropTypes.object.isRequired,
   reserves: PropTypes.arrayOf(
+    PropTypes.object.isRequired,
+  ).isRequired,
+  items: PropTypes.arrayOf(
     PropTypes.object.isRequired,
   ).isRequired,
 };
