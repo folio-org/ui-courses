@@ -48,7 +48,6 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
                 </Col>
                 <Col xs={3}>
                   <VCKeyValue id="status" value={get(item, 'status.name')} />
-                  {/* XXX This needs to be fetched live */}
                 </Col>
               </Row>
               <Row>
