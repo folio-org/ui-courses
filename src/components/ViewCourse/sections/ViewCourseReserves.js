@@ -40,11 +40,9 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
                 </Col>
                 <Col xs={3}>
                   <VCKeyValue id="copy" value={copiedItem.copy} />
-                  {/* XXX There is no such field in the "reserve.json" schema */}
                 </Col>
                 <Col xs={3}>
                   <VCKeyValue id="enumeration" value={copiedItem.enumeration} />
-                  {/* XXX There is no such field in the "reserve.json" schema */}
                 </Col>
                 <Col xs={3}>
                   <VCKeyValue id="status" value={get(item, 'status.name')} />
@@ -62,7 +60,6 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
                 </Col>
                 <Col xs={3}>
                   <VCKeyValue id="urlLink" value={copiedItem.url} />
-                  {/* XXX There is no such field in the "reserve.json" schema */}
                 </Col>
               </Row>
               <Row>
