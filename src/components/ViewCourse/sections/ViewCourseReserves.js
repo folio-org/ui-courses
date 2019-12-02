@@ -4,6 +4,49 @@ import get from 'lodash/get';
 import { Card, Col, Row } from '@folio/stripes/components';
 import VCKeyValue from './VCKeyValue';
 
+
+const CopyrightTracking = ({ data }) => {
+  return (
+    <Row>
+      <Col xs={12}>
+        {!data.copyrightStatusId ?
+          'No copyright tracking required' : (
+            <Card headerStart="This item requires copyright tracking:">
+              <Row>
+                <Col xs={6}>
+                  <VCKeyValue id="additionalSectionsUsed" value={data.additionalSectionsUsed ? "Yes" : "No"} />
+                </Col>
+                <Col xs={6}>
+                  <VCKeyValue id="copyrightStatusId" value={data.copyrightStatusId} />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={3}>
+                  <VCKeyValue id="totalPagesInItem" value={data.totalPagesInItem} />
+                </Col>
+                <Col xs={3}>
+                  <VCKeyValue id="totalPagesUsed" value={data.totalPagesUsed} />
+                </Col>
+                <Col xs={3}>
+                  <VCKeyValue id="percentOfPages" value={data.percentOfPages} />
+                </Col>
+                <Col xs={3}>
+                  <VCKeyValue id="paymentBasis" value={data.paymentBasis} />
+                </Col>
+              </Row>
+            </Card>
+          )
+        }
+      </Col>
+    </Row>
+  );
+};
+
+CopyrightTracking.propTypes = {
+  data: PropTypes.object,
+};
+
+
 const ViewCourseReserves = ({ course, reserves, items }) => {
   const itemMap = {};
   items.forEach(item => { itemMap[item.id] = item; });
@@ -70,12 +113,7 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
                   <VCKeyValue id="endDate" value={record.endDate || termObject.endDate} />
                 </Col>
               </Row>
-              <Row>
-                <Col xs={12}>
-                  This item requires copyright tracking:
-                  XXX checkbox
-                </Col>
-              </Row>
+              <CopyrightTracking data={record.copyrightTracking || {}} />
             </Card>
           );
         })

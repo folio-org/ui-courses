@@ -77,5 +77,11 @@
   "field.temporaryLoanType": "Temporary loan type",
   "field.processingStatus": "Processing status",
   "field.urlLink": "URL/PDF link",
+  "field.additionalSectionsUsed": "Additional sections of this item used",
+  "field.copyrightStatusId": "Copyright status",
+  "field.totalPagesInItem": "Total number of pages in item",
+  "field.totalPagesUsed": "Total number of pages used",
+  "field.percentOfPages": "Total % of pages used",
+  "field.paymentBasis": "Payment based on",
   "SENTINEL": "SENTINEL"
 }
