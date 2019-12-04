@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
+import get from 'lodash/get';
 import { Card, Col, Row, KeyValue } from '@folio/stripes/components';
 
 const ViewCourseInstructors = ({ record }) => {
@@ -20,7 +21,7 @@ const ViewCourseInstructors = ({ record }) => {
                 <KeyValue label={<FormattedMessage id="ui-courses.field.barcode" />} value={instructor.barcode} />
               </Col>
               <Col xs={4}>
-                <KeyValue label={<FormattedMessage id="ui-courses.field.patronGroup" />} value={instructor.patronGroup} />
+                <KeyValue label={<FormattedMessage id="ui-courses.field.patronGroup" />} value={get(instructor, 'patronGroupObject.group')} />
               </Col>
             </Row>
           </Card>
