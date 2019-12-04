@@ -14,7 +14,7 @@ const CopyrightTracking = ({ data }) => {
             <Card headerStart="This item requires copyright tracking:">
               <Row>
                 <Col xs={6}>
-                  <VCKeyValue id="additionalSectionsUsed" value={data.additionalSectionsUsed ? "Yes" : "No"} />
+                  <VCKeyValue id="additionalSectionsUsed" value={data.additionalSectionsUsed ? 'Yes' : 'No'} />
                 </Col>
                 <Col xs={6}>
                   <VCKeyValue id="copyrightStatusId" value={data.copyrightStatusId} />
