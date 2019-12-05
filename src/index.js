@@ -6,6 +6,7 @@ import { Route as NestedRoute } from '@folio/stripes/core';
 import Settings from './settings';
 import CoursesRoute from './routes/CoursesRoute';
 import CourseRoute from './routes/CourseRoute';
+import EditCourseRoute from './routes/EditCourseRoute';
 import ReservesRoute from './routes/ReservesRoute';
 import ReserveRoute from './routes/ReserveRoute';
 
@@ -32,6 +33,7 @@ class CoursesApp extends React.Component {
         <NestedRoute path={`${path}/courses`} component={CoursesRoute}>
           <Switch>
             <NestedRoute path={`${path}/courses/:id`} exact component={CourseRoute} />
+            <NestedRoute path={`${path}/courses/:id/edit`} component={EditCourseRoute} />
           </Switch>
         </NestedRoute>
         <NestedRoute path={`${path}/reserves`} component={ReservesRoute}>

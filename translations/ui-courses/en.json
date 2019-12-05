@@ -52,6 +52,7 @@
     "accordion.developer": "Developer info",
     "accordion.developer.help": "(JSON dump of raw record)",
     "field.name": "Course name",
+    "field.description": "Course description",
     "field.department": "Department",
     "field.number": "Course code/number",
     "field.section": "Section",
@@ -83,5 +84,7 @@
     "field.totalPagesUsed": "Total number of pages used",
     "field.percentOfPages": "Total % of pages used",
     "field.paymentBasis": "Payment based on",
+    "create": "New course",
+    "closeEditCourse": "Close edit course",
     "SENTINEL": "SENTINEL"
 }
