@@ -8,8 +8,12 @@ import { Col, Row, Select, TextField, TextArea } from '@folio/stripes/components
 export default class CourseFormInfo extends React.Component {
   static propTypes = {
     data: PropTypes.shape({
-      statusValues: PropTypes.array,
-      typeValues: PropTypes.array,
+      departments: PropTypes.arrayOf(
+        PropTypes.shape({
+          value: PropTypes.string.isRequired,
+          label: PropTypes.string.isRequired,
+        }),
+      ),
     }),
     id: PropTypes.string,
   };
