@@ -14,22 +14,6 @@ export default class CourseFormInfo extends React.Component {
     id: PropTypes.string,
   };
 
-  validateEndDate = (value, allValues) => {
-    if (value && allValues.startDate && (allValues.openEnded !== true)) {
-      const startDate = new Date(allValues.startDate);
-      const endDate = new Date(allValues.endDate);
-
-      if (startDate >= endDate) {
-        return (
-          <div data-test-error-end-date-too-early>
-            <FormattedMessage id="ui-courses.errors.endDateGreaterThanStartDate" />
-          </div>
-        );
-      }
-    }
-    return undefined;
-  }
-
   render() {
     const { data, id } = this.props;
 
