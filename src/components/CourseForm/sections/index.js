@@ -1,1 +1,2 @@
-export { default as CourseFormInfo } from './CourseFormInfo'; // eslint-disable-line import/prefer-default-export
+export { default as CourseFormInfo } from './CourseFormInfo';
+export { default as CourseFormListing } from './CourseFormListing';

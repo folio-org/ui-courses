@@ -16,9 +16,10 @@ import stripesFinalForm from '@folio/stripes/final-form';
 import { isEqual } from 'lodash';
 import setFieldData from 'final-form-set-field-data';
 import { Spinner } from '@folio/stripes-components';
-
+import VCAccordion from '../ViewCourse/VCAccordion';
 import {
   CourseFormInfo,
+  CourseFormListing,
 } from './sections';
 
 class CourseForm extends React.Component {
@@ -140,7 +141,12 @@ class CourseForm extends React.Component {
               <TitleManager record={id ? name : create}>
                 <form id="form-course">
                   <AccordionSet>
-                    <CourseFormInfo {...this.getSectionProps('courseFormInfo')} />
+                    <VCAccordion action="edit" id="courseFormInfo">
+                      <CourseFormInfo {...this.getSectionProps('courseFormInfo')} />
+                    </VCAccordion>
+                    <VCAccordion action="edit" id="courseFormListing">
+                      <CourseFormListing {...this.getSectionProps('courseFormListing')} />
+                    </VCAccordion>
                   </AccordionSet>
                 </form>
               </TitleManager>
