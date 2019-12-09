@@ -64,6 +64,7 @@
     "redux-form": "*"
   },
   "dependencies": {
+    "@folio/stripes-erm-components": "^2.3.100099",
     "@folio/stripes-util": "^1.6.100024",
     "final-form-set-field-data": "^1.0.2",
     "lodash": "^4.17.15",
