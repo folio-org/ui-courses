@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Field } from 'react-final-form';
-import { Col, Row, Select, TextField } from '@folio/stripes/components';
+import { Col, Row, Select, TextField, MessageBanner } from '@folio/stripes/components';
 
 const optionsShape = PropTypes.arrayOf(
   PropTypes.shape({
@@ -31,11 +31,9 @@ export default class CourseFormInfo extends React.Component {
     // locationId, servicepointId
     return (
       <div data-test-course-info id={id}>
-        <p>
-          <b style={{ color: 'red' }}>Caution!</b>
-          &nbsp;
-          Changes made in this section will also affect all cross-listed courses.
-        </p>
+        <MessageBanner type="warning" dismissable>
+          Warning: changes made in this section will also affect all cross-listed courses.
+        </MessageBanner>
         <Row>
           <Col xs={4}>
             <Field
