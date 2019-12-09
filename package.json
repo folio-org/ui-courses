@@ -30,7 +30,9 @@
       "course-type-storage": "0.1",
       "processing-status-storage": "0.1",
       "copyright-status-storage": "0.1",
-      "role-storage": "0.1"
+      "role-storage": "0.1",
+      "locations": "3.0",
+      "service-points": "3.0"
     },
     "permissionSets": [
       {

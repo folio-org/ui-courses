@@ -12,9 +12,36 @@ class EditCourseRoute extends React.Component {
       path: 'coursereserves/courses/:{id}',
       shouldRefresh: () => false,
     },
+    courselisting: {
+      type: 'okapi',
+      path: (_q, _p, resources) => {
+        const rec = get(resources, 'course.records.0');
+        return !rec ? null : `coursereserves/courselistings/${rec.courseListingId}`;
+      },
+    },
     departments: {
       type: 'okapi',
       path: 'coursereserves/departments',
+      shouldRefresh: () => false,
+    },
+    coursetypes: {
+      type: 'okapi',
+      path: 'coursereserves/coursetypes',
+      shouldRefresh: () => false,
+    },
+    terms: {
+      type: 'okapi',
+      path: 'coursereserves/terms',
+      shouldRefresh: () => false,
+    },
+    locations: {
+      type: 'okapi',
+      path: 'locations',
+      shouldRefresh: () => false,
+    },
+    servicepoints: {
+      type: 'okapi',
+      path: 'service-points',
       shouldRefresh: () => false,
     },
   });
@@ -34,6 +61,9 @@ class EditCourseRoute extends React.Component {
     }).isRequired,
     mutator: PropTypes.shape({
       course: PropTypes.shape({
+        PUT: PropTypes.func.isRequired,
+      }).isRequired,
+      courselisting: PropTypes.shape({
         PUT: PropTypes.func.isRequired,
       }).isRequired,
     }).isRequired,
@@ -70,8 +100,11 @@ class EditCourseRoute extends React.Component {
   }
 
   handleSubmit = (course) => {
-    this.props.mutator.course
-      .PUT(course)
+    const listing = course.courseListingObject;
+    delete course.courseListingObject;
+
+    this.props.mutator.course.PUT(course)
+      .then(() => this.props.mutator.courselisting.PUT(listing))
       .then(this.handleClose);
   }
 
@@ -81,8 +114,8 @@ class EditCourseRoute extends React.Component {
       .some(resource => resource.isPending);
   }
 
-  departmentsOptions() {
-    return get(this.props.resources, 'departments.records.0.departments', [])
+  getOptions(resource, element) {
+    return get(this.props.resources, `${resource}.records.0.${element || resource}`, [])
       .map(x => ({ value: x.id, label: x.name }));
   }
 
@@ -93,7 +126,13 @@ class EditCourseRoute extends React.Component {
 
     return (
       <CourseForm
-        data={{ departments: this.departmentsOptions() }}
+        data={{
+          departments: this.getOptions('departments'),
+          coursetypes: this.getOptions('coursetypes', 'courseTypes'),
+          terms: this.getOptions('terms'),
+          locations: this.getOptions('locations'),
+          servicepoints: this.getOptions('servicepoints'),
+        }}
         handlers={{ ...handlers, onClose: this.handleClose }}
         initialValues={this.getInitialValues()}
         isLoading={this.fetchIsPending()}
