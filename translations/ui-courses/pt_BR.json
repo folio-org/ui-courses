@@ -87,8 +87,8 @@
     "field.description": "Descrição do curso",
     "create": "Novo curso",
     "closeEditCourse": "Fechar edição do curso",
-    "accordion.courseFormInfo": "Basic course information",
+    "accordion.courseFormInfo": "Informações básicas do curso",
     "accordion.courseFormInfo.help": " ",
-    "accordion.courseFormListing": "Course listing information",
+    "accordion.courseFormListing": "Informações da lista de cursos",
     "accordion.courseFormListing.help": " "
 }
