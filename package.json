@@ -55,7 +55,6 @@
   },
   "peerDependencies": {
     "@folio/stripes": "*",
-    "@folio/stripes-components": "*",
     "prop-types": "*",
     "react": "*",
     "react-intl": "*",
