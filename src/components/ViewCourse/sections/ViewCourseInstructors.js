@@ -15,7 +15,7 @@ const ViewCourseInstructors = ({ record }) => {
           <Card key={index} headerStart={`Instructor #${index + 1}`}>
             <Row>
               <Col xs={4}>
-                <KeyValue label={<FormattedMessage id="ui-courses.field.name" />} value={instructor.name} />
+                <KeyValue label={<FormattedMessage id="ui-courses.field.instructorName" />} value={instructor.name} />
               </Col>
               <Col xs={4}>
                 <KeyValue label={<FormattedMessage id="ui-courses.field.barcode" />} value={instructor.barcode} />
