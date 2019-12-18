@@ -90,5 +90,6 @@
     "accordion.courseFormInfo": "Informações básicas do curso",
     "accordion.courseFormInfo.help": " ",
     "accordion.courseFormListing": "Informações da lista de cursos",
-    "accordion.courseFormListing.help": " "
+    "accordion.courseFormListing.help": " ",
+    "field.instructorName": "Nome"
 }

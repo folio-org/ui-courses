@@ -90,5 +90,6 @@
     "accordion.courseFormInfo": "بيانات المقرر",
     "accordion.courseFormInfo.help": ".",
     "accordion.courseFormListing": "بيانات التسجيل في المقرر",
-    "accordion.courseFormListing.help": "."
+    "accordion.courseFormListing.help": ".",
+    "field.instructorName": "الاسم"
 }
