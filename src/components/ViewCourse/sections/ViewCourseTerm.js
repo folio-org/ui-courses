@@ -8,12 +8,7 @@ const ViewCourseTerm = ({ record }) => {
   const termObject = courseListingObject.termObject || {};
 
   return (
-    <Card headerStart="Term">
-      <Row>
-        <Col xs={12}>
-          <KeyValue label={<FormattedMessage id="ui-courses.field.term" />} value={termObject.name} />
-        </Col>
-      </Row>
+    <Card headerStart={termObject.name}>
       <Row>
         <Col xs={6}>
           <KeyValue label={<FormattedMessage id="ui-courses.field.startDate" />} value={termObject.startDate} />
