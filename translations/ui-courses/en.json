@@ -26,6 +26,8 @@
     "searchInputLabel": "Search courses",
     "column.name": "Course name",
     "column.courseNumber": "Course code",
+    "column.sectionName": "Section",
+    "column.registrarId": "Registrar ID",
     "column.department": "Department",
     "column.serviceDesk": "Service desk",
     "column.startDate": "Start date",
