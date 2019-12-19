@@ -169,7 +169,7 @@ class Courses extends React.Component {
 
     const resultsFormatter = {
       department: r => get(r, 'departmentObject.name'),
-      serviceDesk: r => get(r, 'courseListingObject.servicepointId'),
+      registrarId: r => get(r, 'courseListingObject.registrarId'),
       startDate: r => get(r, 'courseListingObject.termObject.startDate'),
       endDate: r => get(r, 'courseListingObject.termObject.endDate'),
       instructor: _r => '[NYI]',
@@ -265,12 +265,13 @@ class Courses extends React.Component {
                     sortOrder={sortOrder.replace(/^-/, '').replace(/,.*/, '')}
                     totalCount={count}
                     virtualize
-                    visibleColumns={['name', 'courseNumber', 'department', 'serviceDesk', 'startDate', 'endDate', 'instructor', 'status']}
+                    visibleColumns={['name', 'courseNumber', 'sectionName', 'registrarId', 'department', 'startDate', 'endDate', 'instructor', 'status']}
                     columnMapping={{
                       name: <FormattedMessage id="ui-courses.column.name" />,
                       courseNumber: <FormattedMessage id="ui-courses.column.courseNumber" />,
+                      sectionName: <FormattedMessage id="ui-courses.column.sectionName" />,
+                      registrarId: <FormattedMessage id="ui-courses.column.registrarId" />,
                       department: <FormattedMessage id="ui-courses.column.department" />,
-                      serviceDesk: <FormattedMessage id="ui-courses.column.serviceDesk" />,
                       startDate: <FormattedMessage id="ui-courses.column.startDate" />,
                       endDate: <FormattedMessage id="ui-courses.column.endDate" />,
                       instructor: <FormattedMessage id="ui-courses.column.instructor" />,
