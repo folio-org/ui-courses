@@ -42,7 +42,6 @@ export default class CourseFormInfo extends React.Component {
               id="edit-course-type"
               label={<FormattedMessage id="ui-courses.field.courseType" />}
               name="courseListingObject.courseTypeId"
-              required
             />
           </Col>
           <Col xs={4}>
