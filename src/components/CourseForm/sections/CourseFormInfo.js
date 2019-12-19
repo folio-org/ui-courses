@@ -42,7 +42,6 @@ export default class CourseFormInfo extends React.Component {
               id="edit-course-department"
               label={<FormattedMessage id="ui-courses.field.department" />}
               name="departmentId"
-              required
             />
           </Col>
         </Row>
