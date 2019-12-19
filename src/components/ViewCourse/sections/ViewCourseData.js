@@ -45,6 +45,11 @@ const ViewCourseData = ({ record }) => {
         </Col>
       </Row>
       <Row>
+        <Col xs={12}>
+          <KeyValue label={<FormattedMessage id="ui-courses.field.description" />} value={record.description} />
+        </Col>
+      </Row>
+      <Row>
         <Col xs={3}>
           <KeyValue label={<FormattedMessage id="ui-courses.field.courseType" />} value={courseType} />
         </Col>
