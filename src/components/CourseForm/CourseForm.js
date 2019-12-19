@@ -20,6 +20,7 @@ import VCAccordion from '../ViewCourse/VCAccordion';
 import {
   CourseFormInfo,
   CourseFormListing,
+  CourseFormInstructors,
 } from './sections';
 
 class CourseForm extends React.Component {
@@ -146,6 +147,9 @@ class CourseForm extends React.Component {
                     </VCAccordion>
                     <VCAccordion action="edit" id="courseFormListing">
                       <CourseFormListing {...this.getSectionProps('courseFormListing')} />
+                    </VCAccordion>
+                    <VCAccordion action="edit" id="courseFormInstructors">
+                      <CourseFormInstructors {...this.getSectionProps('courseFormInstructors')} />
                     </VCAccordion>
                   </AccordionSet>
                 </form>
