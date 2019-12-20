@@ -10,10 +10,9 @@ const ViewCourseInstructors = ({ record }) => {
 
   return (
     <Card headerStart="Instructors">
-      <table>
+      <table width="100%">
         <thead>
           <tr>
-            <th align="left">#</th>
             <th align="left"><FormattedMessage id="ui-courses.field.instructorName" /></th>
             <th align="left"><FormattedMessage id="ui-courses.field.barcode" /></th>
             <th align="left"><FormattedMessage id="ui-courses.field.patronGroup" /></th>
@@ -22,8 +21,7 @@ const ViewCourseInstructors = ({ record }) => {
         <tbody>
           {
             instructorObjects.map((instructor, index) => (
-              <tr>
-                <td>{index + 1}</td>
+              <tr key={index}>
                 <td>{instructor.name}</td>
                 <td>{instructor.barcode}</td>
                 <td>{get(instructor, 'patronGroupObject.group')}</td>
