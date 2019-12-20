@@ -21,8 +21,8 @@ import {
   SearchAndSortSearchButton as FilterPaneToggle,
 } from '@folio/stripes/smart-components';
 
+import packageInfo from '../../package';
 import css from './Courses.css';
-
 
 // Returns a date object corresponding with the date string in format YYYY-MM-DD'
 function makeDate(s) {
@@ -107,7 +107,7 @@ class Courses extends React.Component {
     );
   }
 
-  renderResultsLastMenu() {
+  renderResultsLastMenu(location) {
     return (
       <IfPermission perm="ui-courses.course.edit">
         <PaneMenu>
@@ -118,7 +118,7 @@ class Courses extends React.Component {
                 buttonStyle="primary"
                 id="clickable-new-course"
                 marginBottom0
-                to="/cr/courses/create"
+                to={`${packageInfo.stripes.route}/courses/create${location.search}`}
               >
                 <FormattedMessage id="stripes-smart-components.new" />
               </Button>
@@ -247,14 +247,24 @@ class Courses extends React.Component {
                   appIcon={<AppIcon app="courses" />}
                   defaultWidth="fill"
                   firstMenu={this.renderResultsFirstMenu(activeFilters)}
-                  lastMenu={this.renderResultsLastMenu()}
+                  lastMenu={this.renderResultsLastMenu(this.props.location)}
                   padContent={false}
                   paneTitle={<FormattedMessage id="ui-courses.meta.title" />}
                   paneSub={this.renderResultsPaneSubtitle(source)}
                 >
                   <MultiColumnList
                     autosize
-                    columnWidths={this.columnWidths}
+                    columnWidths={{
+                      name: 200,
+                      courseNumber: 110,
+                      sectionName: 100,
+                      registrarId: 110,
+                      department: 120,
+                      startDate: 100,
+                      endDate: 100,
+                      instructor: 100,
+                      status: 100,
+                    }}
                     contentData={coursesData.courses}
                     id="list-courses"
                     isEmptyMessage={this.renderIsEmptyMessage(query, source)}
