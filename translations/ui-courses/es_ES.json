@@ -91,5 +91,9 @@
     "accordion.courseFormInfo.help": "- ",
     "accordion.courseFormListing": "Información sobre listado de cursos",
     "accordion.courseFormListing.help": "- ",
-    "field.instructorName": "Nombre"
+    "field.instructorName": "Nombre",
+    "column.sectionName": "Section",
+    "column.registrarId": "Registrar ID",
+    "accordion.courseFormInstructors": "Course instructors",
+    "accordion.courseFormInstructors.help": " "
 }

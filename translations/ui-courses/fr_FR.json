@@ -25,7 +25,7 @@
     "createCourse": "Create course",
     "searchInputLabel": "Rechercher des cours",
     "column.name": "Nom du cours",
-    "column.courseNumber": "Course code/number",
+    "column.courseNumber": "Course code",
     "column.department": "Department",
     "column.serviceDesk": "Service desk",
     "column.startDate": "Start date",
@@ -53,7 +53,7 @@
     "accordion.developer.help": "(JSON dump of raw record)",
     "field.name": "Nom du cours",
     "field.department": "Department",
-    "field.number": "Course code/number",
+    "field.number": "Course code",
     "field.section": "Section",
     "field.courseType": "Course type",
     "field.registrarId": "Registrar ID",
@@ -91,5 +91,9 @@
     "accordion.courseFormInfo.help": " ",
     "accordion.courseFormListing": "Course listing information",
     "accordion.courseFormListing.help": " ",
-    "field.instructorName": "Name"
+    "field.instructorName": "Name",
+    "column.sectionName": "Section",
+    "column.registrarId": "Registrar ID",
+    "accordion.courseFormInstructors": "Course instructors",
+    "accordion.courseFormInstructors.help": " "
 }
