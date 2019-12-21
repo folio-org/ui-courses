@@ -79,7 +79,7 @@ class CreateCourseRoute extends React.Component {
   }
 
   handleSubmit = (course) => {
-    const listing = course.courseListingObject;
+    const listing = course.courseListingObject || {};
     delete course.courseListingObject;
 
     this.props.mutator.courselistings.POST(listing)
@@ -101,6 +101,11 @@ class CreateCourseRoute extends React.Component {
       .map(x => ({ value: x.id, label: x.name }));
   }
 
+  getFirstOption(resource) {
+    const entries = get(this.props.resources, `${resource}.records.0.${resource}`);
+    return (!entries) ? '1' : entries[0].id;
+  }
+
   render() {
     const { handlers, stripes } = this.props;
 
@@ -115,8 +120,13 @@ class CreateCourseRoute extends React.Component {
           locations: this.getOptions('locations'),
           servicepoints: this.getOptions('servicepoints'),
         }}
+        initialValues={{
+          departmentId: this.getFirstOption('departments'),
+          courseListingObject: {
+            termId: this.getFirstOption('terms'),
+          },
+        }}
         handlers={{ ...handlers, onClose: this.handleClose }}
-        initialValues={{}}
         isLoading={this.fetchIsPending()}
         onSubmit={this.handleSubmit}
       />
