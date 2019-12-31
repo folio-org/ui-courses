@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { stripesConnect } from '@folio/stripes/core';
 import Course from '../components/Course';
+import packageInfo from '../../package';
 
 
 // There are two basic approaches to fetching the cross-listed courses
@@ -85,7 +86,11 @@ class CourseRoute extends React.Component {
   }
 
   urls = {
-    edit: (() => `${this.props.location.pathname}/edit${this.props.location.search}`)
+    edit: () => `${this.props.location.pathname}/edit${this.props.location.search}`,
+    clone: () => {
+      const { location, resources } = this.props;
+      return `${packageInfo.stripes.route}/courses/${get(resources, 'course.records[0].courseListingId')}/clone${location.search}`;
+    }
   }
 
   handleClose = () => {
