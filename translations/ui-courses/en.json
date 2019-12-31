@@ -36,6 +36,8 @@
     "column.status": "Status",
     "loading": "Loading...",
     "editCourse": "Edit course",
+    "cloneCourse": "Clone course",
+    "button.clone": "Clone",
     "status.pending": "Pending",
     "status.active": "Active",
     "status.inactive": "Inactive",
