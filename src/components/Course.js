@@ -40,6 +40,19 @@ class Course extends React.Component {
             </Button>
           )}
         </FormattedMessage>
+        <FormattedMessage id="ui-courses.cloneCourse">
+          {ariaLabel => (
+            <Button
+              aria-label={ariaLabel}
+              buttonStyle="primary"
+              id="clickable-clone-course"
+              marginBottom0
+              to={this.props.urls.clone()}
+            >
+              <FormattedMessage id="ui-courses.button.clone" />
+            </Button>
+          )}
+        </FormattedMessage>
       </PaneMenu>
     );
   }
