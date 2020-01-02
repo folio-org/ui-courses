@@ -8,6 +8,7 @@ import CoursesRoute from './routes/CoursesRoute';
 import CourseRoute from './routes/CourseRoute';
 import CreateCourseRoute from './routes/CreateCourseRoute';
 import EditCourseRoute from './routes/EditCourseRoute';
+import CloneCourseRoute from './routes/CloneCourseRoute';
 import ReservesRoute from './routes/ReservesRoute';
 import ReserveRoute from './routes/ReserveRoute';
 
@@ -36,6 +37,7 @@ class CoursesApp extends React.Component {
             <NestedRoute path={`${path}/courses/create`} component={CreateCourseRoute} />
             <NestedRoute path={`${path}/courses/:id`} exact component={CourseRoute} />
             <NestedRoute path={`${path}/courses/:id/edit`} component={EditCourseRoute} />
+            <NestedRoute path={`${path}/courses/:id/clone/:clid`} component={CloneCourseRoute} />
           </Switch>
         </NestedRoute>
         <NestedRoute path={`${path}/reserves`} component={ReservesRoute}>
