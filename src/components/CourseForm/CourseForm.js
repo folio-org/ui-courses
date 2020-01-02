@@ -124,9 +124,8 @@ class CourseForm extends React.Component {
   }
 
   render() {
-    const { isLoading, values: { id, name } } = this.props;
+    const { isLoading, values: { id, name }, isClone } = this.props;
     if (isLoading) return this.renderLoadingPane();
-    const isClone = !this.props.data.coursetypes;
 
     return (
       <Paneset>

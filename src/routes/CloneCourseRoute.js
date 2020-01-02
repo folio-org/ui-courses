@@ -110,6 +110,7 @@ class CloneCourseRoute extends React.Component {
         handlers={{ ...handlers, onClose: this.handleClose }}
         isLoading={this.fetchIsPending()}
         onSubmit={this.handleSubmit}
+        isClone
       />
     );
   }
