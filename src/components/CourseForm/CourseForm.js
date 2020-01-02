@@ -37,6 +37,7 @@ class CourseForm extends React.Component {
     pristine: PropTypes.bool,
     submitting: PropTypes.bool,
     values: PropTypes.object,
+    isClone: PropTypes.bool,
   }
 
   getSectionProps(id) {
