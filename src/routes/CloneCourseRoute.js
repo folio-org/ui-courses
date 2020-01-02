@@ -22,6 +22,26 @@ class CloneCourseRoute extends React.Component {
       path: 'coursereserves/departments',
       shouldRefresh: () => false,
     },
+    coursetypes: {
+      type: 'okapi',
+      path: 'coursereserves/coursetypes',
+      shouldRefresh: () => false,
+    },
+    terms: {
+      type: 'okapi',
+      path: 'coursereserves/terms',
+      shouldRefresh: () => false,
+    },
+    locations: {
+      type: 'okapi',
+      path: 'locations',
+      shouldRefresh: () => false,
+    },
+    servicepoints: {
+      type: 'okapi',
+      path: 'service-points',
+      shouldRefresh: () => false,
+    },
     instructors: {
       type: 'okapi',
       path: 'coursereserves/courselistings/:{clid}/instructors',
@@ -52,6 +72,9 @@ class CloneCourseRoute extends React.Component {
       courses: PropTypes.shape({
         POST: PropTypes.func.isRequired,
       }).isRequired,
+      courselisting: PropTypes.shape({
+        PUT: PropTypes.func.isRequired,
+      }).isRequired,
     }).isRequired,
     resources: PropTypes.shape({
       course: PropTypes.object,
@@ -70,6 +93,13 @@ class CloneCourseRoute extends React.Component {
     const { resources } = this.props;
     const courselisting = get(resources, 'courselisting.records[0]', {});
     const initialValues = { courseListingObject: courselisting };
+    const {
+      department = {},
+    } = initialValues;
+
+    // Set the values of dropdown-controlled props as values rather than objects.
+    initialValues.department = department.value;
+
     return initialValues;
   }
 
@@ -79,9 +109,12 @@ class CloneCourseRoute extends React.Component {
   }
 
   handleSubmit = (course) => {
+    const listing = course.courseListingObject;
     delete course.courseListingObject;
+
     course.courseListingId = this.props.match.params.clid;
     this.props.mutator.courses.POST(course)
+      .then(() => this.props.mutator.courselisting.PUT(listing))
       .then(this.handleClose);
   }
 
@@ -105,6 +138,10 @@ class CloneCourseRoute extends React.Component {
       <CourseForm
         data={{
           departments: this.getOptions('departments'),
+          coursetypes: this.getOptions('coursetypes', 'courseTypes'),
+          terms: this.getOptions('terms'),
+          locations: this.getOptions('locations'),
+          servicepoints: this.getOptions('servicepoints'),
         }}
         initialValues={this.getInitialValues()}
         handlers={{ ...handlers, onClose: this.handleClose }}
