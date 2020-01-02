@@ -126,35 +126,45 @@ class CourseForm extends React.Component {
   render() {
     const { isLoading, values: { id, name } } = this.props;
     if (isLoading) return this.renderLoadingPane();
+    const isClone = !this.props.data.coursetypes;
 
     return (
       <Paneset>
         <FormattedMessage id="ui-courses.create">
           {create => (
-            <Pane
-              appIcon={<AppIcon app="courses" />}
-              defaultWidth="100%"
-              footer={this.renderPaneFooter()}
-              firstMenu={this.renderFirstMenu()}
-              id="pane-course-form"
-              paneTitle={id ? name : <FormattedMessage id="ui-courses.createCourse" />}
-            >
-              <TitleManager record={id ? name : create}>
-                <form id="form-course">
-                  <AccordionSet>
-                    <VCAccordion action="edit" id="courseFormInfo">
-                      <CourseFormInfo {...this.getSectionProps('courseFormInfo')} />
-                    </VCAccordion>
-                    <VCAccordion action="edit" id="courseFormListing">
-                      <CourseFormListing {...this.getSectionProps('courseFormListing')} />
-                    </VCAccordion>
-                    <VCAccordion action="edit" id="courseFormInstructors">
-                      <CourseFormInstructors {...this.getSectionProps('courseFormInstructors')} />
-                    </VCAccordion>
-                  </AccordionSet>
-                </form>
-              </TitleManager>
-            </Pane>
+            <FormattedMessage id="ui-courses.clone">
+              {clone => (
+                <Pane
+                  appIcon={<AppIcon app="courses" />}
+                  defaultWidth="100%"
+                  footer={this.renderPaneFooter()}
+                  firstMenu={this.renderFirstMenu()}
+                  id="pane-course-form"
+                  paneTitle={
+                    id ? name :
+                      isClone ?
+                        <FormattedMessage id="ui-courses.cloneCourse" /> :
+                        <FormattedMessage id="ui-courses.createCourse" />
+                    }
+                >
+                  <TitleManager record={id ? name : isClone ? clone : create}>
+                    <form id="form-course">
+                      <AccordionSet>
+                        <VCAccordion action="edit" id="courseFormInfo">
+                          <CourseFormInfo {...this.getSectionProps('courseFormInfo')} />
+                        </VCAccordion>
+                        <VCAccordion action="edit" id="courseFormListing">
+                          <CourseFormListing {...this.getSectionProps('courseFormListing')} />
+                        </VCAccordion>
+                        <VCAccordion action="edit" id="courseFormInstructors">
+                          <CourseFormInstructors {...this.getSectionProps('courseFormInstructors')} />
+                        </VCAccordion>
+                      </AccordionSet>
+                    </form>
+                  </TitleManager>
+                </Pane>
+              )}
+            </FormattedMessage>
           )}
         </FormattedMessage>
       </Paneset>
