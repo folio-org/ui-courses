@@ -36,7 +36,7 @@
     "column.status": "Status",
     "loading": "Loading...",
     "editCourse": "Edit course",
-    "cloneCourse": "Clone course",
+    "cloneCourse": "New course within listing",
     "button.clone": "Clone",
     "status.pending": "Pending",
     "status.active": "Active",
@@ -96,6 +96,7 @@
     "field.percentOfPages": "Total % of pages used",
     "field.paymentBasis": "Payment based on",
     "create": "New course",
+    "clone": "Clone course",
     "closeEditCourse": "Close edit course",
     "SENTINEL": "SENTINEL"
 }
