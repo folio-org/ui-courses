@@ -95,5 +95,9 @@
     "column.sectionName": "Seção",
     "column.registrarId": "ID do registrador",
     "accordion.courseFormInstructors": "Instrutores do curso",
-    "accordion.courseFormInstructors.help": " "
+    "accordion.courseFormInstructors.help": " ",
+    "cloneCourse": "Novo curso na listagem",
+    "button.clone": "Clonar",
+    "clone": "Clonar curso",
+    "front.welcome": "Welcome to Course Reserves!"
 }
