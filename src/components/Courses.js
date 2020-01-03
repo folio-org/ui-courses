@@ -109,7 +109,7 @@ class Courses extends React.Component {
 
   renderResultsLastMenu(location) {
     return (
-      <IfPermission perm="ui-courses.course.edit">
+      <IfPermission perm="course-reserves-storage.courses.write">
         <PaneMenu>
           <FormattedMessage id="ui-courses.createCourse">
             {ariaLabel => (
