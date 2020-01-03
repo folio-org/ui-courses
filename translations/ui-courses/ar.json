@@ -95,5 +95,9 @@
     "column.sectionName": "القسم",
     "column.registrarId": "معرف المسجل",
     "accordion.courseFormInstructors": "مدرسي المقرر الدراسي",
-    "accordion.courseFormInstructors.help": "."
+    "accordion.courseFormInstructors.help": ".",
+    "cloneCourse": "مقرر جديد في القائمة",
+    "button.clone": "نسخ",
+    "clone": "نسخ المقرر",
+    "front.welcome": "مرحبًا بكم في الحجز الأكاديمي!"
 }
