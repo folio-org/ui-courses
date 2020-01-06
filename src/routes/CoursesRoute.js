@@ -40,7 +40,6 @@ class CoursesRoute extends React.Component {
       records: 'courses',
       recordsRequired: '%{resultCount}',
       perRequest: RESULT_COUNT_INCREMENT,
-      limitParam: 'perPage',
       path: 'coursereserves/courses',
       params: {
         query: makeQueryFunction(
