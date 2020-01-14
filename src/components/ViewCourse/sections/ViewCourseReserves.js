@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { Card, Col, Row } from '@folio/stripes/components';
 import VCKeyValue from './VCKeyValue';
+import AddReserve from './AddReserve';
 
 
 const CopyrightTracking = ({ data }) => {
@@ -118,6 +119,7 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
           );
         })
       }
+      <AddReserve courseListingId={course.courseListingId} />
     </React.Fragment>
   );
 };

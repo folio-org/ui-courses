@@ -99,5 +99,7 @@
     "create": "New course",
     "clone": "Clone course",
     "closeEditCourse": "Close edit course",
+    "addItem": "Add an item to this course's reserves",
+    "button.addItem": "Add item",
     "SENTINEL": "SENTINEL"
 }
