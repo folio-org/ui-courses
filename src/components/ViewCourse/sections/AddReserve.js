@@ -52,37 +52,30 @@ class AddReserve extends React.Component {
       },
     }).catch(error => {
       this.showCallout('error', `could not fetch item: ${error}`);
-      console.log(`could not fetch item: ${error}`);
     }).then(res => {
       if (res.status !== 200) {
         this.showCallout('error', `could not find item: HTTP status ${res.status} (${res.statusText})`);
-        console.log(`could not find item: HTTP status ${res.status} (${res.statusText})`);
         return;
       }
       res.json().catch(error => {
         this.showCallout('error', `could not parse result as JSON: ${error}`);
-        console.log('could not parse result as JSON:', error);
       }).then(json => {
         const count = json.totalRecords;
         if (count === 0) {
           this.showCallout('error', `no item with barcode '${barcode}'`);
-          console.log(`no item with barcode '${barcode}'`);
           return;
         }
         if (count > 1) {
           this.showCallout('error', `${count} items with barcode '${barcode}': using first`);
-          console.warn(`${count} items with barcode '${barcode}': using first`);
         }
         const itemId = json.items[0].id;
         this.props.mutator.reserves.POST({ courseListingId, itemId })
           .then(rec => {
             // XXX We never see this callout due to the re-render. Oh well.
             this.showCallout('success', `Added item "${rec.copiedItem.title}"`);
-            console.log(`Added item "${rec.copiedItem.title}"`);
           })
           .catch(exception => {
             this.showCallout('error', `Failed to add item: ${exception}`);
-            console.log(`Failed to add item: ${exception}`);
           });
       });
     });
