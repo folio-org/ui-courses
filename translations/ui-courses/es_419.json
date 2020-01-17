@@ -99,5 +99,7 @@
     "cloneCourse": "New course within listing",
     "button.clone": "Clone",
     "clone": "Clone course",
-    "front.welcome": "Welcome to Course Reserves!"
+    "front.welcome": "Welcome to Course Reserves!",
+    "addItem": "Add an item to this course's reserves",
+    "button.addItem": "Add item"
 }
