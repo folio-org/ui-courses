@@ -47,7 +47,7 @@
     "accordion.term.help": "جدول المقرر الحالي",
     "accordion.organization": "المؤسسة",
     "accordion.organization.help": "بيانات محلية",
-    "accordion.reserves": "المواد",
+    "accordion.reserves": "مواد",
     "accordion.reserves.help": "المواد المحجوزة لهذا المقرر",
     "accordion.developer": "بيانات المطور",
     "accordion.developer.help": "( تفريغ JSON للتسجيلة الخام)",
@@ -99,5 +99,7 @@
     "cloneCourse": "مقرر جديد في القائمة",
     "button.clone": "نسخ",
     "clone": "نسخ المقرر",
-    "front.welcome": "مرحبًا بكم في الحجز الأكاديمي!"
+    "front.welcome": "مرحبًا بكم في الحجز الأكاديمي!",
+    "addItem": "إضافة مادة إلى الحجز الأكاديمي",
+    "button.addItem": "إضافة مادة"
 }

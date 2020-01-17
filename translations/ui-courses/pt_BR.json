@@ -99,5 +99,7 @@
     "cloneCourse": "Novo curso na listagem",
     "button.clone": "Clonar",
     "clone": "Clonar curso",
-    "front.welcome": "Bem-vindo ao módulo Bibliografias!"
+    "front.welcome": "Bem-vindo ao módulo Bibliografias!",
+    "addItem": "Adicionar um item às bibliografias deste curso",
+    "button.addItem": "Adicionar item"
 }

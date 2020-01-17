@@ -99,5 +99,7 @@
     "cloneCourse": "列表中的新课程",
     "button.clone": "克隆",
     "clone": "克隆课程",
-    "front.welcome": "欢迎来到教学参考书！"
+    "front.welcome": "欢迎来到教学参考书！",
+    "addItem": "Add an item to this course's reserves",
+    "button.addItem": "Add item"
 }
