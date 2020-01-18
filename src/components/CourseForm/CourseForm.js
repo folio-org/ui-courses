@@ -37,7 +37,7 @@ class CourseForm extends React.Component {
     pristine: PropTypes.bool,
     submitting: PropTypes.bool,
     values: PropTypes.object,
-    isClone: PropTypes.bool,
+    isCrosslist: PropTypes.bool,
   }
 
   getSectionProps(id) {
@@ -125,15 +125,16 @@ class CourseForm extends React.Component {
   }
 
   render() {
-    const { isLoading, values: { id, name }, isClone } = this.props;
+    const { isLoading, values: { id, name }, isCrosslist } = this.props;
     if (isLoading) return this.renderLoadingPane();
+    const clKey = isCrosslist ? 'courseFormCrosslisting' : 'courseFormListing';
 
     return (
       <Paneset>
         <FormattedMessage id="ui-courses.create">
           {create => (
-            <FormattedMessage id="ui-courses.clone">
-              {clone => (
+            <FormattedMessage id="ui-courses.crosslist">
+              {crosslist => (
                 <Pane
                   appIcon={<AppIcon app="courses" />}
                   defaultWidth="100%"
@@ -142,19 +143,19 @@ class CourseForm extends React.Component {
                   id="pane-course-form"
                   paneTitle={
                     id ? name :
-                      isClone ?
-                        <FormattedMessage id="ui-courses.cloneCourse" /> :
+                      isCrosslist ?
+                        <FormattedMessage id="ui-courses.crosslistCourse" /> :
                         <FormattedMessage id="ui-courses.createCourse" />
                     }
                 >
-                  <TitleManager record={id ? name : isClone ? clone : create}>
+                  <TitleManager record={id ? name : isCrosslist ? crosslist : create}>
                     <form id="form-course">
                       <AccordionSet>
                         <VCAccordion action="edit" id="courseFormInfo">
                           <CourseFormInfo {...this.getSectionProps('courseFormInfo')} />
                         </VCAccordion>
-                        <VCAccordion action="edit" id="courseFormListing">
-                          <CourseFormListing {...this.getSectionProps('courseFormListing')} />
+                        <VCAccordion action="edit" id={clKey}>
+                          <CourseFormListing {...this.getSectionProps(clKey)} />
                         </VCAccordion>
                         <VCAccordion action="edit" id="courseFormInstructors">
                           <CourseFormInstructors {...this.getSectionProps('courseFormInstructors')} />

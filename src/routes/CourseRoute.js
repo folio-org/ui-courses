@@ -86,9 +86,9 @@ class CourseRoute extends React.Component {
 
   urls = {
     edit: () => `${this.props.location.pathname}/edit${this.props.location.search}`,
-    clone: () => {
+    crosslist: () => {
       const clid = get(this.props.resources, 'course.records[0].courseListingId');
-      return `${this.props.location.pathname}/clone/${clid}${this.props.location.search}`;
+      return `${this.props.location.pathname}/crosslist/${clid}${this.props.location.search}`;
     }
   }
 

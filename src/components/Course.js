@@ -40,16 +40,16 @@ class Course extends React.Component {
             </Button>
           )}
         </FormattedMessage>
-        <FormattedMessage id="ui-courses.cloneCourse">
+        <FormattedMessage id="ui-courses.crosslistCourse">
           {ariaLabel => (
             <Button
               aria-label={ariaLabel}
               buttonStyle="primary"
-              id="clickable-clone-course"
+              id="clickable-crosslist-course"
               marginBottom0
-              to={this.props.urls.clone()}
+              to={this.props.urls.crosslist()}
             >
-              <FormattedMessage id="ui-courses.button.clone" />
+              <FormattedMessage id="ui-courses.button.crosslist" />
             </Button>
           )}
         </FormattedMessage>

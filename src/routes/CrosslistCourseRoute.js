@@ -5,7 +5,7 @@ import { stripesConnect } from '@folio/stripes/core';
 import CourseForm from '../components/CourseForm';
 import NoPermissions from '../components/NoPermissions';
 
-class CloneCourseRoute extends React.Component {
+class CrosslistCourseRoute extends React.Component {
   static manifest = Object.freeze({
     courses: {
       type: 'okapi',
@@ -147,10 +147,10 @@ class CloneCourseRoute extends React.Component {
         handlers={{ ...handlers, onClose: this.handleClose }}
         isLoading={this.fetchIsPending()}
         onSubmit={this.handleSubmit}
-        isClone
+        isCrosslist
       />
     );
   }
 }
 
-export default stripesConnect(CloneCourseRoute);
+export default stripesConnect(CrosslistCourseRoute);
