@@ -172,7 +172,7 @@ class Courses extends React.Component {
       registrarId: r => get(r, 'courseListingObject.registrarId'),
       startDate: r => get(r, 'courseListingObject.termObject.startDate'),
       endDate: r => get(r, 'courseListingObject.termObject.endDate'),
-      instructor: _r => '[NYI]',
+      instructor: r => get(r, 'courseListingObject.instructorObjects', []).map(i => i.name).join('; '),
       status: r => calculateStatus(get(r, 'courseListingObject.termObject')),
     };
 
