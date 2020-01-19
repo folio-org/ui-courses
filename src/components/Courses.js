@@ -262,7 +262,7 @@ class Courses extends React.Component {
                       department: 120,
                       startDate: 100,
                       endDate: 100,
-                      instructor: 100,
+                      instructor: 180,
                       status: 100,
                     }}
                     contentData={coursesData.courses}
