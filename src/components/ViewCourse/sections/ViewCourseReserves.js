@@ -72,7 +72,7 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
                   <VCKeyValue id="contributor" value={contributors} />
                 </Col>
                 <Col xs={3}>
-                  <VCKeyValue id="permanentLocation" value={copiedItem.permanentLocation} />
+                  <VCKeyValue id="permanentLocation" value={copiedItem.permanentLocationId} />
                 </Col>
                 <Col xs={3}>
                   <VCKeyValue id="callNumber" value={copiedItem.callNumber} />
