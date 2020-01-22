@@ -29,6 +29,13 @@ class AddReserve extends React.Component {
       fetch: false,
       shouldRefresh: () => false,
     },
+    barcode: { initialValue: 'badBarcode' },
+    itemByBarcode: {
+      type: 'okapi',
+      fetch: false,
+      path: 'item-storage/items?query=barcode=%{barcode}',
+      accumulate: true // This is the misnamed provide-a-GET-mutator property
+    }
   };
 
   constructor() {
@@ -42,24 +49,10 @@ class AddReserve extends React.Component {
 
   addItem(e, courseListingId) {
     const barcode = document.getElementById('add-item-barcode').value;
+    const { mutator } = this.props;
 
-    const { url, tenant, token } = this.props.stripes.okapi;
-    fetch(`${url}/item-storage/items?query=barcode=${barcode}`, {
-      headers: {
-        'X-Okapi-Tenant': tenant,
-        'X-Okapi-Token': token,
-        'Accept': 'application/json',
-      },
-    }).catch(error => {
-      this.showCallout('error', `could not fetch item: ${error}`);
-    }).then(res => {
-      if (res.status !== 200) {
-        this.showCallout('error', `could not find item: HTTP status ${res.status} (${res.statusText})`);
-        return;
-      }
-      res.json().catch(error => {
-        this.showCallout('error', `could not parse result as JSON: ${error}`);
-      }).then(json => {
+    mutator.barcode.replace(barcode); // Should works as this is synchronous
+    mutator.itemByBarcode.GET().then(json => {
         const count = json.totalRecords;
         if (count === 0) {
           this.showCallout('error', `no item with barcode '${barcode}'`);
@@ -78,7 +71,6 @@ class AddReserve extends React.Component {
             this.showCallout('error', `Failed to add item: ${exception}`);
           });
       });
-    });
   }
 
   render() {
