@@ -53,24 +53,24 @@ class AddReserve extends React.Component {
 
     mutator.barcode.replace(barcode); // Should works as this is synchronous
     mutator.itemByBarcode.GET().then(json => {
-        const count = json.totalRecords;
-        if (count === 0) {
-          this.showCallout('error', `no item with barcode '${barcode}'`);
-          return;
-        }
-        if (count > 1) {
-          this.showCallout('error', `${count} items with barcode '${barcode}': using first`);
-        }
-        const itemId = json.items[0].id;
-        this.props.mutator.reserves.POST({ courseListingId, itemId })
-          .then(rec => {
-            // XXX We never see this callout due to the re-render. Oh well.
-            this.showCallout('success', `Added item "${rec.copiedItem.title}"`);
-          })
-          .catch(exception => {
-            this.showCallout('error', `Failed to add item: ${exception}`);
-          });
-      });
+      const count = json.totalRecords;
+      if (count === 0) {
+        this.showCallout('error', `no item with barcode '${barcode}'`);
+        return;
+      }
+      if (count > 1) {
+        this.showCallout('error', `${count} items with barcode '${barcode}': using first`);
+      }
+      const itemId = json.items[0].id;
+      this.props.mutator.reserves.POST({ courseListingId, itemId })
+        .then(rec => {
+          // XXX We never see this callout due to the re-render. Oh well.
+          this.showCallout('success', `Added item "${rec.copiedItem.title}"`);
+        })
+        .catch(exception => {
+          this.showCallout('error', `Failed to add item: ${exception}`);
+        });
+    });
   }
 
   render() {
