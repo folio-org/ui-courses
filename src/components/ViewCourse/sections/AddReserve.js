@@ -51,7 +51,7 @@ class AddReserve extends React.Component {
     const barcode = document.getElementById('add-item-barcode').value;
     const { mutator } = this.props;
 
-    mutator.barcode.replace(barcode); // Should works as this is synchronous
+    mutator.barcode.replace(barcode); // Should work as this is synchronous
     mutator.itemByBarcode.GET().then(json => {
       const count = json.totalRecords;
       if (count === 0) {
