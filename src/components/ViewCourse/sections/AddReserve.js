@@ -29,11 +29,10 @@ class AddReserve extends React.Component {
       fetch: false,
       shouldRefresh: () => false,
     },
-    barcode: { initialValue: 'badBarcode' },
     itemByBarcode: {
       type: 'okapi',
       fetch: false,
-      path: 'item-storage/items?query=barcode=%{barcode}',
+      path: 'item-storage/items',
       accumulate: true // This is the misnamed provide-a-GET-mutator property
     }
   };
@@ -51,8 +50,7 @@ class AddReserve extends React.Component {
     const barcode = document.getElementById('add-item-barcode').value;
     const { mutator } = this.props;
 
-    mutator.barcode.replace(barcode); // Should work as this is synchronous
-    mutator.itemByBarcode.GET().then(json => {
+    mutator.itemByBarcode.GET({ params: { query: `barcode="${barcode}"` } }).then(json => {
       const count = json.totalRecords;
       if (count === 0) {
         this.showCallout('error', `no item with barcode '${barcode}'`);
