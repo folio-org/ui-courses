@@ -96,10 +96,11 @@
     "column.registrarId": "ID do registrador",
     "accordion.courseFormInstructors": "Instrutores do curso",
     "accordion.courseFormInstructors.help": " ",
-    "cloneCourse": "Novo curso na listagem",
-    "button.clone": "Clonar",
-    "clone": "Clonar curso",
     "front.welcome": "Bem-vindo ao módulo Bibliografias!",
     "addItem": "Adicionar um item às bibliografias deste curso",
-    "button.addItem": "Adicionar item"
+    "button.addItem": "Adicionar item",
+    "crosslistCourse": "Novo curso na listagem",
+    "button.crosslist": "Lista cruzada",
+    "accordion.courseFormCrosslisting": "Informações de listagem cruzada",
+    "crosslist": "Listas cruzadas dos cursos"
 }

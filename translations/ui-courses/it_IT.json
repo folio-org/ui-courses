@@ -58,7 +58,7 @@
     "field.courseType": "Course type",
     "field.registrarId": "Registrar ID",
     "field.externalId": "External ID",
-    "field.barcode": "Barcode",
+    "field.barcode": "Codice a barre",
     "field.patronGroup": "Patron group",
     "field.term": "Termine",
     "field.startDate": "Start date",
@@ -96,10 +96,11 @@
     "column.registrarId": "Registrar ID",
     "accordion.courseFormInstructors": "Course instructors",
     "accordion.courseFormInstructors.help": " ",
-    "cloneCourse": "New course within listing",
-    "button.clone": "Clone",
-    "clone": "Clone course",
     "front.welcome": "Welcome to Course Reserves!",
     "addItem": "Add an item to this course's reserves",
-    "button.addItem": "Add item"
+    "button.addItem": "Add item",
+    "crosslistCourse": "New course within listing",
+    "button.crosslist": "Crosslist",
+    "accordion.courseFormCrosslisting": "Cross listing information",
+    "crosslist": "Crosslist course"
 }
