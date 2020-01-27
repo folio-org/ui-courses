@@ -20,7 +20,7 @@ const filterConfig = [];
 
 class CoursesRoute extends React.Component {
   static propTypes = {
-    children: PropTypes.object.isRequired,
+    children: PropTypes.object,
     stripes: PropTypes.shape({
       logger: PropTypes.object.isRequired,
     }).isRequired,

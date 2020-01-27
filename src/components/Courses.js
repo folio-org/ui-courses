@@ -46,7 +46,7 @@ class Courses extends React.Component {
     location: PropTypes.shape({
       search: PropTypes.string.isRequired,
     }).isRequired,
-    children: PropTypes.object.isRequired,
+    children: PropTypes.object,
     coursesData: PropTypes.shape({
       courses: PropTypes.arrayOf(
         PropTypes.object,
