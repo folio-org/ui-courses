@@ -96,10 +96,11 @@
     "column.registrarId": "معرف المسجل",
     "accordion.courseFormInstructors": "مدرسي المقرر الدراسي",
     "accordion.courseFormInstructors.help": ".",
-    "cloneCourse": "مقرر جديد في القائمة",
-    "button.clone": "نسخ",
-    "clone": "نسخ المقرر",
     "front.welcome": "مرحبًا بكم في الحجز الأكاديمي!",
     "addItem": "إضافة مادة إلى الحجز الأكاديمي",
-    "button.addItem": "إضافة مادة"
+    "button.addItem": "إضافة مادة",
+    "crosslistCourse": "مقرر جديد في القائمة",
+    "button.crosslist": "قائمة متداخلة",
+    "accordion.courseFormCrosslisting": "بيانات التداخل",
+    "crosslist": "مقرر متداخل"
 }
