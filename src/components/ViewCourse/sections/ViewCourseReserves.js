@@ -62,8 +62,14 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
           const termObject = courseListingObject.termObject || {};
           const item = itemMap[record.itemId];
 
+          const linkToItem = (
+            <a rel="noopener noreferrer" target="_blank" href={`/inventory/items/view/${record.itemId}`}>
+              Item title: <i>{copiedItem.title}</i>
+            </a>
+          );
+
           return (
-            <Card key={index} headerStart={<span>Item title: <i>{copiedItem.title}</i></span>}>
+            <Card key={index} headerStart={linkToItem}>
               <Row>
                 <Col xs={3}>
                   <VCKeyValue id="itemBarcode" value={copiedItem.barcode} />
