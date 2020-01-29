@@ -10,12 +10,12 @@ import {
   PaneFooter,
   PaneMenu,
   Paneset,
+  Spinner,
 } from '@folio/stripes/components';
 import { AppIcon, TitleManager } from '@folio/stripes/core';
 import stripesFinalForm from '@folio/stripes/final-form';
 import { isEqual } from 'lodash';
 import setFieldData from 'final-form-set-field-data';
-import { Spinner } from '@folio/stripes-erm-components';
 import VCAccordion from '../ViewCourse/VCAccordion';
 import {
   CourseFormInfo,

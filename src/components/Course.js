@@ -6,9 +6,9 @@ import {
   Layout,
   Pane,
   PaneMenu,
+  Spinner,
 } from '@folio/stripes/components';
 import { AppIcon, TitleManager } from '@folio/stripes/core';
-import { Spinner } from '@folio/stripes-erm-components';
 import ViewCourse from './ViewCourse';
 
 
