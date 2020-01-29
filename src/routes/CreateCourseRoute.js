@@ -103,7 +103,7 @@ class CreateCourseRoute extends React.Component {
 
   getFirstOption(resource) {
     const entries = get(this.props.resources, `${resource}.records.0.${resource}`);
-    return (!entries) ? '1' : entries[0].id;
+    return (!entries || !entries[0]) ? '1' : entries[0].id;
   }
 
   render() {
