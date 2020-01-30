@@ -62,8 +62,10 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
           const termObject = courseListingObject.termObject || {};
           const item = itemMap[record.itemId];
 
+          // const href = `/inventory/items/view/${record.itemId}`;
+          const href = `/inventory/items?qindex=item.barcode&query=${copiedItem.barcode}`;
           const linkToItem = (
-            <a rel="noopener noreferrer" target="_blank" href={`/inventory/items/view/${record.itemId}`}>
+            <a rel="noopener noreferrer" target="_blank" href={href}>
               Item title: <i>{copiedItem.title}</i>
             </a>
           );
