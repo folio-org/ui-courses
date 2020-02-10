@@ -25,7 +25,7 @@
     "createCourse": "Criar curso",
     "searchInputLabel": "Pesquisar cursos",
     "column.name": "Nome do curso",
-    "column.courseNumber": "Código/número do curso",
+    "column.courseNumber": "Código do curso",
     "column.department": "Departamento",
     "column.serviceDesk": "Balcão de atendimento",
     "column.startDate": "Data de início",
