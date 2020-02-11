@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ReserveRoute = (props) => (
-  <p>This is the single reserve {props.match.params.id}</p>
+  <p>
+    This is the single reserve
+    {props.match.params.id}
+  </p>
 );
 
 ReserveRoute.propTypes = {
