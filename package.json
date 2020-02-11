@@ -6,6 +6,7 @@
   "license": "Apache-2.0",
   "main": "src/index.js",
   "scripts": {
+    "test": "stripes test karma --karma.singleRun",
     "lint": "eslint ."
   },
   "stripes": {
@@ -52,7 +53,19 @@
     ]
   },
   "devDependencies": {
-    "@folio/eslint-config-stripes": "^4.2.100042"
+    "@bigtest/interactor": "^0.9.3",
+    "@bigtest/mirage": "^0.0.1",
+    "@bigtest/mocha": "^0.5.2",
+    "@bigtest/react": "^0.1.2",
+    "@folio/eslint-config-stripes": "^4.2.100042",
+    "@folio/stripes": "^2.13.100069",
+    "@folio/stripes-cli": "^1.14.1000205",
+    "@folio/stripes-core": "*",
+    "chai": "^4.2.0",
+    "core-js": "^3.6.4",
+    "react": "~16.8.6",
+    "react-dom": "~16.8.6",
+    "regenerator-runtime": "^0.13.3"
   },
   "peerDependencies": {
     "@folio/stripes": "*",
