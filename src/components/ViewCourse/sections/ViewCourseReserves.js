@@ -66,7 +66,8 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
           const href = `/inventory/items?qindex=item.barcode&query=${copiedItem.barcode}`;
           const linkToItem = (
             <a rel="noopener noreferrer" target="_blank" href={href}>
-              Item title: <i>{copiedItem.title}</i>
+              Item title:
+              <i>{copiedItem.title}</i>
             </a>
           );
 
