@@ -1,0 +1,5 @@
+#!/bin/sh
+
+export FOLIO_UI_USERNAME=sim_admin
+export FOLIO_UI_PASSWORD=edelweiss012020
+yarn stripes test nightmare --port 3001 ${@+"$@"}
