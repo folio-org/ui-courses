@@ -37,11 +37,6 @@ class CrosslistCourseRoute extends React.Component {
       path: 'locations',
       shouldRefresh: () => false,
     },
-    servicepoints: {
-      type: 'okapi',
-      path: 'service-points',
-      shouldRefresh: () => false,
-    },
     instructors: {
       type: 'okapi',
       path: 'coursereserves/courselistings/:{clid}/instructors',
@@ -141,7 +136,6 @@ class CrosslistCourseRoute extends React.Component {
           coursetypes: this.getOptions('coursetypes', 'courseTypes'),
           terms: this.getOptions('terms'),
           locations: this.getOptions('locations'),
-          servicepoints: this.getOptions('servicepoints'),
         }}
         initialValues={this.getInitialValues()}
         handlers={{ ...handlers, onClose: this.handleClose }}

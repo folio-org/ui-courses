@@ -76,23 +76,13 @@ export default class CourseFormInfo extends React.Component {
           </Col>
         </Row>
         <Row>
-          <Col xs={6}>
+          <Col xs={12}>
             <Field
               component={Select}
               dataOptions={data.locations}
               id="edit-course-location"
               label={<FormattedMessage id="ui-courses.field.location" />}
               name="courseListingObject.locationId"
-              required
-            />
-          </Col>
-          <Col xs={6}>
-            <Field
-              component={Select}
-              dataOptions={data.servicepoints}
-              id="edit-course-servicepoint"
-              label={<FormattedMessage id="ui-courses.field.serviceDesk" />}
-              name="courseListingObject.servicepointId"
               required
             />
           </Col>

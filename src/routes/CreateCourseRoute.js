@@ -39,11 +39,6 @@ class CreateCourseRoute extends React.Component {
       path: 'locations',
       shouldRefresh: () => false,
     },
-    servicepoints: {
-      type: 'okapi',
-      path: 'service-points',
-      shouldRefresh: () => false,
-    },
   });
 
   static propTypes = {
@@ -118,7 +113,6 @@ class CreateCourseRoute extends React.Component {
           coursetypes: this.getOptions('coursetypes', 'courseTypes'),
           terms: this.getOptions('terms'),
           locations: this.getOptions('locations'),
-          servicepoints: this.getOptions('servicepoints'),
         }}
         initialValues={{
           departmentId: this.getFirstOption('departments'),

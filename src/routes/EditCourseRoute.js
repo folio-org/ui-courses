@@ -39,11 +39,6 @@ class EditCourseRoute extends React.Component {
       path: 'locations',
       shouldRefresh: () => false,
     },
-    servicepoints: {
-      type: 'okapi',
-      path: 'service-points',
-      shouldRefresh: () => false,
-    },
     instructors: {
       type: 'okapi',
       path: (_q, _p, _r, _l, props) => {
@@ -149,7 +144,6 @@ class EditCourseRoute extends React.Component {
           coursetypes: this.getOptions('coursetypes', 'courseTypes'),
           terms: this.getOptions('terms'),
           locations: this.getOptions('locations'),
-          servicepoints: this.getOptions('servicepoints'),
         }}
         handlers={{ ...handlers, onClose: this.handleClose }}
         initialValues={this.getInitialValues()}
