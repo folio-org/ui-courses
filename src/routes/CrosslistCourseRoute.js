@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { get } from 'lodash';
+import get from 'lodash/get';
 import { stripesConnect } from '@folio/stripes/core';
 import CourseForm from '../components/CourseForm';
 import NoPermissions from '../components/NoPermissions';
