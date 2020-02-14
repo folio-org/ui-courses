@@ -84,20 +84,6 @@ class CrosslistCourseRoute extends React.Component {
     handlers: {},
   }
 
-  getInitialValues = () => {
-    const { resources } = this.props;
-    const courselisting = get(resources, 'courselisting.records[0]', {});
-    const initialValues = { courseListingObject: courselisting };
-    const {
-      department = {},
-    } = initialValues;
-
-    // Set the values of dropdown-controlled props as values rather than objects.
-    initialValues.department = department.value;
-
-    return initialValues;
-  }
-
   handleClose = () => {
     const { location, match } = this.props;
     this.props.history.push(`/cr/courses/${match.params.id}${location.search}`);
@@ -124,6 +110,11 @@ class CrosslistCourseRoute extends React.Component {
       .map(x => ({ value: x.id, label: x.name }));
   }
 
+  getFirstOption(resource) {
+    const entries = get(this.props.resources, `${resource}.records.0.${resource}`);
+    return (!entries || !entries[0]) ? '1' : entries[0].id;
+  }
+
   render() {
     const { handlers, stripes } = this.props;
 
@@ -137,7 +128,10 @@ class CrosslistCourseRoute extends React.Component {
           terms: this.getOptions('terms'),
           locations: this.getOptions('locations'),
         }}
-        initialValues={this.getInitialValues()}
+        initialValues={{
+          departmentId: this.getFirstOption('departments'),
+          courseListingObject: get(this.props.resources, 'courselisting.records[0]', {}),
+        }}
         handlers={{ ...handlers, onClose: this.handleClose }}
         isLoading={this.fetchIsPending()}
         onSubmit={this.handleSubmit}
