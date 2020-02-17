@@ -37,6 +37,7 @@
     "column.status": "Status",
     "loading": "Loading...",
     "editCourse": "Edit course",
+    "editReserve": "Edit reserve",
     "crosslistCourse": "New course within listing",
     "button.crosslist": "Crosslist",
     "status.pending": "Pending",
