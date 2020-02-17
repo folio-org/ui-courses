@@ -25,14 +25,12 @@ import {
 class CourseForm extends React.Component {
   static propTypes = {
     data: PropTypes.object,
-    dispatch: PropTypes.func,
     handlers: PropTypes.PropTypes.shape({
       onClose: PropTypes.func.isRequired,
     }),
     handleSubmit: PropTypes.func.isRequired,
     isLoading: PropTypes.bool,
     form: PropTypes.object,
-    onSubmit: PropTypes.func.isRequired,
     pristine: PropTypes.bool,
     submitting: PropTypes.bool,
     values: PropTypes.object,
