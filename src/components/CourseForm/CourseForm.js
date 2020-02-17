@@ -5,18 +5,17 @@ import {
   AccordionSet,
   Button,
   IconButton,
-  Layout,
   Pane,
   PaneFooter,
   PaneMenu,
   Paneset,
-  Spinner,
 } from '@folio/stripes/components';
 import { AppIcon, TitleManager } from '@folio/stripes/core';
 import stripesFinalForm from '@folio/stripes/final-form';
 import { isEqual } from 'lodash';
 import setFieldData from 'final-form-set-field-data';
 import VCAccordion from '../ViewCourse/VCAccordion';
+import LoadingPaneSet from '../LoadingPaneSet';
 import {
   CourseFormInfo,
   CourseFormListing,
@@ -50,24 +49,6 @@ class CourseForm extends React.Component {
       mutators,
       values,
     };
-  }
-
-  renderLoadingPane = () => {
-    return (
-      <Paneset>
-        <Pane
-          dismissible
-          defaultWidth="100%"
-          id="pane-course-form"
-          onClose={this.props.handlers.onClose}
-          paneTitle={<FormattedMessage id="ui-courses.loading" />}
-        >
-          <Layout className="marginTop1">
-            <Spinner />
-          </Layout>
-        </Pane>
-      </Paneset>
-    );
   }
 
   renderPaneFooter() {
@@ -126,7 +107,7 @@ class CourseForm extends React.Component {
 
   render() {
     const { isLoading, values: { id, name }, isCrosslist } = this.props;
-    if (isLoading) return this.renderLoadingPane();
+    if (isLoading) return <LoadingPaneSet onClose={this.props.handlers.onClose} />;
     const clKey = isCrosslist ? 'courseFormCrosslisting' : 'courseFormListing';
 
     return (
