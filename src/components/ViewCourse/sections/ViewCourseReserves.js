@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 import get from 'lodash/get';
-import { Card, Col, Row } from '@folio/stripes/components';
+import { Button, Card, Col, Row } from '@folio/stripes/components';
 import VCKeyValue from './VCKeyValue';
 import AddReserve from './AddReserve';
 
@@ -71,8 +72,24 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
             </a>
           );
 
+          const editButton = (
+            <FormattedMessage id="ui-courses.editReserve">
+              {ariaLabel => (
+                <Button
+                  aria-label={ariaLabel}
+                  buttonStyle="primary"
+                  id={`clickable-edit-reserve-${index}`}
+                  marginBottom0
+                  to={`../reserves/${record.courseListingId}/${course.id}/${record.id}/edit`}
+                >
+                  <FormattedMessage id="stripes-components.button.edit" />
+                </Button>
+              )}
+            </FormattedMessage>
+          );
+
           return (
-            <Card key={index} headerStart={linkToItem}>
+            <Card key={index} headerStart={linkToItem} headerEnd={editButton}>
               <Row>
                 <Col xs={3}>
                   <VCKeyValue id="itemBarcode" value={copiedItem.barcode} />
