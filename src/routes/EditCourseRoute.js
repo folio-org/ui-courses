@@ -39,24 +39,6 @@ class EditCourseRoute extends React.Component {
       path: 'locations',
       shouldRefresh: () => false,
     },
-    instructors: {
-      type: 'okapi',
-      path: (_q, _p, _r, _l, props) => {
-        const rec = get(props.resources, 'course.records.0');
-        if (!rec) return null;
-        return `coursereserves/courselistings/${rec.courseListingId}/instructors`;
-      },
-      records: 'instructors',
-    },
-    reserves: {
-      type: 'okapi',
-      path: (_q, _p, _r, _l, props) => {
-        const rec = get(props.resources, 'course.records.0');
-        if (!rec) return null;
-        return `coursereserves/courselistings/${rec.courseListingId}/reserves`;
-      },
-      records: 'reserves',
-    },
   });
 
   static propTypes = {
