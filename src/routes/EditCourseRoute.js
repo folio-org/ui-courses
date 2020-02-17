@@ -55,6 +55,10 @@ class EditCourseRoute extends React.Component {
         id: PropTypes.string.isRequired,
       }).isRequired,
     }).isRequired,
+    resources: PropTypes.shape({
+      course: PropTypes.object,
+      departments: PropTypes.object,
+    }).isRequired,
     mutator: PropTypes.shape({
       course: PropTypes.shape({
         PUT: PropTypes.func.isRequired,
@@ -62,10 +66,6 @@ class EditCourseRoute extends React.Component {
       courselisting: PropTypes.shape({
         PUT: PropTypes.func.isRequired,
       }).isRequired,
-    }).isRequired,
-    resources: PropTypes.shape({
-      course: PropTypes.object,
-      departments: PropTypes.object,
     }).isRequired,
     stripes: PropTypes.shape({
       hasPerm: PropTypes.func.isRequired,
