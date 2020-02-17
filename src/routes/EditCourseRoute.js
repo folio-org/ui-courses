@@ -4,6 +4,7 @@ import { cloneDeep, get } from 'lodash';
 import { stripesConnect } from '@folio/stripes/core';
 import CourseForm from '../components/CourseForm';
 import NoPermissions from '../components/NoPermissions';
+import fetchIsPending from '../util/fetchIsPending';
 
 class EditCourseRoute extends React.Component {
   static manifest = Object.freeze({
@@ -103,12 +104,6 @@ class EditCourseRoute extends React.Component {
       .then(this.handleClose);
   }
 
-  fetchIsPending = () => {
-    return Object.values(this.props.resources)
-      .filter(resource => resource)
-      .some(resource => resource.isPending);
-  }
-
   getOptions(resource, element) {
     return get(this.props.resources, `${resource}.records.0.${element || resource}`, [])
       .map(x => ({ value: x.id, label: x.name }));
@@ -134,7 +129,7 @@ class EditCourseRoute extends React.Component {
         }}
         handlers={{ ...handlers, onClose: this.handleClose }}
         initialValues={this.getInitialValues()}
-        isLoading={this.fetchIsPending()}
+        isLoading={fetchIsPending(this.props.resources)}
         onSubmit={this.handleSubmit}
       />
     );
