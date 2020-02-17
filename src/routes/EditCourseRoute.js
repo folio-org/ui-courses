@@ -137,6 +137,11 @@ class EditCourseRoute extends React.Component {
 
     if (!stripes.hasPerm('course-reserves-storage.reserves.write')) return <NoPermissions />;
 
+    // Note: TOO MUCH MAGIC here. We pass `onSubmit`, which is not
+    // used by <CourseForm>. It _is_ used by react-final-form's
+    // <Form>, but that is not used. But <CourseForm> is wrapped in
+    // stripesFinalForm, which _implicitly_ invokes <Form>, passing in
+    // the props (including `onSubmit`).
     return (
       <CourseForm
         data={{
