@@ -10,8 +10,8 @@ import CourseRoute from './routes/CourseRoute';
 import CreateCourseRoute from './routes/CreateCourseRoute';
 import EditCourseRoute from './routes/EditCourseRoute';
 import CrosslistCourseRoute from './routes/CrosslistCourseRoute';
-import ReservesRoute from './routes/ReservesRoute';
 import ReserveRoute from './routes/ReserveRoute';
+import EditReserveRoute from './routes/EditReserveRoute';
 
 class CoursesApp extends React.Component {
   static propTypes = {
@@ -42,9 +42,10 @@ class CoursesApp extends React.Component {
             <NestedRoute path={`${path}/courses/:id/crosslist/:clid`} component={CrosslistCourseRoute} />
           </Switch>
         </NestedRoute>
-        <NestedRoute path={`${path}/reserves`} component={ReservesRoute}>
+        <NestedRoute path={`${path}/reserves`} component={FullScreenRoute}>
           <Switch>
-            <NestedRoute path={`${path}/reserves/:id`} exact component={ReserveRoute} />
+            <NestedRoute path={`${path}/reserves/:clid/:cid/:id`} exact component={ReserveRoute} />
+            <NestedRoute path={`${path}/reserves/:clid/:cid/:id/edit`} component={EditReserveRoute} />
           </Switch>
         </NestedRoute>
       </Switch>
