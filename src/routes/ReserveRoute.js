@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const ReserveRoute = (props) => (
   <p>
     This is the single reserve
+    &nbsp;
     {props.match.params.id}
   </p>
 );
