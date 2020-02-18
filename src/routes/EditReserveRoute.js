@@ -84,8 +84,8 @@ class EditReserveRoute extends React.Component {
     return (
       <ReserveForm
         data={{
-          reserve: resources?.reserve?.records[0], // XXX redundant
-          courselisting: resources?.courselisting?.records[0],
+          reserve: get(resources, 'reserve.records.0'), // XXX redundant
+          courselisting: get(resources, 'courselisting.records.0'),
           loanTypes: this.getOptions('loanTypes', 'loantypes'),
           processingStatuses: this.getOptions('processingStatuses'),
         }}
