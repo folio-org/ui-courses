@@ -62,6 +62,9 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
           const courseListingObject = course.courseListingObject || {};
           const termObject = courseListingObject.termObject || {};
           const item = itemMap[record.itemId];
+          const ps = get(record, 'processingStatusObject.name') || record.processingStatusId;
+          const tlt = get(record, 'temporaryLoanTypeObject.name') || record.temporaryLoanTypeId;
+          const cipl = get(record, 'copiedItem.permanentLocationObject.name') || copiedItem.permanentLocationId;
 
           // const href = `/inventory/items/view/${record.itemId}`;
           const href = `/inventory/items?qindex=item.barcode&query=${copiedItem.barcode}`;
@@ -98,7 +101,7 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
                   <VCKeyValue id="contributor" value={contributors} />
                 </Col>
                 <Col xs={3}>
-                  <VCKeyValue id="permanentLocation" value={copiedItem.permanentLocationId} />
+                  <VCKeyValue id="permanentLocation" value={cipl} />
                 </Col>
                 <Col xs={3}>
                   <VCKeyValue id="callNumber" value={copiedItem.callNumber} />
@@ -123,10 +126,10 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
                   <VCKeyValue id="temporaryLocation" value={copiedItem.temporaryLocationId} />
                 </Col>
                 <Col xs={3}>
-                  <VCKeyValue id="temporaryLoanType" value={record.temporaryLoanTypeId} />
+                  <VCKeyValue id="temporaryLoanType" value={tlt} />
                 </Col>
                 <Col xs={3}>
-                  <VCKeyValue id="processingStatus" value={record.processingStatusId} />
+                  <VCKeyValue id="processingStatus" value={ps} />
                 </Col>
                 <Col xs={3}>
                   <VCKeyValue id="urlLink" value={copiedItem.url} />
