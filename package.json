@@ -82,12 +82,11 @@
       {
         "permissionName": "course-reserves.read-add-edit",
         "displayName": "Courses: Read, Add, edit",
-        "description": "Allows user the ability to read, add and edit Course Records - but not to delete",
+        "description": "Allows user the ability to read, add and edit Course Records - but not to delete. (Does not include item add, edit and remove)",
         "subPermissions": [
           "module.courses.enabled",
 	  "course-reserves-storage.courselistings.write",
 	  "course-reserves-storage.courses.write",
-	  "course-reserves-storage.reserves.write"
         ],
         "visible": true
       },
