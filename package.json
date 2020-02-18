@@ -86,7 +86,7 @@
         "subPermissions": [
           "module.courses.enabled",
 	  "course-reserves-storage.courselistings.write",
-	  "course-reserves-storage.courses.write",
+	  "course-reserves-storage.courses.write"
         ],
         "visible": true
       },
