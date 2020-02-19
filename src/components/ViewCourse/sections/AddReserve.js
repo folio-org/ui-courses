@@ -50,7 +50,7 @@ class AddReserve extends React.Component {
     const barcode = document.getElementById('add-item-barcode').value;
     const { mutator } = this.props;
 
-    mutator.reserves.POST({ courseListingId, barcode })
+    mutator.reserves.POST({ courseListingId, copiedItem: { barcode } })
       .then(rec => {
         // XXX We never see this callout due to the re-render. Oh well.
         this.showCallout('success', `Added item "${rec.copiedItem.title}"`);
