@@ -76,7 +76,7 @@ class AddReserve extends React.Component {
       <React.Fragment>
         <hr />
         <form id="form-course-item">
-          <TextField autoFocus label="Enter or scan barcode" id="add-item-barcode" />
+          <TextField label="Enter or scan barcode" id="add-item-barcode" />
           <FormattedMessage id="ui-courses.addItem">
             {ariaLabel => (
               <Button
