@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, FormattedDate } from 'react-intl';
 import get from 'lodash/get';
 import { Button, Card, Col, Row } from '@folio/stripes/components';
 import VCKeyValue from './VCKeyValue';
@@ -137,10 +137,16 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
               </Row>
               <Row>
                 <Col xs={3}>
-                  <VCKeyValue id="startDate" value={record.startDate || termObject.startDate} />
+                  <VCKeyValue
+                    id="startDate"
+                    value={<FormattedDate value={record.startDate || termObject.startDate} />}
+                  />
                 </Col>
                 <Col xs={3}>
-                  <VCKeyValue id="endDate" value={record.endDate || termObject.endDate} />
+                  <VCKeyValue
+                    id="endDate"
+                    value={<FormattedDate value={record.endDate || termObject.endDate} />}
+                  />
                 </Col>
               </Row>
               <CopyrightTracking data={record.copyrightTracking || {}} />
