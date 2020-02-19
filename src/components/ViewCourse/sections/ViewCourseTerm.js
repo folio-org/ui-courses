@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, FormattedDate } from 'react-intl';
 import { Card, Col, Row, KeyValue } from '@folio/stripes/components';
 
 const ViewCourseTerm = ({ record }) => {
@@ -11,10 +11,16 @@ const ViewCourseTerm = ({ record }) => {
     <Card headerStart={termObject.name}>
       <Row>
         <Col xs={6}>
-          <KeyValue label={<FormattedMessage id="ui-courses.field.startDate" />} value={termObject.startDate} />
+          <KeyValue
+            label={<FormattedMessage id="ui-courses.field.startDate" />}
+            value={<FormattedDate value={termObject.startDate} />}
+          />
         </Col>
         <Col xs={6}>
-          <KeyValue label={<FormattedMessage id="ui-courses.field.endDate" />} value={termObject.endDate} />
+          <KeyValue
+            label={<FormattedMessage id="ui-courses.field.endDate" />}
+            value={<FormattedDate value={termObject.endDate} />}
+          />
         </Col>
       </Row>
     </Card>
