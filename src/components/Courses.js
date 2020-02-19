@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, FormattedDate } from 'react-intl';
 import get from 'lodash/get';
 import { AppIcon, IfPermission } from '@folio/stripes/core';
 
@@ -170,8 +170,8 @@ class Courses extends React.Component {
     const resultsFormatter = {
       department: r => get(r, 'departmentObject.name'),
       registrarId: r => get(r, 'courseListingObject.registrarId'),
-      startDate: r => get(r, 'courseListingObject.termObject.startDate'),
-      endDate: r => get(r, 'courseListingObject.termObject.endDate'),
+      startDate: r => <FormattedDate value={get(r, 'courseListingObject.termObject.startDate')} />,
+      endDate: r => <FormattedDate value={get(r, 'courseListingObject.termObject.endDate')} />,
       instructor: r => get(r, 'courseListingObject.instructorObjects', []).map(i => i.name).join('; '),
       status: r => calculateStatus(get(r, 'courseListingObject.termObject')),
     };
