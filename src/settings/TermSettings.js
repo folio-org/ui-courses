@@ -29,7 +29,8 @@ class TermSettings extends React.Component {
     }).isRequired,
     intl: PropTypes.shape({
       formatMessage: PropTypes.func.isRequired,
-    }),
+      formatDate: PropTypes.func.isRequired,
+    }).isRequired,
   };
 
   constructor(props) {
@@ -43,7 +44,6 @@ class TermSettings extends React.Component {
     return (
       <this.connectedControlledVocab
         stripes={stripes}
-        REAL__baseUrl="coursereserves/terms"
         baseUrl="coursereserves/terms"
         records="terms"
         label={intl.formatMessage({ id: 'ui-courses.objectName.terms' })}
@@ -55,6 +55,10 @@ class TermSettings extends React.Component {
           name: intl.formatMessage({ id: 'ui-courses.headings.name' }),
           startDate: intl.formatMessage({ id: 'ui-courses.headings.startDate' }),
           endDate: intl.formatMessage({ id: 'ui-courses.headings.endDate' }),
+        }}
+        formatter={{
+          startDate: r => intl.formatDate(r.startDate),
+          endDate: r => intl.formatDate(r.endDate),
         }}
         id="terms"
         sortby="name"
