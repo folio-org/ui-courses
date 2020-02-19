@@ -69,7 +69,7 @@
           "module.courses.enabled",
           "course-reserves-storage.courses.read",
           "course-reserves-storage.courselistings.read",
-          "course-reserves-storage.reserves.read          ",
+          "course-reserves-storage.reserves.read",
           "course-reserves-storage.terms.read",
           "course-reserves-storage.course-types.read",
           "course-reserves-storage.departments.read",
