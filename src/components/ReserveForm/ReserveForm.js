@@ -86,12 +86,10 @@ class ReserveForm extends React.Component {
   }
 
   render() {
-    const { isLoading, handlers } = this.props;
+    const { isLoading, handlers, data, form: { mutators }, values = {} } = this.props;
     if (isLoading) return <LoadingPaneSet onClose={handlers.onClose} />;
 
-    const { data, form: { mutators }, values = {} } = this.props;
     const title = get(values, 'copiedItem.title');
-
     const sectionProps = {
       data,
       handlers, // XXX We probably don't need this
