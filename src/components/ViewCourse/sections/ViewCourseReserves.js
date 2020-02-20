@@ -8,6 +8,8 @@ import AddReserve from './AddReserve';
 
 
 const CopyrightTracking = ({ data }) => {
+  const status = get(data, 'copyrightStatusObject.name') || data.copyrightStatusId;
+
   return (
     <Row>
       <Col xs={12}>
@@ -19,7 +21,7 @@ const CopyrightTracking = ({ data }) => {
                   <VCKeyValue id="additionalSectionsUsed" value={data.additionalSectionsUsed ? 'Yes' : 'No'} />
                 </Col>
                 <Col xs={6}>
-                  <VCKeyValue id="copyrightStatusId" value={data.copyrightStatusId} />
+                  <VCKeyValue id="copyrightStatusId" value={status} />
                 </Col>
               </Row>
               <Row>
