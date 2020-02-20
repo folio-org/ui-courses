@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 import { FormattedMessage } from 'react-intl';
 import {
   Button,
@@ -85,10 +86,12 @@ class ReserveForm extends React.Component {
   }
 
   render() {
-    const { isLoading, values: { name } } = this.props;
-    if (isLoading) return <LoadingPaneSet onClose={this.props.handlers.onClose} />;
+    const { isLoading, handlers } = this.props;
+    if (isLoading) return <LoadingPaneSet onClose={handlers.onClose} />;
 
-    const { data, handlers, form: { mutators }, values = {} } = this.props;
+    const { data, form: { mutators }, values = {} } = this.props;
+    const title = get(values, 'copiedItem.title');
+
     const sectionProps = {
       data,
       handlers, // XXX We probably don't need this
@@ -104,9 +107,9 @@ class ReserveForm extends React.Component {
           footer={this.renderPaneFooter()}
           firstMenu={this.renderFirstMenu()}
           id="pane-reserve-form"
-          paneTitle={name}
+          paneTitle={title}
         >
-          <TitleManager record={name}>
+          <TitleManager record={title}>
             <form id="form-course">
               <ReserveFormInfo {...sectionProps} />
               <ReserveFormCopyright {...sectionProps} />
