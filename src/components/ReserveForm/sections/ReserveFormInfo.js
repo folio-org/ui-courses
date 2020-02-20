@@ -1,12 +1,12 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { FormattedMessage } from 'react-intl';
 import { Field } from 'react-final-form';
 import { Headline, Col, Row, Select, Datepicker } from '@folio/stripes/components';
 
 const ReserveFormInfo = (props) => {
-  const { data } = props; // eslint-disable-line react/prop-types
+  const { data } = props;
 
   return (
     <div data-test-reserve-info id="courseFormInfo">
@@ -77,5 +77,17 @@ const ReserveFormInfo = (props) => {
   );
 };
 
+
+ReserveFormInfo.propTypes = {
+  data: PropTypes.shape({
+    loanTypes: PropTypes.array.isRequired,
+    processingStatuses: PropTypes.array.isRequired,
+    reserve: PropTypes.shape({
+      copiedItem: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+      }).isRequired,
+    }),
+  }).isRequired,
+};
 
 export default ReserveFormInfo;
