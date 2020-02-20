@@ -13,8 +13,8 @@ import { AppIcon, TitleManager } from '@folio/stripes/core';
 import stripesFinalForm from '@folio/stripes/final-form';
 import { isEqual } from 'lodash';
 import setFieldData from 'final-form-set-field-data';
-import LoadingPaneSet from './LoadingPaneSet';
-import ReserveFormInfo from './ReserveFormInfo';
+import LoadingPaneSet from '../LoadingPaneSet';
+import ReserveFormInfo from './sections/ReserveFormInfo';
 
 
 class ReserveForm extends React.Component {
