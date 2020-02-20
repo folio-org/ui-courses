@@ -110,7 +110,7 @@ class ReserveForm extends React.Component {
             <form id="form-course">
               <ReserveFormInfo {...sectionProps} />
               <ReserveFormCopyright {...sectionProps} />
-              <p />
+              <p>&nbsp;</p>
               <hr />
               <h1>Developer Info</h1>
               <pre>
