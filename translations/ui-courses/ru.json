@@ -102,5 +102,6 @@
     "crosslistCourse": "New course within listing",
     "button.crosslist": "Crosslist",
     "accordion.courseFormCrosslisting": "Cross listing information",
-    "crosslist": "Crosslist course"
+    "crosslist": "Crosslist course",
+    "editReserve": "Edit reserve"
 }
