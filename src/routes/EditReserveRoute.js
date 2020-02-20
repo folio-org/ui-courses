@@ -26,6 +26,10 @@ class EditReserveRoute extends React.Component {
       type: 'okapi',
       path: 'coursereserves/processingstatuses',
     },
+    copyrightStatuses: {
+      type: 'okapi',
+      path: 'coursereserves/copyrightstatuses',
+    },
   });
 
   static propTypes = {
@@ -45,6 +49,7 @@ class EditReserveRoute extends React.Component {
       courselisting: PropTypes.object,
       loanTypes: PropTypes.object,
       processingStatuses: PropTypes.object,
+      copyrightStatuses: PropTypes.object,
     }).isRequired,
     mutator: PropTypes.shape({
       reserve: PropTypes.shape({
@@ -88,6 +93,10 @@ class EditReserveRoute extends React.Component {
           courselisting: get(resources, 'courselisting.records.0'),
           loanTypes: this.getOptions('loanTypes', 'loantypes'),
           processingStatuses: this.getOptions('processingStatuses'),
+          copyrightStatuses: [{
+            value: '',
+            label: '(None required)',
+          }].concat(this.getOptions('copyrightStatuses')),
         }}
         handlers={{ onClose: this.handleClose }}
         initialValues={this.getInitialValues()}
