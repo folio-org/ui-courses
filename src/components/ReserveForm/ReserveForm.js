@@ -14,7 +14,7 @@ import stripesFinalForm from '@folio/stripes/final-form';
 import { isEqual } from 'lodash';
 import setFieldData from 'final-form-set-field-data';
 import LoadingPaneSet from '../LoadingPaneSet';
-import ReserveFormInfo from './sections/ReserveFormInfo';
+import { ReserveFormInfo, ReserveFormCopyright } from './sections';
 
 
 class ReserveForm extends React.Component {
@@ -109,6 +109,13 @@ class ReserveForm extends React.Component {
           <TitleManager record={name}>
             <form id="form-course">
               <ReserveFormInfo {...sectionProps} />
+              <ReserveFormCopyright {...sectionProps} />
+              <p />
+              <hr />
+              <h1>Developer Info</h1>
+              <pre>
+                {JSON.stringify(data, null, 2)}
+              </pre>
             </form>
           </TitleManager>
         </Pane>

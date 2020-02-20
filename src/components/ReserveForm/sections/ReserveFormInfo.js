@@ -61,18 +61,6 @@ const ReserveFormInfo = (props) => {
           </FormattedMessage>
         </Col>
       </Row>
-      <Row>
-        <Col xs={12}>
-          XXX To do:
-          <tt>copyrightTracking</tt>
-        </Col>
-      </Row>
-      <p />
-      <hr />
-      <h1>Developer Info</h1>
-      <pre>
-        {JSON.stringify(data, null, 2)}
-      </pre>
     </div>
   );
 };
