@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
 import { FormattedMessage } from 'react-intl';
 import { Field } from 'react-final-form';
-import { Headline, Col, Row, Select, Datepicker } from '@folio/stripes/components';
+import { Col, Row, Select, Datepicker } from '@folio/stripes/components';
 
 const ReserveFormInfo = (props) => {
   const { data } = props;
 
   return (
     <div data-test-reserve-info id="courseFormInfo">
-      <Headline><i>{get(data, 'reserve.copiedItem.title')}</i></Headline>
       <Row>
         <Col xs={6}>
           <Field
