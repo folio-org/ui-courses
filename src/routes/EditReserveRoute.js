@@ -17,7 +17,7 @@ class EditReserveRoute extends React.Component {
       type: 'okapi',
       path: (_query, _pathComponents, resources) => {
         const reserve = get(resources, 'reserve.records.0');
-        return !reserve ? null : `inventory/items/${reserve.itemId}`;
+        return !reserve ? null : `item-storage/items/${reserve.itemId}`;
       },
     },
     loanTypes: {
@@ -87,12 +87,15 @@ class EditReserveRoute extends React.Component {
     this.props.history.push(`/cr/courses/${match.params.cid}${location.search}`);
   }
 
-  handleSubmit = (reserve) => {
+  handleSubmit = (reserve, item) => {
     const temporaryLocationId = reserve.temporaryLocationId;
     delete reserve.temporaryLocationId;
 
+    const newItem = Object.assign({}, item, { temporaryLocationId });
+    console.log('newItem =', newItem);
+
     this.props.mutator.reserve.PUT(reserve)
-      .then(() => this.props.mutator.item.PUT({ temporaryLocationId }))
+      .then(() => this.props.mutator.item.PUT(newItem))
       .then(this.handleClose);
   }
 
@@ -105,6 +108,9 @@ class EditReserveRoute extends React.Component {
     const { resources, stripes } = this.props;
 
     if (!stripes.hasPerm('course-reserves-storage.reserves.write')) return <NoPermissions />;
+
+    const item = get(this.props.resources, 'item.records[0]');
+    console.log(`render: item=${item}`);
 
     return (
       <ReserveForm
@@ -122,7 +128,7 @@ class EditReserveRoute extends React.Component {
         handlers={{ onClose: this.handleClose }}
         initialValues={this.getInitialValues()}
         isLoading={fetchIsPending(this.props.resources)}
-        onSubmit={this.handleSubmit}
+        onSubmit={(reserve) => this.handleSubmit(reserve, item)}
       />
     );
   }
