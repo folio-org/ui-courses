@@ -125,7 +125,7 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
               </Row>
               <Row>
                 <Col xs={3}>
-                  <VCKeyValue id="temporaryLocation" value={copiedItem.temporaryLocationId} />
+                  <VCKeyValue id="temporaryLocation" value={get(item, 'temporaryLocation.name')} />
                 </Col>
                 <Col xs={3}>
                   <VCKeyValue id="temporaryLoanType" value={tlt} />
