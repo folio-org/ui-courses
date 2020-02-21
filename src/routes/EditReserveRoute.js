@@ -13,9 +13,15 @@ class EditReserveRoute extends React.Component {
       type: 'okapi',
       path: 'coursereserves/courselistings/:{clid}/reserves/:{id}',
     },
-    courselisting: {
+    item: {
       type: 'okapi',
-      path: 'coursereserves/courselistings/:{clid}',
+      path: (_q, _p, _r, _l, props) => {
+        const reserve = get(props.resources, 'reserve.records.0');
+        console.log('item path function, props =', props);
+        if (!reserve) return null;
+        console.log(' item path function returning', `inventory/items/${reserve.itemId}`);
+        return `inventory/items/${reserve.itemId}`;
+      },
     },
     loanTypes: {
       type: 'okapi',
@@ -25,6 +31,11 @@ class EditReserveRoute extends React.Component {
     processingStatuses: {
       type: 'okapi',
       path: 'coursereserves/processingstatuses',
+    },
+    locations: {
+      type: 'okapi',
+      path: 'locations',
+      shouldRefresh: () => false,
     },
     copyrightStatuses: {
       type: 'okapi',
@@ -46,13 +57,17 @@ class EditReserveRoute extends React.Component {
     }).isRequired,
     resources: PropTypes.shape({
       reserve: PropTypes.object,
-      courselisting: PropTypes.object,
+      item: PropTypes.object,
       loanTypes: PropTypes.object,
       processingStatuses: PropTypes.object,
+      locations: PropTypes.object,
       copyrightStatuses: PropTypes.object,
     }).isRequired,
     mutator: PropTypes.shape({
       reserve: PropTypes.shape({
+        PUT: PropTypes.func.isRequired,
+      }).isRequired,
+      item: PropTypes.shape({
         PUT: PropTypes.func.isRequired,
       }).isRequired,
     }).isRequired,
@@ -63,7 +78,11 @@ class EditReserveRoute extends React.Component {
 
   getInitialValues = () => {
     const reserve = get(this.props.resources, 'reserve.records[0]', {});
-    return cloneDeep(reserve);
+    const item = get(this.props.resources, 'item.records[0]', {});
+
+    const values = cloneDeep(reserve);
+    values.temporaryLocationId = item.temporaryLocationId;
+    return values;
   }
 
   handleClose = () => {
@@ -72,7 +91,15 @@ class EditReserveRoute extends React.Component {
   }
 
   handleSubmit = (reserve) => {
+    const temporaryLocationId = reserve.temporaryLocationId;
+    delete reserve.temporaryLocationId;
+
+    console.log('handleSubmit: props =', this.props);
     this.props.mutator.reserve.PUT(reserve)
+      .then(() => {
+        console.log('PUT to item mutator');
+        this.props.mutator.item.PUT({ temporaryLocationId });
+      })
       .then(this.handleClose);
   }
 
@@ -83,16 +110,18 @@ class EditReserveRoute extends React.Component {
 
   render() {
     const { resources, stripes } = this.props;
+    console.log('render');
 
     if (!stripes.hasPerm('course-reserves-storage.reserves.write')) return <NoPermissions />;
 
     return (
       <ReserveForm
         data={{
-          reserve: get(resources, 'reserve.records.0'), // XXX redundant
-          courselisting: get(resources, 'courselisting.records.0'),
+          reserve: get(resources, 'reserve.records.0'),
+          item: get(resources, 'item.records.0'),
           loanTypes: this.getOptions('loanTypes', 'loantypes'),
           processingStatuses: this.getOptions('processingStatuses'),
+          locations: this.getOptions('locations'),
           copyrightStatuses: [{
             value: '',
             label: '(None required)',
