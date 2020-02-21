@@ -10,7 +10,16 @@ const ReserveFormInfo = (props) => {
   return (
     <div data-test-reserve-info id="courseFormInfo">
       <Row>
-        <Col xs={6}>
+        <Col xs={4}>
+          <Field
+            component={Select}
+            dataOptions={data.locations}
+            id="edit-reserve-temporary-location"
+            label={<FormattedMessage id="ui-courses.field.temporaryLocation" />}
+            name="temporaryLocationId"
+          />
+        </Col>
+        <Col xs={4}>
           <Field
             component={Select}
             dataOptions={data.loanTypes}
@@ -19,7 +28,7 @@ const ReserveFormInfo = (props) => {
             name="temporaryLoanTypeId"
           />
         </Col>
-        <Col xs={6}>
+        <Col xs={4}>
           <Field
             component={Select}
             dataOptions={data.processingStatuses}
@@ -30,7 +39,7 @@ const ReserveFormInfo = (props) => {
         </Col>
       </Row>
       <Row>
-        <Col xs={6}>
+        <Col xs={4}>
           <FormattedMessage id="ui-courses.headings.startDate">
             {placeholder => (
               <Field
@@ -44,7 +53,7 @@ const ReserveFormInfo = (props) => {
             )}
           </FormattedMessage>
         </Col>
-        <Col xs={6}>
+        <Col xs={4}>
           <FormattedMessage id="ui-courses.headings.endDate">
             {placeholder => (
               <Field
