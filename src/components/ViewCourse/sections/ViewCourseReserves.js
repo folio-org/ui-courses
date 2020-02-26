@@ -68,8 +68,7 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
           const tlt = get(record, 'temporaryLoanTypeObject.name') || record.temporaryLoanTypeId;
           const cipl = get(record, 'copiedItem.permanentLocationObject.name') || copiedItem.permanentLocationId;
 
-          // const href = `/inventory/items/view/${record.itemId}`;
-          const href = `/inventory/items?qindex=item.barcode&query=${copiedItem.barcode}`;
+          const href = `/inventory/view/${copiedItem.instanceId}/${copiedItem.holdingsId}/${record.itemId}`;
           const linkToItem = (
             <a rel="noopener noreferrer" target="_blank" href={href}>
               Item title:
