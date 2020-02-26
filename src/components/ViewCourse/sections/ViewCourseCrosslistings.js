@@ -3,12 +3,20 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Card, Col, Row, KeyValue } from '@folio/stripes/components';
 
+function headerStart(record, index) {
+  return (
+    <a href={record.id}>
+      {`#${index + 1}. ${record.name}`}
+    </a>
+  );
+}
+
 const ViewCourseCrosslistings = ({ crossListed }) => {
   return (
     <React.Fragment>
       {
         crossListed.map((record, index) => (
-          <Card key={index} headerStart={`Cross listed course #${index + 1}`}>
+          <Card key={index} headerStart={headerStart(record, index)}>
             <Row>
               <Col xs={3}>
                 <KeyValue label={<FormattedMessage id="ui-courses.field.name" />} value={record.name} />
