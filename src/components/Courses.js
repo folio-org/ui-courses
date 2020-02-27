@@ -166,15 +166,6 @@ class Courses extends React.Component {
     const count = source ? source.totalCount() : 0;
     const sortOrder = query.sort || '';
 
-    const resultsFormatter = {
-      department: r => get(r, 'departmentObject.name'),
-      registrarId: r => get(r, 'courseListingObject.registrarId'),
-      startDate: r => <FormattedDate value={get(r, 'courseListingObject.termObject.startDate')} />,
-      endDate: r => <FormattedDate value={get(r, 'courseListingObject.termObject.endDate')} />,
-      instructor: r => get(r, 'courseListingObject.instructorObjects', []).map(i => i.name).join('; '),
-      status: r => calculateStatus(get(r, 'courseListingObject.termObject')),
-    };
-
     return (
       <SearchAndSortQuery
         initialSearchState={{ query: '' }}
@@ -254,6 +245,17 @@ class Courses extends React.Component {
                 >
                   <MultiColumnList
                     autosize
+                    visibleColumns={[
+                      'name',
+                      'courseNumber',
+                      'sectionName',
+                      'registrarId',
+                      'department',
+                      'startDate',
+                      'endDate',
+                      'instructor',
+                      'status'
+                    ]}
                     columnWidths={{
                       name: 200,
                       courseNumber: 110,
@@ -265,17 +267,6 @@ class Courses extends React.Component {
                       instructor: 180,
                       status: 100,
                     }}
-                    contentData={coursesData.courses}
-                    id="list-courses"
-                    isEmptyMessage={this.renderIsEmptyMessage(query, source)}
-                    onHeaderClick={onSort}
-                    onNeedMoreData={onNeedMoreData}
-                    onRowClick={this.onRowClick}
-                    sortDirection={sortOrder.startsWith('-') ? 'descending' : 'ascending'}
-                    sortOrder={sortOrder.replace(/^-/, '').replace(/,.*/, '')}
-                    totalCount={count}
-                    virtualize
-                    visibleColumns={['name', 'courseNumber', 'sectionName', 'registrarId', 'department', 'startDate', 'endDate', 'instructor', 'status']}
                     columnMapping={{
                       name: <FormattedMessage id="ui-courses.column.name" />,
                       courseNumber: <FormattedMessage id="ui-courses.column.courseNumber" />,
@@ -287,7 +278,24 @@ class Courses extends React.Component {
                       instructor: <FormattedMessage id="ui-courses.column.instructor" />,
                       status: <FormattedMessage id="ui-courses.column.status" />,
                     }}
-                    formatter={resultsFormatter}
+                    formatter={{
+                      registrarId: r => get(r, 'courseListingObject.registrarId'),
+                      department: r => get(r, 'departmentObject.name'),
+                      startDate: r => <FormattedDate value={get(r, 'courseListingObject.termObject.startDate')} />,
+                      endDate: r => <FormattedDate value={get(r, 'courseListingObject.termObject.endDate')} />,
+                      instructor: r => get(r, 'courseListingObject.instructorObjects', []).map(i => i.name).join('; '),
+                      status: r => calculateStatus(get(r, 'courseListingObject.termObject')),
+                    }}
+                    contentData={coursesData.courses}
+                    id="list-courses"
+                    isEmptyMessage={this.renderIsEmptyMessage(query, source)}
+                    onHeaderClick={onSort}
+                    onNeedMoreData={onNeedMoreData}
+                    onRowClick={this.onRowClick}
+                    sortDirection={sortOrder.startsWith('-') ? 'descending' : 'ascending'}
+                    sortOrder={sortOrder.replace(/^-/, '').replace(/,.*/, '')}
+                    totalCount={count}
+                    virtualize
                   />
                 </Pane>
 
