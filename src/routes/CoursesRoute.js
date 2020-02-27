@@ -13,7 +13,13 @@ const RESULT_COUNT_INCREMENT = 100;
 
 
 const sortMap = {
-  'externalId': 'courseListingObject.externalId',
+  // XXX none of these work: we need to figure out why
+  registrarId: 'courseListingObject.registrarId',
+  department: 'departmentObject.name',
+  startDate: 'courseListingObject.termObject.startDate',
+  endDate: 'courseListingObject.termObject.endDate',
+  instructor: 'courseListingObject.instructorObjects.name',
+  status: 'courseListingObject.termObject.startDate' // XXX is this close enough?
 };
 const filterConfig = [];
 
