@@ -80,7 +80,7 @@ class ReservesRoute extends React.Component {
 
     return (
       <Reserves
-        reservesData={{
+        data={{
           reserves: get(resources, 'reserves.records', []),
         }}
         onNeedMoreData={this.handleNeedMoreData}

@@ -31,7 +31,7 @@ class Reserves extends React.Component {
       search: PropTypes.string.isRequired,
     }).isRequired,
     children: PropTypes.object,
-    reservesData: PropTypes.shape({
+    data: PropTypes.shape({
       reserves: PropTypes.arrayOf(
         PropTypes.object,
       ).isRequired,
@@ -117,7 +117,7 @@ class Reserves extends React.Component {
   render() {
     const {
       children,
-      reservesData,
+      data,
       onNeedMoreData,
       query,
       source,
@@ -236,7 +236,7 @@ class Reserves extends React.Component {
                       permanentLocation: r => get(r, 'copiedItem.permanentLocationObject.name'),
                       temporaryLocation: r => get(r, 'copiedItem.temporaryLocationObject.name'),
                     }}
-                    contentData={reservesData.reserves}
+                    contentData={data.reserves}
                     id="list-reserves"
                     isEmptyMessage={this.renderIsEmptyMessage(query, source)}
                     onHeaderClick={onSort}
