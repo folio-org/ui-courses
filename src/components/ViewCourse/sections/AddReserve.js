@@ -29,12 +29,6 @@ class AddReserve extends React.Component {
       fetch: false,
       shouldRefresh: () => false,
     },
-    itemByBarcode: {
-      type: 'okapi',
-      fetch: false,
-      path: 'item-storage/items',
-      accumulate: true // This is the misnamed provide-a-GET-mutator property
-    }
   };
 
   constructor() {
