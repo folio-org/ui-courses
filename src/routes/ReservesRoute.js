@@ -1,17 +1,97 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Links from '../components/Links';
+import { get } from 'lodash';
 
-const Reserves = (props) => (
-  <div>
-    <p>This is the list of reserves</p>
-    <Links />
-    {props.children}
-  </div>
-);
+import { stripesConnect } from '@folio/stripes/core';
+import { makeQueryFunction, StripesConnectedSource } from '@folio/stripes/smart-components';
 
-Reserves.propTypes = {
-  children: PropTypes.object.isRequired,
+import Reserves from '../components/Reserves';
+
+
+const INITIAL_RESULT_COUNT = 100;
+const RESULT_COUNT_INCREMENT = 100;
+
+
+const sortMap = {
+  title: 'copiedItem.title',
+  barcode: 'copiedItem.barcode',
+  status: 'processingStatusObject.name',
+  permanentLocation: 'copiedItem.permanentLocationObject.name',
+  temporaryLocation: 'copiedItem.temporaryLocationObject.name',
 };
+const filterConfig = [];
 
-export default Reserves;
+
+class ReservesRoute extends React.Component {
+  static propTypes = {
+    children: PropTypes.object,
+    stripes: PropTypes.shape({
+      logger: PropTypes.object.isRequired,
+    }).isRequired,
+    resources: PropTypes.shape({
+      query: PropTypes.object,
+    }),
+    mutator: PropTypes.shape({
+      query: PropTypes.shape({
+        update: PropTypes.func.isRequired,
+      }).isRequired,
+    }),
+  };
+
+  static manifest = Object.freeze({
+    reserves: {
+      type: 'okapi',
+      records: 'reserves',
+      recordsRequired: '%{resultCount}',
+      perRequest: RESULT_COUNT_INCREMENT,
+      path: 'coursereserves/reserves',
+      params: {
+        query: makeQueryFunction(
+          'cql.allRecords=1',
+          'copiedItem.title="%{query.query}*" or copiedItem.barcode="%{query.query}*"',
+          sortMap,
+          filterConfig,
+        ),
+      },
+    },
+    query: { initialValue: {} },
+    resultCount: { initialValue: INITIAL_RESULT_COUNT },
+  });
+
+  constructor(props) {
+    super(props);
+    this.logger = props.stripes.logger;
+    this.searchField = React.createRef();
+  }
+
+  componentDidMount() {
+    this.source = new StripesConnectedSource(this.props, this.logger, 'reserves');
+    if (this.searchField.current) this.searchField.current.focus();
+  }
+
+  handleNeedMoreData = () => {
+    if (this.source) this.source.fetchMore(RESULT_COUNT_INCREMENT);
+  }
+
+  render() {
+    const { children, resources } = this.props;
+
+    if (this.source) this.source.update(this.props, 'reserves');
+
+    return (
+      <Reserves
+        reservesData={{
+          reserves: get(resources, 'reserves.records', []),
+        }}
+        onNeedMoreData={this.handleNeedMoreData}
+        query={resources.query || {}}
+        source={this.source}
+      >
+        { children }
+      </Reserves>
+    );
+  }
+}
+
+
+export default stripesConnect(ReservesRoute);
