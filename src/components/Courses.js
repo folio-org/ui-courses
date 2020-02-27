@@ -23,6 +23,8 @@ import {
 
 import packageInfo from '../../package';
 import css from './Courses.css';
+import FilterNavigation from './FilterNavigation';
+
 
 // Returns a date object corresponding with the date string in format YYYY-MM-DD'
 function makeDate(s) {
@@ -65,10 +67,7 @@ class Courses extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      // For some reason, ESLint doesn't pick up the use of filterPaneIsVisible in toggleFilterPane
-      filterPaneIsVisible: true, // eslint-disable-line react/no-unused-state
-    };
+    this.state = { filterPaneIsVisible: true };
   }
 
   onRowClick = (e, row) => {
@@ -199,6 +198,7 @@ class Courses extends React.Component {
                     paneTitle={<FormattedMessage id="stripes-smart-components.searchAndFilter" />}
                   >
                     <form onSubmit={onSubmitSearch}>
+                      <FilterNavigation current="courses" />
                       <div className={css.searchGroupWrap}>
                         <FormattedMessage id="ui-courses.searchInputLabel">
                           { ariaLabel => (
@@ -249,7 +249,7 @@ class Courses extends React.Component {
                   firstMenu={this.renderResultsFirstMenu(activeFilters)}
                   lastMenu={this.renderResultsLastMenu(this.props.location)}
                   padContent={false}
-                  paneTitle={<FormattedMessage id="ui-courses.meta.title" />}
+                  paneTitle={<FormattedMessage id="ui-courses.filters.courses" />}
                   paneSub={this.renderResultsPaneSubtitle(source)}
                 >
                   <MultiColumnList
