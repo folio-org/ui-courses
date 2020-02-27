@@ -49,7 +49,7 @@ class Courses extends React.Component {
       search: PropTypes.string.isRequired,
     }).isRequired,
     children: PropTypes.object,
-    coursesData: PropTypes.shape({
+    data: PropTypes.shape({
       courses: PropTypes.arrayOf(
         PropTypes.object,
       ).isRequired,
@@ -157,7 +157,7 @@ class Courses extends React.Component {
   render() {
     const {
       children,
-      coursesData,
+      data,
       onNeedMoreData,
       query,
       source,
@@ -286,7 +286,7 @@ class Courses extends React.Component {
                       instructor: r => get(r, 'courseListingObject.instructorObjects', []).map(i => i.name).join('; '),
                       status: r => calculateStatus(get(r, 'courseListingObject.termObject')),
                     }}
-                    contentData={coursesData.courses}
+                    contentData={data.courses}
                     id="list-courses"
                     isEmptyMessage={this.renderIsEmptyMessage(query, source)}
                     onHeaderClick={onSort}

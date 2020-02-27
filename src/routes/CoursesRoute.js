@@ -82,7 +82,7 @@ class CoursesRoute extends React.Component {
 
     return (
       <Courses
-        coursesData={{
+        data={{
           courses: get(resources, 'courses.records', []),
         }}
         onNeedMoreData={this.handleNeedMoreData}
