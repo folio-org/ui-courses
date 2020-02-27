@@ -35,6 +35,11 @@
     "column.endDate": "End date",
     "column.instructor": "Instructor",
     "column.status": "Status",
+    "column.courseName": "Course name",
+    "column.title": "Title",
+    "column.barcode": "Barcode",
+    "column.permanentLocation": "Permanent location",
+    "column.temporaryLocation": "Temporary location",
     "loading": "Loading...",
     "editCourse": "Edit course",
     "editReserve": "Edit reserve",
@@ -103,5 +108,7 @@
     "closeEditCourse": "Close edit course",
     "addItem": "Add an item to this course's reserves",
     "button.addItem": "Add item",
+    "filters.courses": "Courses",
+    "filters.reserves": "Reserves",
     "SENTINEL": "SENTINEL"
 }
