@@ -17,7 +17,9 @@ class EditReserveRoute extends React.Component {
       type: 'okapi',
       path: (_query, _pathComponents, resources) => {
         const reserve = get(resources, 'reserve.records.0');
-        return !reserve ? null : `item-storage/items/${reserve.itemId}`;
+        const res = !reserve ? null : `item-storage/items/${reserve.itemId}`;
+        console.log(`path-function for "item" with reserve ${reserve} returning ${res}`);
+        return res;
       },
     },
     loanTypes: {
