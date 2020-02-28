@@ -111,7 +111,7 @@ class EditReserveRoute extends React.Component {
 
     if (!stripes.hasPerm('course-reserves-storage.reserves.write')) return <NoPermissions />;
 
-    const item = get(this.props.resources, 'item.records[0]');
+    const item = get(resources, 'item.records[0]');
     console.log(`render: item=${item}`);
 
     return (
