@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router-dom';
 import { Card, Col, Row, KeyValue } from '@folio/stripes/components';
 
 function headerStart(record, index) {
   return (
-    <a href={record.id}>
+    <Link to={record.id}>
       {`#${index + 1}. ${record.name}`}
-    </a>
+    </Link>
   );
 }
 
