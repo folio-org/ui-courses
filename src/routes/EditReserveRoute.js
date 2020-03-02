@@ -15,9 +15,20 @@ class EditReserveRoute extends React.Component {
     },
     item: {
       type: 'okapi',
-      path: (_query, _pathComponents, resources, _logger, props) => {
-        const reserve = get(props, 'resources.reserve.records.0');
-        return !reserve ? null : `item-storage/items/${reserve.itemId}`;
+      // Regarding the separate PUT and GET path-functions, see UICR-43
+      GET: {
+        path: (_query, _pathComponents, _resources, _logger, props) => {
+          const reserve = get(props, 'resources.reserve.records.0');
+          console.log('GET path: reserve =', reserve);
+          return !reserve ? null : `item-storage/items/${reserve.itemId}`;
+        },
+      },
+      PUT: {
+        path: (_query, _pathComponents, resources, _logger, _props) => {
+          const reserve = get(resources, 'reserve.records.0');
+          console.log('PUT path: reserve =', reserve);
+          return !reserve ? null : `item-storage/items/${reserve.itemId}`;
+        },
       },
     },
     loanTypes: {
@@ -92,8 +103,6 @@ class EditReserveRoute extends React.Component {
     delete reserve.temporaryLocationId;
 
     const newItem = Object.assign({}, item, { temporaryLocationId });
-    console.log('newItem =', newItem);
-
     this.props.mutator.reserve.PUT(reserve)
       .then(() => this.props.mutator.item.PUT(newItem))
       .then(this.handleClose);
