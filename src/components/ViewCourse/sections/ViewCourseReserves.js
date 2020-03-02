@@ -86,7 +86,7 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
                   marginBottom0
                   to={`../reserves/${record.courseListingId}/${course.id}/${record.id}/edit`}
                 >
-                  <FormattedMessage id="stripes-components.button.edit" />
+                  <FormattedMessage id="ui-courses.button.editReserve" />
                 </Button>
               )}
             </FormattedMessage>
