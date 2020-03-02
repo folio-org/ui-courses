@@ -15,11 +15,9 @@ class EditReserveRoute extends React.Component {
     },
     item: {
       type: 'okapi',
-      path: (_query, _pathComponents, resources) => {
-        const reserve = get(resources, 'reserve.records.0');
-        const res = !reserve ? null : `item-storage/items/${reserve.itemId}`;
-        console.log(`path-function for "item" with reserve ${reserve} returning ${res}`);
-        return res;
+      path: (_query, _pathComponents, resources, _logger, props) => {
+        const reserve = get(props, 'resources.reserve.records.0');
+        return !reserve ? null : `item-storage/items/${reserve.itemId}`;
       },
     },
     loanTypes: {
@@ -112,7 +110,6 @@ class EditReserveRoute extends React.Component {
     if (!stripes.hasPerm('course-reserves-storage.reserves.write')) return <NoPermissions />;
 
     const item = get(resources, 'item.records[0]');
-    console.log(`render: item=${item}`);
 
     return (
       <ReserveForm
