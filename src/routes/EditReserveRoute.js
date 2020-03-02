@@ -29,6 +29,15 @@ class EditReserveRoute extends React.Component {
         },
       },
     },
+    crossListed: {
+      type: 'okapi',
+      path: 'coursereserves/courses',
+      params: (_q, _p, _r, _l, props) => {
+        const reserve = get(props, 'resources.reserve.records.0');
+        return !reserve ? {} : { query: `courseListingId=="${reserve.courseListingId}"` };
+      },
+      records: 'courses',
+    },
     loanTypes: {
       type: 'okapi',
       path: 'loan-types',
@@ -123,6 +132,7 @@ class EditReserveRoute extends React.Component {
         data={{
           reserve: get(resources, 'reserve.records.0'),
           item: get(resources, 'item.records.0'),
+          crossListed: get(resources, 'crossListed.records'),
           loanTypes: this.getOptions('loanTypes', 'loantypes'),
           processingStatuses: this.getOptions('processingStatuses'),
           locations: this.getOptions('locations'),
