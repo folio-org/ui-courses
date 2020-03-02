@@ -103,5 +103,13 @@
     "button.crosslist": "Crosslist",
     "accordion.courseFormCrosslisting": "Cross listing information",
     "crosslist": "Crosslist course",
-    "editReserve": "Modifica riserva"
+    "editReserve": "Modifica riserva",
+    "column.courseName": "Course name",
+    "column.title": "Title",
+    "column.barcode": "Barcode",
+    "column.permanentLocation": "Permanent location",
+    "column.temporaryLocation": "Temporary location",
+    "filters.courses": "Courses",
+    "filters.reserves": "Reserves",
+    "button.editReserve": "Edit reserve"
 }

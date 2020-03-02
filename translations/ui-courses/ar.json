@@ -103,5 +103,13 @@
     "button.crosslist": "قائمة متداخلة",
     "accordion.courseFormCrosslisting": "بيانات التداخل",
     "crosslist": "مقرر متداخل",
-    "editReserve": "تحرير الحجز"
+    "editReserve": "تحرير الحجز",
+    "column.courseName": "اسم المقرر",
+    "column.title": "عنوان",
+    "column.barcode": "باركود",
+    "column.permanentLocation": "الموقع الدائم",
+    "column.temporaryLocation": "الموقع المؤقت",
+    "filters.courses": "المقررات",
+    "filters.reserves": "الحجز",
+    "button.editReserve": "Edit reserve"
 }

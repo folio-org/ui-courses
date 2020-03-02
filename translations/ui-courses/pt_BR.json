@@ -53,7 +53,7 @@
     "accordion.developer.help": "(dump JSON dos registros)",
     "field.name": "Nome do curso",
     "field.department": "Departamento",
-    "field.number": "Código/número do curso",
+    "field.number": "Código do curso",
     "field.section": "Seção",
     "field.courseType": "Tipo de curso",
     "field.registrarId": "ID do registrador",
@@ -103,5 +103,13 @@
     "button.crosslist": "Lista cruzada",
     "accordion.courseFormCrosslisting": "Informações de listagem cruzada",
     "crosslist": "Listas cruzadas dos cursos",
-    "editReserve": "Editar reserva"
+    "editReserve": "Editar reserva",
+    "column.courseName": "Nome do curso",
+    "column.title": "Título",
+    "column.barcode": "Código de barras",
+    "column.permanentLocation": "Localização permanente",
+    "column.temporaryLocation": "Localização temporária",
+    "filters.courses": "Bibliografias",
+    "filters.reserves": "Reservas",
+    "button.editReserve": "Edit reserve"
 }
