@@ -19,14 +19,12 @@ class EditReserveRoute extends React.Component {
       GET: {
         path: (_query, _pathComponents, _resources, _logger, props) => {
           const reserve = get(props, 'resources.reserve.records.0');
-          console.log('GET path: reserve =', reserve);
           return !reserve ? null : `item-storage/items/${reserve.itemId}`;
         },
       },
       PUT: {
         path: (_query, _pathComponents, resources, _logger, _props) => {
           const reserve = get(resources, 'reserve.records.0');
-          console.log('PUT path: reserve =', reserve);
           return !reserve ? null : `item-storage/items/${reserve.itemId}`;
         },
       },
