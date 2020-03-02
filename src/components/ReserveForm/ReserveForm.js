@@ -89,7 +89,17 @@ class ReserveForm extends React.Component {
     const { isLoading, handlers, data, form: { mutators }, values = {} } = this.props;
     if (isLoading) return <LoadingPaneSet onClose={handlers.onClose} />;
 
-    const title = get(values, 'copiedItem.title');
+    const copiedItem = values.copiedItem || {};
+    const title = copiedItem.title;
+    const href = `/inventory/view/${copiedItem.instanceId}/${copiedItem.holdingsId}/${values.itemId}`;
+    const linkToItem = (
+      <a rel="noopener noreferrer" target="_blank" href={href}>
+        Item title:
+        &nbsp;
+        <i>{title}</i>
+      </a>
+    );
+
     const sectionProps = {
       data,
       handlers, // XXX We probably don't need this
@@ -105,7 +115,7 @@ class ReserveForm extends React.Component {
           footer={this.renderPaneFooter()}
           firstMenu={this.renderFirstMenu()}
           id="pane-reserve-form"
-          paneTitle={title}
+          paneTitle={linkToItem}
         >
           <TitleManager record={title}>
             <form id="form-course">
