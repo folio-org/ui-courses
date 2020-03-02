@@ -43,6 +43,7 @@
     "loading": "Loading...",
     "editCourse": "Edit course",
     "editReserve": "Edit reserve",
+    "button.editReserve": "Edit reserve",
     "crosslistCourse": "New course within listing",
     "button.crosslist": "Crosslist",
     "status.pending": "Pending",
