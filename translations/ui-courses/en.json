@@ -23,6 +23,7 @@
     "headings.description": "Description",
     "headings.startDate": "Start Date",
     "headings.endDate": "End Date",
+    "headings.reserveCourses": "Courses to which this item is reserved",
     "createCourse": "Create course",
     "searchInputLabel": "Search courses",
     "column.name": "Course name",
