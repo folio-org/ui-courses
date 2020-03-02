@@ -72,6 +72,7 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
           const linkToItem = (
             <a rel="noopener noreferrer" target="_blank" href={href}>
               Item title:
+              &nbsp;
               <i>{copiedItem.title}</i>
             </a>
           );
