@@ -6,19 +6,7 @@ import { stripesConnect } from '@folio/stripes/core';
 import ReserveForm from '../components/ReserveForm';
 import NoPermissions from '../components/NoPermissions';
 import fetchIsPending from '../util/fetchIsPending';
-
-
-function getOptions(that, resource, element, emptyOption) {
-  const res = get(that.props.resources, `${resource}.records.0.${element || resource}`, [])
-    .map(x => ({ value: x.id, label: x.name }));
-
-  if (!emptyOption) return res;
-
-  return [{
-    value: '',
-    label: emptyOption
-  }].concat(res);
-}
+import getOptions from '../util/getOptions';
 
 
 class EditReserveRoute extends React.Component {
