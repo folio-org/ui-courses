@@ -115,9 +115,16 @@ class EditReserveRoute extends React.Component {
       .then(this.handleClose);
   }
 
-  getOptions(resource, element) {
-    return get(this.props.resources, `${resource}.records.0.${element || resource}`, [])
+  getOptions(resource, element, emptyOption) {
+    const res = get(this.props.resources, `${resource}.records.0.${element || resource}`, [])
       .map(x => ({ value: x.id, label: x.name }));
+
+    if (!emptyOption) return res;
+
+    return [{
+      value: '',
+      label: emptyOption
+    }].concat(res);
   }
 
   render() {
@@ -134,12 +141,9 @@ class EditReserveRoute extends React.Component {
           item: get(resources, 'item.records.0'),
           crossListed: get(resources, 'crossListed.records'),
           loanTypes: this.getOptions('loanTypes', 'loantypes'),
-          processingStatuses: this.getOptions('processingStatuses'),
+          processingStatuses: this.getOptions('processingStatuses', null, '(None required)'),
           locations: this.getOptions('locations'),
-          copyrightStatuses: [{
-            value: '',
-            label: '(None required)',
-          }].concat(this.getOptions('copyrightStatuses')),
+          copyrightStatuses: this.getOptions('copyrightStatuses', null, '(None required)'),
         }}
         handlers={{ onClose: this.handleClose }}
         initialValues={this.getInitialValues()}
