@@ -73,7 +73,8 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
           const item = itemMap[record.itemId] || {};
           const ps = get(record, 'processingStatusObject.name') || record.processingStatusId;
           const tlt = get(record, 'temporaryLoanTypeObject.name') || record.temporaryLoanTypeId;
-          const cipl = get(record, 'copiedItem.permanentLocationObject.name') || copiedItem.permanentLocationId;
+          const cipl = get(record, 'copiedItem.permanentLocationObject.name') || record.copiedItem.permanentLocationId ||
+                get(item, 'effectiveLocation.name');
 
           const href = `/inventory/view/${copiedItem.instanceId}/${copiedItem.holdingsId}/${record.itemId}`;
           const linkToItem = (
