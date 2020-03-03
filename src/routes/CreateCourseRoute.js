@@ -4,6 +4,7 @@ import get from 'lodash/get';
 import { stripesConnect } from '@folio/stripes/core';
 import CourseForm from '../components/CourseForm';
 import NoPermissions from '../components/NoPermissions';
+import getOptions from '../util/getOptions';
 
 class CreateCourseRoute extends React.Component {
   static manifest = Object.freeze({
@@ -91,11 +92,6 @@ class CreateCourseRoute extends React.Component {
       .some(resource => resource.isPending);
   }
 
-  getOptions(resource, element) {
-    return get(this.props.resources, `${resource}.records.0.${element || resource}`, [])
-      .map(x => ({ value: x.id, label: x.name }));
-  }
-
   getFirstOption(resource) {
     const entries = get(this.props.resources, `${resource}.records.0.${resource}`);
     return (!entries || !entries[0]) ? '1' : entries[0].id;
@@ -109,10 +105,10 @@ class CreateCourseRoute extends React.Component {
     return (
       <CourseForm
         data={{
-          departments: this.getOptions('departments'),
-          coursetypes: this.getOptions('coursetypes', 'courseTypes'),
-          terms: this.getOptions('terms'),
-          locations: this.getOptions('locations'),
+          departments: getOptions(this, 'departments'),
+          coursetypes: getOptions(this, 'coursetypes', 'courseTypes'),
+          terms: getOptions(this, 'terms'),
+          locations: getOptions(this, 'locations', null, '(None required)'),
         }}
         initialValues={{
           departmentId: this.getFirstOption('departments'),

@@ -5,6 +5,7 @@ import { stripesConnect } from '@folio/stripes/core';
 import CourseForm from '../components/CourseForm';
 import NoPermissions from '../components/NoPermissions';
 import fetchIsPending from '../util/fetchIsPending';
+import getOptions from '../util/getOptions';
 
 class EditCourseRoute extends React.Component {
   static manifest = Object.freeze({
@@ -104,11 +105,6 @@ class EditCourseRoute extends React.Component {
       .then(this.handleClose);
   }
 
-  getOptions(resource, element) {
-    return get(this.props.resources, `${resource}.records.0.${element || resource}`, [])
-      .map(x => ({ value: x.id, label: x.name }));
-  }
-
   render() {
     const { handlers, stripes } = this.props;
 
@@ -122,10 +118,10 @@ class EditCourseRoute extends React.Component {
     return (
       <CourseForm
         data={{
-          departments: this.getOptions('departments'),
-          coursetypes: this.getOptions('coursetypes', 'courseTypes'),
-          terms: this.getOptions('terms'),
-          locations: this.getOptions('locations'),
+          departments: getOptions(this, 'departments'),
+          coursetypes: getOptions(this, 'coursetypes', 'courseTypes'),
+          terms: getOptions(this, 'terms'),
+          locations: getOptions(this, 'locations', null, '(None required)'),
         }}
         handlers={{ ...handlers, onClose: this.handleClose }}
         initialValues={this.getInitialValues()}
