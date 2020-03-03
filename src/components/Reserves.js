@@ -233,7 +233,7 @@ class Reserves extends React.Component {
                       title: r => get(r, 'copiedItem.title'),
                       barcode: r => get(r, 'copiedItem.barcode'),
                       status: r => get(r, 'processingStatusObject.name'),
-                      permanentLocation: r => get(r, 'copiedItem.permanentLocationObject.name'),
+                      permanentLocation: r => get(r, 'copiedItem.permanentLocationObject.name') || r.copiedItem.permanentLocationId,
                       temporaryLocation: r => get(r, 'copiedItem.temporaryLocationObject.name'),
                     }}
                     contentData={data.reserves}
