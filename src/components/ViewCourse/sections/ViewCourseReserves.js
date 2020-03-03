@@ -51,6 +51,13 @@ CopyrightTracking.propTypes = {
 };
 
 
+function makeContentLink(eaList) {
+  const ea = (eaList || [])[0];
+  if (!ea || !ea.uri) return null;
+  return <a rel="noopener noreferrer" target="_blank" href={ea.uri} title={ea.publicNote}>{ea.linkText || 'Link'}</a>;
+}
+
+
 const ViewCourseReserves = ({ course, reserves, items }) => {
   const itemMap = {};
   items.forEach(item => { itemMap[item.id] = item; });
@@ -63,7 +70,7 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
           const contributors = (copiedItem.contributors || []).map(x => x.name).join(', ');
           const courseListingObject = course.courseListingObject || {};
           const termObject = courseListingObject.termObject || {};
-          const item = itemMap[record.itemId];
+          const item = itemMap[record.itemId] || {};
           const ps = get(record, 'processingStatusObject.name') || record.processingStatusId;
           const tlt = get(record, 'temporaryLoanTypeObject.name') || record.temporaryLoanTypeId;
           const cipl = get(record, 'copiedItem.permanentLocationObject.name') || copiedItem.permanentLocationId;
@@ -134,7 +141,7 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
                   <VCKeyValue id="processingStatus" value={ps} />
                 </Col>
                 <Col xs={3}>
-                  <VCKeyValue id="urlLink" value={copiedItem.url} />
+                  <VCKeyValue id="urlLink" value={makeContentLink(item.electronicAccess)} />
                 </Col>
               </Row>
               <Row>
