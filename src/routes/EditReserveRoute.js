@@ -7,6 +7,20 @@ import ReserveForm from '../components/ReserveForm';
 import NoPermissions from '../components/NoPermissions';
 import fetchIsPending from '../util/fetchIsPending';
 
+
+function getOptions(that, resource, element, emptyOption) {
+  const res = get(that.props.resources, `${resource}.records.0.${element || resource}`, [])
+    .map(x => ({ value: x.id, label: x.name }));
+
+  if (!emptyOption) return res;
+
+  return [{
+    value: '',
+    label: emptyOption
+  }].concat(res);
+}
+
+
 class EditReserveRoute extends React.Component {
   static manifest = Object.freeze({
     reserve: {
@@ -115,18 +129,6 @@ class EditReserveRoute extends React.Component {
       .then(this.handleClose);
   }
 
-  getOptions(resource, element, emptyOption) {
-    const res = get(this.props.resources, `${resource}.records.0.${element || resource}`, [])
-      .map(x => ({ value: x.id, label: x.name }));
-
-    if (!emptyOption) return res;
-
-    return [{
-      value: '',
-      label: emptyOption
-    }].concat(res);
-  }
-
   render() {
     const { resources, stripes } = this.props;
 
@@ -140,10 +142,10 @@ class EditReserveRoute extends React.Component {
           reserve: get(resources, 'reserve.records.0'),
           item: get(resources, 'item.records.0'),
           crossListed: get(resources, 'crossListed.records'),
-          loanTypes: this.getOptions('loanTypes', 'loantypes'),
-          processingStatuses: this.getOptions('processingStatuses', null, '(None required)'),
-          locations: this.getOptions('locations'),
-          copyrightStatuses: this.getOptions('copyrightStatuses', null, '(None required)'),
+          loanTypes: getOptions(this, 'loanTypes', 'loantypes'),
+          processingStatuses: getOptions(this, 'processingStatuses', null, '(None required)'),
+          locations: getOptions(this, 'locations'),
+          copyrightStatuses: getOptions(this, 'copyrightStatuses', null, '(None required)'),
         }}
         handlers={{ onClose: this.handleClose }}
         initialValues={this.getInitialValues()}
