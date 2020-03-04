@@ -3,10 +3,13 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
 import {
+  Accordion,
   Button,
+  FilterAccordionHeader,
+  Icon,
+  MultiSelectionFilter,
   Pane,
   SearchField,
-  Icon
 } from '@folio/stripes/components';
 
 import css from './Courses.css';
@@ -19,6 +22,26 @@ const selectedIndex = 'all'; // XXX for now
 
 // eslint-disable-next-line no-console
 const onChangeIndex = (x) => console.log('index changed:', x); // XXX for now
+
+const department = [
+  // 1, 2
+]; // XXX for now
+
+const departmentOptions = [
+/*
+  { value: 1, label: 'this' },
+  { value: 2, label: 'that' },
+  { value: 3, label: 'whatever' },
+  { value: 4, label: 'the other' },
+*/
+]; // XXX for now
+
+// eslint-disable-next-line no-console
+const onClearFilter = (x) => console.log('clear filter:', x); // XXX for now
+
+// eslint-disable-next-line no-console
+const onChangeFilter = (x) => console.log('filter changed:', x); // XXX for now
+
 
 function CoursesSearchPane(props) {
   const {
@@ -86,24 +109,25 @@ function CoursesSearchPane(props) {
           </Button>
         </div>
 
-        {/*
         <Accordion
-          label={<FormattedMessage id="ui-inventory.filters.effectiveLocation" />}
-          id="effectiveLocation"
-          name="effectiveLocation"
+          label={<FormattedMessage id="ui-courses.filters.department" />}
+          id="department"
+          name="department"
           separator={false}
           header={FilterAccordionHeader}
-          displayClearButton={effectiveLocation.length > 0}
-          onClearFilter={() => onClear('effectiveLocation')}
+          displayClearButton={department.length > 0}
+          onClearFilter={() => onClearFilter('department')}
         >
+          {/*
           <MultiSelectionFilter
-            name="effectiveLocation"
-            dataOptions={effectiveLocationOptions}
-            selectedValues={effectiveLocation}
-            onChange={onChange}
+            name="department"
+            dataOptions={departmentOptions}
+            selectedValues={department}
+            onChange={onChangeFilter}
           />
+          */}
+          [department select]
         </Accordion>
-        */}
       </form>
     </Pane>
   );
