@@ -47,10 +47,10 @@ const departmentOptions = [
 ]; // XXX for now
 
 // eslint-disable-next-line no-console
-const onClearFilter = (x) => console.log('clear filter:', x); // XXX for now
+const onChangeFilter = (x) => console.log('filter change event:', x); // XXX for now
 
 // eslint-disable-next-line no-console
-const onChangeFilter = (x) => console.log('filter changed:', x); // XXX for now
+const onClearFilter = (name) => onChangeFilter({ name, values: [] });
 
 
 function CoursesSearchPane(props) {
@@ -127,7 +127,7 @@ function CoursesSearchPane(props) {
           separator={false}
           header={FilterAccordionHeader}
           displayClearButton={department.length > 0}
-          onClearFilter={() => onClearFilter('department')}
+          onClearFilter={onClearFilter}
         >
           <MultiSelectionFilter
             name="department"
