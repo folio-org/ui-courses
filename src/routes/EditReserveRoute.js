@@ -7,6 +7,7 @@ import ReserveForm from '../components/ReserveForm';
 import NoPermissions from '../components/NoPermissions';
 import fetchIsPending from '../util/fetchIsPending';
 import getOptions from '../util/getOptions';
+import exciseObjects from '../util/exciseObjects';
 
 
 class EditReserveRoute extends React.Component {
@@ -112,7 +113,7 @@ class EditReserveRoute extends React.Component {
     delete reserve.temporaryLocationId;
 
     const newItem = Object.assign({}, item, { temporaryLocationId });
-    this.props.mutator.reserve.PUT(reserve)
+    this.props.mutator.reserve.PUT(exciseObjects(reserve))
       .then(() => this.props.mutator.item.PUT(newItem))
       .then(this.handleClose);
   }

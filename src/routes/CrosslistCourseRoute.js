@@ -4,6 +4,8 @@ import get from 'lodash/get';
 import { stripesConnect } from '@folio/stripes/core';
 import CourseForm from '../components/CourseForm';
 import NoPermissions from '../components/NoPermissions';
+import exciseObjects from '../util/exciseObjects';
+
 
 class CrosslistCourseRoute extends React.Component {
   static manifest = Object.freeze({
@@ -90,7 +92,7 @@ class CrosslistCourseRoute extends React.Component {
   }
 
   handleSubmit = (course) => {
-    const listing = course.courseListingObject;
+    const listing = exciseObjects(course.courseListingObject);
     delete course.courseListingObject;
 
     course.courseListingId = this.props.match.params.clid;
