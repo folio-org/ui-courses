@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import { parse, stringify } from 'query-string';
-import { isNil, omitBy } from 'lodash';
 import { withRouter } from 'react-router';
 
 import {
@@ -15,22 +13,9 @@ import {
 } from '@folio/stripes/components';
 import { MultiSelectionFilter } from '@folio/stripes/smart-components';
 
+import updateLocation from '../util/updateLocation';
 import css from './Courses.css';
 import FilterNavigation from './FilterNavigation';
-
-
-const updateLocation = (props, newParams) => {
-  const {
-    location: { pathname, search },
-    history,
-  } = props;
-
-  const prevParams = parse(search);
-  const params = Object.assign(prevParams, newParams);
-  const cleanParams = omitBy(params, isNil);
-  const url = `${pathname}?${stringify(cleanParams)}`;
-  history.push(url);
-};
 
 
 // Value is simply what gets set into the `qindex` parameter of the UI URL
