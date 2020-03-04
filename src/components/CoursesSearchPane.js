@@ -7,10 +7,10 @@ import {
   Button,
   FilterAccordionHeader,
   Icon,
-  MultiSelectionFilter,
   Pane,
   SearchField,
 } from '@folio/stripes/components';
+import { MultiSelectionFilter } from '@folio/stripes/smart-components';
 
 import css from './Courses.css';
 import FilterNavigation from './FilterNavigation';
@@ -23,17 +23,13 @@ const selectedIndex = 'all'; // XXX for now
 // eslint-disable-next-line no-console
 const onChangeIndex = (x) => console.log('index changed:', x); // XXX for now
 
-const department = [
-  // 1, 2
-]; // XXX for now
+const department = ['1', '2']; // XXX for now
 
 const departmentOptions = [
-/*
-  { value: 1, label: 'this' },
-  { value: 2, label: 'that' },
-  { value: 3, label: 'whatever' },
-  { value: 4, label: 'the other' },
-*/
+  { value: '1', label: 'this' },
+  { value: '2', label: 'that' },
+  { value: '3', label: 'whatever' },
+  { value: '4', label: 'the other' },
 ]; // XXX for now
 
 // eslint-disable-next-line no-console
@@ -118,15 +114,12 @@ function CoursesSearchPane(props) {
           displayClearButton={department.length > 0}
           onClearFilter={() => onClearFilter('department')}
         >
-          {/*
           <MultiSelectionFilter
             name="department"
             dataOptions={departmentOptions}
             selectedValues={department}
             onChange={onChangeFilter}
           />
-          */}
-          [department select]
         </Accordion>
       </form>
     </Pane>
