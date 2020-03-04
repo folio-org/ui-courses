@@ -14,10 +14,10 @@ const RESULT_COUNT_INCREMENT = 100;
 
 const sortMap = {
   // XXX none of these work: we need to figure out why
-  registrarId: 'courseListingObject.registrarId',
-  department: 'departmentObject.name',
-  startDate: 'courseListingObject.termObject.startDate',
-  endDate: 'courseListingObject.termObject.endDate',
+  registrarId: 'courseListingObject.registrarId', // UICR-49
+  department: 'departmentObject.name', // UICR-49
+  startDate: 'courseListingObject.termObject.startDate', // UICR-50
+  endDate: 'courseListingObject.termObject.endDate', // UICR-50
   instructor: 'courseListingObject.instructorObjects.name',
   status: 'courseListingObject.termObject.startDate' // XXX is this close enough?
 };
