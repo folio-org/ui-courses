@@ -12,11 +12,7 @@ function exciseObjects(source) {
   const dest = {};
 
   Object.keys(source).sort().forEach(key => {
-    if (key.match(/Object$/)) {
-      console.log(`excising element ${key}`);
-    } else {
-      dest[key] = source[key];
-    }
+    if (!key.match(/Object$/)) dest[key] = source[key];
   });
 
   return dest;
