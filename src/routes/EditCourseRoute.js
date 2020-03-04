@@ -7,6 +7,22 @@ import NoPermissions from '../components/NoPermissions';
 import fetchIsPending from '../util/fetchIsPending';
 import getOptions from '../util/getOptions';
 
+
+function exciseObjects(source) {
+  const dest = {};
+
+  Object.keys(source).sort().forEach(key => {
+    if (key.match(/Object$/)) {
+      console.log(`excising element ${key}`);
+    } else {
+      dest[key] = source[key];
+    }
+  });
+
+  return dest;
+}
+
+
 class EditCourseRoute extends React.Component {
   static manifest = Object.freeze({
     course: {
@@ -96,9 +112,9 @@ class EditCourseRoute extends React.Component {
     this.props.history.push(`/cr/courses/${match.params.id}${location.search}`);
   }
 
-  handleSubmit = (course) => {
-    const listing = course.courseListingObject;
-    delete course.courseListingObject;
+  handleSubmit = (data) => {
+    const listing = exciseObjects(data.courseListingObject);
+    const course = exciseObjects(data);
 
     this.props.mutator.course.PUT(course)
       .then(() => this.props.mutator.courselisting.PUT(listing))
