@@ -6,17 +6,7 @@ import CourseForm from '../components/CourseForm';
 import NoPermissions from '../components/NoPermissions';
 import fetchIsPending from '../util/fetchIsPending';
 import getOptions from '../util/getOptions';
-
-
-function exciseObjects(source) {
-  const dest = {};
-
-  Object.keys(source).sort().forEach(key => {
-    if (!key.match(/Object$/)) dest[key] = source[key];
-  });
-
-  return dest;
-}
+import exciseObjects from '../util/exciseObjects';
 
 
 class EditCourseRoute extends React.Component {
