@@ -21,14 +21,16 @@ const selectedIndex = 'all'; // XXX for now
 const onChangeIndex = (x) => console.log('index changed:', x); // XXX for now
 
 function CoursesSearchPane(props) {
-  const { source, sasqParams, toggleFilterPane, searchField } = props;
   const {
     searchValue,
     getSearchHandlers,
     onSubmitSearch,
     // activeFilters,
     resetAll,
-  } = sasqParams;
+    source,
+    toggleFilterPane,
+    searchField
+  } = props;
 
   return (
     <Pane
@@ -108,8 +110,14 @@ function CoursesSearchPane(props) {
 }
 
 CoursesSearchPane.propTypes = {
-  source: PropTypes.object.isRequired,
-  sasqParams: PropTypes.object.isRequired,
+  searchValue: PropTypes.shape({
+    query: PropTypes.string.isRequired,
+  }).isRequired,
+  getSearchHandlers: PropTypes.func.isRequired,
+  onSubmitSearch: PropTypes.func.isRequired,
+  // activeFilters: PropTypes.array.isRequired,
+  resetAll: PropTypes.func.isRequired,
+  source: PropTypes.object,
   toggleFilterPane: PropTypes.func.isRequired,
   searchField: PropTypes.any, // eslint-disable-line react/forbid-prop-types
 };

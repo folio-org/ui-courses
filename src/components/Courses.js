@@ -174,7 +174,8 @@ class Courses extends React.Component {
               <Paneset id="courses-paneset">
                 {this.state.filterPaneIsVisible && (
                   <CoursesSearchPane
-                    sasqParams={sasqParams}
+                    {...sasqParams}
+                    source={source}
                     toggleFilterPane={this.toggleFilterPane}
                     searchField={this.searchField}
                   />
