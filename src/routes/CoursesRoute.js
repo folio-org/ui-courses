@@ -14,8 +14,8 @@ const RESULT_COUNT_INCREMENT = 100;
 
 const sortMap = {
   // XXX none of these work: we need to figure out why
-  registrarId: 'courseListingObject.registrarId', // UICR-49
-  department: 'departmentObject.name', // UICR-49
+  registrarId: 'courseListing.registrarId', // UICR-49
+  department: 'department.name', // UICR-49
   startDate: 'courseListingObject.termObject.startDate', // UICR-50
   endDate: 'courseListingObject.termObject.endDate', // UICR-50
   instructor: 'courseListingObject.instructorObjects.name',
