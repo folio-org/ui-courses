@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { withRouter } from 'react-router';
+import get from 'lodash/get';
+import { stripesConnect } from '@folio/stripes/core'; // just for resources.query
 
 import {
   Accordion,
@@ -28,11 +30,9 @@ const searchableIndexes = [
   { label: 'External ID', value: 'extid' },
 ];
 
-const selectedIndex = 'all'; // XXX for now
-
 const onChangeIndex = (props, e) => {
   const qindex = e.target.value;
-  console.log(`index changed to ${qindex}`); // eslint-disable-line no-console
+  props.stripes.logger.log('action', `changed query-index to '${qindex}'`);
   updateLocation(props, { qindex });
 };
 
@@ -62,7 +62,8 @@ function CoursesSearchPane(props) {
     resetAll,
     source,
     toggleFilterPane,
-    searchField
+    searchField,
+    resources,
   } = props;
 
   return (
@@ -83,7 +84,7 @@ function CoursesSearchPane(props) {
                 ariaLabel={ariaLabel}
                 className={css.searchField}
                 searchableIndexes={searchableIndexes}
-                selectedIndex={selectedIndex}
+                selectedIndex={get(resources.query, 'qindex')}
                 value={searchValue.query}
                 loading={source ? source.pending() : true}
                 marginBottom0
@@ -151,6 +152,15 @@ CoursesSearchPane.propTypes = {
   source: PropTypes.object,
   toggleFilterPane: PropTypes.func.isRequired,
   searchField: PropTypes.any, // eslint-disable-line react/forbid-prop-types
+  resources: PropTypes.shape({
+    query: PropTypes.shape({
+      qindex: PropTypes.string,
+    }).isRequired,
+  }).isRequired,
 };
 
-export default withRouter(CoursesSearchPane);
+CoursesSearchPane.manifest = Object.freeze({
+  query: { initialValue: {} },
+});
+
+export default withRouter(stripesConnect(CoursesSearchPane));
