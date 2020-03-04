@@ -50,7 +50,7 @@ class CoursesRoute extends React.Component {
       params: {
         query: makeQueryFunction(
           'cql.allRecords=1',
-          'name="%{query.query}*" or description="%{query.query}*"',
+          'name="%{query.query}*" or courseNumber="%{query.query}*"',
           sortMap,
           filterConfig,
         ),
