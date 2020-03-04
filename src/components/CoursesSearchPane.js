@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
+import { parse, stringify } from 'query-string';
+import { isNil, omitBy } from 'lodash';
+import { withRouter } from 'react-router';
 
 import {
   Accordion,
@@ -15,13 +18,39 @@ import { MultiSelectionFilter } from '@folio/stripes/smart-components';
 import css from './Courses.css';
 import FilterNavigation from './FilterNavigation';
 
+
+const updateLocation = (props, newParams) => {
+  const {
+    location: { pathname, search },
+    history,
+  } = props;
+
+  const prevParams = parse(search);
+  const params = Object.assign(prevParams, newParams);
+  const cleanParams = omitBy(params, isNil);
+  const url = `${pathname}?${stringify(cleanParams)}`;
+  history.push(url);
+};
+
+
+// Value is simply what gets set into the `qindex` parameter of the UI URL
 const searchableIndexes = [
-]; // XXX for now
+  { label: 'All fields', value: 'all', placeholder: '(name, number)' },
+  { label: 'Course name', value: 'name' },
+  { label: 'Course code', value: 'number' },
+  { label: 'Instructor', value: 'instructor' },
+  { label: 'Registrar ID', value: 'regid' },
+  { label: 'External ID', value: 'extid' },
+];
 
 const selectedIndex = 'all'; // XXX for now
 
-// eslint-disable-next-line no-console
-const onChangeIndex = (x) => console.log('index changed:', x); // XXX for now
+const onChangeIndex = (props, e) => {
+  const qindex = e.target.value;
+  console.log(`index changed to ${qindex}`); // eslint-disable-line no-console
+  updateLocation(props, { qindex });
+};
+
 
 const department = ['1', '2']; // XXX for now
 
@@ -73,7 +102,7 @@ function CoursesSearchPane(props) {
                 value={searchValue.query}
                 loading={source ? source.pending() : true}
                 marginBottom0
-                onChangeIndex={onChangeIndex}
+                onChangeIndex={e => onChangeIndex(props, e)}
                 onChange={getSearchHandlers().query}
                 onClear={getSearchHandlers().reset}
                 name="query"
@@ -139,4 +168,4 @@ CoursesSearchPane.propTypes = {
   searchField: PropTypes.any, // eslint-disable-line react/forbid-prop-types
 };
 
-export default CoursesSearchPane;
+export default withRouter(CoursesSearchPane);
