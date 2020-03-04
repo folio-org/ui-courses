@@ -12,8 +12,16 @@ import {
 import css from './Courses.css';
 import FilterNavigation from './FilterNavigation';
 
+const searchableIndexes = [
+]; // XXX for now
+
+const selectedIndex = 'all'; // XXX for now
+
+// eslint-disable-next-line no-console
+const onChangeIndex = (x) => console.log('index changed:', x); // XXX for now
+
 function CoursesSearchPane(props) {
-  const { sasqParams, toggleFilterPane, searchField } = props;
+  const { source, sasqParams, toggleFilterPane, searchField } = props;
   const {
     searchValue,
     getSearchHandlers,
@@ -34,17 +42,21 @@ function CoursesSearchPane(props) {
           <FormattedMessage id="ui-courses.searchInputLabel">
             { ariaLabel => (
               <SearchField
-                aria-label={ariaLabel}
-                autoFocus
-                className={css.searchField}
                 data-test-courses-search-input
                 id="input-courses-search"
-                inputRef={searchField}
+                autoFocus
+                ariaLabel={ariaLabel}
+                className={css.searchField}
+                searchableIndexes={searchableIndexes}
+                selectedIndex={selectedIndex}
+                value={searchValue.query}
+                loading={source ? source.pending() : true}
                 marginBottom0
-                name="query"
+                onChangeIndex={onChangeIndex}
                 onChange={getSearchHandlers().query}
                 onClear={getSearchHandlers().reset}
-                value={searchValue.query}
+                name="query"
+                inputRef={searchField}
               />
             )}
           </FormattedMessage>
@@ -71,16 +83,35 @@ function CoursesSearchPane(props) {
             </Icon>
           </Button>
         </div>
-        [filters go here]
+
+        {/*
+        <Accordion
+          label={<FormattedMessage id="ui-inventory.filters.effectiveLocation" />}
+          id="effectiveLocation"
+          name="effectiveLocation"
+          separator={false}
+          header={FilterAccordionHeader}
+          displayClearButton={effectiveLocation.length > 0}
+          onClearFilter={() => onClear('effectiveLocation')}
+        >
+          <MultiSelectionFilter
+            name="effectiveLocation"
+            dataOptions={effectiveLocationOptions}
+            selectedValues={effectiveLocation}
+            onChange={onChange}
+          />
+        </Accordion>
+        */}
       </form>
     </Pane>
   );
 }
 
 CoursesSearchPane.propTypes = {
+  source: PropTypes.object.isRequired,
   sasqParams: PropTypes.object.isRequired,
   toggleFilterPane: PropTypes.func.isRequired,
-  searchField: PropTypes.any,
+  searchField: PropTypes.any, // eslint-disable-line react/forbid-prop-types
 };
 
 export default CoursesSearchPane;
