@@ -20,14 +20,14 @@ import css from './Courses.css';
 import FilterNavigation from './FilterNavigation';
 
 
-// Value is simply what gets set into the `qindex` parameter of the UI URL
+// Value gets set into the `qindex` parameter of the UI URL, and used in the generated back-end query
 const searchableIndexes = [
-  { label: 'All fields', value: 'all', placeholder: '(name, number)' },
+  { label: 'All fields', value: '', placeholder: '(name, number)' },
   { label: 'Course name', value: 'name' },
-  { label: 'Course code', value: 'number' },
-  { label: 'Instructor', value: 'instructor' },
-  { label: 'Registrar ID', value: 'regid' },
-  { label: 'External ID', value: 'extid' },
+  { label: 'Course code', value: 'courseNumber' },
+  { label: 'Instructor', value: 'courseListingObject.instructorObjects.name' },
+  { label: 'Registrar ID', value: 'courseListingObject.registrarId' },
+  { label: 'External ID', value: 'courseListingObject.externalId' },
 ];
 
 const onChangeIndex = (props, e) => {
