@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
 import {
@@ -12,7 +12,8 @@ import {
 import css from './Courses.css';
 import FilterNavigation from './FilterNavigation';
 
-function renderSearchPane(sasqParams, toggleFilterPane, searchField) {
+function CoursesSearchPane(props) {
+  const { sasqParams, toggleFilterPane, searchField } = props;
   const {
     searchValue,
     getSearchHandlers,
@@ -76,4 +77,10 @@ function renderSearchPane(sasqParams, toggleFilterPane, searchField) {
   );
 }
 
-export default renderSearchPane;
+CoursesSearchPane.propTypes = {
+  sasqParams: PropTypes.object.isRequired,
+  toggleFilterPane: PropTypes.func.isRequired,
+  searchField: PropTypes.any,
+};
+
+export default CoursesSearchPane;

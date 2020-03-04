@@ -20,7 +20,7 @@ import {
 } from '@folio/stripes/smart-components';
 
 import packageInfo from '../../package';
-import renderSearchPane from './CoursesSearchPane';
+import CoursesSearchPane from './CoursesSearchPane';
 
 // Returns a date object corresponding with the date string in format YYYY-MM-DD'
 function makeDate(s) {
@@ -172,7 +172,13 @@ class Courses extends React.Component {
             const { onSort, activeFilters } = sasqParams;
             return (
               <Paneset id="courses-paneset">
-                {this.state.filterPaneIsVisible && renderSearchPane(sasqParams, this.toggleFilterPane, this.searchField)}
+                {this.state.filterPaneIsVisible && (
+                  <CoursesSearchPane
+                    sasqParams={sasqParams}
+                    toggleFilterPane={this.toggleFilterPane}
+                    searchField={this.searchField}
+                  />
+                )}
                 <Pane
                   appIcon={<AppIcon app="courses" />}
                   defaultWidth="fill"
