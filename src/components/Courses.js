@@ -10,9 +10,7 @@ import {
   Paneset,
   Pane,
   PaneMenu,
-  SearchField,
   MultiColumnList,
-  Icon
 } from '@folio/stripes/components';
 
 import {
@@ -22,9 +20,7 @@ import {
 } from '@folio/stripes/smart-components';
 
 import packageInfo from '../../package';
-import css from './Courses.css';
-import FilterNavigation from './FilterNavigation';
-
+import renderSearchPane from './CoursesSearchPane';
 
 // Returns a date object corresponding with the date string in format YYYY-MM-DD'
 function makeDate(s) {
@@ -172,68 +168,11 @@ class Courses extends React.Component {
         initialSortState={{ sort: 'name' }}
       >
         {
-          ({
-            searchValue,
-            getSearchHandlers,
-            onSubmitSearch,
-            onSort,
-            activeFilters,
-            resetAll,
-          }) => {
+          (sasqParams) => {
+            const { onSort, activeFilters } = sasqParams;
             return (
               <Paneset id="courses-paneset">
-                {this.state.filterPaneIsVisible &&
-                  <Pane
-                    defaultWidth="22%"
-                    onClose={this.toggleFilterPane}
-                    paneTitle={<FormattedMessage id="stripes-smart-components.searchAndFilter" />}
-                  >
-                    <form onSubmit={onSubmitSearch}>
-                      <FilterNavigation current="courses" />
-                      <div className={css.searchGroupWrap}>
-                        <FormattedMessage id="ui-courses.searchInputLabel">
-                          { ariaLabel => (
-                            <SearchField
-                              aria-label={ariaLabel}
-                              autoFocus
-                              className={css.searchField}
-                              data-test-courses-search-input
-                              id="input-courses-search"
-                              inputRef={this.searchField}
-                              marginBottom0
-                              name="query"
-                              onChange={getSearchHandlers().query}
-                              onClear={getSearchHandlers().reset}
-                              value={searchValue.query}
-                            />
-                          )}
-                        </FormattedMessage>
-                        <Button
-                          buttonStyle="primary"
-                          disabled={!searchValue.query || searchValue.query === ''}
-                          fullWidth
-                          id="clickable-search-courses"
-                          marginBottom0
-                          type="submit"
-                        >
-                          <FormattedMessage id="stripes-smart-components.search" />
-                        </Button>
-                      </div>
-                      <div className={css.resetButtonWrap}>
-                        <Button
-                          buttonStyle="none"
-                          id="clickable-reset-all"
-                          disabled={false}
-                          onClick={resetAll}
-                        >
-                          <Icon icon="times-circle-solid">
-                            <FormattedMessage id="stripes-smart-components.resetAll" />
-                          </Icon>
-                        </Button>
-                      </div>
-                    </form>
-                  </Pane>
-                }
+                {this.state.filterPaneIsVisible && renderSearchPane(sasqParams, this.toggleFilterPane, this.searchField)}
                 <Pane
                   appIcon={<AppIcon app="courses" />}
                   defaultWidth="fill"
