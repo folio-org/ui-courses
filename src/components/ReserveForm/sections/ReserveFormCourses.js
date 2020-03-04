@@ -32,7 +32,7 @@ const ReserveFormCourses = (props) => {
 
 ReserveFormCourses.propTypes = {
   data: PropTypes.shape({
-    crossListed: PropTypes.array.isRequired,
+    crossListed: PropTypes.array,
   }).isRequired,
 };
 
