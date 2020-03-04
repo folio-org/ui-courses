@@ -145,6 +145,7 @@
     "@folio/stripes-util": "^1.6.2",
     "final-form-set-field-data": "^1.0.2",
     "lodash": "^4.17.15",
-    "react-final-form": "^6.3.0"
+    "react-final-form": "^6.3.0",
+    "react-hot-loader": "^4.3.12"
   }
 }

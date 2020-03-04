@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { hot } from 'react-hot-loader';
 import Switch from 'react-router-dom/Switch';
 import Redirect from 'react-router-dom/Redirect';
 import { Route as NestedRoute } from '@folio/stripes/core';
@@ -55,4 +56,4 @@ class CoursesApp extends React.Component {
   }
 }
 
-export default CoursesApp;
+export default hot(module)(CoursesApp);
