@@ -112,5 +112,6 @@
     "button.addItem": "Add item",
     "filters.courses": "Courses",
     "filters.reserves": "Reserves",
+    "filters.department": "Department",
     "SENTINEL": "SENTINEL"
 }
