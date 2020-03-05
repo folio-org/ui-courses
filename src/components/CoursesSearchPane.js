@@ -54,94 +54,94 @@ const onClearFilter = (name) => onChangeFilter({ name, values: [] });
 
 
 class CoursesSearchPane extends React.Component {
-render() {
-  const props = this.props;
-  const {
-    searchValue,
-    getSearchHandlers,
-    onSubmitSearch,
-    // activeFilters,
-    resetAll,
-    source,
-    toggleFilterPane,
-    searchField,
-    resources,
-  } = props;
+  render() {
+    const props = this.props;
+    const {
+      searchValue,
+      getSearchHandlers,
+      onSubmitSearch,
+      // activeFilters,
+      resetAll,
+      source,
+      toggleFilterPane,
+      searchField,
+      resources,
+    } = props;
 
-  return (
-    <Pane
-      defaultWidth="22%"
-      onClose={toggleFilterPane}
-      paneTitle={<FormattedMessage id="stripes-smart-components.searchAndFilter" />}
-    >
-      <form onSubmit={onSubmitSearch}>
-        <FilterNavigation current="courses" />
-        <div className={css.searchGroupWrap}>
-          <FormattedMessage id="ui-courses.searchInputLabel">
-            { ariaLabel => (
-              <SearchField
-                data-test-courses-search-input
-                id="input-courses-search"
-                autoFocus
-                ariaLabel={ariaLabel}
-                className={css.searchField}
-                searchableIndexes={searchableIndexes}
-                selectedIndex={get(resources.query, 'qindex')}
-                value={searchValue.query}
-                loading={source ? source.pending() : true}
-                marginBottom0
-                onChangeIndex={e => onChangeIndex(props, e)}
-                onChange={getSearchHandlers().query}
-                onClear={getSearchHandlers().reset}
-                name="query"
-                inputRef={searchField}
-              />
-            )}
-          </FormattedMessage>
-          <Button
-            buttonStyle="primary"
-            disabled={!searchValue.query || searchValue.query === ''}
-            fullWidth
-            id="clickable-search-courses"
-            marginBottom0
-            type="submit"
-          >
-            <FormattedMessage id="stripes-smart-components.search" />
-          </Button>
-        </div>
-        <div className={css.resetButtonWrap}>
-          <Button
-            buttonStyle="none"
-            id="clickable-reset-all"
-            disabled={false}
-            onClick={resetAll}
-          >
-            <Icon icon="times-circle-solid">
-              <FormattedMessage id="stripes-smart-components.resetAll" />
-            </Icon>
-          </Button>
-        </div>
+    return (
+      <Pane
+        defaultWidth="22%"
+        onClose={toggleFilterPane}
+        paneTitle={<FormattedMessage id="stripes-smart-components.searchAndFilter" />}
+      >
+        <form onSubmit={onSubmitSearch}>
+          <FilterNavigation current="courses" />
+          <div className={css.searchGroupWrap}>
+            <FormattedMessage id="ui-courses.searchInputLabel">
+              { ariaLabel => (
+                <SearchField
+                  data-test-courses-search-input
+                  id="input-courses-search"
+                  autoFocus
+                  ariaLabel={ariaLabel}
+                  className={css.searchField}
+                  searchableIndexes={searchableIndexes}
+                  selectedIndex={get(resources.query, 'qindex')}
+                  value={searchValue.query}
+                  loading={source ? source.pending() : true}
+                  marginBottom0
+                  onChangeIndex={e => onChangeIndex(props, e)}
+                  onChange={getSearchHandlers().query}
+                  onClear={getSearchHandlers().reset}
+                  name="query"
+                  inputRef={searchField}
+                />
+              )}
+            </FormattedMessage>
+            <Button
+              buttonStyle="primary"
+              disabled={!searchValue.query || searchValue.query === ''}
+              fullWidth
+              id="clickable-search-courses"
+              marginBottom0
+              type="submit"
+            >
+              <FormattedMessage id="stripes-smart-components.search" />
+            </Button>
+          </div>
+          <div className={css.resetButtonWrap}>
+            <Button
+              buttonStyle="none"
+              id="clickable-reset-all"
+              disabled={false}
+              onClick={resetAll}
+            >
+              <Icon icon="times-circle-solid">
+                <FormattedMessage id="stripes-smart-components.resetAll" />
+              </Icon>
+            </Button>
+          </div>
 
-        <Accordion
-          label={<FormattedMessage id="ui-courses.filters.department" />}
-          id="department"
-          name="department"
-          separator={false}
-          header={FilterAccordionHeader}
-          displayClearButton={department.length > 0}
-          onClearFilter={onClearFilter}
-        >
-          <MultiSelectionFilter
+          <Accordion
+            label={<FormattedMessage id="ui-courses.filters.department" />}
+            id="department"
             name="department"
-            dataOptions={departmentOptions}
-            selectedValues={department}
-            onChange={onChangeFilter}
-          />
-        </Accordion>
-      </form>
-    </Pane>
-  );
-}
+            separator={false}
+            header={FilterAccordionHeader}
+            displayClearButton={department.length > 0}
+            onClearFilter={onClearFilter}
+          >
+            <MultiSelectionFilter
+              name="department"
+              dataOptions={departmentOptions}
+              selectedValues={department}
+              onChange={onChangeFilter}
+            />
+          </Accordion>
+        </form>
+      </Pane>
+    );
+  }
 }
 
 
