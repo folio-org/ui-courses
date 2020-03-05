@@ -30,14 +30,34 @@ const searchableIndexes = [
   { label: 'External ID', value: 'courseListingObject.externalId' },
 ];
 
-const department = ['1', '2']; // XXX for now
-
 const departmentOptions = [
-  { value: '1', label: 'this' },
-  { value: '2', label: 'that' },
-  { value: '3', label: 'whatever' },
-  { value: '4', label: 'the other' },
+  {
+    value: '1566841c-51ce-4d4c-aa09-0ea21b00904a',
+    label: 'Earth Sciences',
+  }, {
+    value: '5bec21a6-b148-47d5-8cf0-0082e02f9698',
+    label: 'Humanities',
+  }, {
+    value: '1fc91124-cd2a-4fae-9ae4-40368d80982d',
+    label: 'Mathematics',
+  }
 ]; // XXX for now
+
+
+// For some reason, neither initialFilterState nor filterState works for me
+function filterString2state(filters) {
+  const state = {};
+
+  if (filters) {
+    filters.split(',').forEach(fullName => {
+      const [group, value] = fullName.split('.');
+      if (!state[group]) state[group] = [];
+      state[group].push(value);
+    });
+  }
+
+  return state;
+}
 
 
 class CoursesSearchPane extends React.Component {
@@ -46,8 +66,8 @@ class CoursesSearchPane extends React.Component {
       query: PropTypes.string.isRequired,
     }).isRequired,
     getSearchHandlers: PropTypes.func.isRequired,
+    getFilterHandlers: PropTypes.func.isRequired,
     onSubmitSearch: PropTypes.func.isRequired,
-    // activeFilters: PropTypes.array.isRequired,
     resetAll: PropTypes.func.isRequired,
     source: PropTypes.object,
     toggleFilterPane: PropTypes.func.isRequired,
@@ -74,39 +94,24 @@ class CoursesSearchPane extends React.Component {
     updateLocation(this.props, { qindex });
   };
 
-  onChangeFilter = (filter) => {
-    this.props.stripes.logger.log('action', `changed filter ${filter.name} to`, filter.values);
-    return;
-
-    const {
-      parentMutator: { resultCount, resultOffset },
-      initialResultCount,
-      onFilterChange,
-    } = this.props;
-
-    resultCount.replace(initialResultCount);
-
-    if (resultOffset) {
-      resultOffset.replace(0);
-    }
-
-    onFilterChange(filter);
-  };
-
-  onClearFilter = (name) => this.onChangeFilter({ name, values: [] });
-
   render() {
     const {
       searchValue,
       getSearchHandlers,
+      getFilterHandlers,
       onSubmitSearch,
-      // activeFilters,
       resetAll,
       source,
       toggleFilterPane,
       searchField,
       resources,
     } = this.props;
+    const searchHandlers = getSearchHandlers();
+    const filterHandlers = getFilterHandlers();
+
+    const filters = get(resources.query, 'filters');
+    const activeFilters = filterString2state(filters);
+    const department = activeFilters.department || [];
 
     return (
       <Pane
@@ -131,8 +136,8 @@ class CoursesSearchPane extends React.Component {
                   loading={source ? source.pending() : true}
                   marginBottom0
                   onChangeIndex={this.onChangeIndex}
-                  onChange={getSearchHandlers().query}
-                  onClear={getSearchHandlers().reset}
+                  onChange={searchHandlers.query}
+                  onClear={searchHandlers.reset}
                   name="query"
                   inputRef={searchField}
                 />
@@ -169,13 +174,13 @@ class CoursesSearchPane extends React.Component {
             separator={false}
             header={FilterAccordionHeader}
             displayClearButton={department.length > 0}
-            onClearFilter={this.onClearFilter}
+            onClearFilter={() => filterHandlers.clearGroup('department')}
           >
             <MultiSelectionFilter
               name="department"
               dataOptions={departmentOptions}
               selectedValues={department}
-              onChange={this.onChangeFilter}
+              onChange={(group) => filterHandlers.state({ ...activeFilters, [group.name]: group.values })}
             />
           </Accordion>
         </form>
