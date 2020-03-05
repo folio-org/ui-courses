@@ -53,7 +53,9 @@ const onChangeFilter = (x) => console.log('filter change event:', x); // XXX for
 const onClearFilter = (name) => onChangeFilter({ name, values: [] });
 
 
-function CoursesSearchPane(props) {
+class CoursesSearchPane extends React.Component {
+render() {
+  const props = this.props;
   const {
     searchValue,
     getSearchHandlers,
@@ -140,6 +142,8 @@ function CoursesSearchPane(props) {
     </Pane>
   );
 }
+}
+
 
 CoursesSearchPane.propTypes = {
   searchValue: PropTypes.shape({
