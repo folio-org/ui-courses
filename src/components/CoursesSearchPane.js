@@ -77,7 +77,6 @@ class CoursesSearchPane extends React.Component {
   });
 
   render() {
-    const props = this.props;
     const {
       searchValue,
       getSearchHandlers,
@@ -88,7 +87,7 @@ class CoursesSearchPane extends React.Component {
       toggleFilterPane,
       searchField,
       resources,
-    } = props;
+    } = this.props;
 
     return (
       <Pane
@@ -112,7 +111,7 @@ class CoursesSearchPane extends React.Component {
                   value={searchValue.query}
                   loading={source ? source.pending() : true}
                   marginBottom0
-                  onChangeIndex={e => onChangeIndex(props, e)}
+                  onChangeIndex={e => onChangeIndex(this.props, e)}
                   onChange={getSearchHandlers().query}
                   onClear={getSearchHandlers().reset}
                   name="query"
