@@ -39,12 +39,6 @@ const departmentOptions = [
   { value: '4', label: 'the other' },
 ]; // XXX for now
 
-// eslint-disable-next-line no-console
-const onChangeFilter = (x) => console.log('filter change event:', x); // XXX for now
-
-// eslint-disable-next-line no-console
-const onClearFilter = (name) => onChangeFilter({ name, values: [] });
-
 
 class CoursesSearchPane extends React.Component {
   static propTypes = {
@@ -79,6 +73,27 @@ class CoursesSearchPane extends React.Component {
     this.props.stripes.logger.log('action', `changed query-index to '${qindex}'`);
     updateLocation(this.props, { qindex });
   };
+
+  onChangeFilter = (filter) => {
+    this.props.stripes.logger.log('action', `changed filter ${filter.name} to`, filter.values);
+    return;
+
+    const {
+      parentMutator: { resultCount, resultOffset },
+      initialResultCount,
+      onFilterChange,
+    } = this.props;
+
+    resultCount.replace(initialResultCount);
+
+    if (resultOffset) {
+      resultOffset.replace(0);
+    }
+
+    onFilterChange(filter);
+  };
+
+  onClearFilter = (name) => this.onChangeFilter({ name, values: [] });
 
   render() {
     const {
@@ -154,13 +169,13 @@ class CoursesSearchPane extends React.Component {
             separator={false}
             header={FilterAccordionHeader}
             displayClearButton={department.length > 0}
-            onClearFilter={onClearFilter}
+            onClearFilter={this.onClearFilter}
           >
             <MultiSelectionFilter
               name="department"
               dataOptions={departmentOptions}
               selectedValues={department}
-              onChange={onChangeFilter}
+              onChange={this.onChangeFilter}
             />
           </Accordion>
         </form>
