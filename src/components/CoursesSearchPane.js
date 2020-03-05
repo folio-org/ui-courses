@@ -54,6 +54,28 @@ const onClearFilter = (name) => onChangeFilter({ name, values: [] });
 
 
 class CoursesSearchPane extends React.Component {
+  static propTypes = {
+    searchValue: PropTypes.shape({
+      query: PropTypes.string.isRequired,
+    }).isRequired,
+    getSearchHandlers: PropTypes.func.isRequired,
+    onSubmitSearch: PropTypes.func.isRequired,
+    // activeFilters: PropTypes.array.isRequired,
+    resetAll: PropTypes.func.isRequired,
+    source: PropTypes.object,
+    toggleFilterPane: PropTypes.func.isRequired,
+    searchField: PropTypes.any, // eslint-disable-line react/forbid-prop-types
+    resources: PropTypes.shape({
+      query: PropTypes.shape({
+        qindex: PropTypes.string,
+      }).isRequired,
+    }).isRequired,
+  };
+
+  static manifest = Object.freeze({
+    query: { initialValue: {} },
+  });
+
   render() {
     const props = this.props;
     const {
@@ -144,27 +166,5 @@ class CoursesSearchPane extends React.Component {
   }
 }
 
-
-CoursesSearchPane.propTypes = {
-  searchValue: PropTypes.shape({
-    query: PropTypes.string.isRequired,
-  }).isRequired,
-  getSearchHandlers: PropTypes.func.isRequired,
-  onSubmitSearch: PropTypes.func.isRequired,
-  // activeFilters: PropTypes.array.isRequired,
-  resetAll: PropTypes.func.isRequired,
-  source: PropTypes.object,
-  toggleFilterPane: PropTypes.func.isRequired,
-  searchField: PropTypes.any, // eslint-disable-line react/forbid-prop-types
-  resources: PropTypes.shape({
-    query: PropTypes.shape({
-      qindex: PropTypes.string,
-    }).isRequired,
-  }).isRequired,
-};
-
-CoursesSearchPane.manifest = Object.freeze({
-  query: { initialValue: {} },
-});
 
 export default withRouter(stripesConnect(CoursesSearchPane));
