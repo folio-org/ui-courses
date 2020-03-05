@@ -30,13 +30,6 @@ const searchableIndexes = [
   { label: 'External ID', value: 'courseListingObject.externalId' },
 ];
 
-const onChangeIndex = (props, e) => {
-  const qindex = e.target.value;
-  props.stripes.logger.log('action', `changed query-index to '${qindex}'`);
-  updateLocation(props, { qindex });
-};
-
-
 const department = ['1', '2']; // XXX for now
 
 const departmentOptions = [
@@ -70,11 +63,22 @@ class CoursesSearchPane extends React.Component {
         qindex: PropTypes.string,
       }).isRequired,
     }).isRequired,
+    stripes: PropTypes.shape({
+      logger: PropTypes.shape({
+        log: PropTypes.func.isRequired,
+      }).isRequired,
+    }).isRequired,
   };
 
   static manifest = Object.freeze({
     query: { initialValue: {} },
   });
+
+  onChangeIndex = (e) => {
+    const qindex = e.target.value;
+    this.props.stripes.logger.log('action', `changed query-index to '${qindex}'`);
+    updateLocation(this.props, { qindex });
+  };
 
   render() {
     const {
@@ -111,7 +115,7 @@ class CoursesSearchPane extends React.Component {
                   value={searchValue.query}
                   loading={source ? source.pending() : true}
                   marginBottom0
-                  onChangeIndex={e => onChangeIndex(this.props, e)}
+                  onChangeIndex={this.onChangeIndex}
                   onChange={getSearchHandlers().query}
                   onClear={getSearchHandlers().reset}
                   name="query"
