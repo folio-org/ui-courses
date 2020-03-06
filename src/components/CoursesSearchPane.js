@@ -181,6 +181,7 @@ class CoursesSearchPane extends React.Component {
           {renderFilter(filterHandlers, activeFilters, options, 'departments', 'department')}
           {renderFilter(filterHandlers, activeFilters, options, 'coursetypes', 'coursetype')}
           {renderFilter(filterHandlers, activeFilters, options, 'terms', 'term')}
+          {renderFilter(filterHandlers, activeFilters, options, 'statuses', 'status')}
           {renderFilter(filterHandlers, activeFilters, options, 'locations', 'location')}
         </form>
       </Pane>

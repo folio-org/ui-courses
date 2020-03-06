@@ -35,6 +35,10 @@ const filterConfig = [{
   cql: 'courseListingObject.termId',
   values: [],
 }, {
+  name: 'statuses',
+  cql: 'status',
+  values: [],
+}, {
   name: 'locations',
   cql: 'courseListingObject.locationId',
   values: [],
@@ -109,6 +113,11 @@ class CoursesRoute extends React.Component {
             departments: getOptions(this, 'departments'),
             coursetypes: getOptions(this, 'coursetypes', 'courseTypes'),
             terms: getOptions(this, 'terms'),
+            statuses: [
+              { value: 'pending', label: 'Pending' },
+              { value: 'active', label: 'Active' },
+              { value: 'inactive', label: 'Inactive' },
+            ],
             locations: getOptions(this, 'locations'),
           }
         }}

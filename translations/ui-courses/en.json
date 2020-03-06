@@ -115,6 +115,7 @@
     "filters.department": "Department",
     "filters.coursetype": "Course type",
     "filters.term": "Term",
+    "filters.status": "Status",
     "filters.location": "Location",
     "SENTINEL": "SENTINEL"
 }
