@@ -8,6 +8,7 @@ import NoPermissions from '../components/NoPermissions';
 import fetchIsPending from '../util/fetchIsPending';
 import getOptions from '../util/getOptions';
 import exciseObjects from '../util/exciseObjects';
+import manifest from '../util/manifest';
 
 
 class EditReserveRoute extends React.Component {
@@ -50,11 +51,7 @@ class EditReserveRoute extends React.Component {
       type: 'okapi',
       path: 'coursereserves/processingstatuses',
     },
-    locations: {
-      type: 'okapi',
-      path: 'locations?limit=500&query=cql.allRecords=1 sortby name',
-      shouldRefresh: () => false,
-    },
+    locations: manifest.locations,
     copyrightStatuses: {
       type: 'okapi',
       path: 'coursereserves/copyrightstatuses',

@@ -16,6 +16,11 @@ const manifest = {
     path: 'coursereserves/terms',
     shouldRefresh: () => false,
   },
+  locations: {
+    type: 'okapi',
+    path: 'locations?limit=500&query=cql.allRecords=1 sortby name',
+    shouldRefresh: () => false,
+  },
 };
 
 export default manifest;
