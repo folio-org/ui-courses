@@ -58,6 +58,7 @@ function renderFilter(filterHandlers, activeFilters, options, name, translationI
       header={FilterAccordionHeader}
       displayClearButton={values.length > 0}
       onClearFilter={() => filterHandlers.clearGroup(name)}
+      closedByDefault
     >
       <MultiSelectionFilter
         name={name}
