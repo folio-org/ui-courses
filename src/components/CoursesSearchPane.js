@@ -46,7 +46,9 @@ function filterString2state(filters) {
 }
 
 
-function renderFilter(filterHandlers, activeFilters, options, name, translationId, values) {
+function renderFilter(filterHandlers, activeFilters, options, name, translationId) {
+  const values = activeFilters[name] || [];
+
   return (
     <Accordion
       label={<FormattedMessage id={`ui-courses.filters.${translationId}`} />}
@@ -121,8 +123,6 @@ class CoursesSearchPane extends React.Component {
 
     const filters = get(resources.query, 'filters');
     const activeFilters = filterString2state(filters);
-    const departments = activeFilters.departments || [];
-    const coursetypes = activeFilters.coursetypes || [];
 
     return (
       <Pane
@@ -178,8 +178,8 @@ class CoursesSearchPane extends React.Component {
             </Button>
           </div>
 
-          {renderFilter(filterHandlers, activeFilters, options, 'departments', 'department', departments)}
-          {renderFilter(filterHandlers, activeFilters, options, 'coursetypes', 'coursetype', coursetypes)}
+          {renderFilter(filterHandlers, activeFilters, options, 'departments', 'department')}
+          {renderFilter(filterHandlers, activeFilters, options, 'coursetypes', 'coursetype')}
         </form>
       </Pane>
     );
