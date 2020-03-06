@@ -144,7 +144,7 @@ class Reserves extends React.Component {
               <Paneset id="reserves-paneset">
                 {this.state.filterPaneIsVisible &&
                   <Pane
-                    defaultWidth="22%"
+                    defaultWidth="28%"
                     onClose={this.toggleFilterPane}
                     paneTitle={<FormattedMessage id="stripes-smart-components.searchAndFilter" />}
                   >

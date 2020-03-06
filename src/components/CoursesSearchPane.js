@@ -103,7 +103,7 @@ class CoursesSearchPane extends React.Component {
 
     return (
       <Pane
-        defaultWidth="22%"
+        defaultWidth="28%"
         onClose={toggleFilterPane}
         paneTitle={<FormattedMessage id="stripes-smart-components.searchAndFilter" />}
       >
