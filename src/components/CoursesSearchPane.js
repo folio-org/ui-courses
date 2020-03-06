@@ -46,6 +46,28 @@ function filterString2state(filters) {
 }
 
 
+function renderFilter(filterHandlers, activeFilters, options, name, translationId, values) {
+  return (
+    <Accordion
+      label={<FormattedMessage id={`ui-courses.filters.${translationId}`} />}
+      id={name}
+      name={name}
+      separator={false}
+      header={FilterAccordionHeader}
+      displayClearButton={values.length > 0}
+      onClearFilter={() => filterHandlers.clearGroup(name)}
+    >
+      <MultiSelectionFilter
+        name={name}
+        dataOptions={options[name]}
+        selectedValues={values}
+        onChange={(group) => filterHandlers.state({ ...activeFilters, [group.name]: group.values })}
+      />
+    </Accordion>
+  );
+}
+
+
 class CoursesSearchPane extends React.Component {
   static propTypes = {
     searchValue: PropTypes.shape({
@@ -156,39 +178,8 @@ class CoursesSearchPane extends React.Component {
             </Button>
           </div>
 
-          <Accordion
-            label={<FormattedMessage id="ui-courses.filters.department" />}
-            id="departments"
-            name="departments"
-            separator={false}
-            header={FilterAccordionHeader}
-            displayClearButton={departments.length > 0}
-            onClearFilter={() => filterHandlers.clearGroup('departments')}
-          >
-            <MultiSelectionFilter
-              name="departments"
-              dataOptions={options.departments}
-              selectedValues={departments}
-              onChange={(group) => filterHandlers.state({ ...activeFilters, [group.name]: group.values })}
-            />
-          </Accordion>
-
-          <Accordion
-            label={<FormattedMessage id="ui-courses.filters.coursetype" />}
-            id="coursetypes"
-            name="coursetypes"
-            separator={false}
-            header={FilterAccordionHeader}
-            displayClearButton={coursetypes.length > 0}
-            onClearFilter={() => filterHandlers.clearGroup('coursetypes')}
-          >
-            <MultiSelectionFilter
-              name="coursetypes"
-              dataOptions={options.coursetypes}
-              selectedValues={coursetypes}
-              onChange={(group) => filterHandlers.state({ ...activeFilters, [group.name]: group.values })}
-            />
-          </Accordion>
+          {renderFilter(filterHandlers, activeFilters, options, 'departments', 'department', departments)}
+          {renderFilter(filterHandlers, activeFilters, options, 'coursetypes', 'coursetype', coursetypes)}
         </form>
       </Pane>
     );
