@@ -100,6 +100,7 @@ class CoursesSearchPane extends React.Component {
     const filters = get(resources.query, 'filters');
     const activeFilters = filterString2state(filters);
     const departments = activeFilters.departments || [];
+    const coursetypes = activeFilters.coursetypes || [];
 
     return (
       <Pane
@@ -168,6 +169,23 @@ class CoursesSearchPane extends React.Component {
               name="departments"
               dataOptions={options.departments}
               selectedValues={departments}
+              onChange={(group) => filterHandlers.state({ ...activeFilters, [group.name]: group.values })}
+            />
+          </Accordion>
+
+          <Accordion
+            label={<FormattedMessage id="ui-courses.filters.coursetype" />}
+            id="coursetypes"
+            name="coursetypes"
+            separator={false}
+            header={FilterAccordionHeader}
+            displayClearButton={coursetypes.length > 0}
+            onClearFilter={() => filterHandlers.clearGroup('coursetypes')}
+          >
+            <MultiSelectionFilter
+              name="coursetypes"
+              dataOptions={options.coursetypes}
+              selectedValues={coursetypes}
               onChange={(group) => filterHandlers.state({ ...activeFilters, [group.name]: group.values })}
             />
           </Accordion>
