@@ -23,7 +23,7 @@ const sortMap = {
 };
 
 const filterConfig = [{
-  name: 'department',
+  name: 'departments',
   cql: 'departmentId',
   values: [],
 }];
@@ -91,7 +91,7 @@ class CoursesRoute extends React.Component {
         data={{
           courses: get(resources, 'courses.records', []),
           options: {
-            department: getOptions(this, 'departments'),
+            departments: getOptions(this, 'departments'),
           }
         }}
         onNeedMoreData={this.handleNeedMoreData}
