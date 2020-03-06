@@ -5,6 +5,8 @@ import { stripesConnect } from '@folio/stripes/core';
 import CourseForm from '../components/CourseForm';
 import NoPermissions from '../components/NoPermissions';
 import getOptions from '../util/getOptions';
+import manifest from '../util/manifest';
+
 
 class CreateCourseRoute extends React.Component {
   static manifest = Object.freeze({
@@ -20,11 +22,7 @@ class CreateCourseRoute extends React.Component {
       fetch: false,
       shouldRefresh: () => false,
     },
-    departments: {
-      type: 'okapi',
-      path: 'coursereserves/departments',
-      shouldRefresh: () => false,
-    },
+    departments: manifest.departments,
     coursetypes: {
       type: 'okapi',
       path: 'coursereserves/coursetypes',

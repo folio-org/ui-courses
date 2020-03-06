@@ -7,6 +7,7 @@ import NoPermissions from '../components/NoPermissions';
 import fetchIsPending from '../util/fetchIsPending';
 import getOptions from '../util/getOptions';
 import exciseObjects from '../util/exciseObjects';
+import manifest from '../util/manifest';
 
 
 class EditCourseRoute extends React.Component {
@@ -23,11 +24,7 @@ class EditCourseRoute extends React.Component {
         return !rec ? null : `coursereserves/courselistings/${rec.courseListingId}`;
       },
     },
-    departments: {
-      type: 'okapi',
-      path: 'coursereserves/departments',
-      shouldRefresh: () => false,
-    },
+    departments: manifest.departments,
     coursetypes: {
       type: 'okapi',
       path: 'coursereserves/coursetypes',

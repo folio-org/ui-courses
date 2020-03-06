@@ -5,6 +5,7 @@ import { stripesConnect } from '@folio/stripes/core';
 import CourseForm from '../components/CourseForm';
 import NoPermissions from '../components/NoPermissions';
 import exciseObjects from '../util/exciseObjects';
+import manifest from '../util/manifest';
 
 
 class CrosslistCourseRoute extends React.Component {
@@ -19,11 +20,7 @@ class CrosslistCourseRoute extends React.Component {
       type: 'okapi',
       path: 'coursereserves/courselistings/:{clid}',
     },
-    departments: {
-      type: 'okapi',
-      path: 'coursereserves/departments',
-      shouldRefresh: () => false,
-    },
+    departments: manifest.departments,
     coursetypes: {
       type: 'okapi',
       path: 'coursereserves/coursetypes',
