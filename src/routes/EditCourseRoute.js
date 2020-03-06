@@ -26,11 +26,7 @@ class EditCourseRoute extends React.Component {
     },
     departments: manifest.departments,
     coursetypes: manifest.coursetypes,
-    terms: {
-      type: 'okapi',
-      path: 'coursereserves/terms',
-      shouldRefresh: () => false,
-    },
+    terms: manifest.terms,
     locations: {
       type: 'okapi',
       path: 'locations?limit=500&query=cql.allRecords=1 sortby name',

@@ -11,6 +11,11 @@ const manifest = {
     path: 'coursereserves/coursetypes',
     shouldRefresh: () => false,
   },
+  terms: {
+    type: 'okapi',
+    path: 'coursereserves/terms',
+    shouldRefresh: () => false,
+  },
 };
 
 export default manifest;
