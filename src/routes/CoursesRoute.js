@@ -30,6 +30,10 @@ const filterConfig = [{
   name: 'coursetypes',
   cql: 'courseListingObject.courseTypeId',
   values: [],
+}, {
+  name: 'terms',
+  cql: 'courseListingObject.termId',
+  values: [],
 }];
 
 
@@ -69,6 +73,7 @@ class CoursesRoute extends React.Component {
     resultCount: { initialValue: INITIAL_RESULT_COUNT },
     departments: manifest.departments,
     coursetypes: manifest.coursetypes,
+    terms: manifest.terms,
   });
 
   constructor(props) {
@@ -98,6 +103,7 @@ class CoursesRoute extends React.Component {
           options: {
             departments: getOptions(this, 'departments'),
             coursetypes: getOptions(this, 'coursetypes', 'courseTypes'),
+            terms: getOptions(this, 'terms'),
           }
         }}
         onNeedMoreData={this.handleNeedMoreData}

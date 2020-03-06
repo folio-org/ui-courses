@@ -114,5 +114,6 @@
     "filters.reserves": "Reserves",
     "filters.department": "Department",
     "filters.coursetype": "Course type",
+    "filters.term": "Term",
     "SENTINEL": "SENTINEL"
 }

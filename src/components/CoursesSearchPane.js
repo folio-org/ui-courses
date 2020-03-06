@@ -180,6 +180,7 @@ class CoursesSearchPane extends React.Component {
 
           {renderFilter(filterHandlers, activeFilters, options, 'departments', 'department')}
           {renderFilter(filterHandlers, activeFilters, options, 'coursetypes', 'coursetype')}
+          {renderFilter(filterHandlers, activeFilters, options, 'terms', 'term')}
         </form>
       </Pane>
     );
