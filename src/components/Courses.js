@@ -49,6 +49,7 @@ class Courses extends React.Component {
       courses: PropTypes.arrayOf(
         PropTypes.object,
       ).isRequired,
+      options: PropTypes.object.isRequired,
     }).isRequired,
     onNeedMoreData: PropTypes.func.isRequired,
     query: PropTypes.object.isRequired,
@@ -178,6 +179,7 @@ class Courses extends React.Component {
                     source={source}
                     toggleFilterPane={this.toggleFilterPane}
                     searchField={this.searchField}
+                    options={data.options}
                   />
                 )}
                 <Pane

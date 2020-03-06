@@ -30,20 +30,6 @@ const searchableIndexes = [
   { label: 'External ID', value: 'courseListingObject.externalId' },
 ];
 
-const departmentOptions = [
-  {
-    value: '1566841c-51ce-4d4c-aa09-0ea21b00904a',
-    label: 'Earth Sciences',
-  }, {
-    value: '5bec21a6-b148-47d5-8cf0-0082e02f9698',
-    label: 'Humanities',
-  }, {
-    value: '1fc91124-cd2a-4fae-9ae4-40368d80982d',
-    label: 'Mathematics',
-  }
-]; // XXX for now
-
-
 // For some reason, neither initialFilterState nor filterState works for me
 function filterString2state(filters) {
   const state = {};
@@ -82,6 +68,7 @@ class CoursesSearchPane extends React.Component {
         log: PropTypes.func.isRequired,
       }).isRequired,
     }).isRequired,
+    options: PropTypes.object.isRequired,
   };
 
   static manifest = Object.freeze({
@@ -105,6 +92,7 @@ class CoursesSearchPane extends React.Component {
       toggleFilterPane,
       searchField,
       resources,
+      options,
     } = this.props;
     const searchHandlers = getSearchHandlers();
     const filterHandlers = getFilterHandlers();
@@ -178,7 +166,7 @@ class CoursesSearchPane extends React.Component {
           >
             <MultiSelectionFilter
               name="department"
-              dataOptions={departmentOptions}
+              dataOptions={options.department}
               selectedValues={department}
               onChange={(group) => filterHandlers.state({ ...activeFilters, [group.name]: group.values })}
             />
