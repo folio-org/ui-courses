@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { get } from 'lodash';
-
 import { stripesConnect } from '@folio/stripes/core';
 import { makeQueryFunction, StripesConnectedSource } from '@folio/stripes/smart-components';
-
+import getOptions from '../util/getOptions';
+import manifest from '../util/manifest';
 import Courses from '../components/Courses';
 
 
@@ -31,21 +31,6 @@ const filterConfig = [{
     '1fc91124-cd2a-4fae-9ae4-40368d80982d',
   ],
 }]; // XXX for now
-
-const options = {
-  department: [
-    {
-      value: '1566841c-51ce-4d4c-aa09-0ea21b00904a',
-      label: 'Earth Sciences',
-    }, {
-      value: '5bec21a6-b148-47d5-8cf0-0082e02f9698',
-      label: 'Humanities',
-    }, {
-      value: '1fc91124-cd2a-4fae-9ae4-40368d80982d',
-      label: 'Mathematics',
-    }
-  ], // XXX for now
-};
 
 
 class CoursesRoute extends React.Component {
@@ -82,6 +67,7 @@ class CoursesRoute extends React.Component {
     },
     query: { initialValue: {} },
     resultCount: { initialValue: INITIAL_RESULT_COUNT },
+    departments: manifest.departments,
   });
 
   constructor(props) {
@@ -108,7 +94,9 @@ class CoursesRoute extends React.Component {
       <Courses
         data={{
           courses: get(resources, 'courses.records', []),
-          options,
+          options: {
+            department: getOptions(this, 'departments'),
+          }
         }}
         onNeedMoreData={this.handleNeedMoreData}
         query={resources.query || {}}
