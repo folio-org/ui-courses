@@ -25,12 +25,8 @@ const sortMap = {
 const filterConfig = [{
   name: 'department',
   cql: 'departmentId',
-  values: [
-    '1566841c-51ce-4d4c-aa09-0ea21b00904a',
-    '5bec21a6-b148-47d5-8cf0-0082e02f9698',
-    '1fc91124-cd2a-4fae-9ae4-40368d80982d',
-  ],
-}]; // XXX for now
+  values: [],
+}];
 
 
 class CoursesRoute extends React.Component {
