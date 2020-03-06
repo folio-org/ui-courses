@@ -83,7 +83,6 @@ export default class CourseFormInfo extends React.Component {
               id="edit-course-location"
               label={<FormattedMessage id="ui-courses.field.location" />}
               name="courseListingObject.locationId"
-              required
             />
           </Col>
         </Row>
