@@ -21,6 +21,11 @@ const manifest = {
     path: 'locations?limit=500&query=cql.allRecords=1 sortby name',
     shouldRefresh: () => false,
   },
+  processingStatuses: {
+    type: 'okapi',
+    path: 'coursereserves/processingstatuses',
+    shouldRefresh: () => false,
+  },
 };
 
 export default manifest;

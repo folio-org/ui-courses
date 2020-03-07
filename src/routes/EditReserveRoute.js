@@ -47,10 +47,7 @@ class EditReserveRoute extends React.Component {
       path: 'loan-types',
       // records: 'loantypes',
     },
-    processingStatuses: {
-      type: 'okapi',
-      path: 'coursereserves/processingstatuses',
-    },
+    processingStatuses: manifest.processingStatuses,
     locations: manifest.locations,
     copyrightStatuses: {
       type: 'okapi',
