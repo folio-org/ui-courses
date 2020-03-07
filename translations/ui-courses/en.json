@@ -118,5 +118,9 @@
     "filters.status": "Status",
     "filters.location": "Location",
     "filters.processingstatus": "Processing status",
+    "filters.copyrightTracking": "Copyright tracking?",
+    "filters.copyrightStatus": "Copyright status",
+    "filters.permanentLocation": "Permanent location",
+    "filters.temporaryLocation": "Temporary location",
     "SENTINEL": "SENTINEL"
 }
