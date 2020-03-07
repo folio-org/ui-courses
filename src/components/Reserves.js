@@ -50,7 +50,7 @@ class Reserves extends React.Component {
   }
 
   onRowClick = (e, row) => {
-    this.props.history.push(`/cr/reserves/${row.id}${this.props.location.search}`);
+    this.props.history.push(`/cr/reserves/${row.courseListingId}/NO-COURSE-ID/${row.id}/edit${this.props.location.search}`);
   }
 
   toggleFilterPane = () => {
