@@ -28,6 +28,22 @@ const filterConfig = [{
   name: 'copyrightStatuses',
   cql: 'copyrightTracking.copyrightStatusId',
   values: [],
+}, {
+  name: 'permanentLocations',
+  cql: 'copiedItem.permanentLocationId',
+  values: [],
+}, {
+  name: 'temporaryLocations',
+  cql: 'copiedItem.temporaryLocationId',
+  values: [],
+}, {
+  name: 'terms',
+  cql: 'courseListingObject.termId',
+  values: [],
+}, {
+  name: 'statuses',
+  cql: 'status',
+  values: [],
 }];
 
 
@@ -69,6 +85,8 @@ class ReservesRoute extends React.Component {
     resultCount: { initialValue: INITIAL_RESULT_COUNT },
     processingStatuses: manifest.processingStatuses,
     copyrightStatuses: manifest.copyrightStatuses,
+    locations: manifest.locations,
+    terms: manifest.terms,
   });
 
   constructor(props) {
@@ -98,6 +116,13 @@ class ReservesRoute extends React.Component {
           options: {
             processingStatuses: getOptions(this, 'processingStatuses'),
             copyrightStatuses: getOptions(this, 'copyrightStatuses'),
+            locations: getOptions(this, 'locations'),
+            terms: getOptions(this, 'terms'),
+            statuses: [
+              { value: 'pending', label: 'Pending' },
+              { value: 'active', label: 'Active' },
+              { value: 'inactive', label: 'Inactive' },
+            ],
           },
         }}
         onNeedMoreData={this.handleNeedMoreData}

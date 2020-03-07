@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { Accordion, FilterAccordionHeader } from '@folio/stripes/components';
 import { MultiSelectionFilter } from '@folio/stripes/smart-components';
 
-function renderFilter(filterHandlers, activeFilters, options, name, translationId) {
+function renderFilter(filterHandlers, activeFilters, options, name, translationId, dataName) {
   const values = activeFilters[name] || [];
 
   return (
@@ -19,7 +19,7 @@ function renderFilter(filterHandlers, activeFilters, options, name, translationI
     >
       <MultiSelectionFilter
         name={name}
-        dataOptions={options[name]}
+        dataOptions={options[dataName || name]}
         selectedValues={values}
         onChange={(group) => filterHandlers.state({ ...activeFilters, [group.name]: group.values })}
       />

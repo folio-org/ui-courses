@@ -139,6 +139,10 @@ class ReservesSearchPane extends React.Component {
 
           {renderFilter(filterHandlers, activeFilters, options, 'processingStatuses', 'processingstatus')}
           {renderFilter(filterHandlers, activeFilters, options, 'copyrightStatuses', 'copyrightStatus')}
+          {renderFilter(filterHandlers, activeFilters, options, 'permanentLocations', 'permanentLocation', 'locations')}
+          {renderFilter(filterHandlers, activeFilters, options, 'temporaryLocations', 'temporaryLocation', 'locations')}
+          {renderFilter(filterHandlers, activeFilters, options, 'terms', 'term')}
+          {renderFilter(filterHandlers, activeFilters, options, 'statuses', 'status')}
         </form>
       </Pane>
     );
