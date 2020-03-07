@@ -117,5 +117,6 @@
     "filters.term": "Term",
     "filters.status": "Status",
     "filters.location": "Location",
+    "filters.processingstatus": "Processing Status",
     "SENTINEL": "SENTINEL"
 }

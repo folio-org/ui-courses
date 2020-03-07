@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { get } from 'lodash';
-
 import { stripesConnect } from '@folio/stripes/core';
 import { makeQueryFunction, StripesConnectedSource } from '@folio/stripes/smart-components';
-
+import getOptions from '../util/getOptions';
+import manifest from '../util/manifest';
 import Reserves from '../components/Reserves';
 
 
@@ -19,7 +19,12 @@ const sortMap = {
   permanentLocation: 'copiedItem.permanentLocationObject.name',
   temporaryLocation: 'copiedItem.temporaryLocationObject.name',
 };
-const filterConfig = [];
+
+const filterConfig = [{
+  name: 'processingStatuses',
+  cql: 'processingStatusId',
+  values: [],
+}];
 
 
 class ReservesRoute extends React.Component {
@@ -58,6 +63,7 @@ class ReservesRoute extends React.Component {
     },
     query: { initialValue: {} },
     resultCount: { initialValue: INITIAL_RESULT_COUNT },
+    processingStatuses: manifest.processingStatuses,
   });
 
   constructor(props) {
@@ -85,6 +91,7 @@ class ReservesRoute extends React.Component {
         data={{
           reserves: get(resources, 'reserves.records', []),
           options: {
+            processingStatuses: getOptions(this, 'processingStatuses'),
           },
         }}
         onNeedMoreData={this.handleNeedMoreData}

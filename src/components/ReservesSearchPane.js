@@ -13,14 +13,13 @@ import {
 } from '@folio/stripes/components';
 
 import updateLocation from '../util/updateLocation';
-// import renderFilter from '../util/renderFilter';
-// import filterString2state from '../util/filterString2state';
+import renderFilter from '../util/renderFilter';
+import filterString2state from '../util/filterString2state';
 import css from './Courses.css';
 import FilterNavigation from './FilterNavigation';
 
 
 // Value gets set into the `qindex` parameter of the UI URL, and used in the generated back-end query
-// eslint-disable-next-line no-unused-vars
 const searchableIndexes = [
   { label: 'All fields', value: '' },
   { label: 'Title', value: 'copiedItem.title' },
@@ -36,7 +35,7 @@ class ReservesSearchPane extends React.Component {
       query: PropTypes.string.isRequired,
     }).isRequired,
     getSearchHandlers: PropTypes.func.isRequired,
-    // getFilterHandlers: PropTypes.func.isRequired,
+    getFilterHandlers: PropTypes.func.isRequired,
     onSubmitSearch: PropTypes.func.isRequired,
     resetAll: PropTypes.func.isRequired,
     source: PropTypes.object,
@@ -52,7 +51,7 @@ class ReservesSearchPane extends React.Component {
         log: PropTypes.func.isRequired,
       }).isRequired,
     }).isRequired,
-    // options: PropTypes.object.isRequired,
+    options: PropTypes.object.isRequired,
   };
 
   static manifest = Object.freeze({
@@ -69,20 +68,20 @@ class ReservesSearchPane extends React.Component {
     const {
       searchValue,
       getSearchHandlers,
-      // getFilterHandlers,
+      getFilterHandlers,
       onSubmitSearch,
       resetAll,
       source,
       toggleFilterPane,
       searchField,
       resources,
-      // options,
+      options,
     } = this.props;
     const searchHandlers = getSearchHandlers();
-    // const filterHandlers = getFilterHandlers();
+    const filterHandlers = getFilterHandlers();
 
-    // const filters = get(resources.query, 'filters');
-    // const activeFilters = filterString2state(filters);
+    const filters = get(resources.query, 'filters');
+    const activeFilters = filterString2state(filters);
 
     return (
       <Pane
@@ -137,6 +136,8 @@ class ReservesSearchPane extends React.Component {
               </Icon>
             </Button>
           </div>
+
+          {renderFilter(filterHandlers, activeFilters, options, 'processingStatuses', 'processingstatus')}
         </form>
       </Pane>
     );
