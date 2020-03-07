@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { withRouter } from 'react-router';
-// import get from 'lodash/get';
+import get from 'lodash/get';
 import { stripesConnect } from '@folio/stripes/core'; // just for resources.query
 
 import {
@@ -21,8 +21,12 @@ import FilterNavigation from './FilterNavigation';
 
 // Value gets set into the `qindex` parameter of the UI URL, and used in the generated back-end query
 // eslint-disable-next-line no-unused-vars
-const SearchableIndexes = [
+const searchableIndexes = [
   { label: 'All fields', value: '' },
+  { label: 'Title', value: 'copiedItem.title' },
+  { label: 'Barcode', value: 'copiedItem.barcode' },
+  { label: 'Call Number', value: 'copiedItem.callNumber' },
+  { label: 'Contributor', value: 'copiedItem.contributors.name' },
 ];
 
 
@@ -71,10 +75,10 @@ class ReservesSearchPane extends React.Component {
       source,
       toggleFilterPane,
       searchField,
-      // resources,
+      resources,
       // options,
     } = this.props;
-    // const searchHandlers = getSearchHandlers();
+    const searchHandlers = getSearchHandlers();
     // const filterHandlers = getFilterHandlers();
 
     // const filters = get(resources.query, 'filters');
@@ -92,18 +96,21 @@ class ReservesSearchPane extends React.Component {
             <FormattedMessage id="ui-courses.searchInputLabel">
               { ariaLabel => (
                 <SearchField
-                  aria-label={ariaLabel}
-                  autoFocus
-                  className={css.searchField}
                   data-test-reserves-search-input
                   id="input-reserves-search"
-                  inputRef={searchField}
-                  marginBottom0
-                  name="query"
-                  onChange={getSearchHandlers().query}
-                  onClear={getSearchHandlers().reset}
+                  autoFocus
+                  ariaLabel={ariaLabel}
+                  className={css.searchField}
+                  searchableIndexes={searchableIndexes}
+                  selectedIndex={get(resources.query, 'qindex')}
                   value={searchValue.query}
                   loading={source ? source.pending() : true}
+                  marginBottom0
+                  onChangeIndex={this.onChangeIndex}
+                  onChange={searchHandlers.query}
+                  onClear={searchHandlers.reset}
+                  name="query"
+                  inputRef={searchField}
                 />
               )}
             </FormattedMessage>
