@@ -24,6 +24,10 @@ const filterConfig = [{
   name: 'processingStatuses',
   cql: 'processingStatusId',
   values: [],
+}, {
+  name: 'copyrightStatuses',
+  cql: 'copyrightTracking.copyrightStatusId',
+  values: [],
 }];
 
 
@@ -64,6 +68,7 @@ class ReservesRoute extends React.Component {
     query: { initialValue: {} },
     resultCount: { initialValue: INITIAL_RESULT_COUNT },
     processingStatuses: manifest.processingStatuses,
+    copyrightStatuses: manifest.copyrightStatuses,
   });
 
   constructor(props) {
@@ -92,6 +97,7 @@ class ReservesRoute extends React.Component {
           reserves: get(resources, 'reserves.records', []),
           options: {
             processingStatuses: getOptions(this, 'processingStatuses'),
+            copyrightStatuses: getOptions(this, 'copyrightStatuses'),
           },
         }}
         onNeedMoreData={this.handleNeedMoreData}
