@@ -4,18 +4,10 @@ import { FormattedMessage } from 'react-intl';
 import { withRouter } from 'react-router';
 import get from 'lodash/get';
 import { stripesConnect } from '@folio/stripes/core'; // just for resources.query
-
-import {
-  Accordion,
-  Button,
-  FilterAccordionHeader,
-  Icon,
-  Pane,
-  SearchField,
-} from '@folio/stripes/components';
-import { MultiSelectionFilter } from '@folio/stripes/smart-components';
-
+import { Button, Icon, Pane, SearchField } from '@folio/stripes/components';
 import updateLocation from '../util/updateLocation';
+import renderFilter from '../util/renderFilter';
+import filterString2state from '../util/filterString2state';
 import css from './Courses.css';
 import FilterNavigation from './FilterNavigation';
 
@@ -29,46 +21,6 @@ const searchableIndexes = [
   { label: 'Registrar ID', value: 'courseListingObject.registrarId' },
   { label: 'External ID', value: 'courseListingObject.externalId' },
 ];
-
-// For some reason, neither initialFilterState nor filterState works for me
-function filterString2state(filters) {
-  const state = {};
-
-  if (filters) {
-    filters.split(',').forEach(fullName => {
-      const [group, value] = fullName.split('.');
-      if (!state[group]) state[group] = [];
-      state[group].push(value);
-    });
-  }
-
-  return state;
-}
-
-
-function renderFilter(filterHandlers, activeFilters, options, name, translationId) {
-  const values = activeFilters[name] || [];
-
-  return (
-    <Accordion
-      label={<FormattedMessage id={`ui-courses.filters.${translationId}`} />}
-      id={name}
-      name={name}
-      separator={false}
-      header={FilterAccordionHeader}
-      displayClearButton={values.length > 0}
-      onClearFilter={() => filterHandlers.clearGroup(name)}
-      closedByDefault
-    >
-      <MultiSelectionFilter
-        name={name}
-        dataOptions={options[name]}
-        selectedValues={values}
-        onChange={(group) => filterHandlers.state({ ...activeFilters, [group.name]: group.values })}
-      />
-    </Accordion>
-  );
-}
 
 
 class CoursesSearchPane extends React.Component {
