@@ -49,10 +49,7 @@ class EditReserveRoute extends React.Component {
     },
     processingStatuses: manifest.processingStatuses,
     locations: manifest.locations,
-    copyrightStatuses: {
-      type: 'okapi',
-      path: 'coursereserves/copyrightstatuses',
-    },
+    copyrightStatuses: manifest.copyrightStatuses,
   });
 
   static propTypes = {

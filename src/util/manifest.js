@@ -26,6 +26,11 @@ const manifest = {
     path: 'coursereserves/processingstatuses',
     shouldRefresh: () => false,
   },
+  copyrightStatuses: {
+    type: 'okapi',
+    path: 'coursereserves/copyrightstatuses',
+    shouldRefresh: () => false,
+  },
 };
 
 export default manifest;
