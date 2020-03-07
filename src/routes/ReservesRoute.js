@@ -48,7 +48,9 @@ class ReservesRoute extends React.Component {
       params: {
         query: makeQueryFunction(
           'cql.allRecords=1',
-          'copiedItem.title="%{query.query}*" or copiedItem.barcode="%{query.query}*"',
+          ('copiedItem.title="%{query.query}*" or ' +
+           'copiedItem.barcode="%{query.query}*" or ' +
+           'copiedItem.callNumber="%{query.query}*"'),
           sortMap,
           filterConfig,
         ),
