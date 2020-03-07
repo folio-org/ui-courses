@@ -6,13 +6,10 @@ import get from 'lodash/get';
 import { AppIcon } from '@folio/stripes/core';
 
 import {
-  Button,
   Paneset,
   Pane,
   PaneMenu,
-  SearchField,
   MultiColumnList,
-  Icon
 } from '@folio/stripes/components';
 
 import {
@@ -21,8 +18,7 @@ import {
   SearchAndSortSearchButton as FilterPaneToggle,
 } from '@folio/stripes/smart-components';
 
-import css from './Courses.css'; // No need for separate CSS
-import FilterNavigation from './FilterNavigation';
+import ReservesSearchPane from './ReservesSearchPane';
 
 
 class Reserves extends React.Component {
@@ -35,6 +31,7 @@ class Reserves extends React.Component {
       reserves: PropTypes.arrayOf(
         PropTypes.object,
       ).isRequired,
+      options: PropTypes.object.isRequired,
     }).isRequired,
     onNeedMoreData: PropTypes.func.isRequired,
     query: PropTypes.object.isRequired,
@@ -132,68 +129,19 @@ class Reserves extends React.Component {
         initialSortState={{ sort: 'name' }}
       >
         {
-          ({
-            searchValue,
-            getSearchHandlers,
-            onSubmitSearch,
-            onSort,
-            activeFilters,
-            resetAll,
-          }) => {
+          (sasqParams) => {
+            const { onSort, activeFilters } = sasqParams;
             return (
               <Paneset id="reserves-paneset">
-                {this.state.filterPaneIsVisible &&
-                  <Pane
-                    defaultWidth="28%"
-                    onClose={this.toggleFilterPane}
-                    paneTitle={<FormattedMessage id="stripes-smart-components.searchAndFilter" />}
-                  >
-                    <form onSubmit={onSubmitSearch}>
-                      <FilterNavigation current="reserves" />
-                      <div className={css.searchGroupWrap}>
-                        <FormattedMessage id="ui-courses.searchInputLabel">
-                          { ariaLabel => (
-                            <SearchField
-                              aria-label={ariaLabel}
-                              autoFocus
-                              className={css.searchField}
-                              data-test-reserves-search-input
-                              id="input-reserves-search"
-                              inputRef={this.searchField}
-                              marginBottom0
-                              name="query"
-                              onChange={getSearchHandlers().query}
-                              onClear={getSearchHandlers().reset}
-                              value={searchValue.query}
-                            />
-                          )}
-                        </FormattedMessage>
-                        <Button
-                          buttonStyle="primary"
-                          disabled={!searchValue.query || searchValue.query === ''}
-                          fullWidth
-                          id="clickable-search-reserves"
-                          marginBottom0
-                          type="submit"
-                        >
-                          <FormattedMessage id="stripes-smart-components.search" />
-                        </Button>
-                      </div>
-                      <div className={css.resetButtonWrap}>
-                        <Button
-                          buttonStyle="none"
-                          id="clickable-reset-all"
-                          disabled={false}
-                          onClick={resetAll}
-                        >
-                          <Icon icon="times-circle-solid">
-                            <FormattedMessage id="stripes-smart-components.resetAll" />
-                          </Icon>
-                        </Button>
-                      </div>
-                    </form>
-                  </Pane>
-                }
+                {this.state.filterPaneIsVisible && (
+                  <ReservesSearchPane
+                    {...sasqParams}
+                    source={source}
+                    toggleFilterPane={this.toggleFilterPane}
+                    searchField={this.searchField}
+                    options={data.options}
+                  />
+                )}
                 <Pane
                   appIcon={<AppIcon app="courses" />}
                   defaultWidth="fill"

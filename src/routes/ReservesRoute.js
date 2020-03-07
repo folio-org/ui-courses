@@ -82,6 +82,8 @@ class ReservesRoute extends React.Component {
       <Reserves
         data={{
           reserves: get(resources, 'reserves.records', []),
+          options: {
+          },
         }}
         onNeedMoreData={this.handleNeedMoreData}
         query={resources.query || {}}
