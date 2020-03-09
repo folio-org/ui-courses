@@ -96,7 +96,12 @@ class EditReserveRoute extends React.Component {
 
   handleClose = () => {
     const { location, match } = this.props;
-    this.props.history.push(`/cr/courses/${match.params.cid}${location.search}`);
+    const { cid } = match.params;
+    if (cid === '0') {
+      this.props.history.push(`/cr/reserves${location.search}`);
+    } else {
+      this.props.history.push(`/cr/courses/${cid}${location.search}`);
+    }
   }
 
   handleSubmit = (reserve, item) => {
