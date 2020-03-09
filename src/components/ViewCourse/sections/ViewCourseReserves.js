@@ -62,6 +62,7 @@ function makeContentLink(eaList) {
 const ViewCourseReserves = ({ course, reserves, items, stripes }) => {
   const itemMap = {};
   items.forEach(item => { itemMap[item.id] = item; });
+  const permissionToEdit = stripes.hasPerm('course-reserves-storage.reserves.write');
 
   return (
     <React.Fragment>
@@ -86,7 +87,7 @@ const ViewCourseReserves = ({ course, reserves, items, stripes }) => {
             </a>
           );
 
-          const editButton = stripes.hasPerm('course-reserves-storage.reserves.write') && (
+          const editButton = permissionToEdit && (
             <FormattedMessage id="ui-courses.editReserve">
               {ariaLabel => (
                 <Button
@@ -165,7 +166,7 @@ const ViewCourseReserves = ({ course, reserves, items, stripes }) => {
           );
         })
       }
-      <AddReserve courseListingId={course.courseListingId} />
+      {permissionToEdit && <AddReserve courseListingId={course.courseListingId} />}
     </React.Fragment>
   );
 };
