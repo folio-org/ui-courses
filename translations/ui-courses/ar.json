@@ -111,5 +111,16 @@
     "column.temporaryLocation": "الموقع المؤقت",
     "filters.courses": "المقررات",
     "filters.reserves": "الحجز",
-    "button.editReserve": "Edit reserve"
+    "button.editReserve": "تحرير الحجز",
+    "headings.reserveCourses": "المقررات المحجوز لها هذه المادة",
+    "filters.department": "القسم",
+    "filters.coursetype": "نوع المقرر",
+    "filters.term": "الفصل الدراسي",
+    "filters.location": "الموقع",
+    "filters.status": "الحالة",
+    "filters.processingstatus": "حالة المعالجة",
+    "filters.copyrightTracking": "تتبع حقوق النشر؟",
+    "filters.copyrightStatus": "حالة حقوق النشر",
+    "filters.permanentLocation": "الموقع الدائم",
+    "filters.temporaryLocation": "الموقع المؤقت"
 }
