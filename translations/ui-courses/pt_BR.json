@@ -32,7 +32,7 @@
     "column.endDate": "Data final",
     "column.instructor": "Instrutor",
     "column.status": "Status",
-    "loading": "Carregando...",
+    "loading": "Carregando…",
     "editCourse": "Editar curso",
     "status.pending": "Pendente",
     "status.active": "Ativo",
@@ -111,5 +111,16 @@
     "column.temporaryLocation": "Localização temporária",
     "filters.courses": "Bibliografias",
     "filters.reserves": "Reservas",
-    "button.editReserve": "Edit reserve"
+    "button.editReserve": "Editar reserva",
+    "headings.reserveCourses": "Cursos para os quais este item está reservado",
+    "filters.department": "Departamento",
+    "filters.coursetype": "Tipo de curso",
+    "filters.term": "Termo",
+    "filters.location": "Localização",
+    "filters.status": "Status",
+    "filters.processingstatus": "Processing status",
+    "filters.copyrightTracking": "Copyright tracking?",
+    "filters.copyrightStatus": "Copyright status",
+    "filters.permanentLocation": "Permanent location",
+    "filters.temporaryLocation": "Temporary location"
 }

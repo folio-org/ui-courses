@@ -111,5 +111,16 @@
     "column.temporaryLocation": "Temporary location",
     "filters.courses": "Courses",
     "filters.reserves": "Reserves",
-    "button.editReserve": "Edit reserve"
+    "button.editReserve": "Edit reserve",
+    "headings.reserveCourses": "Courses to which this item is reserved",
+    "filters.department": "Department",
+    "filters.coursetype": "Course type",
+    "filters.term": "Term",
+    "filters.location": "Location",
+    "filters.status": "Status",
+    "filters.processingstatus": "Processing status",
+    "filters.copyrightTracking": "Copyright tracking?",
+    "filters.copyrightStatus": "Copyright status",
+    "filters.permanentLocation": "Permanent location",
+    "filters.temporaryLocation": "Temporary location"
 }
