@@ -8,7 +8,7 @@ import {
   PaneMenu,
   Spinner,
 } from '@folio/stripes/components';
-import { AppIcon, TitleManager } from '@folio/stripes/core';
+import { withStripes, AppIcon, TitleManager } from '@folio/stripes/core';
 import ViewCourse from './ViewCourse';
 
 
@@ -21,6 +21,9 @@ class Course extends React.Component {
     isLoading: PropTypes.bool,
     handlers: PropTypes.shape({
       onClose: PropTypes.func.isRequired,
+    }).isRequired,
+    stripes: PropTypes.shape({
+      hasPerm: PropTypes.func.isRequired,
     }).isRequired,
   };
 
@@ -74,10 +77,11 @@ class Course extends React.Component {
   }
 
   render() {
-    const { data, isLoading, handlers } = this.props;
+    const { data, isLoading, handlers, stripes } = this.props;
     if (isLoading) return this.renderLoadingPane();
 
     const record = data.course;
+    const hasPerm = stripes.hasPerm('course-reserves-storage.courses.item.put');
 
     return (
       <Pane
@@ -85,7 +89,7 @@ class Course extends React.Component {
         defaultWidth="fill"
         dismissible
         id="pane-view-course"
-        lastMenu={this.renderLastMenu()}
+        lastMenu={hasPerm ? this.renderLastMenu() : <React.Fragment />}
         onClose={handlers.onClose}
         paneTitle={record.name}
         paneSub={`Course ${record.courseNumber}`}
@@ -98,4 +102,4 @@ class Course extends React.Component {
   }
 }
 
-export default Course;
+export default withStripes(Course);
