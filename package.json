@@ -105,10 +105,12 @@
         "subPermissions": [
           "module.courses.enabled",
 	  "course-reserves-storage.reserves.write",
+          "course-reserves-storage.courselistings.reserves.item.put",
           "inventory-storage.locations.collection.get",
           "inventory.items.collection.get",
           "inventory-storage.loan-types.collection.get",
-          "inventory-storage.items.item.get"
+          "inventory-storage.items.item.get",
+          "inventory-storage.items.item.put"
         ],
         "visible": true
       },
