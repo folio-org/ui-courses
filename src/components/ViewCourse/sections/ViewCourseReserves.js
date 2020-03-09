@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage, FormattedDate } from 'react-intl';
 import get from 'lodash/get';
 import { Button, Card, Col, Row } from '@folio/stripes/components';
+import { withStripes } from '@folio/stripes/core';
 import VCKeyValue from './VCKeyValue';
 import AddReserve from './AddReserve';
 
@@ -58,7 +59,7 @@ function makeContentLink(eaList) {
 }
 
 
-const ViewCourseReserves = ({ course, reserves, items }) => {
+const ViewCourseReserves = ({ course, reserves, items, stripes }) => {
   const itemMap = {};
   items.forEach(item => { itemMap[item.id] = item; });
 
@@ -85,7 +86,7 @@ const ViewCourseReserves = ({ course, reserves, items }) => {
             </a>
           );
 
-          const editButton = (
+          const editButton = stripes.hasPerm('course-reserves-storage.reserves.write') && (
             <FormattedMessage id="ui-courses.editReserve">
               {ariaLabel => (
                 <Button
@@ -177,6 +178,9 @@ ViewCourseReserves.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.object.isRequired,
   ).isRequired,
+  stripes: PropTypes.shape({
+    hasPerm: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
-export default ViewCourseReserves;
+export default withStripes(ViewCourseReserves);
