@@ -57,7 +57,8 @@
         "subPermissions": [
           "module.courses.enabled",
           "course-reserves.maintain-settings",
-          "course-reserves-storage.all"
+          "course-reserves-storage.all",
+          "inventory-storage.locations.collection.get"
         ],
         "visible": true
       },
@@ -75,7 +76,8 @@
           "course-reserves-storage.departments.read",
           "course-reserves-storage.processing-statuses.read",
           "course-reserves-storage.copyright-statuses.read",
-          "course-reserves-storage.roles.read"
+          "course-reserves-storage.roles.read",
+          "inventory-storage.locations.collection.get"
         ],
         "visible": true
       },
@@ -86,7 +88,8 @@
         "subPermissions": [
           "module.courses.enabled",
 	  "course-reserves-storage.courselistings.write",
-	  "course-reserves-storage.courses.write"
+	  "course-reserves-storage.courses.write",
+          "inventory-storage.locations.collection.get"
         ],
         "visible": true
       },
@@ -96,7 +99,8 @@
         "description": "This permission allows a user to add and edit items to a course",
         "subPermissions": [
           "module.courses.enabled",
-	  "course-reserves-storage.reserves.write"
+	  "course-reserves-storage.reserves.write",
+          "inventory-storage.locations.collection.get"
         ],
         "visible": true
       },
