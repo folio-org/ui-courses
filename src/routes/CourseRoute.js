@@ -45,7 +45,7 @@ class CourseRoute extends React.Component {
       path: (_q, _p, _r, _l, props) => {
         const rec = get(props.resources, 'course.records.0');
         if (!rec) return null;
-        return `coursereserves/courselistings/${rec.courseListingId}/reserves?query=cql.allRecords=1 sortby copiedItem.title`;
+        return `coursereserves/courselistings/${rec.courseListingId}/reserves?expand=*&query=cql.allRecords=1 sortby copiedItem.title`;
       },
       records: 'reserves',
     },
