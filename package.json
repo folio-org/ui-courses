@@ -58,7 +58,8 @@
           "module.courses.enabled",
           "course-reserves.maintain-settings",
           "course-reserves-storage.all",
-          "inventory-storage.locations.collection.get"
+          "inventory-storage.locations.collection.get",
+          "inventory.items.collection.get"
         ],
         "visible": true
       },
@@ -77,7 +78,8 @@
           "course-reserves-storage.processing-statuses.read",
           "course-reserves-storage.copyright-statuses.read",
           "course-reserves-storage.roles.read",
-          "inventory-storage.locations.collection.get"
+          "inventory-storage.locations.collection.get",
+          "inventory.items.collection.get"
         ],
         "visible": true
       },
@@ -89,7 +91,8 @@
           "module.courses.enabled",
 	  "course-reserves-storage.courselistings.write",
 	  "course-reserves-storage.courses.write",
-          "inventory-storage.locations.collection.get"
+          "inventory-storage.locations.collection.get",
+          "inventory.items.collection.get"
         ],
         "visible": true
       },
@@ -100,7 +103,8 @@
         "subPermissions": [
           "module.courses.enabled",
 	  "course-reserves-storage.reserves.write",
-          "inventory-storage.locations.collection.get"
+          "inventory-storage.locations.collection.get",
+          "inventory.items.collection.get"
         ],
         "visible": true
       },
