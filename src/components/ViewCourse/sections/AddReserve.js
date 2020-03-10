@@ -8,13 +8,6 @@ import { stripesConnect } from '@folio/stripes/core';
 class AddReserve extends React.Component {
   static propTypes = {
     courseListingId: PropTypes.string.isRequired,
-    stripes: PropTypes.shape({
-      okapi: PropTypes.shape({
-        url: PropTypes.string.isRequired,
-        tenant: PropTypes.string.isRequired,
-        token: PropTypes.string.isRequired,
-      }).isRequired,
-    }),
     mutator: PropTypes.shape({
       reserves: PropTypes.shape({
         POST: PropTypes.func.isRequired,
