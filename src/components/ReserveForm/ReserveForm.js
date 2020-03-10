@@ -70,7 +70,7 @@ class ReserveForm extends React.Component {
   renderFirstMenu() {
     return (
       <PaneMenu>
-        <FormattedMessage id="ui-courses.closeEditCourse">
+        <FormattedMessage id="ui-courses.closeEditReserve">
           {ariaLabel => (
             <IconButton
               icon="times"
