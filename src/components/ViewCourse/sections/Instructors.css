@@ -14,5 +14,8 @@ table.instructors th {
 
 table.instructors th, table.instructors td {
     padding: 0.4em 1em;
-    vertical-align: top;
+}
+
+table.instructors td:nth-child(4) {
+    text-align: right;
 }
