@@ -7,7 +7,6 @@ import {
   ViewCourseCrosslistings,
   ViewCourseInstructors,
   ViewCourseTerm,
-  ViewCourseOrganization,
   ViewCourseReserves,
   ViewCourseDeveloper,
 } from './sections';
@@ -39,9 +38,6 @@ class ViewCourse extends React.Component {
         </VCAccordion>
         <VCAccordion id="term">
           <ViewCourseTerm record={course} />
-        </VCAccordion>
-        <VCAccordion id="organization">
-          <ViewCourseOrganization record={course} />
         </VCAccordion>
         <VCAccordion id="reserves">
           <ViewCourseReserves course={course} reserves={reserves} items={items} />
