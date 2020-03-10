@@ -1,0 +1,18 @@
+table.instructors {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+table.instructors tbody tr:nth-child(odd) {
+    background-color: #f0f0f0;
+}
+
+table.instructors th {
+    text-align: left;
+}
+
+table.instructors th, table.instructors td {
+    padding: 0.4em 1em;
+    vertical-align: top;
+}
