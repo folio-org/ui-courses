@@ -18,7 +18,7 @@ const ViewCourseInstructors = (props) => {
     })
       .text()
       .then(() => { props.mutator.instructorCount.replace(oldCount - 1); })
-      .catch(exception => console.error('delete instructorCount failed:', exception)); // eslint-disable-line no-console
+      .catch(exception => console.error('delete instructor failed:', exception)); // eslint-disable-line no-console
   }
 
   const { record, stripes } = props;
