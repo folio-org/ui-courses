@@ -10,7 +10,6 @@ import css from './Instructors.css';
 
 const ViewCourseInstructors = (props) => {
   function removeInstructor(instructorId) {
-    console.log(`removeInstructor(${instructorId}): props =`, props);
     const oldCount = props.record.courseListingObject.instructorObjects.length;
     const clid = props.record.courseListingId;
     props.okapiKy(`coursereserves/courselistings/${clid}/instructors/${instructorId}`, {
@@ -19,7 +18,7 @@ const ViewCourseInstructors = (props) => {
     })
       .text()
       .then(() => { props.mutator.instructorCount.replace(oldCount - 1); })
-      .catch(exception => console.log('failed:', exception));
+      .catch(exception => console.error('delete instructorCount failed:', exception)); // eslint-disable-line no-console
   }
 
   const { record, stripes } = props;
