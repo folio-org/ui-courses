@@ -11,7 +11,6 @@ class AddInstructorRoute extends React.Component {
     course: {
       type: 'okapi',
       path: 'coursereserves/courses/:{cid}',
-      fetch: false,
       shouldRefresh: () => false,
     },
     instructors: {
