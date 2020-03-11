@@ -4,10 +4,24 @@ import { FormattedMessage } from 'react-intl';
 import get from 'lodash/get';
 import { withStripes } from '@folio/stripes/core';
 import { Card, Button } from '@folio/stripes/components';
+import withOkapiKy from '../../../util/withOkapiKy';
 import css from './Instructors.css';
 
 
-const ViewCourseInstructors = ({ record, stripes }) => {
+const ViewCourseInstructors = (props) => {
+  function removeInstructor(props2, instructorId) {
+    console.log(`removeInstructor(${instructorId}): props =`, props2);
+    const clid = props2.record.courseListingId;
+    props2.okapiKy(`coursereserves/courselistings/${clid}/instructors/${instructorId}`, {
+      method: 'DELETE',
+      headers: { Accept: 'text/plain' },
+    })
+      .text()
+      .then(data => console.log('deleted:', data))
+      .catch(exception => console.log('failed:', exception));
+  }
+
+  const { record, stripes } = props;
   const courseListingObject = record.courseListingObject || {};
   const instructorObjects = courseListingObject.instructorObjects || [];
   const permissions = {
@@ -36,6 +50,25 @@ const ViewCourseInstructors = ({ record, stripes }) => {
                   <td>{instructor.name}</td>
                   <td>{instructor.barcode}</td>
                   <td>{instructor.patronGroup || get(instructor, 'patronGroupObject.group')}</td>
+                  {
+                    permissions.delete && (
+                      <td>
+                        <FormattedMessage id="ui-courses.removeInstructor">
+                          {ariaLabel => (
+                            <Button
+                              aria-label={ariaLabel}
+                              buttonStyle="primary"
+                              id={`clickable-remove-instructor-${index}`}
+                              marginBottom0
+                              onClick={() => removeInstructor(props, instructor.id)}
+                            >
+                              <FormattedMessage id="ui-courses.button.removeInstructor" />
+                            </Button>
+                          )}
+                        </FormattedMessage>
+                      </td>
+                    )
+                  }
                 </tr>
               ))
             }
@@ -66,6 +99,7 @@ ViewCourseInstructors.propTypes = {
   stripes: PropTypes.shape({
     hasPerm: PropTypes.func.isRequired,
   }).isRequired,
+  okapiKy: PropTypes.func.isRequired,
 };
 
-export default withStripes(ViewCourseInstructors);
+export default withOkapiKy(withStripes(ViewCourseInstructors));
