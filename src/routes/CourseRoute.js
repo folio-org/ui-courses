@@ -30,9 +30,13 @@ class CourseRoute extends React.Component {
       // We mutate this when we delete an instructor, to force a stripes-connect reload
       initialValue: 9999,
     },
+    reserveCount: {
+      // We mutate this when we delete an reserve, to force a stripes-connect reload
+      initialValue: 9999,
+    },
     course: {
       type: 'okapi',
-      path: 'coursereserves/courses/:{id}?unusedParam=%{instructorCount}',
+      path: 'coursereserves/courses/:{id}?unused1=%{instructorCount}&unused2=%{reserveCount}',
     },
     crossListed: {
       type: 'okapi',

@@ -41,7 +41,7 @@ class ViewCourse extends React.Component {
           <ViewCourseTerm record={course} />
         </VCAccordion>
         <VCAccordion id="reserves">
-          <ViewCourseReserves course={course} reserves={reserves} items={items} />
+          <ViewCourseReserves course={course} reserves={reserves} items={items} mutator={mutator} />
         </VCAccordion>
         <VCAccordion id="developer" closedByDefault>
           <ViewCourseDeveloper record={data} />

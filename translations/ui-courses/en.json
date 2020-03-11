@@ -45,6 +45,8 @@
     "editCourse": "Edit course",
     "editReserve": "Edit reserve",
     "button.editReserve": "Edit reserve",
+    "removeReserve": "Remove reserve",
+    "button.removeReserve": "Remove",
     "crosslistCourse": "New course within listing",
     "button.crosslist": "Crosslist",
     "status.pending": "Pending",

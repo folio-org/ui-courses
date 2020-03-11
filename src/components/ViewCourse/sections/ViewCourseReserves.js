@@ -4,6 +4,7 @@ import { FormattedMessage, FormattedDate } from 'react-intl';
 import get from 'lodash/get';
 import { Button, Card, Col, Row } from '@folio/stripes/components';
 import { withStripes } from '@folio/stripes/core';
+import withOkapiKy from '../../../util/withOkapiKy';
 import VCKeyValue from './VCKeyValue';
 import AddReserve from './AddReserve';
 
@@ -59,10 +60,27 @@ function makeContentLink(eaList) {
 }
 
 
-const ViewCourseReserves = ({ course, reserves, items, stripes }) => {
+const ViewCourseReserves = (props) => {
+  function removeReserve(reserveId) {
+    const oldCount = props.reserves.length;
+    const clid = props.course.courseListingId;
+    props.okapiKy(`coursereserves/courselistings/${clid}/reserves/${reserveId}`, {
+      method: 'DELETE',
+      headers: { Accept: 'text/plain' },
+    })
+      .text()
+      .then(() => { props.mutator.reserveCount.replace(oldCount - 1); })
+      .catch(exception => console.error('delete reserve failed:', exception)); // eslint-disable-line no-console
+  }
+
+  const { course, reserves, items, stripes } = props;
   const itemMap = {};
   items.forEach(item => { itemMap[item.id] = item; });
-  const permissionToEdit = stripes.hasPerm('course-reserves-storage.reserves.write');
+  const permissions = {
+    add: stripes.hasPerm('course-reserves-storage.reserves.item.post'),
+    edit: stripes.hasPerm('course-reserves-storage.reserves.item.put'),
+    delete: stripes.hasPerm('course-reserves-storage.reserves.item.delete'),
+  };
 
   return (
     <React.Fragment>
@@ -87,7 +105,7 @@ const ViewCourseReserves = ({ course, reserves, items, stripes }) => {
             </a>
           );
 
-          const editButton = permissionToEdit && (
+          const editButton = permissions.edit && (
             <FormattedMessage id="ui-courses.editReserve">
               {ariaLabel => (
                 <Button
@@ -103,8 +121,31 @@ const ViewCourseReserves = ({ course, reserves, items, stripes }) => {
             </FormattedMessage>
           );
 
+          const deleteButton = permissions.delete && (
+            <FormattedMessage id="ui-courses.removeReserve">
+              {ariaLabel => (
+                <Button
+                  aria-label={ariaLabel}
+                  buttonStyle="primary"
+                  id={`clickable-remove-reserve-${index}`}
+                  marginBottom0
+                  onClick={() => removeReserve(record.id)}
+                >
+                  <FormattedMessage id="ui-courses.button.removeReserve" />
+                </Button>
+              )}
+            </FormattedMessage>
+          );
+
+          const headerEnd = (
+            <React.Fragment>
+              {editButton}
+              {deleteButton}
+            </React.Fragment>
+          );
+
           return (
-            <Card key={index} headerStart={linkToItem} headerEnd={editButton}>
+            <Card key={index} headerStart={linkToItem} headerEnd={headerEnd}>
               <Row>
                 <Col xs={3}>
                   <VCKeyValue id="itemBarcode" value={copiedItem.barcode} />
@@ -166,7 +207,7 @@ const ViewCourseReserves = ({ course, reserves, items, stripes }) => {
           );
         })
       }
-      {permissionToEdit && <AddReserve courseListingId={course.courseListingId} />}
+      {permissions.add && <AddReserve courseListingId={course.courseListingId} />}
     </React.Fragment>
   );
 };
@@ -182,6 +223,12 @@ ViewCourseReserves.propTypes = {
   stripes: PropTypes.shape({
     hasPerm: PropTypes.func.isRequired,
   }).isRequired,
+  mutator: PropTypes.shape({
+    reserveCount: PropTypes.shape({
+      replace: PropTypes.func.isRequired,
+    }).isRequired,
+  }).isRequired,
+  okapiKy: PropTypes.func.isRequired,
 };
 
-export default withStripes(ViewCourseReserves);
+export default withOkapiKy(withStripes(ViewCourseReserves));
