@@ -103,7 +103,7 @@ class CoursesSearchPane extends React.Component {
                   onChange={searchHandlers.query}
                   onClear={searchHandlers.reset}
                   name="query"
-                  inputRef={searchField}
+                  inputref={searchField}
                 />
               )}
             </FormattedMessage>
