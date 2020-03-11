@@ -25,6 +25,7 @@ class Course extends React.Component {
     stripes: PropTypes.shape({
       hasPerm: PropTypes.func.isRequired,
     }).isRequired,
+    mutator: PropTypes.object.isRequired,
   };
 
   renderLastMenu = () => {
@@ -77,7 +78,7 @@ class Course extends React.Component {
   }
 
   render() {
-    const { data, isLoading, handlers, stripes } = this.props;
+    const { data, isLoading, handlers, stripes, mutator } = this.props;
     if (isLoading) return this.renderLoadingPane();
 
     const record = data.course;
@@ -95,7 +96,7 @@ class Course extends React.Component {
         paneSub={`Course ${record.courseNumber}`}
       >
         <TitleManager record={record.name}>
-          <ViewCourse data={data} />
+          <ViewCourse data={data} mutator={mutator} />
         </TitleManager>
       </Pane>
     );

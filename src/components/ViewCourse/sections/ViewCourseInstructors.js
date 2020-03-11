@@ -11,13 +11,14 @@ import css from './Instructors.css';
 const ViewCourseInstructors = (props) => {
   function removeInstructor(props2, instructorId) {
     console.log(`removeInstructor(${instructorId}): props =`, props2);
+    const oldCount = props2.record.courseListingObject.instructorObjects.length;
     const clid = props2.record.courseListingId;
     props2.okapiKy(`coursereserves/courselistings/${clid}/instructors/${instructorId}`, {
       method: 'DELETE',
       headers: { Accept: 'text/plain' },
     })
       .text()
-      .then(data => console.log('deleted:', data))
+      .then(() => { props.mutator.instructorCount.replace(oldCount - 1); })
       .catch(exception => console.log('failed:', exception));
   }
 
@@ -98,6 +99,11 @@ ViewCourseInstructors.propTypes = {
   record: PropTypes.object.isRequired,
   stripes: PropTypes.shape({
     hasPerm: PropTypes.func.isRequired,
+  }).isRequired,
+  mutator: PropTypes.shape({
+    instructorCount: PropTypes.shape({
+      replace: PropTypes.func.isRequired,
+    }).isRequired,
   }).isRequired,
   okapiKy: PropTypes.func.isRequired,
 };

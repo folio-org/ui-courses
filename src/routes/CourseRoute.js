@@ -26,9 +26,13 @@ import Course from '../components/Course';
 
 class CourseRoute extends React.Component {
   static manifest = Object.freeze({
+    instructorCount: {
+      // We mutate this when we delete an instructor, to force a stripes-connect reload
+      initialValue: 9999,
+    },
     course: {
       type: 'okapi',
-      path: 'coursereserves/courses/:{id}',
+      path: 'coursereserves/courses/:{id}?unusedParam=%{instructorCount}',
     },
     crossListed: {
       type: 'okapi',
@@ -78,6 +82,7 @@ class CourseRoute extends React.Component {
     resources: PropTypes.shape({
       course: PropTypes.object,
     }).isRequired,
+    mutator: PropTypes.object.isRequired,
   };
 
   static defaultProps = {
@@ -98,7 +103,7 @@ class CourseRoute extends React.Component {
   }
 
   render() {
-    const { handlers, resources } = this.props;
+    const { handlers, resources, mutator } = this.props;
     return (
       <Course
         data={{
@@ -114,6 +119,7 @@ class CourseRoute extends React.Component {
         }}
         isLoading={get(resources, 'course.isPending', true)}
         urls={this.urls}
+        mutator={mutator}
       />
     );
   }

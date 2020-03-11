@@ -19,10 +19,11 @@ class ViewCourse extends React.Component {
       reserves: PropTypes.arrayOf(PropTypes.object),
       items: PropTypes.arrayOf(PropTypes.object),
     }),
+    mutator: PropTypes.object.isRequired,
   };
 
   render() {
-    const { data } = this.props;
+    const { data, mutator } = this.props;
     const { course, crossListed, reserves, items } = data;
 
     return (
@@ -34,7 +35,7 @@ class ViewCourse extends React.Component {
           <ViewCourseCrosslistings crossListed={crossListed} />
         </VCAccordion>
         <VCAccordion id="instructors">
-          <ViewCourseInstructors record={course} />
+          <ViewCourseInstructors record={course} mutator={mutator} />
         </VCAccordion>
         <VCAccordion id="term">
           <ViewCourseTerm record={course} />
