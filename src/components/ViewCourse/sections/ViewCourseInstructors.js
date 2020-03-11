@@ -50,9 +50,26 @@ const ViewCourseInstructors = (props) => {
                   <td>{instructor.name}</td>
                   <td>{instructor.barcode}</td>
                   <td>{instructor.patronGroup || get(instructor, 'patronGroupObject.group')}</td>
-                  {
-                    permissions.delete && (
-                      <td>
+                  <td>
+                    {
+                      permissions.edit && (
+                        <FormattedMessage id="ui-courses.editInstructor">
+                          {ariaLabel => (
+                            <Button
+                              aria-label={ariaLabel}
+                              buttonStyle="primary"
+                              id={`clickable-edit-instructor-${index}`}
+                              marginBottom0
+                              to={`/cr/instructors/${courseListingObject.id}/${record.id}/${instructor.id}/edit`}
+                            >
+                              <FormattedMessage id="ui-courses.button.editInstructor" />
+                            </Button>
+                          )}
+                        </FormattedMessage>
+                      )
+                    }
+                    {
+                      permissions.delete && (
                         <FormattedMessage id="ui-courses.removeInstructor">
                           {ariaLabel => (
                             <Button
@@ -66,9 +83,9 @@ const ViewCourseInstructors = (props) => {
                             </Button>
                           )}
                         </FormattedMessage>
-                      </td>
-                    )
-                  }
+                      )
+                    }
+                  </td>
                 </tr>
               ))
             }

@@ -15,6 +15,7 @@ import ReservesRoute from './routes/ReservesRoute';
 import ReserveRoute from './routes/ReserveRoute';
 import EditReserveRoute from './routes/EditReserveRoute';
 import AddInstructorRoute from './routes/AddInstructorRoute';
+import EditInstructorRoute from './routes/EditInstructorRoute';
 
 class CoursesApp extends React.Component {
   static propTypes = {
@@ -55,6 +56,7 @@ class CoursesApp extends React.Component {
         <NestedRoute path={`${path}/instructors`} component={FullScreenRoute}>
           <Switch>
             <NestedRoute path={`${path}/instructors/:clid/:cid/add`} exact component={AddInstructorRoute} />
+            <NestedRoute path={`${path}/instructors/:clid/:cid/:iid/edit`} exact component={EditInstructorRoute} />
           </Switch>
         </NestedRoute>
       </Switch>
