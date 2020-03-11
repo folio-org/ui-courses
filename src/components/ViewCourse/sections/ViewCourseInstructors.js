@@ -9,11 +9,11 @@ import css from './Instructors.css';
 
 
 const ViewCourseInstructors = (props) => {
-  function removeInstructor(props2, instructorId) {
-    console.log(`removeInstructor(${instructorId}): props =`, props2);
-    const oldCount = props2.record.courseListingObject.instructorObjects.length;
-    const clid = props2.record.courseListingId;
-    props2.okapiKy(`coursereserves/courselistings/${clid}/instructors/${instructorId}`, {
+  function removeInstructor(instructorId) {
+    console.log(`removeInstructor(${instructorId}): props =`, props);
+    const oldCount = props.record.courseListingObject.instructorObjects.length;
+    const clid = props.record.courseListingId;
+    props.okapiKy(`coursereserves/courselistings/${clid}/instructors/${instructorId}`, {
       method: 'DELETE',
       headers: { Accept: 'text/plain' },
     })
@@ -61,7 +61,7 @@ const ViewCourseInstructors = (props) => {
                               buttonStyle="primary"
                               id={`clickable-remove-instructor-${index}`}
                               marginBottom0
-                              onClick={() => removeInstructor(props, instructor.id)}
+                              onClick={() => removeInstructor(instructor.id)}
                             >
                               <FormattedMessage id="ui-courses.button.removeInstructor" />
                             </Button>
