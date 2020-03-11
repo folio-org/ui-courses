@@ -140,11 +140,6 @@ class InstructorForm extends React.Component {
                   />
                 </Col>
               </Row>
-              <hr />
-              <h1>Developer Info</h1>
-              <pre>
-                {JSON.stringify(data, null, 2)}
-              </pre>
             </form>
           </TitleManager>
         </Pane>
