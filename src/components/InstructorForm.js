@@ -96,7 +96,6 @@ class InstructorForm extends React.Component {
     change('userId', user.id);
     change('name', `${user.personal.firstName} ${user.personal.lastName}`);
     change('barcode', user.barcode);
-    change('patronGroup', user.patronGroup); // XXX Perhaps look up ID to get human-readable patron-group
   }
 
   render() {
@@ -142,22 +141,13 @@ class InstructorForm extends React.Component {
                     name="barcode"
                   />
                 </Col>
-                <Col xs={3}>
-                  <Field
-                    component={TextField}
-                    id="edit-instructor-patronGroup"
-                    label={<FormattedMessage id="ui-courses.field.patronGroup" />}
-                    maxLength={255}
-                    name="patronGroup"
-                  />
-                </Col>
               </Row>
             </form>
             <Pluggable
               aria-haspopup="true"
               type="find-user"
               id="clickable-find-user"
-              searchLabel="Look up users"
+              searchLabel="Look up user"
               marginTop0
               searchButtonStyle="link"
               dataKey="patrons"
