@@ -28,11 +28,11 @@ const filterConfig = [{
   values: [],
 }, {
   name: 'coursetypes',
-  cql: 'courseListingObject.courseTypeId',
+  cql: 'courseListing.courseTypeId',
   values: [],
 }, {
   name: 'terms',
-  cql: 'courseListingObject.termId',
+  cql: 'courseListing.termId',
   values: [],
 }, {
   name: 'statuses',
@@ -40,7 +40,7 @@ const filterConfig = [{
   values: [],
 }, {
   name: 'locations',
-  cql: 'courseListingObject.locationId',
+  cql: 'courseListing.locationId',
   values: [],
 }];
 
