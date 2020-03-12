@@ -49,7 +49,7 @@ const ViewCourseInstructors = (props) => {
                 <tr key={index}>
                   <td>{instructor.name}</td>
                   <td>{instructor.barcode}</td>
-                  <td>{instructor.patronGroup || get(instructor, 'patronGroupObject.group')}</td>
+                  <td>{get(instructor, 'patronGroupObject.group')}</td>
                   <td>
                     {
                       permissions.edit && (
