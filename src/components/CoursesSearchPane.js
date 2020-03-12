@@ -17,7 +17,7 @@ const searchableIndexes = [
   { label: 'All fields', value: '', placeholder: '(name, number)' },
   { label: 'Course name', value: 'name' },
   { label: 'Course code', value: 'courseNumber' },
-  { label: 'Instructor', value: 'courseListing.instructorObjects.name' },
+  { label: 'Instructor', value: 'courseListing.instructorObjects' },
   { label: 'Registrar ID', value: 'courseListing.registrarId' },
   { label: 'External ID', value: 'courseListing.externalId' },
 ];
