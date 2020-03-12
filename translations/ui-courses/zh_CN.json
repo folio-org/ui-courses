@@ -98,7 +98,6 @@
     "accordion.courseFormInstructors.help": " ",
     "front.welcome": "欢迎来到教学参考书！",
     "addItem": "添加一个单件到本课程的教参",
-    "button.addItem": "添加单件",
     "crosslistCourse": "列表中的新课程",
     "button.crosslist": "交叉表",
     "accordion.courseFormCrosslisting": "交叉表信息",
@@ -122,5 +121,15 @@
     "filters.copyrightTracking": "Copyright tracking?",
     "filters.copyrightStatus": "Copyright status",
     "filters.permanentLocation": "Permanent location",
-    "filters.temporaryLocation": "Temporary location"
+    "filters.temporaryLocation": "Temporary location",
+    "closeEditReserve": "Close edit reserve",
+    "closeEditInstructor": "Close edit instructor",
+    "button.addInstructor": "Add instructor",
+    "addInstructor": "Add instructor",
+    "removeInstructor": "Remove instructor",
+    "button.removeInstructor": "Remove",
+    "editInstructor": "Edit instructor",
+    "button.editInstructor": "Edit instructor",
+    "removeReserve": "Remove reserve",
+    "button.removeReserve": "Remove"
 }
