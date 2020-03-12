@@ -98,7 +98,6 @@
     "accordion.courseFormInstructors.help": ".",
     "front.welcome": "مرحبًا بكم في الحجز الأكاديمي!",
     "addItem": "إضافة مادة إلى الحجز الأكاديمي",
-    "button.addItem": "إضافة مادة",
     "crosslistCourse": "مقرر جديد في القائمة",
     "button.crosslist": "قائمة متداخلة",
     "accordion.courseFormCrosslisting": "بيانات التداخل",
@@ -122,5 +121,15 @@
     "filters.copyrightTracking": "تتبع حقوق النشر؟",
     "filters.copyrightStatus": "حالة حقوق النشر",
     "filters.permanentLocation": "الموقع الدائم",
-    "filters.temporaryLocation": "الموقع المؤقت"
+    "filters.temporaryLocation": "الموقع المؤقت",
+    "closeEditReserve": "إغلاق نافذة تحرير الحجز",
+    "closeEditInstructor": "إغلاق نافذة تحرير المدرب",
+    "button.addInstructor": "إضافة مدرب",
+    "addInstructor": "إضافة مدرب",
+    "removeInstructor": "إزالة المدرب",
+    "button.removeInstructor": "إزالة",
+    "editInstructor": "تحرير المدرب",
+    "button.editInstructor": "تحرير المدرب",
+    "removeReserve": "إزالة الحجز",
+    "button.removeReserve": "إزالة"
 }
