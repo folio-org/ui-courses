@@ -52,7 +52,7 @@ const ViewCourseInstructors = (props) => {
                   <td>{get(instructor, 'patronGroupObject.group')}</td>
                   <td>
                     {
-                      permissions.edit && (
+                      permissions.edit && !instructor.patronGroupObject && (
                         <FormattedMessage id="ui-courses.editInstructor">
                           {ariaLabel => (
                             <Button
