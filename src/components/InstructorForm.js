@@ -14,7 +14,7 @@ import {
   Row,
   TextField,
 } from '@folio/stripes/components';
-import { AppIcon, TitleManager } from '@folio/stripes/core';
+import { AppIcon, TitleManager, Pluggable } from '@folio/stripes/core';
 import stripesFinalForm from '@folio/stripes/final-form';
 import { isEqual } from 'lodash';
 import setFieldData from 'final-form-set-field-data';
@@ -32,6 +32,10 @@ class InstructorForm extends React.Component {
     pristine: PropTypes.bool,
     submitting: PropTypes.bool,
     values: PropTypes.object,
+    form: PropTypes.shape({
+      dispatch: PropTypes.func.isRequired,
+      change: PropTypes.func.isRequired,
+    }).isRequired,
   }
 
   renderPaneFooter() {
@@ -85,6 +89,14 @@ class InstructorForm extends React.Component {
         </FormattedMessage>
       </PaneMenu>
     );
+  }
+
+  selectUser = (user) => {
+    const { form: { change } } = this.props;
+    change('userId', user.id);
+    change('name', `${user.personal.firstName} ${user.personal.lastName}`);
+    change('barcode', user.barcode);
+    change('patronGroup', user.patronGroup); // XXX Perhaps look up ID to get human-readable patron-group
   }
 
   render() {
@@ -141,6 +153,19 @@ class InstructorForm extends React.Component {
                 </Col>
               </Row>
             </form>
+            <Pluggable
+              aria-haspopup="true"
+              type="find-user"
+              id="clickable-find-user"
+              searchLabel="Look up users"
+              marginTop0
+              searchButtonStyle="link"
+              dataKey="patrons"
+              selectUser={this.selectUser}
+              visibleColumns={['status', 'name', 'patronGroup', 'username', 'barcode']}
+            >
+              <span data-test-no-plugin-available>No plugin available!</span>
+            </Pluggable>
           </TitleManager>
         </Pane>
       </Paneset>
