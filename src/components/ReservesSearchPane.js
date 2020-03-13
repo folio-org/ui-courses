@@ -25,7 +25,6 @@ const searchableIndexes = [
   { label: 'Title', value: 'copiedItem.title' },
   { label: 'Barcode', value: 'copiedItem.barcode' },
   { label: 'Call Number', value: 'copiedItem.callNumber' },
-  { label: 'Contributor', value: 'copiedItem.contributors.name' },
 ];
 
 
