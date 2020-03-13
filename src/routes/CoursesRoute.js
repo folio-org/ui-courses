@@ -40,6 +40,15 @@ const filterConfig = [{
   values: [],
 }];
 
+// XXX keep in sync with `value` members in ../components/CoursesSearchPane.js
+const searchableIndexes = [
+  'name',
+  'courseNumber',
+  'courseListing.instructorObjects',
+  'courseListing.registrarId',
+  'courseListing.externalId',
+];
+
 
 class CoursesRoute extends React.Component {
   static propTypes = {
@@ -67,7 +76,7 @@ class CoursesRoute extends React.Component {
       params: {
         query: makeQueryFunction(
           'cql.allRecords=1',
-          'name="%{query.query}*" or courseNumber="%{query.query}*"',
+          searchableIndexes.map(index => `${index}="%{query.query}*"`).join(' or '),
           sortMap,
           filterConfig,
         ),
