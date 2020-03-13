@@ -50,6 +50,13 @@ const filterConfig = [{
   values: [],
 }];
 
+// XXX keep in sync with `value` members in ../components/ReservesSearchPane.js
+const searchableIndexes = [
+  'copiedItem.title',
+  'copiedItem.barcode',
+  'copiedItem.callNumber',
+];
+
 
 class ReservesRoute extends React.Component {
   static propTypes = {
@@ -77,9 +84,7 @@ class ReservesRoute extends React.Component {
       params: {
         query: makeQueryFunction(
           'cql.allRecords=1',
-          ('copiedItem.title="%{query.query}*" or ' +
-           'copiedItem.barcode="%{query.query}*" or ' +
-           'copiedItem.callNumber="%{query.query}*"'),
+          searchableIndexes.map(index => `${index}="%{query.query}*"`).join(' or '),
           sortMap,
           filterConfig,
         ),
