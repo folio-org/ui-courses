@@ -153,7 +153,6 @@ class Reserves extends React.Component {
                   <MultiColumnList
                     autosize
                     visibleColumns={[
-                      'courseName',
                       'title',
                       'barcode',
                       'status',
@@ -161,7 +160,6 @@ class Reserves extends React.Component {
                       'temporaryLocation',
                     ]}
                     columnWidths={{
-                      courseName: 130,
                       title: 300,
                       barcode: 120,
                       status: 100,
@@ -169,7 +167,6 @@ class Reserves extends React.Component {
                       temporaryLocation: 180,
                     }}
                     columnMapping={{
-                      courseName: <FormattedMessage id="ui-courses.column.courseName" />,
                       title: <FormattedMessage id="ui-courses.column.title" />,
                       barcode: <FormattedMessage id="ui-courses.column.barcode" />,
                       status: <FormattedMessage id="ui-courses.column.status" />,
@@ -177,7 +174,6 @@ class Reserves extends React.Component {
                       temporaryLocation: <FormattedMessage id="ui-courses.column.temporaryLocation" />,
                     }}
                     formatter={{
-                      courseName: () => '(XXX NYI)',
                       title: r => get(r, 'copiedItem.title'),
                       barcode: r => get(r, 'copiedItem.barcode'),
                       status: r => get(r, 'processingStatusObject.name'),
