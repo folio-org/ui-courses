@@ -16,10 +16,10 @@ const sortMap = {
   // XXX none of these work: we need to figure out why
   registrarId: 'courseListing.registrarId', // UICR-49
   department: 'department.name', // UICR-49
-  startDate: 'courseListingObject.termObject.startDate', // UICR-50
-  endDate: 'courseListingObject.termObject.endDate', // UICR-50
-  instructor: 'courseListingObject.instructorObjects.name',
-  status: 'courseListingObject.termObject.startDate' // XXX is this close enough?
+  startDate: 'courseListing.term.startDate', // UICR-50
+  endDate: 'courseListing.term.endDate', // UICR-50
+  instructor: 'courseListing.instructorObjects',
+  status: 'courseListing.term.startDate' // XXX is this close enough?
 };
 
 const filterConfig = [{
