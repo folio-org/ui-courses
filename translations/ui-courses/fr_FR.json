@@ -131,5 +131,6 @@
     "editInstructor": "Modifier l'instructeur",
     "button.editInstructor": "Modifier l'instructeur",
     "removeReserve": "Retirer la réservation",
-    "button.removeReserve": "Retirer"
+    "button.removeReserve": "Retirer",
+    "button.addItem": "Ajouter un élément"
 }
