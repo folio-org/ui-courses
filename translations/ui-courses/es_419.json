@@ -131,5 +131,6 @@
     "editInstructor": "Edit instructor",
     "button.editInstructor": "Edit instructor",
     "removeReserve": "Remove reserve",
-    "button.removeReserve": "Remover"
+    "button.removeReserve": "Remover",
+    "button.addItem": "Add item"
 }
