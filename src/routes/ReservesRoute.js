@@ -25,10 +25,6 @@ const filterConfig = [{
   cql: 'processingStatusId',
   values: [],
 }, {
-  name: 'copyrightTracking',
-  cql: 'tracking',
-  values: [],
-}, {
   name: 'copyrightStatuses',
   cql: 'copyrightTracking.copyrightStatusId',
   values: [],
@@ -43,10 +39,6 @@ const filterConfig = [{
 }, {
   name: 'terms',
   cql: 'courseListing.termId',
-  values: [],
-}, {
-  name: 'statuses',
-  cql: 'status',
   values: [],
 }];
 
@@ -124,18 +116,9 @@ class ReservesRoute extends React.Component {
           reserves: get(resources, 'reserves.records', []),
           options: {
             processingStatuses: getOptions(this, 'processingStatuses'),
-            copyrightTracking: [
-              { value: 'yes', label: 'Yes' },
-              { value: 'no', label: 'No' },
-            ],
             copyrightStatuses: getOptions(this, 'copyrightStatuses'),
             locations: getOptions(this, 'locations'),
             terms: getOptions(this, 'terms'),
-            statuses: [
-              { value: 'pending', label: 'Pending' },
-              { value: 'active', label: 'Active' },
-              { value: 'inactive', label: 'Inactive' },
-            ],
           },
         }}
         onNeedMoreData={this.handleNeedMoreData}
