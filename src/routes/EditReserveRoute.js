@@ -32,6 +32,7 @@ class EditReserveRoute extends React.Component {
           return !reserve ? null : `item-storage/items/${reserve.itemId}`;
         },
       },
+      shouldRefresh: () => true,
     },
     crossListed: {
       type: 'okapi',
