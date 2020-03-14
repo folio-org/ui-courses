@@ -4,6 +4,8 @@
 [Full Changelog](https://github.com/folio-org/ui-courses/compare/v1.1.0...v1.0.0)
 
 * Towards correct sorting for start-date, end-date, instructor and status: see UICR-49 and UICR-50, but note that these will not work until MODCR-21 and its underlying RMB issue are fixed.
+* Towards more correct searching in reserves, though underlying issues mean these changes will not yet help: see UICR-31.
+* Towards more correct sorting in reserves, though underlying issues mean  these changes will not yet help: see UICR-60.
 
 ## [1.0.0](https://github.com/folio-org/ui-courses/tree/v1.0.0) (2020-03-13)
 

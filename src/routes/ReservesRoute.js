@@ -15,9 +15,9 @@ const RESULT_COUNT_INCREMENT = 100;
 const sortMap = {
   title: 'copiedItem.title',
   barcode: 'copiedItem.barcode',
-  status: 'processingStatusObject.name',
-  permanentLocation: 'copiedItem.permanentLocationObject.name',
-  temporaryLocation: 'copiedItem.temporaryLocationObject.name',
+  status: 'processingStatus.name',
+  permanentLocation: 'copiedItem.permanentLocation.name',
+  temporaryLocation: 'copiedItem.temporaryLocation.name',
 };
 
 const filterConfig = [{
@@ -42,7 +42,7 @@ const filterConfig = [{
   values: [],
 }, {
   name: 'terms',
-  cql: 'courseListingObject.termId',
+  cql: 'courseListing.termId',
   values: [],
 }, {
   name: 'statuses',
