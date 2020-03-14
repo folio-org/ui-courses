@@ -50,7 +50,7 @@ class CoursesApp extends React.Component {
         <NestedRoute path={`${path}/reserves`} component={FullScreenRoute}>
           <Switch>
             <NestedRoute path={`${path}/reserves/:clid/:cid/:id`} exact component={ReserveRoute} />
-            <NestedRoute path={`${path}/reserves/:clid/:cid/:id/edit`} component={EditReserveRoute} />
+            <NestedRoute path={`${path}/reserves/:clid/:cid/:id/:itemId/edit`} component={EditReserveRoute} />
           </Switch>
         </NestedRoute>
         <NestedRoute path={`${path}/instructors`} component={FullScreenRoute}>

@@ -19,20 +19,7 @@ class EditReserveRoute extends React.Component {
     },
     item: {
       type: 'okapi',
-      // Regarding the separate PUT and GET path-functions, see UICR-43
-      GET: {
-        path: (_query, _pathComponents, _resources, _logger, props) => {
-          const reserve = get(props, 'resources.reserve.records.0');
-          return !reserve ? null : `item-storage/items/${reserve.itemId}`;
-        },
-      },
-      PUT: {
-        path: (_query, _pathComponents, resources, _logger, _props) => {
-          const reserve = get(resources, 'reserve.records.0');
-          return !reserve ? null : `item-storage/items/${reserve.itemId}`;
-        },
-      },
-      shouldRefresh: () => true,
+      path: 'item-storage/items/:{itemId}',
     },
     crossListed: {
       type: 'okapi',

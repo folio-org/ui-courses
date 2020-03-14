@@ -113,7 +113,7 @@ const ViewCourseReserves = (props) => {
                   buttonStyle="primary"
                   id={`clickable-edit-reserve-${index}`}
                   marginBottom0
-                  to={`../reserves/${record.courseListingId}/${course.id}/${record.id}/edit`}
+                  to={`../reserves/${record.courseListingId}/${course.id}/${record.id}/${record.itemId}/edit`}
                 >
                   <FormattedMessage id="ui-courses.button.editReserve" />
                 </Button>

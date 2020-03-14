@@ -3,7 +3,7 @@
 ## [1.1.0](https://github.com/folio-org/ui-courses/tree/v1.1.0) (IN PROGRESS)
 [Full Changelog](https://github.com/folio-org/ui-courses/compare/v1.1.0...v1.0.0)
 
-* Upgrade to `@folio/stripes` v3.x, which is what FOLIO 2020q1 will use. Fixes UICR-58.
+* Routing to edit-reserve form now includes item-ID explicitly. Fixes UICR-58.
 * Attempted fix for intermittent `item` resource fetch failures. May fix UICR-57.
 * Towards correct sorting for start-date, end-date, instructor and status: see UICR-49 and UICR-50, but note that these will not work until MODCR-21 and its underlying RMB issue are fixed.
 * Towards more correct searching in reserves, though underlying issues mean these changes will not yet help: see UICR-31.
