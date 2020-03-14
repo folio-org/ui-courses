@@ -1,6 +1,6 @@
 # Change history for ui-courses
 
-## [1.1.0](https://github.com/folio-org/ui-courses/tree/v1.1.0) (IN PROGRESS)
+## [1.1.0](https://github.com/folio-org/ui-courses/tree/v1.1.0) (2020-03-14)
 [Full Changelog](https://github.com/folio-org/ui-courses/compare/v1.1.0...v1.0.0)
 
 * Routing to edit-reserve form now includes item-ID explicitly. Fixes UICR-58.
