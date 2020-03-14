@@ -33,7 +33,6 @@ class InstructorForm extends React.Component {
     submitting: PropTypes.bool,
     values: PropTypes.object,
     form: PropTypes.shape({
-      dispatch: PropTypes.func.isRequired,
       change: PropTypes.func.isRequired,
     }).isRequired,
   }
