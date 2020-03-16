@@ -127,10 +127,10 @@
     "button.addInstructor": "Add instructor",
     "addInstructor": "Add instructor",
     "removeInstructor": "Remove instructor",
-    "button.removeInstructor": "Remove",
+    "button.removeInstructor": "Удалить",
     "editInstructor": "Edit instructor",
     "button.editInstructor": "Edit instructor",
-    "removeReserve": "Remove reserve",
-    "button.removeReserve": "Remove",
-    "button.addItem": "Add item"
+    "removeReserve": "Удалить резерв",
+    "button.removeReserve": "Удалить",
+    "button.addItem": "Добавить элемент"
 }
