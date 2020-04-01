@@ -34,6 +34,7 @@ class AddReserve extends React.Component {
   }
 
   addItem(e, courseListingId) {
+    e.preventDefault();
     const barcode = document.getElementById('add-item-barcode').value;
     const { mutator } = this.props;
 
@@ -51,7 +52,7 @@ class AddReserve extends React.Component {
     return (
       <React.Fragment>
         <hr />
-        <form id="form-course-item">
+        <form id="form-course-item" onSubmit={e => this.addItem(e, this.props.courseListingId)}>
           <TextField label="Enter or scan barcode" id="add-item-barcode" />
           <FormattedMessage id="ui-courses.addItem">
             {ariaLabel => (
