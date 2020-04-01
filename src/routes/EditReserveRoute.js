@@ -115,7 +115,7 @@ class EditReserveRoute extends React.Component {
           reserve: get(resources, 'reserve.records.0'),
           item: get(resources, 'item.records.0'),
           crossListed: get(resources, 'crossListed.records'),
-          loanTypes: getOptions(this, 'loanTypes', 'loantypes'),
+          loanTypes: getOptions(this, 'loanTypes', 'loantypes', '(None required)'),
           processingStatuses: getOptions(this, 'processingStatuses', null, '(None required)'),
           locations: getOptions(this, 'locations'),
           copyrightStatuses: getOptions(this, 'copyrightStatuses', null, '(None required)'),
