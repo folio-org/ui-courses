@@ -103,7 +103,7 @@
         "displayName": "Courses: Add, edit, and remove items",
         "description": "This permission allows a user to add and edit items to a course",
         "subPermissions": [
-          "module.courses.enabled",
+          "course-reserves.read-all",
           "course-reserves-storage.reserves.write",
           "course-reserves-storage.courselistings.reserves.item.put",
           "course-reserves-storage.courselistings.reserves.item.post",
