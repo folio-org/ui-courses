@@ -120,7 +120,7 @@ class EditReserveRoute extends React.Component {
           crossListed: get(resources, 'crossListed.records'),
           loanTypes: getOptions(this, 'loanTypes', 'loantypes', '(None required)'),
           processingStatuses: getOptions(this, 'processingStatuses', null, '(None required)'),
-          locations: getOptions(this, 'locations'),
+          locations: getOptions(this, 'locations', null, '(None required)'),
           copyrightStatuses: getOptions(this, 'copyrightStatuses', null, '(None required)'),
         }}
         handlers={{ onClose: this.handleClose }}
