@@ -21,6 +21,7 @@ class AddReserve extends React.Component {
       path: 'coursereserves/courselistings/!{courseListingId}/reserves',
       fetch: false,
       shouldRefresh: () => false,
+      throwErrors: false,
     },
   };
 
@@ -47,7 +48,9 @@ class AddReserve extends React.Component {
         this.showCallout('success', `Added item "${rec.copiedItem.title}"`);
       })
       .catch(exception => {
-        this.showCallout('error', `Failed to add item ${barcode}: ${exception}`);
+        exception.text().then(text => {
+          this.showCallout('error', `Failed to add item ${barcode}: ${text}`);
+        });
       });
   }
 
