@@ -4,6 +4,8 @@ import get from 'lodash/get';
 import { stripesConnect } from '@folio/stripes/core';
 import CourseForm from '../components/CourseForm';
 import NoPermissions from '../components/NoPermissions';
+import fetchIsPending from '../util/fetchIsPending';
+import getOptions from '../util/getOptions';
 import exciseObjects from '../util/exciseObjects';
 import manifest from '../util/manifest';
 
@@ -50,6 +52,10 @@ class CrosslistCourseRoute extends React.Component {
         clid: PropTypes.string.isRequired,
       }).isRequired,
     }).isRequired,
+    resources: PropTypes.shape({
+      course: PropTypes.object,
+      departments: PropTypes.object,
+    }).isRequired,
     mutator: PropTypes.shape({
       courses: PropTypes.shape({
         POST: PropTypes.func.isRequired,
@@ -57,10 +63,6 @@ class CrosslistCourseRoute extends React.Component {
       courselisting: PropTypes.shape({
         PUT: PropTypes.func.isRequired,
       }).isRequired,
-    }).isRequired,
-    resources: PropTypes.shape({
-      course: PropTypes.object,
-      departments: PropTypes.object,
     }).isRequired,
     stripes: PropTypes.shape({
       hasPerm: PropTypes.func.isRequired,
@@ -86,17 +88,6 @@ class CrosslistCourseRoute extends React.Component {
       .then(this.handleClose);
   }
 
-  fetchIsPending = () => {
-    return Object.values(this.props.resources)
-      .filter(resource => resource)
-      .some(resource => resource.isPending);
-  }
-
-  getOptions(resource, element) {
-    return get(this.props.resources, `${resource}.records.0.${element || resource}`, [])
-      .map(x => ({ value: x.id, label: x.name }));
-  }
-
   getFirstOption(resource) {
     const entries = get(this.props.resources, `${resource}.records.0.${resource}`);
     return (!entries || !entries[0]) ? '1' : entries[0].id;
@@ -110,17 +101,17 @@ class CrosslistCourseRoute extends React.Component {
     return (
       <CourseForm
         data={{
-          departments: this.getOptions('departments'),
-          coursetypes: this.getOptions('coursetypes', 'courseTypes'),
-          terms: this.getOptions('terms'),
-          locations: this.getOptions('locations'),
+          departments: getOptions(this, 'departments'),
+          coursetypes: getOptions(this, 'coursetypes', 'courseTypes'),
+          terms: getOptions(this, 'terms'),
+          locations: getOptions(this, 'locations', null, '(None required)'),
         }}
+        handlers={{ ...handlers, onClose: this.handleClose }}
         initialValues={{
           departmentId: this.getFirstOption('departments'),
           courseListingObject: get(this.props.resources, 'courselisting.records[0]', {}),
         }}
-        handlers={{ ...handlers, onClose: this.handleClose }}
-        isLoading={this.fetchIsPending()}
+        isLoading={fetchIsPending(this.props.resources)}
         onSubmit={this.handleSubmit}
         isCrosslist
       />
