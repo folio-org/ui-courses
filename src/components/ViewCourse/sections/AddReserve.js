@@ -36,9 +36,12 @@ class AddReserve extends React.Component {
   addItem(e, courseListingId) {
     e.preventDefault();
     const barcode = document.getElementById('add-item-barcode').value;
-    const { mutator } = this.props;
+    if (!barcode) {
+      this.showCallout('error', 'Please enter a barcode before selecting "Add item"');
+      return;
+    }
 
-    mutator.reserves.POST({ courseListingId, copiedItem: { barcode } })
+    this.props.mutator.reserves.POST({ courseListingId, copiedItem: { barcode } })
       .then(rec => {
         // XXX We never see this callout due to the re-render. Oh well.
         this.showCallout('success', `Added item "${rec.copiedItem.title}"`);
