@@ -36,7 +36,7 @@ class CourseRoute extends React.Component {
     },
     course: {
       type: 'okapi',
-      path: 'coursereserves/courses/:{id}?unused1=%{instructorCount}&unused2=%{reserveCount}',
+      path: 'coursereserves/courses/:{id}?unused=%{instructorCount}',
     },
     crossListed: {
       type: 'okapi',
@@ -53,7 +53,8 @@ class CourseRoute extends React.Component {
       path: (_q, _p, _r, _l, props) => {
         const rec = get(props.resources, 'course.records.0');
         if (!rec) return null;
-        return `coursereserves/courselistings/${rec.courseListingId}/reserves?expand=*&query=cql.allRecords=1 sortby copiedItem.title`;
+        const reserveCount = get(props.resources, 'reserveCount');
+        return `coursereserves/courselistings/${rec.courseListingId}/reserves?unused=${reserveCount}&expand=*&query=cql.allRecords=1 sortby copiedItem.title`;
       },
       records: 'reserves',
     },
