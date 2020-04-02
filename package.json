@@ -106,6 +106,8 @@
           "module.courses.enabled",
           "course-reserves-storage.reserves.write",
           "course-reserves-storage.courselistings.reserves.item.put",
+          "course-reserves-storage.courselistings.reserves.item.post",
+          "course-reserves-storage.courselistings.reserves.item.delete",
           "inventory-storage.locations.collection.get",
           "inventory.items.collection.get",
           "inventory-storage.loan-types.collection.get",
