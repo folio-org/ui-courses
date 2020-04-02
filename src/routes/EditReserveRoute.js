@@ -76,9 +76,12 @@ class EditReserveRoute extends React.Component {
   getInitialValues = () => {
     const reserve = get(this.props.resources, 'reserve.records[0]', {});
     const item = get(this.props.resources, 'item.records[0]', {});
+    const courseListing = get(this.props.resources, 'crossListed.records[0].courseListingObject', {});
 
     const values = cloneDeep(reserve);
     values.temporaryLocationId = item.temporaryLocationId;
+    if (!values.startDate) values.startDate = get(courseListing, 'termObject.startDate');
+    if (!values.endDate) values.endDate = get(courseListing, 'termObject.endDate');
     return values;
   }
 
