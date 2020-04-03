@@ -8,7 +8,6 @@ import {
   ViewCourseInstructors,
   ViewCourseTerm,
   ViewCourseReserves,
-  ViewCourseDeveloper,
 } from './sections';
 
 class ViewCourse extends React.Component {
@@ -44,7 +43,7 @@ class ViewCourse extends React.Component {
           <ViewCourseReserves course={course} reserves={reserves} items={items} mutator={mutator} />
         </VCAccordion>
         <VCAccordion id="developer" closedByDefault>
-          <ViewCourseDeveloper record={data} />
+          <pre>{JSON.stringify(data, null, 2)}</pre>
         </VCAccordion>
       </AccordionSet>
     );
