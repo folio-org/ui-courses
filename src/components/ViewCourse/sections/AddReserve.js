@@ -49,7 +49,10 @@ class AddReserve extends React.Component {
       })
       .catch(exception => {
         exception.text().then(text => {
-          this.showCallout('error', `Failed to add item ${barcode}: ${text}`);
+          const message = text.includes('value already exists in table coursereserves_reserves') ?
+            `Duplicate barcode ${barcode}: this item is already on reserve for this course` :
+            `Failed to add item ${barcode}: ${text}`;
+          this.showCallout('error', message);
         });
       });
   }
