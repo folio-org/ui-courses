@@ -39,6 +39,7 @@
     "column.courseName": "Course name",
     "column.title": "Title",
     "column.barcode": "Barcode",
+    "column.processingStatus": "Processing status",
     "column.permanentLocation": "Permanent location",
     "column.temporaryLocation": "Temporary location",
     "loading": "Loading...",

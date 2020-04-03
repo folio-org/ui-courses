@@ -169,7 +169,7 @@ class Reserves extends React.Component {
                     columnMapping={{
                       title: <FormattedMessage id="ui-courses.column.title" />,
                       barcode: <FormattedMessage id="ui-courses.column.barcode" />,
-                      status: <FormattedMessage id="ui-courses.column.status" />,
+                      status: <FormattedMessage id="ui-courses.column.processingStatus" />,
                       permanentLocation: <FormattedMessage id="ui-courses.column.permanentLocation" />,
                       temporaryLocation: <FormattedMessage id="ui-courses.column.temporaryLocation" />,
                     }}
