@@ -80,7 +80,7 @@ class ReservesRoute extends React.Component {
           sortMap,
           filterConfig,
         ),
-        expand: "*",
+        expand: '*',
       },
     },
     query: { initialValue: {} },
