@@ -44,6 +44,7 @@ const filterConfig = [{
 const searchableIndexes = [
   'name',
   'courseNumber',
+  'sectionName',
   'courseListing.instructorObjects',
   'courseListing.registrarId',
   'courseListing.externalId',

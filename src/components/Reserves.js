@@ -96,7 +96,7 @@ class Reserves extends React.Component {
 
   renderIsEmptyMessage = (query, source) => {
     if (!source) {
-      return 'no source yet';
+      return <FormattedMessage id="ui-courses.noSource" />;
     }
 
     return (
@@ -169,16 +169,16 @@ class Reserves extends React.Component {
                     columnMapping={{
                       title: <FormattedMessage id="ui-courses.column.title" />,
                       barcode: <FormattedMessage id="ui-courses.column.barcode" />,
-                      status: <FormattedMessage id="ui-courses.column.status" />,
+                      status: <FormattedMessage id="ui-courses.column.processingStatus" />,
                       permanentLocation: <FormattedMessage id="ui-courses.column.permanentLocation" />,
                       temporaryLocation: <FormattedMessage id="ui-courses.column.temporaryLocation" />,
                     }}
                     formatter={{
                       title: r => get(r, 'copiedItem.title'),
                       barcode: r => get(r, 'copiedItem.barcode'),
-                      status: r => get(r, 'processingStatusObject.name'),
+                      status: r => get(r, 'processingStatusObject.name') || r.processingStatusId,
                       permanentLocation: r => get(r, 'copiedItem.permanentLocationObject.name') || r.copiedItem.permanentLocationId,
-                      temporaryLocation: r => get(r, 'copiedItem.temporaryLocationObject.name'),
+                      temporaryLocation: r => get(r, 'copiedItem.temporaryLocationObject.name') || r.copiedItem.temporaryLocationId,
                     }}
                     contentData={data.reserves}
                     id="list-reserves"

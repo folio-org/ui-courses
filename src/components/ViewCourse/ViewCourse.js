@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withStripes } from '@folio/stripes/core';
 import { AccordionSet } from '@folio/stripes/components';
 import VCAccordion from './VCAccordion';
 import {
@@ -8,7 +9,6 @@ import {
   ViewCourseInstructors,
   ViewCourseTerm,
   ViewCourseReserves,
-  ViewCourseDeveloper,
 } from './sections';
 
 class ViewCourse extends React.Component {
@@ -20,6 +20,11 @@ class ViewCourse extends React.Component {
       items: PropTypes.arrayOf(PropTypes.object),
     }),
     mutator: PropTypes.object.isRequired,
+    stripes: PropTypes.shape({
+      config: PropTypes.shape({
+        showDevInfo: PropTypes.bool,
+      }).isRequired,
+    }).isRequired,
   };
 
   render() {
@@ -43,12 +48,14 @@ class ViewCourse extends React.Component {
         <VCAccordion id="reserves">
           <ViewCourseReserves course={course} reserves={reserves} items={items} mutator={mutator} />
         </VCAccordion>
+        {!this.props.stripes.config.showDevInfo ? '' :
         <VCAccordion id="developer" closedByDefault>
-          <ViewCourseDeveloper record={data} />
+          <pre>{JSON.stringify(data, null, 2)}</pre>
         </VCAccordion>
+        }
       </AccordionSet>
     );
   }
 }
 
-export default ViewCourse;
+export default withStripes(ViewCourse);

@@ -132,5 +132,9 @@
     "button.editInstructor": "Edit instructor",
     "removeReserve": "Remove reserve",
     "button.removeReserve": "Remove",
-    "button.addItem": "Add item"
+    "button.addItem": "Add item",
+    "column.processingStatus": "Processing status",
+    "settings.paneTitle": "Courses",
+    "settings.objectLabel": "Entries",
+    "options.noneRequired": "(None required)"
 }

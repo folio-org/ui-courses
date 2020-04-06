@@ -48,7 +48,7 @@ class TermSettings extends React.Component {
         records="terms"
         label={intl.formatMessage({ id: 'ui-courses.objectName.terms' })}
         labelSingular={intl.formatMessage({ id: 'ui-courses.objectName.term' })}
-        objectLabel="Entries"
+        objectLabel={intl.formatMessage({ id: 'ui-courses.settings.objectLabel' })}
         visibleFields={['name', 'startDate', 'endDate']}
         fieldComponents={fieldComponents}
         columnMapping={{

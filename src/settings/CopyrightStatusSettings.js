@@ -29,7 +29,7 @@ class CopyrightStatusSettings extends React.Component {
         records="copyrightStatuses"
         label={intl.formatMessage({ id: 'ui-courses.objectName.copyrightstatuses' })}
         labelSingular={intl.formatMessage({ id: 'ui-courses.objectName.copyrightstatus' })}
-        objectLabel="Entries"
+        objectLabel={intl.formatMessage({ id: 'ui-courses.settings.objectLabel' })}
         visibleFields={['name', 'description']}
         columnMapping={{
           name: intl.formatMessage({ id: 'ui-courses.headings.name' }),

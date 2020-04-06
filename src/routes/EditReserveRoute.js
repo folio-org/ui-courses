@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { injectIntl } from 'react-intl';
 import get from 'lodash/get';
 import cloneDeep from 'lodash/cloneDeep';
 import { stripesConnect } from '@folio/stripes/core';
@@ -33,7 +34,6 @@ class EditReserveRoute extends React.Component {
     loanTypes: {
       type: 'okapi',
       path: 'loan-types',
-      // records: 'loantypes',
     },
     processingStatuses: manifest.processingStatuses,
     locations: manifest.locations,
@@ -71,14 +71,20 @@ class EditReserveRoute extends React.Component {
     stripes: PropTypes.shape({
       hasPerm: PropTypes.func.isRequired,
     }).isRequired,
+    intl: PropTypes.shape({
+      formatMessage: PropTypes.func.isRequired,
+    }),
   };
 
   getInitialValues = () => {
     const reserve = get(this.props.resources, 'reserve.records[0]', {});
     const item = get(this.props.resources, 'item.records[0]', {});
+    const courseListing = get(this.props.resources, 'crossListed.records[0].courseListingObject', {});
 
     const values = cloneDeep(reserve);
     values.temporaryLocationId = item.temporaryLocationId;
+    if (!values.startDate) values.startDate = get(courseListing, 'termObject.startDate');
+    if (!values.endDate) values.endDate = get(courseListing, 'termObject.endDate');
     return values;
   }
 
@@ -103,11 +109,12 @@ class EditReserveRoute extends React.Component {
   }
 
   render() {
-    const { resources, stripes } = this.props;
+    const { resources, stripes, intl } = this.props;
 
     if (!stripes.hasPerm('course-reserves-storage.reserves.write')) return <NoPermissions />;
 
     const item = get(resources, 'item.records[0]');
+    const noneRequired = intl.formatMessage({ id: 'ui-courses.options.noneRequired' });
 
     return (
       <ReserveForm
@@ -115,10 +122,10 @@ class EditReserveRoute extends React.Component {
           reserve: get(resources, 'reserve.records.0'),
           item: get(resources, 'item.records.0'),
           crossListed: get(resources, 'crossListed.records'),
-          loanTypes: getOptions(this, 'loanTypes', 'loantypes'),
-          processingStatuses: getOptions(this, 'processingStatuses', null, '(None required)'),
-          locations: getOptions(this, 'locations'),
-          copyrightStatuses: getOptions(this, 'copyrightStatuses', null, '(None required)'),
+          loanTypes: getOptions(this, 'loanTypes', 'loantypes', noneRequired),
+          processingStatuses: getOptions(this, 'processingStatuses', null, noneRequired),
+          locations: getOptions(this, 'locations', null, noneRequired),
+          copyrightStatuses: getOptions(this, 'copyrightStatuses', null, noneRequired),
         }}
         handlers={{ onClose: this.handleClose }}
         initialValues={this.getInitialValues()}
@@ -129,4 +136,4 @@ class EditReserveRoute extends React.Component {
   }
 }
 
-export default stripesConnect(EditReserveRoute);
+export default injectIntl(stripesConnect(EditReserveRoute));

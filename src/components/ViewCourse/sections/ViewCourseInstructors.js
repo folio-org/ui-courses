@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import get from 'lodash/get';
-import { withStripes } from '@folio/stripes/core';
+import { withStripes, CalloutContext } from '@folio/stripes/core';
 import { Card, Button } from '@folio/stripes/components';
 import withOkapiKy from '../../../util/withOkapiKy';
 import css from './Instructors.css';
 
 
 const ViewCourseInstructors = (props) => {
+  const callout = useContext(CalloutContext);
   function removeInstructor(instructorId) {
     const oldCount = props.record.courseListingObject.instructorObjects.length;
     const clid = props.record.courseListingId;
@@ -18,7 +19,10 @@ const ViewCourseInstructors = (props) => {
     })
       .text()
       .then(() => { props.mutator.instructorCount.replace(oldCount - 1); })
-      .catch(exception => console.error('delete instructor failed:', exception)); // eslint-disable-line no-console
+      .catch(exception => callout.sendCallout({
+        type: 'error',
+        message: <FormattedMessage id="ui-courses.removeInstructor.failure" values={{ message: exception }} />,
+      }));
   }
 
   const { record, stripes } = props;
@@ -33,7 +37,7 @@ const ViewCourseInstructors = (props) => {
   const n = instructorObjects.length;
 
   return (
-    <Card headerStart={n ? `${n} Instructors` : 'No instructors'}>
+    <Card headerStart={<FormattedMessage id="ui-courses.instructor.pluralized" values={{ count: n }} />}>
       {n > 0 &&
         <table className={css.instructors}>
           <thead>

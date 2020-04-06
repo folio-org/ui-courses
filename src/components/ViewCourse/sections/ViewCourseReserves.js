@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, FormattedDate } from 'react-intl';
 import get from 'lodash/get';
 import { Button, Card, Col, Row } from '@folio/stripes/components';
-import { withStripes } from '@folio/stripes/core';
+import { withStripes, CalloutContext } from '@folio/stripes/core';
 import withOkapiKy from '../../../util/withOkapiKy';
 import VCKeyValue from './VCKeyValue';
 import AddReserve from './AddReserve';
@@ -11,16 +11,17 @@ import AddReserve from './AddReserve';
 
 const CopyrightTracking = ({ data }) => {
   const status = get(data, 'copyrightStatusObject.name') || data.copyrightStatusId;
+  const asu = <FormattedMessage id={`ui-courses.boolean.${data.additionalSectionsUsed ? 'yes' : 'no'}`} />;
 
   return (
     <Row>
       <Col xs={12}>
         {!data.copyrightStatusId ?
-          'No copyright tracking required' : (
-            <Card headerStart="This item requires copyright tracking:">
+          <FormattedMessage id="ui-courses.copyrightTracking.no" /> : (
+            <Card headerStart={<FormattedMessage id="ui-courses.copyrightTracking.yes" />}>
               <Row>
                 <Col xs={6}>
-                  <VCKeyValue id="additionalSectionsUsed" value={data.additionalSectionsUsed ? 'Yes' : 'No'} />
+                  <VCKeyValue id="additionalSectionsUsed" value={asu} />
                 </Col>
                 <Col xs={6}>
                   <VCKeyValue id="copyrightStatusId" value={status} />
@@ -56,11 +57,13 @@ CopyrightTracking.propTypes = {
 function makeContentLink(eaList) {
   const ea = (eaList || [])[0];
   if (!ea || !ea.uri) return null;
-  return <a rel="noopener noreferrer" target="_blank" href={ea.uri} title={ea.publicNote}>{ea.linkText || 'Link'}</a>;
+  const text = ea.linkText || <FormattedMessage id="ui-courses.link" />;
+  return <a rel="noopener noreferrer" target="_blank" href={ea.uri} title={ea.publicNote}>{text}</a>;
 }
 
 
 const ViewCourseReserves = (props) => {
+  const callout = useContext(CalloutContext);
   function removeReserve(reserveId) {
     const oldCount = props.reserves.length;
     const clid = props.course.courseListingId;
@@ -70,7 +73,10 @@ const ViewCourseReserves = (props) => {
     })
       .text()
       .then(() => { props.mutator.reserveCount.replace(oldCount - 1); })
-      .catch(exception => console.error('delete reserve failed:', exception)); // eslint-disable-line no-console
+      .catch(exception => callout.sendCallout({
+        type: 'error',
+        message: <FormattedMessage id="ui-courses.removeReserve.failure" values={{ message: exception }} />,
+      }));
   }
 
   const { course, reserves, items, stripes } = props;

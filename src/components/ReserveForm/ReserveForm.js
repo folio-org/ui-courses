@@ -9,7 +9,7 @@ import {
   PaneMenu,
   Paneset,
 } from '@folio/stripes/components';
-import { AppIcon, TitleManager } from '@folio/stripes/core';
+import { AppIcon, TitleManager, withStripes } from '@folio/stripes/core';
 import stripesFinalForm from '@folio/stripes/final-form';
 import { isEqual } from 'lodash';
 import setFieldData from 'final-form-set-field-data';
@@ -29,6 +29,11 @@ class ReserveForm extends React.Component {
     pristine: PropTypes.bool,
     submitting: PropTypes.bool,
     values: PropTypes.object,
+    stripes: PropTypes.shape({
+      config: PropTypes.shape({
+        showDevInfo: PropTypes.bool,
+      }).isRequired,
+    }).isRequired,
   }
 
   renderPaneFooter() {
@@ -121,12 +126,16 @@ class ReserveForm extends React.Component {
               <ReserveFormInfo {...sectionProps} />
               <ReserveFormCopyright {...sectionProps} />
               <ReserveFormCourses {...sectionProps} />
-              <p>&nbsp;</p>
-              <hr />
-              <h1>Developer Info</h1>
-              <pre>
-                {JSON.stringify(data, null, 2)}
-              </pre>
+              {!this.props.stripes.config.showDevInfo ? '' :
+              <React.Fragment>
+                <p>&nbsp;</p>
+                <hr />
+                <h1>Developer Info</h1>
+                <pre>
+                  {JSON.stringify(data, null, 2)}
+                </pre>
+              </React.Fragment>
+              }
             </form>
           </TitleManager>
         </Pane>
@@ -135,11 +144,11 @@ class ReserveForm extends React.Component {
   }
 }
 
-export default stripesFinalForm({
+export default withStripes(stripesFinalForm({
   initialValuesEqual: (a, b) => isEqual(a, b),
   navigationCheck: true,
   subscription: {
     values: true,
   },
   mutators: { setFieldData }
-})(ReserveForm);
+})(ReserveForm));

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { injectIntl } from 'react-intl';
 import get from 'lodash/get';
 import { stripesConnect } from '@folio/stripes/core';
 import CourseForm from '../components/CourseForm';
@@ -49,6 +50,9 @@ class CreateCourseRoute extends React.Component {
     stripes: PropTypes.shape({
       hasPerm: PropTypes.func.isRequired,
     }).isRequired,
+    intl: PropTypes.shape({
+      formatMessage: PropTypes.func.isRequired,
+    }),
   };
 
   static defaultProps = {
@@ -84,7 +88,7 @@ class CreateCourseRoute extends React.Component {
   }
 
   render() {
-    const { handlers, stripes } = this.props;
+    const { handlers, stripes, intl } = this.props;
 
     if (!stripes.hasPerm('course-reserves-storage.reserves.write')) return <NoPermissions />;
 
@@ -94,7 +98,7 @@ class CreateCourseRoute extends React.Component {
           departments: getOptions(this, 'departments'),
           coursetypes: getOptions(this, 'coursetypes', 'courseTypes'),
           terms: getOptions(this, 'terms'),
-          locations: getOptions(this, 'locations', null, '(None required)'),
+          locations: getOptions(this, 'locations', null, intl.formatMessage({ id: 'ui-courses.options.noneRequired' })),
         }}
         initialValues={{
           departmentId: this.getFirstOption('departments'),
@@ -110,4 +114,4 @@ class CreateCourseRoute extends React.Component {
   }
 }
 
-export default stripesConnect(CreateCourseRoute);
+export default injectIntl(stripesConnect(CreateCourseRoute));

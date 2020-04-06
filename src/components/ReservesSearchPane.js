@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import { injectIntl, FormattedMessage } from 'react-intl';
 import { withRouter } from 'react-router';
 import get from 'lodash/get';
 import { stripesConnect } from '@folio/stripes/core'; // just for resources.query
@@ -20,12 +20,13 @@ import FilterNavigation from './FilterNavigation';
 
 
 // Value gets set into the `qindex` parameter of the UI URL, and used in the generated back-end query
-const searchableIndexes = [
-  { label: 'All fields', value: '' },
-  { label: 'Title', value: 'copiedItem.title' },
-  { label: 'Barcode', value: 'copiedItem.barcode' },
-  { label: 'Call Number', value: 'copiedItem.callNumber' },
+const rawSearchableIndexes = [
+  { label: 'allFields', value: '' },
+  { label: 'title', value: 'copiedItem.title' },
+  { label: 'barcode', value: 'copiedItem.barcode' },
+  { label: 'callNumber', value: 'copiedItem.callNumber' },
 ];
+let searchableIndexes;
 
 
 class ReservesSearchPane extends React.Component {
@@ -51,6 +52,9 @@ class ReservesSearchPane extends React.Component {
       }).isRequired,
     }).isRequired,
     options: PropTypes.object.isRequired,
+    intl: PropTypes.shape({
+      formatMessage: PropTypes.func.isRequired,
+    }),
   };
 
   static manifest = Object.freeze({
@@ -75,9 +79,16 @@ class ReservesSearchPane extends React.Component {
       searchField,
       resources,
       options,
+      intl,
     } = this.props;
     const searchHandlers = getSearchHandlers();
     const filterHandlers = getFilterHandlers();
+
+    if (!searchableIndexes) {
+      searchableIndexes = rawSearchableIndexes.map(x => (
+        { value: x.value, label: intl.formatMessage({ id: `ui-courses.index.reserves.${x.label}` }) }
+      ));
+    }
 
     const filters = get(resources.query, 'filters');
     const activeFilters = filterString2state(filters);
@@ -148,4 +159,4 @@ class ReservesSearchPane extends React.Component {
 }
 
 
-export default withRouter(stripesConnect(ReservesSearchPane));
+export default injectIntl(withRouter(stripesConnect(ReservesSearchPane)));

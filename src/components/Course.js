@@ -93,7 +93,7 @@ class Course extends React.Component {
         lastMenu={hasPerm ? this.renderLastMenu() : <React.Fragment />}
         onClose={handlers.onClose}
         paneTitle={record.name}
-        paneSub={`Course ${record.courseNumber}`}
+        paneSub={<FormattedMessage id="ui-courses.courseByNumber" values={{ number: record.courseNumber }} />}
       >
         <TitleManager record={record.name}>
           <ViewCourse data={data} mutator={mutator} />

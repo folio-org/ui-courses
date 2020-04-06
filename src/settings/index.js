@@ -38,7 +38,7 @@ export default class CoursesSettings extends React.Component {
 
   render() {
     return (
-      <Settings {...this.props} pages={this.pages} paneTitle="Courses" />
+      <Settings {...this.props} pages={this.pages} paneTitle={<FormattedMessage id="ui-courses.settings.paneTitle" />} />
     );
   }
 }

@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { injectIntl } from 'react-intl';
 import get from 'lodash/get';
 import { stripesConnect } from '@folio/stripes/core';
 import CourseForm from '../components/CourseForm';
 import NoPermissions from '../components/NoPermissions';
+import fetchIsPending from '../util/fetchIsPending';
+import getOptions from '../util/getOptions';
 import exciseObjects from '../util/exciseObjects';
 import manifest from '../util/manifest';
 
@@ -50,6 +53,10 @@ class CrosslistCourseRoute extends React.Component {
         clid: PropTypes.string.isRequired,
       }).isRequired,
     }).isRequired,
+    resources: PropTypes.shape({
+      course: PropTypes.object,
+      departments: PropTypes.object,
+    }).isRequired,
     mutator: PropTypes.shape({
       courses: PropTypes.shape({
         POST: PropTypes.func.isRequired,
@@ -58,13 +65,12 @@ class CrosslistCourseRoute extends React.Component {
         PUT: PropTypes.func.isRequired,
       }).isRequired,
     }).isRequired,
-    resources: PropTypes.shape({
-      course: PropTypes.object,
-      departments: PropTypes.object,
-    }).isRequired,
     stripes: PropTypes.shape({
       hasPerm: PropTypes.func.isRequired,
     }).isRequired,
+    intl: PropTypes.shape({
+      formatMessage: PropTypes.func.isRequired,
+    }),
   };
 
   static defaultProps = {
@@ -86,41 +92,30 @@ class CrosslistCourseRoute extends React.Component {
       .then(this.handleClose);
   }
 
-  fetchIsPending = () => {
-    return Object.values(this.props.resources)
-      .filter(resource => resource)
-      .some(resource => resource.isPending);
-  }
-
-  getOptions(resource, element) {
-    return get(this.props.resources, `${resource}.records.0.${element || resource}`, [])
-      .map(x => ({ value: x.id, label: x.name }));
-  }
-
   getFirstOption(resource) {
     const entries = get(this.props.resources, `${resource}.records.0.${resource}`);
     return (!entries || !entries[0]) ? '1' : entries[0].id;
   }
 
   render() {
-    const { handlers, stripes } = this.props;
+    const { handlers, stripes, intl } = this.props;
 
     if (!stripes.hasPerm('course-reserves-storage.reserves.write')) return <NoPermissions />;
 
     return (
       <CourseForm
         data={{
-          departments: this.getOptions('departments'),
-          coursetypes: this.getOptions('coursetypes', 'courseTypes'),
-          terms: this.getOptions('terms'),
-          locations: this.getOptions('locations'),
+          departments: getOptions(this, 'departments'),
+          coursetypes: getOptions(this, 'coursetypes', 'courseTypes'),
+          terms: getOptions(this, 'terms'),
+          locations: getOptions(this, 'locations', null, intl.formatMessage({ id: 'ui-courses.options.noneRequired' })),
         }}
+        handlers={{ ...handlers, onClose: this.handleClose }}
         initialValues={{
           departmentId: this.getFirstOption('departments'),
           courseListingObject: get(this.props.resources, 'courselisting.records[0]', {}),
         }}
-        handlers={{ ...handlers, onClose: this.handleClose }}
-        isLoading={this.fetchIsPending()}
+        isLoading={fetchIsPending(this.props.resources)}
         onSubmit={this.handleSubmit}
         isCrosslist
       />
@@ -128,4 +123,4 @@ class CrosslistCourseRoute extends React.Component {
   }
 }
 
-export default stripesConnect(CrosslistCourseRoute);
+export default injectIntl(stripesConnect(CrosslistCourseRoute));

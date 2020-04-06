@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import { TextField, Button, Callout } from '@folio/stripes/components';
-import { stripesConnect } from '@folio/stripes/core';
+import { TextField, Button } from '@folio/stripes/components';
+import { stripesConnect, CalloutContext } from '@folio/stripes/core';
 
 
 class AddReserve extends React.Component {
+  static contextType = CalloutContext; // Too Much Magic
+
   static propTypes = {
     courseListingId: PropTypes.string.isRequired,
     mutator: PropTypes.shape({
@@ -21,29 +23,36 @@ class AddReserve extends React.Component {
       path: 'coursereserves/courselistings/!{courseListingId}/reserves',
       fetch: false,
       shouldRefresh: () => false,
+      throwErrors: false,
     },
   };
 
-  constructor() {
-    super();
-    this.callout = React.createRef();
-  }
-
   showCallout(type, message) {
-    this.callout.current.sendCallout({ type, message });
+    this.context.sendCallout({ type, message });
   }
 
   addItem(e, courseListingId) {
+    e.preventDefault();
     const barcode = document.getElementById('add-item-barcode').value;
-    const { mutator } = this.props;
+    if (!barcode) {
+      this.showCallout('error', <FormattedMessage id="ui-courses.addItem.missingBarcode" />);
+      return;
+    }
 
-    mutator.reserves.POST({ courseListingId, copiedItem: { barcode } })
+    this.props.mutator.reserves.POST({ courseListingId, copiedItem: { barcode } })
       .then(rec => {
-        // XXX We never see this callout due to the re-render. Oh well.
-        this.showCallout('success', `Added item "${rec.copiedItem.title}"`);
+        const values = { title: rec.copiedItem.title };
+        this.showCallout('success', <FormattedMessage id="ui-courses.addItem.addedItem" values={values} />);
       })
       .catch(exception => {
-        this.showCallout('error', `Failed to add item ${barcode}: ${exception}`);
+        exception.text().then(text => {
+          const isDuplicate = (text.includes('value already exists in table coursereserves_reserves') ||
+                               text.includes('is not unique for courseListing'));
+          const message = isDuplicate ?
+            <FormattedMessage id="ui-courses.addItem.duplicateItem" values={{ barcode }} /> :
+            <FormattedMessage id="ui-courses.addItem.failure" values={{ barcode, message: text }} />;
+          this.showCallout('error', message);
+        });
       });
   }
 
@@ -51,8 +60,8 @@ class AddReserve extends React.Component {
     return (
       <React.Fragment>
         <hr />
-        <form id="form-course-item">
-          <TextField label="Enter or scan barcode" id="add-item-barcode" />
+        <form id="form-course-item" onSubmit={e => this.addItem(e, this.props.courseListingId)}>
+          <TextField label={<FormattedMessage id="ui-courses.addItem.enterBarcode" />} id="add-item-barcode" />
           <FormattedMessage id="ui-courses.addItem">
             {ariaLabel => (
               <Button
@@ -67,7 +76,6 @@ class AddReserve extends React.Component {
             )}
           </FormattedMessage>
         </form>
-        <Callout ref={this.callout} />
       </React.Fragment>
     );
   }
