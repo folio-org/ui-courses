@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import { injectIntl, FormattedMessage } from 'react-intl';
 import { withRouter } from 'react-router';
 import get from 'lodash/get';
 import { stripesConnect } from '@folio/stripes/core'; // just for resources.query
@@ -13,15 +13,16 @@ import FilterNavigation from './FilterNavigation';
 
 
 // Value gets set into the `qindex` parameter of the UI URL, and used in the generated back-end query
-const searchableIndexes = [
-  { label: 'All fields', value: '', placeholder: '(name, number)' },
-  { label: 'Course name', value: 'name' },
-  { label: 'Course code', value: 'courseNumber' },
-  { label: 'Section', value: 'sectionName' },
-  { label: 'Instructor', value: 'courseListing.instructorObjects' },
-  { label: 'Registrar ID', value: 'courseListing.registrarId' },
-  { label: 'External ID', value: 'courseListing.externalId' },
+const rawSearchableIndexes = [
+  { label: 'allFields', value: '', placeholder: '(name, number)' },
+  { label: 'courseName', value: 'name' },
+  { label: 'courseCode', value: 'courseNumber' },
+  { label: 'section', value: 'sectionName' },
+  { label: 'instructor', value: 'courseListing.instructorObjects' },
+  { label: 'registrarId', value: 'courseListing.registrarId' },
+  { label: 'externalId', value: 'courseListing.externalId' },
 ];
+let searchableIndexes;
 
 
 class CoursesSearchPane extends React.Component {
@@ -47,6 +48,9 @@ class CoursesSearchPane extends React.Component {
       }).isRequired,
     }).isRequired,
     options: PropTypes.object.isRequired,
+    intl: PropTypes.shape({
+      formatMessage: PropTypes.func.isRequired,
+    }),
   };
 
   static manifest = Object.freeze({
@@ -71,9 +75,16 @@ class CoursesSearchPane extends React.Component {
       searchField,
       resources,
       options,
+      intl,
     } = this.props;
     const searchHandlers = getSearchHandlers();
     const filterHandlers = getFilterHandlers();
+
+    if (!searchableIndexes) {
+      searchableIndexes = rawSearchableIndexes.map(x => (
+        { value: x.value, label: intl.formatMessage({ id: `ui-courses.index.courses.${x.label}` }) }
+      ));
+    }
 
     const filters = get(resources.query, 'filters');
     const activeFilters = filterString2state(filters);
@@ -143,4 +154,4 @@ class CoursesSearchPane extends React.Component {
 }
 
 
-export default withRouter(stripesConnect(CoursesSearchPane));
+export default injectIntl(withRouter(stripesConnect(CoursesSearchPane)));

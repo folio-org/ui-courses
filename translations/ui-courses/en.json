@@ -139,5 +139,16 @@
     "filters.temporaryLocation": "Temporary location",
     "options.noneRequired": "(None required)",
     "courseByNumber": "Course [{number, number}]",
+    "index.reserves.allFields": "All fields",
+    "index.reserves.title": "Title",
+    "index.reserves.barcode": "Barcode",
+    "index.reserves.callNumber": "Call Number",
+    "index.courses.allFields": "All fields",
+    "index.courses.courseName": "Course name",
+    "index.courses.courseCode": "Course code",
+    "index.courses.section": "Section",
+    "index.courses.instructor": "Instructor",
+    "index.courses.registrarId": "Registrar ID",
+    "index.courses.externalId": "External ID",
     "SENTINEL": "SENTINEL"
 }
