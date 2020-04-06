@@ -33,7 +33,6 @@ class EditReserveRoute extends React.Component {
     loanTypes: {
       type: 'okapi',
       path: 'loan-types',
-      // records: 'loantypes',
     },
     processingStatuses: manifest.processingStatuses,
     locations: manifest.locations,
