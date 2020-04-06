@@ -138,5 +138,6 @@
     "filters.permanentLocation": "Permanent location",
     "filters.temporaryLocation": "Temporary location",
     "options.noneRequired": "(None required)",
+    "courseByNumber": "Course [{number, number}]",
     "SENTINEL": "SENTINEL"
 }
