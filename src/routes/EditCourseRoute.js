@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { injectIntl } from 'react-intl';
 import { cloneDeep, get } from 'lodash';
 import { stripesConnect } from '@folio/stripes/core';
 import CourseForm from '../components/CourseForm';
@@ -58,6 +59,9 @@ class EditCourseRoute extends React.Component {
     stripes: PropTypes.shape({
       hasPerm: PropTypes.func.isRequired,
     }).isRequired,
+    intl: PropTypes.shape({
+      formatMessage: PropTypes.func.isRequired,
+    }),
   };
 
   static defaultProps = {
@@ -93,7 +97,7 @@ class EditCourseRoute extends React.Component {
   }
 
   render() {
-    const { handlers, stripes } = this.props;
+    const { handlers, stripes, intl } = this.props;
 
     if (!stripes.hasPerm('course-reserves-storage.reserves.write')) return <NoPermissions />;
 
@@ -108,7 +112,7 @@ class EditCourseRoute extends React.Component {
           departments: getOptions(this, 'departments'),
           coursetypes: getOptions(this, 'coursetypes', 'courseTypes'),
           terms: getOptions(this, 'terms'),
-          locations: getOptions(this, 'locations', null, '(None required)'),
+          locations: getOptions(this, 'locations', null, intl.formatMessage({ id: 'ui-courses.options.noneRequired' })),
         }}
         handlers={{ ...handlers, onClose: this.handleClose }}
         initialValues={this.getInitialValues()}
@@ -119,4 +123,4 @@ class EditCourseRoute extends React.Component {
   }
 }
 
-export default stripesConnect(EditCourseRoute);
+export default injectIntl(stripesConnect(EditCourseRoute));
