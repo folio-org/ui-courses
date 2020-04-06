@@ -1,5 +1,11 @@
 # Change history for ui-courses
 
+## [1.1.2](https://github.com/folio-org/ui-courses/tree/v1.1.2) (2020-04-06)
+[Full Changelog](https://github.com/folio-org/ui-courses/compare/v1.1.2...v1.1.1)
+
+* Many, many bugfixes, leading to first usable release.
+* Change-logging of individual issues will commence with the next release.
+
 ## [1.1.1](https://github.com/folio-org/ui-courses/tree/v1.1.1) (2020-03-16)
 [Full Changelog](https://github.com/folio-org/ui-courses/compare/v1.1.1...v1.1.0)
 
