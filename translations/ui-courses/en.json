@@ -1,6 +1,7 @@
 {
     "front.welcome": "Welcome to Course Reserves!",
     "meta.title": "Courses",
+    "settings.paneTitle": "Courses",
     "settings.roles": "Roles",
     "objectName.roles": "Roles",
     "objectName.role": "Role",
@@ -19,6 +20,7 @@
     "settings.copyrightstatuses": "Copyright Statuses",
     "objectName.copyrightstatuses": "Copyright Statuses",
     "objectName.copyrightstatus": "Copyright Status",
+    "settings.objectLabel": "Entries",
     "headings.name": "Name",
     "headings.description": "Description",
     "headings.startDate": "Start Date",

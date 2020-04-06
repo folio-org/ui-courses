@@ -29,7 +29,7 @@ class CourseTypeSettings extends React.Component {
         records="courseTypes"
         label={intl.formatMessage({ id: 'ui-courses.objectName.coursetypes' })}
         labelSingular={intl.formatMessage({ id: 'ui-courses.objectName.coursetypes' })}
-        objectLabel="Entries"
+        objectLabel={intl.formatMessage({ id: 'ui-courses.settings.objectLabel' })}
         visibleFields={['name', 'description']}
         columnMapping={{
           name: intl.formatMessage({ id: 'ui-courses.headings.name' }),

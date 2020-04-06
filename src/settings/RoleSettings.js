@@ -29,7 +29,7 @@ class RoleSettings extends React.Component {
         records="roles"
         label={intl.formatMessage({ id: 'ui-courses.objectName.roles' })}
         labelSingular={intl.formatMessage({ id: 'ui-courses.objectName.role' })}
-        objectLabel="Entries"
+        objectLabel={intl.formatMessage({ id: 'ui-courses.settings.objectLabel' })}
         visibleFields={['name', 'description']}
         columnMapping={{
           name: intl.formatMessage({ id: 'ui-courses.headings.name' }),
