@@ -35,19 +35,20 @@ class AddReserve extends React.Component {
     e.preventDefault();
     const barcode = document.getElementById('add-item-barcode').value;
     if (!barcode) {
-      this.showCallout('error', 'Please enter a barcode before selecting "Add item"');
+      this.showCallout('error', <FormattedMessage id="ui-courses.addItem.missingBarcode" />);
       return;
     }
 
     this.props.mutator.reserves.POST({ courseListingId, copiedItem: { barcode } })
       .then(rec => {
-        this.showCallout('success', `Added item "${rec.copiedItem.title}"`);
+        const values = { title: rec.copiedItem.title };
+        this.showCallout('success', <FormattedMessage id="ui-courses.addItem.addedItem" values={values} />);
       })
       .catch(exception => {
         exception.text().then(text => {
           const message = text.includes('value already exists in table coursereserves_reserves') ?
-            `Duplicate barcode ${barcode}: this item is already on reserve for this course` :
-            `Failed to add item ${barcode}: ${text}`;
+            <FormattedMessage id="ui-courses.addItem.duplicateItem" values={{ barcode }} /> :
+            <FormattedMessage id="ui-courses.addItem.failure" values={{ barcode, message: text }} />;
           this.showCallout('error', message);
         });
       });
@@ -58,7 +59,7 @@ class AddReserve extends React.Component {
       <React.Fragment>
         <hr />
         <form id="form-course-item" onSubmit={e => this.addItem(e, this.props.courseListingId)}>
-          <TextField label="Enter or scan barcode" id="add-item-barcode" />
+          <TextField label={<FormattedMessage id="ui-courses.addItem.enterBarcode" />} id="add-item-barcode" />
           <FormattedMessage id="ui-courses.addItem">
             {ariaLabel => (
               <Button
