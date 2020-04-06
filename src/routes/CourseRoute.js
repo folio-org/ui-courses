@@ -117,11 +117,7 @@ class CourseRoute extends React.Component {
           reserves: get(resources, 'reserves.records', []),
           items: get(resources, 'items.records', []),
         }}
-        handlers={{
-          ...handlers,
-          onClose: this.handleClose,
-          text: 'Some text'
-        }}
+        handlers={{ ...handlers, onClose: this.handleClose }}
         isLoading={get(resources, 'course.isPending', true)}
         urls={this.urls}
         mutator={mutator}
