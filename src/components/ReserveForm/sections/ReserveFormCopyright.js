@@ -10,7 +10,7 @@ const ReserveFormCopyright = (props) => {
   const { data } = props;
 
   return (
-    <Card headerStart="Copyright information">
+    <Card headerStart={<FormattedMessage id="ui-courses.headings.copyrightInformation" />}>
       {/*
       <Row>
         <Col xs={12}>
@@ -18,7 +18,7 @@ const ReserveFormCopyright = (props) => {
             id="edit-reserve-copyright-tracking"
             name="copyrightTracking."
             component={TextField}
-            label="Copyright tracking required?"
+            label={<FormattedMessage id="ui-courses.field.copyrightTrackingNeeded" />}
           />
         </Col>
       </Row>
