@@ -1,6 +1,7 @@
 {
     "front.welcome": "Welcome to Course Reserves!",
     "meta.title": "Courses",
+    "noSource": "No source yet ...",
     "settings.paneTitle": "Courses",
     "settings.roles": "Roles",
     "objectName.roles": "Roles",
