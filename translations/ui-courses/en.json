@@ -140,7 +140,7 @@
     "filters.permanentLocation": "Permanent location",
     "filters.temporaryLocation": "Temporary location",
     "options.noneRequired": "(None required)",
-    "courseByNumber": "Course [{number, number}]",
+    "courseByNumber": "Course {number}",
     "index.reserves.allFields": "All fields",
     "index.reserves.title": "Title",
     "index.reserves.barcode": "Barcode",
