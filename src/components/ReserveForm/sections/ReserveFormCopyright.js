@@ -8,8 +8,6 @@ import { Card, Col, Row, TextField, Select, Checkbox } from '@folio/stripes/comp
 
 const ReserveFormCopyright = (props) => {
   const { data } = props;
-  // const trackingObject = props.values.copyrightTracking || {};
-  // console.log('ReserveFormCopyright: props =', props);
 
   return (
     <Card headerStart="Copyright information">
