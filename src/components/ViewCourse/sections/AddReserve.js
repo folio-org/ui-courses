@@ -46,7 +46,9 @@ class AddReserve extends React.Component {
       })
       .catch(exception => {
         exception.text().then(text => {
-          const message = text.includes('value already exists in table coursereserves_reserves') ?
+          const isDuplicate = (text.includes('value already exists in table coursereserves_reserves') ||
+                               text.includes('is not unique for courseListing'));
+          const message = isDuplicate ?
             <FormattedMessage id="ui-courses.addItem.duplicateItem" values={{ barcode }} /> :
             <FormattedMessage id="ui-courses.addItem.failure" values={{ barcode, message: text }} />;
           this.showCallout('error', message);
