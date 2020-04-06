@@ -146,7 +146,7 @@ class InstructorForm extends React.Component {
               aria-haspopup="true"
               type="find-user"
               id="clickable-find-user"
-              searchLabel="Look up user"
+              searchLabel=<FormattedMessage id="ui-courses.lookUpUser" />
               marginTop0
               searchButtonStyle="link"
               dataKey="patrons"

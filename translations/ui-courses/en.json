@@ -150,5 +150,6 @@
     "index.courses.instructor": "Instructor",
     "index.courses.registrarId": "Registrar ID",
     "index.courses.externalId": "External ID",
+    "lookUpUser": "Look up user",
     "SENTINEL": "SENTINEL"
 }
