@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import { TextField, Button, Callout } from '@folio/stripes/components';
-import { stripesConnect } from '@folio/stripes/core';
+import { TextField, Button } from '@folio/stripes/components';
+import { stripesConnect, CalloutContext } from '@folio/stripes/core';
 
 
 class AddReserve extends React.Component {
+  static contextType = CalloutContext; // Too Much Magic
+
   static propTypes = {
     courseListingId: PropTypes.string.isRequired,
     mutator: PropTypes.shape({
@@ -25,13 +27,8 @@ class AddReserve extends React.Component {
     },
   };
 
-  constructor() {
-    super();
-    this.callout = React.createRef();
-  }
-
   showCallout(type, message) {
-    this.callout.current.sendCallout({ type, message });
+    this.context.sendCallout({ type, message });
   }
 
   addItem(e, courseListingId) {
@@ -44,7 +41,6 @@ class AddReserve extends React.Component {
 
     this.props.mutator.reserves.POST({ courseListingId, copiedItem: { barcode } })
       .then(rec => {
-        // XXX We never see this callout due to the re-render. Oh well.
         this.showCallout('success', `Added item "${rec.copiedItem.title}"`);
       })
       .catch(exception => {
@@ -77,7 +73,6 @@ class AddReserve extends React.Component {
             )}
           </FormattedMessage>
         </form>
-        <Callout ref={this.callout} />
       </React.Fragment>
     );
   }
