@@ -29,7 +29,7 @@ const ViewCourseInstructors = (props) => {
   const courseListingObject = record.courseListingObject || {};
   const instructorObjects = courseListingObject.instructorObjects || [];
   const permissions = {
-    add: stripes.hasPerm('course-reserves-storage.courselistings.reserves.item.post'),
+    add: stripes.hasPerm('course-reserves-storage.courselistings.instructors.item.post'),
     edit: stripes.hasPerm('course-reserves-storage.courselistings.instructors.item.put'),
     delete: stripes.hasPerm('course-reserves-storage.courselistings.instructors.item.delete'),
   };
