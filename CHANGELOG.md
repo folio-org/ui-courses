@@ -1,5 +1,10 @@
 # Change history for ui-courses
 
+## [1.1.3](https://github.com/folio-org/ui-courses/tree/v1.1.3) (2020-04-09)
+[Full Changelog](https://github.com/folio-org/ui-courses/compare/v1.1.3...v1.1.2)
+
+* Hide "Add instructor" button when permission is missing. Fixes UICR-81.
+
 ## [1.1.2](https://github.com/folio-org/ui-courses/tree/v1.1.2) (2020-04-06)
 [Full Changelog](https://github.com/folio-org/ui-courses/compare/v1.1.2...v1.1.1)
 
