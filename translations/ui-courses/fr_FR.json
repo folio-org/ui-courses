@@ -133,7 +133,7 @@
     "removeReserve": "Retirer la réservation",
     "button.removeReserve": "Retirer",
     "button.addItem": "Ajouter un élément",
-    "column.processingStatus": "Processing status",
+    "column.processingStatus": "Statut de traitement",
     "settings.paneTitle": "Cours",
     "settings.objectLabel": "Entries",
     "options.noneRequired": "(None required)",
