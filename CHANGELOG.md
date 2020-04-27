@@ -1,5 +1,10 @@
 # Change history for ui-courses
 
+## [1.1.4](https://github.com/folio-org/ui-courses/tree/v1.1.4) (IN PROGRESS)
+[Full Changelog](https://github.com/folio-org/ui-courses/compare/v1.1.4...v1.1.3)
+
+* Do not PUT to item when editing a reserve. Related to the MODCR-31 work.
+
 ## [1.1.3](https://github.com/folio-org/ui-courses/tree/v1.1.3) (2020-04-09)
 [Full Changelog](https://github.com/folio-org/ui-courses/compare/v1.1.3...v1.1.2)
 

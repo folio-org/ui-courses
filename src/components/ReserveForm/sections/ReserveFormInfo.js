@@ -16,7 +16,7 @@ const ReserveFormInfo = (props) => {
             dataOptions={data.locations}
             id="edit-reserve-temporary-location"
             label={<FormattedMessage id="ui-courses.field.temporaryLocation" />}
-            name="temporaryLocationId"
+            name="copiedItem.temporaryLocationId"
           />
         </Col>
         <Col xs={4}>

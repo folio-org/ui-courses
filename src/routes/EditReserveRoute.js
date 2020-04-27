@@ -64,9 +64,6 @@ class EditReserveRoute extends React.Component {
       reserve: PropTypes.shape({
         PUT: PropTypes.func.isRequired,
       }).isRequired,
-      item: PropTypes.shape({
-        PUT: PropTypes.func.isRequired,
-      }).isRequired,
     }).isRequired,
     stripes: PropTypes.shape({
       hasPerm: PropTypes.func.isRequired,
@@ -78,11 +75,9 @@ class EditReserveRoute extends React.Component {
 
   getInitialValues = () => {
     const reserve = get(this.props.resources, 'reserve.records[0]', {});
-    const item = get(this.props.resources, 'item.records[0]', {});
     const courseListing = get(this.props.resources, 'crossListed.records[0].courseListingObject', {});
 
     const values = cloneDeep(reserve);
-    values.temporaryLocationId = item.temporaryLocationId;
     if (!values.startDate) values.startDate = get(courseListing, 'termObject.startDate');
     if (!values.endDate) values.endDate = get(courseListing, 'termObject.endDate');
     return values;
@@ -98,13 +93,8 @@ class EditReserveRoute extends React.Component {
     }
   }
 
-  handleSubmit = (reserve, item) => {
-    const temporaryLocationId = reserve.temporaryLocationId;
-    delete reserve.temporaryLocationId;
-
-    const newItem = Object.assign({}, item, { temporaryLocationId });
+  handleSubmit = (reserve) => {
     this.props.mutator.reserve.PUT(exciseObjects(reserve))
-      .then(() => this.props.mutator.item.PUT(newItem))
       .then(this.handleClose);
   }
 
@@ -113,7 +103,6 @@ class EditReserveRoute extends React.Component {
 
     if (!stripes.hasPerm('course-reserves-storage.reserves.write')) return <NoPermissions />;
 
-    const item = get(resources, 'item.records[0]');
     const noneRequired = intl.formatMessage({ id: 'ui-courses.options.noneRequired' });
 
     return (
@@ -130,7 +119,7 @@ class EditReserveRoute extends React.Component {
         handlers={{ onClose: this.handleClose }}
         initialValues={this.getInitialValues()}
         isLoading={fetchIsPending(this.props.resources)}
-        onSubmit={(reserve) => this.handleSubmit(reserve, item)}
+        onSubmit={(reserve) => this.handleSubmit(reserve)}
       />
     );
   }
