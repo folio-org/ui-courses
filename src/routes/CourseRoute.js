@@ -48,7 +48,7 @@ class CourseRoute extends React.Component {
       },
       records: 'courses',
     },
-    reserves: {
+    reservesForCourse: {
       type: 'okapi',
       path: (_q, _p, _r, _l, props) => {
         const rec = get(props.resources, 'course.records.0');
@@ -62,7 +62,7 @@ class CourseRoute extends React.Component {
       type: 'okapi',
       path: 'inventory/items',
       params: (_q, _p, _r, _l, props) => {
-        const reserves = get(props.resources, 'reserves.records');
+        const reserves = get(props.resources, 'reservesForCourse.records');
         if (!reserves || reserves.length === 0) return null;
         return { query: `id=(${reserves.map(x => `"${x.itemId}"`).join(' or ')})` };
       },
@@ -114,7 +114,7 @@ class CourseRoute extends React.Component {
         data={{
           course: { ...get(resources, 'course.records[0]', {}) },
           crossListed: get(resources, 'crossListed.records', []),
-          reserves: get(resources, 'reserves.records', []),
+          reserves: get(resources, 'reservesForCourse.records', []),
           items: get(resources, 'items.records', []),
         }}
         handlers={{ ...handlers, onClose: this.handleClose }}
