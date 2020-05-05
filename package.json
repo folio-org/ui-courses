@@ -1,6 +1,6 @@
 {
   "name": "@folio/courses",
-  "version": "1.1.5",
+  "version": "2.0.0",
   "description": "Maintain courses and reserve items for them",
   "repository": "https://github.com/folio-org/ui-courses",
   "license": "Apache-2.0",
@@ -144,7 +144,7 @@
     "react-hot-loader": "^4.3.12"
   },
   "peerDependencies": {
-    "@folio/stripes": "^3.0.0",
+    "@folio/stripes": "^4.0.0",
     "prop-types": "*",
     "react": "*",
     "react-intl": "*",
@@ -158,7 +158,7 @@
     "@bigtest/mocha": "^0.5.2",
     "@bigtest/react": "^0.1.2",
     "@folio/eslint-config-stripes": "^4.2.0",
-    "@folio/stripes": "^3.0.0",
+    "@folio/stripes": "^4.0.0",
     "@folio/stripes-cli": "^1.14.0",
     "babel-eslint": "^9.0.0",
     "chai": "^4.2.0",
@@ -166,6 +166,7 @@
     "eslint": "^5.5.0",
     "react": "~16.8.6",
     "react-dom": "~16.8.6",
+    "react-intl": "^4.5.1",
     "regenerator-runtime": "^0.13.3"
   }
 }

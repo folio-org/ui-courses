@@ -1,5 +1,9 @@
 # Change history for ui-courses
 
+## 2.0.0 (IN PROGRESS)
+
+* Upgrade to Stripes 4.0
+
 ## [1.1.5](https://github.com/folio-org/ui-courses/tree/v1.1.5) (2020-04-28)
 [Full Changelog](https://github.com/folio-org/ui-courses/compare/v1.1.5...v1.1.4)
 
