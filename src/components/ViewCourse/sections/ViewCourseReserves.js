@@ -97,7 +97,6 @@ const ViewCourseReserves = (props) => {
           const courseListingObject = course.courseListingObject || {};
           const termObject = courseListingObject.termObject || {};
           const item = itemMap[record.itemId];
-          console.log(`item #${index + 1} =`, item);
           const ps = get(record, 'processingStatusObject.name') || record.processingStatusId;
           const tlt = get(record, 'temporaryLoanTypeObject.name') || record.temporaryLoanTypeId;
           const cipl = get(record, 'copiedItem.permanentLocationObject.name') || record.copiedItem.permanentLocationId ||
