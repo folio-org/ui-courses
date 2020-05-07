@@ -1,5 +1,10 @@
 # Change history for ui-courses
 
+## [1.1.6](https://github.com/folio-org/ui-courses/tree/v1.1.6) (IN PROGRESS)
+[Full Changelog](https://github.com/folio-org/ui-courses/compare/v1.1.6...v1.1.5)
+
+* In course display, up to 500 reserves can be listed (was 10). Of these, real-time item information is displayed for the first 20; thereafter, circulation status and other item-level information is displayed as `?`. Fixes UICR-85.
+
 ## [1.1.5](https://github.com/folio-org/ui-courses/tree/v1.1.5) (2020-04-28)
 [Full Changelog](https://github.com/folio-org/ui-courses/compare/v1.1.5...v1.1.4)
 

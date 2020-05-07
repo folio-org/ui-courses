@@ -96,7 +96,8 @@ const ViewCourseReserves = (props) => {
           const contributors = (copiedItem.contributors || []).map(x => x.name).join(', ');
           const courseListingObject = course.courseListingObject || {};
           const termObject = courseListingObject.termObject || {};
-          const item = itemMap[record.itemId] || {};
+          const item = itemMap[record.itemId];
+          console.log(`item #${index + 1} =`, item);
           const ps = get(record, 'processingStatusObject.name') || record.processingStatusId;
           const tlt = get(record, 'temporaryLoanTypeObject.name') || record.temporaryLoanTypeId;
           const cipl = get(record, 'copiedItem.permanentLocationObject.name') || record.copiedItem.permanentLocationId ||
@@ -177,12 +178,12 @@ const ViewCourseReserves = (props) => {
                   <VCKeyValue id="enumeration" value={copiedItem.enumeration} />
                 </Col>
                 <Col xs={3}>
-                  <VCKeyValue id="status" value={get(item, 'status.name')} />
+                  <VCKeyValue id="status" value={item ? get(item, 'status.name') : '?'} />
                 </Col>
               </Row>
               <Row>
                 <Col xs={3}>
-                  <VCKeyValue id="temporaryLocation" value={get(item, 'temporaryLocation.name')} />
+                  <VCKeyValue id="temporaryLocation" value={item ? get(item, 'temporaryLocation.name') : '?'} />
                 </Col>
                 <Col xs={3}>
                   <VCKeyValue id="temporaryLoanType" value={tlt} />
@@ -191,7 +192,7 @@ const ViewCourseReserves = (props) => {
                   <VCKeyValue id="processingStatus" value={ps} />
                 </Col>
                 <Col xs={3}>
-                  <VCKeyValue id="urlLink" value={makeContentLink(item.electronicAccess)} />
+                  <VCKeyValue id="urlLink" value={item ? makeContentLink(item.electronicAccess) : '?'} />
                 </Col>
               </Row>
               <Row>

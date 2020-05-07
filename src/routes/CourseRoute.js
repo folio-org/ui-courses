@@ -54,7 +54,7 @@ class CourseRoute extends React.Component {
         const rec = get(props.resources, 'course.records.0');
         if (!rec) return null;
         const reserveCount = get(props.resources, 'reserveCount');
-        return `coursereserves/courselistings/${rec.courseListingId}/reserves?unused=${reserveCount}&expand=*&query=cql.allRecords=1 sortby copiedItem.title`;
+        return `coursereserves/courselistings/${rec.courseListingId}/reserves?unused=${reserveCount}&expand=*&limit=500&query=cql.allRecords=1 sortby copiedItem.title`;
       },
       records: 'reserves',
     },
@@ -64,7 +64,10 @@ class CourseRoute extends React.Component {
       params: (_q, _p, _r, _l, props) => {
         const reserves = get(props.resources, 'reservesForCourse.records');
         if (!reserves || reserves.length === 0) return null;
-        return { query: `id=(${reserves.map(x => `"${x.itemId}"`).join(' or ')})` };
+        return {
+          limit: 20,
+          query: `id=(${reserves.slice(0, 20).map(x => `"${x.itemId}"`).join(' or ')})`
+        };
       },
       records: 'items',
     },
