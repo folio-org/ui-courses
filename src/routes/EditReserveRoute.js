@@ -27,13 +27,13 @@ class EditReserveRoute extends React.Component {
       path: 'coursereserves/courses',
       params: (_q, _p, _r, _l, props) => {
         const reserve = get(props, 'resources.reserve.records.0');
-        return !reserve ? {} : { query: `courseListingId=="${reserve.courseListingId}"` };
+        return !reserve ? {} : { limit: 500, query: `courseListingId=="${reserve.courseListingId}"` };
       },
       records: 'courses',
     },
     loanTypes: {
       type: 'okapi',
-      path: 'loan-types',
+      path: 'loan-types?limit=500',
     },
     processingStatuses: manifest.processingStatuses,
     locations: manifest.locations,
