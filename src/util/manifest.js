@@ -3,17 +3,17 @@
 const manifest = {
   departments: {
     type: 'okapi',
-    path: 'coursereserves/departments',
+    path: 'coursereserves/departments?limit=500',
     shouldRefresh: () => false,
   },
   coursetypes: {
     type: 'okapi',
-    path: 'coursereserves/coursetypes',
+    path: 'coursereserves/coursetypes?limit=500',
     shouldRefresh: () => false,
   },
   terms: {
     type: 'okapi',
-    path: 'coursereserves/terms',
+    path: 'coursereserves/terms?limit=500',
     shouldRefresh: () => false,
   },
   locations: {
@@ -23,12 +23,12 @@ const manifest = {
   },
   processingStatuses: {
     type: 'okapi',
-    path: 'coursereserves/processingstatuses',
+    path: 'coursereserves/processingstatuses?limit=500',
     shouldRefresh: () => false,
   },
   copyrightStatuses: {
     type: 'okapi',
-    path: 'coursereserves/copyrightstatuses',
+    path: 'coursereserves/copyrightstatuses?limit=500',
     shouldRefresh: () => false,
   },
 };
