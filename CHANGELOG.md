@@ -4,6 +4,11 @@
 
 * Upgrade to Stripes 4.0
 
+## [1.1.7](https://github.com/folio-org/ui-courses/tree/v1.1.7) (2020-05-11)
+[Full Changelog](https://github.com/folio-org/ui-courses/compare/v1.1.6...v1.1.7)
+
+* Fetch and display up to 500 entries in the various dropdowns used in filters and edit pages. Fixes UICR-86.
+
 ## [1.1.6](https://github.com/folio-org/ui-courses/tree/v1.1.6) (2020-05-07)
 [Full Changelog](https://github.com/folio-org/ui-courses/compare/v1.1.5...v1.1.6)
 
