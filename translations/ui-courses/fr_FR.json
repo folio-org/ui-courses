@@ -59,7 +59,7 @@
     "field.registrarId": "Registrar ID",
     "field.externalId": "ID externe",
     "field.barcode": "Code-barres",
-    "field.patronGroup": "Groupe d'adhérents",
+    "field.patronGroup": "Groupe d'utilisateurs",
     "field.term": "Terme",
     "field.startDate": "Date de début",
     "field.endDate": "Date de fin",
