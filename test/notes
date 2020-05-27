@@ -14,3 +14,16 @@ Jest and react-testing-library in particular have emerged as react community sta
 Mike Taylor [15:19]
 Thank you. this is very helpful.
 
+---
+
+I remember Anton thought Pact was the solution to the universe.
+
+In fact the mod-graphql test suite uses this approach. (edited) 
+
+It uses Flickr’s YakBak library: https://github.com/flickr/yakbak (edited) 
+
+It works pretty well, but the API is a bit too magical for my tastes, so that every time I have to do anything with it I need to go back and re-read the documentation to remember how it does what it does.
+
+It’s not really too bad at all, I just don’t do it often enough to remember I guess:
+https://github.com/folio-org/mod-graphql/blob/master/doc/recording-tests.md
+
