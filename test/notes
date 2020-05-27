@@ -1,0 +1,16 @@
+Mike Taylor [14:42]
+I believe we use NightmareJS for some UI tests and BigTest for others. Correct? Do we have any other alternatives in use?
+
+Mark Deutsch [14:45]
+correct. but really aint nothing stopping you from using something else.
+
+Mike Taylor [14:47]
+Yep.
+
+Zak Burke [15:09]
+At present, NightmareJS for integration tests, and most unit tests use BigTest. Both are somewhat outdated. The UI testing group is in the midst of regrouping to consider the best path forward. If you were to consider something other than Nightmare, I would suggest cypress.io or webdriver.io. If you were to consider something other than BigTest, I would suggest Jest and react-testing-library.
+Jest and react-testing-library in particular have emerged as react community standards, at least to some extent.
+
+Mike Taylor [15:19]
+Thank you. this is very helpful.
+
