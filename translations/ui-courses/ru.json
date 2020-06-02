@@ -159,7 +159,7 @@
     "copyrightTracking.no": "No copyright tracking required",
     "copyrightTracking.yes": "This item requires copyright tracking:",
     "removeReserve.failure": "Remove reserve failed: {message}",
-    "addItem.enterBarcode": "Enter or scan barcode",
+    "addItem.enterBarcode": "Ввод или сканирование штрих-кода",
     "addItem.missingBarcode": "Please enter a barcode before selecting \"Add item\"",
     "addItem.addedItem": "Added item \"{title}\"",
     "addItem.duplicateItem": "Duplicate barcode {barcode}: this item is already on reserve for this course",
