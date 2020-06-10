@@ -1,5 +1,9 @@
 # Change history for ui-courses
 
+## 1.2.0 (IN PROGRESS)
+
+* correctly import `requried` via `@folio/stripes/util`.
+
 ## [1.1.7](https://github.com/folio-org/ui-courses/tree/v1.1.7) (2020-05-11)
 [Full Changelog](https://github.com/folio-org/ui-courses/compare/v1.1.6...v1.1.7)
 
