@@ -65,7 +65,7 @@
     "field.endDate": "End date",
     "field.location": "Location",
     "field.serviceDesk": "Service desk",
-    "field.itemBarcode": "Item barcode",
+    "field.itemBarcode": "Штрих-код экземпляра",
     "field.contributor": "Автор",
     "field.permanentLocation": "Permanent location",
     "field.callNumber": "Call number",
