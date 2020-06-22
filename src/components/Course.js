@@ -90,7 +90,7 @@ class Course extends React.Component {
         defaultWidth="fill"
         dismissible
         id="pane-view-course"
-        lastMenu={hasPerm ? this.renderLastMenu() : <React.Fragment />}
+        lastMenu={hasPerm ? this.renderLastMenu() : null}
         onClose={handlers.onClose}
         paneTitle={record.name}
         paneSub={<FormattedMessage id="ui-courses.courseByNumber" values={{ number: record.courseNumber }} />}
