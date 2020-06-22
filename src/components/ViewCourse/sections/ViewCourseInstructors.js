@@ -43,9 +43,13 @@ const ViewCourseInstructors = (props) => {
           <table className={css.instructors}>
             <thead>
               <tr>
-                <th align="left"><FormattedMessage id="ui-courses.field.instructorName" /></th>
-                <th align="left"><FormattedMessage id="ui-courses.field.barcode" /></th>
-                <th align="left"><FormattedMessage id="ui-courses.field.patronGroup" /></th>
+                {
+                  ['instructorName', 'barcode', 'patronGroup'].map(name => (
+                    <FormattedMessage key={name} id={`ui-courses.field.${name}`}>
+                      {label => <th align="left" aria-label={label}>{label}</th>}
+                    </FormattedMessage>
+                  ))
+                }
               </tr>
             </thead>
             <tbody>
