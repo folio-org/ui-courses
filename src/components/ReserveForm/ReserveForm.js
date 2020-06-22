@@ -126,15 +126,16 @@ class ReserveForm extends React.Component {
               <ReserveFormInfo {...sectionProps} />
               <ReserveFormCopyright {...sectionProps} />
               <ReserveFormCourses {...sectionProps} />
-              {!this.props.stripes.config.showDevInfo ? '' :
-              <React.Fragment>
-                <p>&nbsp;</p>
-                <hr />
-                <h1>Developer Info</h1>
-                <pre>
-                  {JSON.stringify(data, null, 2)}
-                </pre>
-              </React.Fragment>
+              {
+                !this.props.stripes.config.showDevInfo ? '' :
+                <>
+                  <p>&nbsp;</p>
+                  <hr />
+                  <h1>Developer Info</h1>
+                  <pre>
+                    {JSON.stringify(data, null, 2)}
+                  </pre>
+                </>
               }
             </form>
           </TitleManager>

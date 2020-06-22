@@ -49,6 +49,7 @@ class EditReserveRoute extends React.Component {
     }).isRequired,
     match: PropTypes.shape({
       params: PropTypes.shape({
+        cid: PropTypes.string.isRequired,
         id: PropTypes.string.isRequired,
       }).isRequired,
     }).isRequired,

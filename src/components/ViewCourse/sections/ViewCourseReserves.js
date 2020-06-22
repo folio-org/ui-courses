@@ -16,33 +16,34 @@ const CopyrightTracking = ({ data }) => {
   return (
     <Row>
       <Col xs={12}>
-        {!data.copyrightStatusId ?
-          <FormattedMessage id="ui-courses.copyrightTracking.no" /> : (
-            <Card headerStart={<FormattedMessage id="ui-courses.copyrightTracking.yes" />}>
-              <Row>
-                <Col xs={6}>
-                  <VCKeyValue id="additionalSectionsUsed" value={asu} />
-                </Col>
-                <Col xs={6}>
-                  <VCKeyValue id="copyrightStatusId" value={status} />
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={3}>
-                  <VCKeyValue id="totalPagesInItem" value={data.totalPagesInItem} />
-                </Col>
-                <Col xs={3}>
-                  <VCKeyValue id="totalPagesUsed" value={data.totalPagesUsed} />
-                </Col>
-                <Col xs={3}>
-                  <VCKeyValue id="percentOfPages" value={data.percentOfPages} />
-                </Col>
-                <Col xs={3}>
-                  <VCKeyValue id="paymentBasis" value={data.paymentBasis} />
-                </Col>
-              </Row>
-            </Card>
-          )
+        {
+          !data.copyrightStatusId ?
+            <FormattedMessage id="ui-courses.copyrightTracking.no" /> : (
+              <Card headerStart={<FormattedMessage id="ui-courses.copyrightTracking.yes" />}>
+                <Row>
+                  <Col xs={6}>
+                    <VCKeyValue id="additionalSectionsUsed" value={asu} />
+                  </Col>
+                  <Col xs={6}>
+                    <VCKeyValue id="copyrightStatusId" value={status} />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={3}>
+                    <VCKeyValue id="totalPagesInItem" value={data.totalPagesInItem} />
+                  </Col>
+                  <Col xs={3}>
+                    <VCKeyValue id="totalPagesUsed" value={data.totalPagesUsed} />
+                  </Col>
+                  <Col xs={3}>
+                    <VCKeyValue id="percentOfPages" value={data.percentOfPages} />
+                  </Col>
+                  <Col xs={3}>
+                    <VCKeyValue id="paymentBasis" value={data.paymentBasis} />
+                  </Col>
+                </Row>
+              </Card>
+            )
         }
       </Col>
     </Row>
@@ -89,7 +90,7 @@ const ViewCourseReserves = (props) => {
   };
 
   return (
-    <React.Fragment>
+    <>
       {
         reserves.map((record, index) => {
           const copiedItem = record.copiedItem || {};
@@ -144,10 +145,10 @@ const ViewCourseReserves = (props) => {
           );
 
           const headerEnd = (
-            <React.Fragment>
+            <>
               {editButton}
               {deleteButton}
-            </React.Fragment>
+            </>
           );
 
           return (
@@ -214,7 +215,7 @@ const ViewCourseReserves = (props) => {
         })
       }
       {permissions.add && <AddReserve courseListingId={course.courseListingId} />}
-    </React.Fragment>
+    </>
   );
 };
 

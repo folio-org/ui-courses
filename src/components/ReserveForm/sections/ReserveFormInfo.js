@@ -75,13 +75,9 @@ const ReserveFormInfo = (props) => {
 
 ReserveFormInfo.propTypes = {
   data: PropTypes.shape({
+    locations: PropTypes.array.isRequired,
     loanTypes: PropTypes.array.isRequired,
     processingStatuses: PropTypes.array.isRequired,
-    reserve: PropTypes.shape({
-      copiedItem: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-      }).isRequired,
-    }),
   }).isRequired,
 };
 

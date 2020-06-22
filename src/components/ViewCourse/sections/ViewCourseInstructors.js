@@ -38,63 +38,64 @@ const ViewCourseInstructors = (props) => {
 
   return (
     <Card headerStart={<FormattedMessage id="ui-courses.instructor.pluralized" values={{ count: n }} />}>
-      {n > 0 &&
-        <table className={css.instructors}>
-          <thead>
-            <tr>
-              <th align="left"><FormattedMessage id="ui-courses.field.instructorName" /></th>
-              <th align="left"><FormattedMessage id="ui-courses.field.barcode" /></th>
-              <th align="left"><FormattedMessage id="ui-courses.field.patronGroup" /></th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              instructorObjects.map((instructor, index) => (
-                <tr key={index}>
-                  <td>{instructor.name}</td>
-                  <td>{instructor.barcode}</td>
-                  <td>{get(instructor, 'patronGroupObject.group')}</td>
-                  <td>
-                    {
-                      permissions.edit && !instructor.patronGroupObject && (
-                        <FormattedMessage id="ui-courses.editInstructor">
-                          {ariaLabel => (
-                            <Button
-                              aria-label={ariaLabel}
-                              buttonStyle="primary"
-                              id={`clickable-edit-instructor-${index}`}
-                              marginBottom0
-                              to={`/cr/instructors/${courseListingObject.id}/${record.id}/${instructor.id}/edit`}
-                            >
-                              <FormattedMessage id="ui-courses.button.editInstructor" />
-                            </Button>
-                          )}
-                        </FormattedMessage>
-                      )
-                    }
-                    {
-                      permissions.delete && (
-                        <FormattedMessage id="ui-courses.removeInstructor">
-                          {ariaLabel => (
-                            <Button
-                              aria-label={ariaLabel}
-                              buttonStyle="primary"
-                              id={`clickable-remove-instructor-${index}`}
-                              marginBottom0
-                              onClick={() => removeInstructor(instructor.id)}
-                            >
-                              <FormattedMessage id="ui-courses.button.removeInstructor" />
-                            </Button>
-                          )}
-                        </FormattedMessage>
-                      )
-                    }
-                  </td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
+      {
+        n > 0 &&
+          <table className={css.instructors}>
+            <thead>
+              <tr>
+                <th align="left"><FormattedMessage id="ui-courses.field.instructorName" /></th>
+                <th align="left"><FormattedMessage id="ui-courses.field.barcode" /></th>
+                <th align="left"><FormattedMessage id="ui-courses.field.patronGroup" /></th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                instructorObjects.map((instructor, index) => (
+                  <tr key={index}>
+                    <td>{instructor.name}</td>
+                    <td>{instructor.barcode}</td>
+                    <td>{get(instructor, 'patronGroupObject.group')}</td>
+                    <td>
+                      {
+                        permissions.edit && !instructor.patronGroupObject && (
+                          <FormattedMessage id="ui-courses.editInstructor">
+                            {ariaLabel => (
+                              <Button
+                                aria-label={ariaLabel}
+                                buttonStyle="primary"
+                                id={`clickable-edit-instructor-${index}`}
+                                marginBottom0
+                                to={`/cr/instructors/${courseListingObject.id}/${record.id}/${instructor.id}/edit`}
+                              >
+                                <FormattedMessage id="ui-courses.button.editInstructor" />
+                              </Button>
+                            )}
+                          </FormattedMessage>
+                        )
+                      }
+                      {
+                        permissions.delete && (
+                          <FormattedMessage id="ui-courses.removeInstructor">
+                            {ariaLabel => (
+                              <Button
+                                aria-label={ariaLabel}
+                                buttonStyle="primary"
+                                id={`clickable-remove-instructor-${index}`}
+                                marginBottom0
+                                onClick={() => removeInstructor(instructor.id)}
+                              >
+                                <FormattedMessage id="ui-courses.button.removeInstructor" />
+                              </Button>
+                            )}
+                          </FormattedMessage>
+                        )
+                      }
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
       }
       {permissions.add && (
         <FormattedMessage id="ui-courses.addInstructor">

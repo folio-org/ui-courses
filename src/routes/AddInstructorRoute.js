@@ -31,6 +31,7 @@ class AddInstructorRoute extends React.Component {
     }).isRequired,
     match: PropTypes.shape({
       params: PropTypes.shape({
+        clid: PropTypes.string.isRequired,
         cid: PropTypes.string.isRequired,
       }).isRequired,
     }).isRequired,

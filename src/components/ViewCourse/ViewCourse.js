@@ -48,10 +48,11 @@ class ViewCourse extends React.Component {
         <VCAccordion id="reserves">
           <ViewCourseReserves course={course} reserves={reserves} items={items} mutator={mutator} />
         </VCAccordion>
-        {!this.props.stripes.config.showDevInfo ? '' :
-        <VCAccordion id="developer" closedByDefault>
-          <pre>{JSON.stringify(data, null, 2)}</pre>
-        </VCAccordion>
+        {
+          !this.props.stripes.config.showDevInfo ? '' :
+          <VCAccordion id="developer" closedByDefault>
+            <pre>{JSON.stringify(data, null, 2)}</pre>
+          </VCAccordion>
         }
       </AccordionSet>
     );

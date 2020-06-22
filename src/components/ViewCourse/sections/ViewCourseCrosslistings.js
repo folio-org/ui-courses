@@ -14,7 +14,7 @@ function headerStart(record, index) {
 
 const ViewCourseCrosslistings = ({ crossListed }) => {
   return (
-    <React.Fragment>
+    <>
       {
         crossListed.map((record, index) => (
           <Card key={index} headerStart={headerStart(record, index)}>
@@ -35,7 +35,7 @@ const ViewCourseCrosslistings = ({ crossListed }) => {
           </Card>
         ))
       }
-    </React.Fragment>
+    </>
   );
 };
 
