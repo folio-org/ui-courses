@@ -11,7 +11,7 @@ class CopyrightStatusSettings extends React.Component {
     }).isRequired,
     intl: PropTypes.shape({
       formatMessage: PropTypes.func.isRequired,
-    }),
+    }).isRequired,
   };
 
   constructor(props) {
