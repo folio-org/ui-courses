@@ -169,3 +169,16 @@ to tests. You can tweak the rules only for test scripts by making a separate `te
 This example notifies ESLint of the variables injected into global scope by the Stripes CLI testing framework, and turns off the (usually helpful) rule that all functions must be given names.
 
 
+
+
+
+# UPDATE
+
+After discussing with Mark Deutsch:
+
+Perhaps the answer is:
+* `stripes serve`
+* Jest running tests (in place of mocha and chai)
+* Jest snapshots for element-content tests
+* Yakbak for perfect mocks
+
