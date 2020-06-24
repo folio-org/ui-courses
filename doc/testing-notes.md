@@ -6,6 +6,13 @@
     * [Existing approaches](#existing-approaches)
     * [Mocking via recording and playback](#mocking-via-recording-and-playback)
 * [Software inventory](#software-inventory)
+    * [Options](#options)
+        * [Stripes server](#stripes-server)
+        * [Test runner](#test-runner)
+        * [Assertion library](#assertion-library)
+        * [Browser automation](#browser-automation)
+        * [Mocking proxy](#mocking-proxy)
+    * [Conclusion](#conclusion)
 * [Configuration, invocation, coding](#configuration-invocation-coding)
     * [Nightmare testing with the Stripes CLI](#nightmare-testing-with-the-stripes-cli)
     * [Invoking the Stripes CLI](#invoking-the-stripes-cli)
@@ -34,7 +41,9 @@ In the present work, the goal is to get the Course Reserves app onto these dashb
 
 Various approaches have been taken to automated UI testing of Stripes apps. There has been a heavy investment in tests based on [Frontside's BigTest framework](https://bigtestjs.io/). But enthusiasm for this approach has waned, especially since Frontside left the FOLIO project. BigTest is perceived as over-ambitious and opinionated (it includes among other things facilities for building mocks), poorly documented (the software is on version 2.x, but the website only offers documentation for the v1.x API) and possibly unmaintained ([all eleven GitHub projects](https://github.com/bigtestjs) have been archived).
 
-The appeal of BigTest has been that because of its mocking facilities, it's possible to use it to build unit tests: that is, tests that run only the UI, and do not depend on a reliable and predictable FOLIO back-end server. The otherwise more appealing approach in FOLIO UI testing has been to use [Nightmare](https://github.com/segmentio/nightmare): it is simpler to use, widely deployed and well supported and documented, but has only been used in FOLIO for integration tests of a UI app together with its back end.
+The appeal of BigTest has been that because of its mocking facilities, it's possible to use it to build unit tests: that is, tests that run only the UI, and do not depend on a reliable and predictable FOLIO back-end server. The otherwise more appealing approach in FOLIO UI testing has been to use the [Nightmare](https://github.com/segmentio/nightmare) browser automation kit: it is simpler to use, widely deployed and well documented, but has only been used in FOLIO for integration tests of a UI app together with its back end. Also, Nightmare is old: the Nightmare codebase seems to have been more or less abandoned -- there have been no commits since April 2019 -- though no announcement has been made.
+
+In testing Course Reserves, we would like two kinds of test: unit tests, which exercise only the code in CR app itself; and integration tests, which exercise the whole stack including the Course Reserves back-end module.
 
 
 ### Mocking via recording and playback
@@ -44,9 +53,15 @@ For Course Reserves, we plan to build on the experience of testing [mod-graphql]
 In this way, the same tests can be used for both unit tests and integration tests:
 
 1. Run the tests against a real back-end, recording tapes.
+
+The some time later:
+
 2. Run the tests against tapes, providing a test that the front-end has not broken.
 3. Re-run the tests against the real back-end, providing a test that the still-correct front-end has not had its functioning impaired by changes on the back-end.
-4. Re-record the tapes as and when necessary -- i.e. when a legitimate back-end change has occurred.
+
+And as necessary:
+
+4. Re-record the tapes when a legitimate back-end change has occurred or the tests have been expanded to make additional back-end calls.
 
 This approach should avoid the error-prone time-sink of building mocks for the back end, as well as relying on a relatively small number of well established and supported packages.
 
@@ -54,13 +69,42 @@ This approach should avoid the error-prone time-sink of building mocks for the b
 
 ## Software inventory
 
-We can now enumerate the software packages that are involved in the testing system:
+### Options
 
-* [The Stripes CLI](https://github.com/folio-org/stripes-cli) to provide the running UI app to test against (see [below](#nightmare-testing-with-the-stripes-cli))
-* [Mocha](https://mochajs.org/) to run the tests
-* [Chai](https://www.chaijs.com/) to provide the assertions that tests make
-* [Nightmare](http://www.nightmarejs.org/) (or an alternative) to drive the web browser
-* [YakBak](https://github.com/flickr/yakbak) to record and replay tapes of back-end responses
+We can now enumerate the components that are involved in the testing system:
+
+* A Stripes server, to provide the running UI app to test against
+* A test runner, to run the tests and interpret exceptions
+* An assertion library, to provide the assertions that tests make
+* A browser automation library to drive a web browser interacting with the app
+* A mocking proxy to record and play back the tapes of back-end interactions
+
+Unfortunately, there are multiple options for several of these roles, with competing advantages and disadvantages; and in several cases, software packages aim to fulfil more than one of these roles. So choosing optimally is difficult. In the following subsections, we consider the candidates for each role.
+
+#### Stripes server
+
+There is only one realistic option for providing the Stripes front-end, and that is of course the usual [The Stripes CLI](https://github.com/folio-org/stripes-cli). There are still choices to be made here, though. The Stripes CLI includes code for integrating with the Karma and Nightmare browser automation libraries, which increases the convenience of these two ahead of other candidates. Workarounds are possible, and will be discussed [below](#browser-automation).
+
+**Note.**
+The Stripes CLI can either build and serve the front end (the usual mode during development) or build it into static files, which can then be served by nginx or any other web server (which is how we do this in production). The `stripes test` commands seem to do the former. Is there a way to build a static bundle and serve it from elsewhere, then use `stripes test` to execute tests against that service?
+
+#### Test runner
+
+Until fairly recently, [Mocha](https://mochajs.org/) has been the undisputed king of test-runners in the JavaScript world. It is used ubiquitously in the tests of other FOLIO UI modules, has no obvious flaws, and is used by the Stripes CLI's `stripes test` facility.
+
+Recently, though, [Jest](https://jestjs.io/) has become a strong contender. It provides some useful facilities, including [snapshots](https://jestjs.io/docs/en/snapshot-testing#snapshot-testing-with-jest) which are a useful short-cut for checking that a rendered UI element remains unchanged since the snapshot was taken.
+
+Using Jest would yield real benefits, but at the cost of forgoing the Stripes CLI's support. Also, the Stripes community has accumlated a body of experence with Mocha which may be a useful resource: there is no similar experience with Jest.
+
+It seems possible that the Stripes community as a whole may migrate towards Jest in time, but this is probably not the moment to make the leap as Course Reserves is a relatively insulated project. We certainly don't have the resources to add Jest integration to the Stripes CLI at this point.
+
+#### Assertion library
+
+[Chai](https://www.chaijs.com/) is the clear leader in this field; but Jest provides its own assertion facilities, so if we were to use that, it would make sense to avoid fighting against it by using Chai for assertions.
+
+#### Browser automation
+
+XXX HERE BE DRAGONS
 
 **Note.** Alternatives to Nightmare
 
@@ -73,6 +117,23 @@ Of these, Cypress is offputting because it aims to be more all-in-one, proving a
 Webdriver looks more appealing: [the code example](https://github.com/webdriverio/webdriverio/blob/master/examples/devtools/intercept.js) does not include test-running, but shows only how to drive a browser. But it does not offer obvious advantages over Nightmare, either.
 
 In conclusion, the wisest course seems to be to stick with the automation library we have been using, Nightmare: we know it works for our use-case, and there is shared experience and expertise within the FOLIO community.
+
+#### Mocking proxy
+
+There may be other options out there, but [YakBak](https://github.com/flickr/yakbak) has worked well for us and there is no obvious reason to move to something different.
+
+
+### Conclusion
+
+**XXX This will likely need to be changed**
+
+We favour the following combination of software packages:
+
+* [The Stripes CLI](https://github.com/folio-org/stripes-cli) to provide the running UI app to test against (see [below](#nightmare-testing-with-the-stripes-cli))
+* [Mocha](https://mochajs.org/) to run the tests
+* [Chai](https://www.chaijs.com/) to provide the assertions that tests make
+* [Nightmare](http://www.nightmarejs.org/) (or an alternative) to drive the web browser
+* [YakBak](https://github.com/flickr/yakbak) to record and replay tapes of back-end responses
 
 
 
