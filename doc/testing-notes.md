@@ -11,6 +11,13 @@
         * [Test runner](#test-runner)
         * [Assertion library](#assertion-library)
         * [Browser automation](#browser-automation)
+            * [Nightmare](#nightmare)
+            * [Karma](#karma)
+            * [Cypress](#cypress)
+            * [WebDriver](#webdriver)
+            * [Puppeteer](#puppeteer)
+            * [Working with the Stripes CLI](#working-with-the-stripes-cli)
+            * [Conclusion](#conclusion)
         * [Mocking proxy](#mocking-proxy)
     * [Conclusion](#conclusion)
 * [Configuration, invocation, coding](#configuration-invocation-coding)
@@ -23,6 +30,7 @@
 * [Open issues](#open-issues)
     * [Testing against an already-running Stripes front end](#testing-against-an-already-running-stripes-front-end)
     * [Coverage testing](#coverage-testing)
+* [Acknowledgements](#acknowledgements)
 
 
 
@@ -44,7 +52,7 @@ In the present work, the goal is to get the Course Reserves app onto these dashb
 
 Various approaches have been taken to automated UI testing of Stripes apps. There has been a heavy investment in tests based on [Frontside's BigTest framework](https://bigtestjs.io/). But enthusiasm for this approach has waned, especially since Frontside left the FOLIO project. BigTest is perceived as over-ambitious and opinionated (it includes among other things facilities for building mocks), poorly documented (the software is on version 2.x, but the website only offers documentation for the v1.x API) and possibly unmaintained ([all eleven GitHub projects](https://github.com/bigtestjs) have been archived).
 
-The appeal of BigTest has been that because of its mocking facilities, it's possible to use it to build unit tests: that is, tests that run only the UI, and do not depend on a reliable and predictable FOLIO back-end server. The otherwise more appealing approach in FOLIO UI testing has been to use the [Nightmare](https://github.com/segmentio/nightmare) browser automation kit: it is simpler to use, widely deployed and well documented, but has only been used in FOLIO for integration tests of a UI app together with its back end. Also, Nightmare is old: the Nightmare codebase seems to have been more or less abandoned -- there have been no commits since April 2019 -- though no announcement has been made.
+The appeal of BigTest has been that because of its mocking facilities, it's possible to use it to build unit tests: that is, tests that run only the UI, and do not depend on a reliable and predictable FOLIO back-end server. The otherwise more straightforward approach in FOLIO UI testing has been to use the [Nightmare](https://github.com/segmentio/nightmare) browser automation kit: it is simpler to use, widely deployed and well documented, but has only been used in FOLIO for integration tests of a UI app together with its back end.
 
 In testing Course Reserves, we would like two kinds of test: unit tests, which exercise only the code in CR app itself; and integration tests, which exercise the whole stack including the Course Reserves back-end module.
 
@@ -104,19 +112,56 @@ It seems possible that the Stripes community as a whole may migrate towards Jest
 
 #### Browser automation
 
-XXX HERE BE DRAGONS
+HERE BE DRAGONS! There are at least five candidates for this role, which we will consider in turn.
 
-**Note.** Alternatives to Nightmare
+##### Nightmare
 
-Nightmare is considered a little long in the tooth in some circles. But the good thing with the approach described above is that we can substitute any browser automation library we wish without needing to re-architect the tests.
+[Nightmare](https://github.com/segmentio/nightmare) is the default choice for browser automation, simply due to its wide use in FOLIO UI testing and the body of experience that has built up around it -- see for example [the *Writing Robust Tests* section of *Nightmare for FOLIO UI*](https://github.com/folio-org/stripes-testing/blob/master/doc/nightmare.md#writing-robust-tests).
 
-Possible alternatives include [cypress.io](https://www.cypress.io/) and [webdriver.io](https://webdriver.io/).
+However, Nightmare has drawbacks:
+* It is old. The codebase seems to have been more or less abandoned: there have been no commits since April 2019, though no announcement has been made.
+* It is cumbersome in some respects, as indicated by the hints in the *Nightmare for FOLIO UI* document, with an awkward distinction between Node scope and browser scope and many pitfalls to avoid.
+* It uses [Electron](https://www.electronjs.org/) under the hood, which is sometimes considered rather niche -- though it is based on Chromium, which is the engine under Chrome, the only browser officially supported by FOLIO, so this may not be a real problem.
 
-Of these, Cypress is offputting because it aims to be more all-in-one, proving a test-running framework in place of Mocha. Integrating it with the Stripes CLI (see below) would probably involve significant work.
+##### Karma
 
-Webdriver looks more appealing: [the code example](https://github.com/webdriverio/webdriverio/blob/master/examples/devtools/intercept.js) does not include test-running, but shows only how to drive a browser. But it does not offer obvious advantages over Nightmare, either.
+[Karma](https://karma-runner.github.io/) is in some respects more ambitious: it can control [many different browsers](https://karma-runner.github.io/latest/config/browsers.html) including Chrome, Firefox, Safari and Internet Explorer; but as [shown](https://medium.com/@jazcodes/getting-started-with-karma-and-mocha-for-automated-browser-tests-5ebb6cd02edf) in [tutorials](https://github.com/jazanne/karma-mocha-example/blob/master/test/test.js), it does not provide high-level facilities for driving those browsers as Nightmare does. Instead, the programmer is left to mess with the DOM in the usual way: I suspect part of the motivation for BigTest was to provide a higher-level API to the DOM for use in scripts intended to run under Karma.
 
-In conclusion, the wisest course seems to be to stick with the automation library we have been using, Nightmare: we know it works for our use-case, and there is shared experience and expertise within the FOLIO community.
+It is under active development, and is supported by the Stripes CLI -- though that support was added mostly to enable the use of BigTest and _may_ not be fully general.
+
+Using Karma alone will not give us everything we need: we will also need a library that the test scripts can use to actually drive the browser. Such libraries must exist, but that is an area for more research. One option would be to use BigTest, but only those parts of it that provide higher-level DOM APIs.
+
+##### Cypress
+
+[cypress.io](https://www.cypress.io/) is a more modern browser automation system that probably has better long-term prospects than Nightmare. It's offputting in aiming to be more all-in-one, providing its own test-running framework and assertion library. However, since these are Mocha and Chai, that doesn't make much difference in practice.
+
+Unlike Karma, Cypress provides its own high-level tools for interaction with the browser, e.g. `cy.visit('https://example.cypress.io')`. It also seems to have more [approachable](https://docs.cypress.io/guides/getting-started/writing-your-first-test.html) [documentation](https://docs.cypress.io/guides/references/best-practices.html) than Karma. And it offers some potentially game-changing facilities such as [time-travel](https://docs.cypress.io/guides/getting-started/writing-your-first-test.html#Time-travel). It supports Chrome and Firefox, as well as the built-in Electron.
+
+Cypress does not have support in the Stripes CLI: see [below](#working-with-the-stripes-cli)
+
+##### WebDriver
+
+[webdriver.io](https://webdriver.io/) is another more recent offering in this space. [The code example](https://github.com/webdriverio/webdriverio/blob/master/examples/devtools/intercept.js) does not include test-running, but shows only how to drive a browser, which makes it a more obvious drop-in replacement for Nightmare; but the syntax looks a little clumsier than that of Cypress, and [it is only downloaded about a third as much](https://npmcompare.com/compare/cypress,webdriver).
+
+WebDriver does not have support in the Stripes CLI: see [below](#working-with-the-stripes-cli)
+
+##### Puppeteer
+
+[Puppeteer](https://github.com/puppeteer/puppeteer) is Google's own automation framework for its Chrome browser, though it also has experimental support for Firefox. We have had good experience in using it to develop [Malaga](https://github.com/indexdata/malaga), but it's not yet clear how suitable it is for automating tests.
+
+Puppeteer does not have support in the Stripes CLI: see [below](#working-with-the-stripes-cli)
+
+##### Working with the Stripes CLI
+
+Unlike Nightmare and Karma, the other three candidate web automation tools (Cypress, WebDriver and Pupperteer) are not directly supported by the Stripes CLI. This means that using one of these would entail some additional work:
+
+* *Starting the service*. When the Stripes CLI runs tests using `stripes test nightmare` or `stripes test karma`, it builds and serves its own up-to-date copy of the UI that the tests are to run against. We would need to do this manually.
+* *Access to configuration*. The testing-context object that the Stripes CLI passes into each test provides configuration information such as XXX
+* *Helpers*. XXX
+
+##### Conclusion
+
+The wisest course may be to stick with the automation library we have been using, Nightmare: we know it works for our use-case, and there is shared experience and expertise within the FOLIO community.
 
 #### Mocking proxy
 
@@ -248,6 +293,12 @@ Zak says:
 ### Coverage testing
 
 XXX How can we generate coverage analysis for Stripes code running in the browser? Check how other projects do this.
+
+
+
+## Acknowledgements
+
+This document is in part the result of extensive discussions with @zburke, @doytch and @skomorokh. Although the conclusions I have reached are likely unpalatable to all of them (no two people agree on this stuff), I thank them profundly.
 
 
 
