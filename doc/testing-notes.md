@@ -20,6 +20,9 @@
     * [Writing tests for the Stripes CLI](#writing-tests-for-the-stripes-cli)
         * [The testing context](#the-testing-context)
     * [ESLint configuration for test scripts](#eslint-configuration-for-test-scripts)
+* [Open issues](#open-issues)
+    * [Testing against an already-running Stripes front end](#testing-against-an-already-running-stripes-front-end)
+    * [Coverage testing](#coverage-testing)
 
 
 
@@ -85,9 +88,6 @@ Unfortunately, there are multiple options for several of these roles, with compe
 
 There is only one realistic option for providing the Stripes front-end, and that is of course the usual [The Stripes CLI](https://github.com/folio-org/stripes-cli). There are still choices to be made here, though. The Stripes CLI includes code for integrating with the Karma and Nightmare browser automation libraries, which increases the convenience of these two ahead of other candidates. Workarounds are possible, and will be discussed [below](#browser-automation).
 
-**Note.**
-The Stripes CLI can either build and serve the front end (the usual mode during development) or build it into static files, which can then be served by nginx or any other web server (which is how we do this in production). The `stripes test` commands seem to do the former. Is there a way to build a static bundle and serve it from elsewhere, then use `stripes test` to execute tests against that service?
-
 #### Test runner
 
 Until fairly recently, [Mocha](https://mochajs.org/) has been the undisputed king of test-runners in the JavaScript world. It is used ubiquitously in the tests of other FOLIO UI modules, has no obvious flaws, and is used by the Stripes CLI's `stripes test` facility.
@@ -120,7 +120,9 @@ In conclusion, the wisest course seems to be to stick with the automation librar
 
 #### Mocking proxy
 
-There may be other options out there, but [YakBak](https://github.com/flickr/yakbak) has worked well for us and there is no obvious reason to move to something different.
+[YakBak](https://github.com/flickr/yakbak) has worked well for us in mod-graphql. But Jason has found [PollyJS](https://netflix.github.io/pollyjs/), which is a more fully functioned, widely used, well supported and frequently released alternative.
+
+As things stand, there is no obvious reason to move from something that we know works for us to something that that we think might be better. Our needs in this area are not sophisticated.
 
 
 ### Conclusion
@@ -231,9 +233,26 @@ This example notifies ESLint of the variables injected into global scope by the 
 
 
 
+## Open issues
 
 
-# UPDATE
+### Testing against an already-running Stripes front end
+
+The Stripes CLI can either build and serve the front end (the usual mode during development) or build it into static files, which can then be served by nginx or any other web server (which is how we do this in production). The `stripes test` commands seem to do the former. Is there a way to build a static bundle and serve it from elsewhere, then use `stripes test` to execute tests against that service?
+
+Zak says:
+
+> If you’re using nightmare, you can point it to a running instance with `--url http://some.remote.url` or `--local` (which is the same as `--url http://localhost:3000`). If you don’t include either `--url` or `--local`, I believe it’ll try to spin up a bundle and serve it for you.
+
+
+### Coverage testing
+
+XXX How can we generate coverage analysis for Stripes code running in the browser? Check how other projects do this.
+
+
+
+
+# UPDATE (to integrate)
 
 After discussing with Mark Deutsch:
 
