@@ -298,7 +298,12 @@ XXX How can we generate coverage analysis for Stripes code running in the browse
 
 ## Acknowledgements
 
-This document is in part the result of extensive discussions with @zburke, @doytch and @skomorokh. Although the conclusions I have reached are likely unpalatable to all of them (no two people agree on this stuff), I thank them profundly.
+This document is in part the result of extensive discussions with
+[@zburke](https://github.com/zburke),
+[@doytch](https://github.com/doytch)
+and
+[@skomorokh](https://github.com/skomorokh).
+Although the conclusions I have reached are likely unpalatable to all of them (no two people agree on this stuff), I thank them profundly.
 
 
 
