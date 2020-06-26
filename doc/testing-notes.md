@@ -155,13 +155,15 @@ Puppeteer does not have support in the Stripes CLI: see [below](#working-with-th
 
 Unlike Nightmare and Karma, the other three candidate web automation tools (Cypress, WebDriver and Pupperteer) are not directly supported by the Stripes CLI. This means that using one of these would entail some additional work:
 
-* *Starting the service*. When the Stripes CLI runs tests using `stripes test nightmare` or `stripes test karma`, it builds and serves its own up-to-date copy of the UI that the tests are to run against. We would need to do this manually.
-* *Access to configuration*. The testing-context object that the Stripes CLI passes into each test provides configuration information such as XXX
-* *Helpers*. XXX
+* **Starting the service**. When the Stripes CLI runs tests using `stripes test nightmare` or `stripes test karma`, it builds and serves its own up-to-date copy of the UI that the tests are to run against. We would need to do this manually.
+* **Access to configuration**. The testing-context object that the Stripes CLI passes into each test provides configuration information such as `test_timeout`, a `nightmare` configuration object, the `url` of the running UI, etc. But it may be possible to import this directly from [the `stripes-cli` source file that generates it](https://github.com/folio-org/stripes-testing/blob/master/folio-ui.config.js).
+* **Helper functions**. The biggest advantage of running tests under `stripes test nightmare` is that the Stripes CLI furnishes a library of helper functions to the tests. These include function to log in and out of Stripes, to navigate to a nominated app, etc. These will not be available if using a non-Nightmare browser-automation tool. However, many of these are quite specific to particular apps or of value only in whole-system integration tests, so if using a different tool it might suffice to re-implement just `login`, `logout` and `openApp`
 
 ##### Conclusion
 
 The wisest course may be to stick with the automation library we have been using, Nightmare: we know it works for our use-case, and there is shared experience and expertise within the FOLIO community.
+
+On the other hand, Cypress is undoubtely an objectively better package: it is more current, better supported and documented, and offers more facilities. Using Cypress would require re-implementing the three main helper functions, but that might be a small price to pay.
 
 #### Mocking proxy
 
@@ -289,10 +291,14 @@ Zak says:
 
 > If you’re using nightmare, you can point it to a running instance with `--url http://some.remote.url` or `--local` (which is the same as `--url http://localhost:3000`). If you don’t include either `--url` or `--local`, I believe it’ll try to spin up a bundle and serve it for you.
 
+XXX discuss
+
 
 ### Coverage testing
 
-XXX How can we generate coverage analysis for Stripes code running in the browser? Check how other projects do this.
+How can we generate coverage analysis for Stripes code running in the browser? It would be worth checking how other projects do this.
+
+Note however that [Cypress has this covered](https://www.cypress.io/blog/2019/09/05/cypress-code-coverage-for-create-react-app-v3/), so if we go with that then there is no problem.
 
 
 
