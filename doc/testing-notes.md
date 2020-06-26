@@ -1,6 +1,14 @@
 # Notes on automated UI tests
 
-<!-- md2toc -l 2 testing-notes.md -->
+Mike Taylor, Index Data &lt;mike@indexdata.com&gt;
+
+Document version 1.0 of Fri Jun 26 22:11:41 BST 2020
+
+
+
+## Table of contents
+
+<!-- md2toc -l 2 -s 1 testing-notes.md -->
 * [Overview](#overview)
     * [Introduction](#introduction)
     * [Existing approaches](#existing-approaches)
@@ -174,22 +182,28 @@ As things stand, there is no obvious reason to move from something that we know 
 
 ### Conclusion
 
-**XXX This will likely need to be changed**
+There is some degree of paralysis-of-analysis here: there are so many options for many of the components, and many of the possible choices have implications for other choices. But in the end, a decision has to be made, so this is how I am coming down:
 
 We favour the following combination of software packages:
 
-* [The Stripes CLI](https://github.com/folio-org/stripes-cli) to provide the running UI app to test against (see [below](#nightmare-testing-with-the-stripes-cli))
+* [The Stripes CLI](https://github.com/folio-org/stripes-cli) to provide the running UI app to test against
 * [Mocha](https://mochajs.org/) to run the tests
 * [Chai](https://www.chaijs.com/) to provide the assertions that tests make
-* [Nightmare](http://www.nightmarejs.org/) (or an alternative) to drive the web browser
+* [Cypress](https://www.cypress.io/) to drive the web browser
 * [YakBak](https://github.com/flickr/yakbak) to record and replay tapes of back-end responses
 
+Although Jest may be an improvement over Mocha and Chai, there is no particular need for those libraries to be improved upon, so sticking with what we know is the default choice. Similarly, whatever advantages Polly offers over YakBak are probably not worth the disruption that would be involved in moving to a new taping library when we are not struggling with any deficiencies in YakBak.
+
+The one adventurous choice here is the adoption of Cypress for browser automation in place of Nightmare. This is a judgement call: the technical advantages of Cypress probably outweigh the benefits of the Stripes CLI's Nightmare integration, and the Stripes community's accumulated experience with Nightmare. Much of that experience pertains to ways of work around Nightmare's limitations, which will hopefully prove non-issues with Cypress. Time will tell whether this is a smart choice.
 
 
 ## Configuration, invocation, coding
 
 
 ### Nightmare testing with the Stripes CLI
+
+> **Note.**
+> This section and the next two (**Configuring the Stripes CLI** and **Writing tests for the Stripes CLI**) are probably obsolete given the choice to run with Cypress rather than Nightmare. They may be removed in a future version of this document. Feel free to skip over them and pick up at [**ESLint configuration for test scripts**](#eslint-configuration-for-test-scripts), or indeed to just stop reading.
 
 Nightmare is its own piece of software which can be included in Mocha tests just like any other library. That's fine when you just want to write tests against a known-good web-site. But for Stripes module testing, you want the Nightmare tests to run against a dynamically generated site using the current version of your UI code.
 
@@ -287,11 +301,11 @@ This example notifies ESLint of the variables injected into global scope by the 
 
 The Stripes CLI can either build and serve the front end (the usual mode during development) or build it into static files, which can then be served by nginx or any other web server (which is how we do this in production). The `stripes test` commands seem to do the former. Is there a way to build a static bundle and serve it from elsewhere, then use `stripes test` to execute tests against that service?
 
-Zak says:
+Zak Burke says:
 
 > If you’re using nightmare, you can point it to a running instance with `--url http://some.remote.url` or `--local` (which is the same as `--url http://localhost:3000`). If you don’t include either `--url` or `--local`, I believe it’ll try to spin up a bundle and serve it for you.
 
-XXX discuss
+We will need to figure out analogous issues when running with Cypress.
 
 
 ### Coverage testing
