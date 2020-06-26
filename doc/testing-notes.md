@@ -308,13 +308,3 @@ Although the conclusions I have reached are likely unpalatable to all of them (n
 
 
 
-# UPDATE (to integrate)
-
-After discussing with Mark Deutsch:
-
-Perhaps the answer is:
-* `stripes serve`
-* Jest running tests (in place of mocha and chai)
-* Jest snapshots for element-content tests
-* Yakbak for perfect mocks
-
