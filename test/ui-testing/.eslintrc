@@ -1,0 +1,12 @@
+{
+  "globals": {
+    "describe": "readonly",
+    "it": "readonly",
+    "before": "readonly",
+    "after": "readonly",
+    "Nightmare": "readonly"
+  },
+  "rules": {
+    "func-names": "off"
+  }
+}
