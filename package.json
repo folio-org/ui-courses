@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "main": "src/index.js",
   "scripts": {
-    "test": "stripes test karma --karma.singleRun",
+    "test": "yarn cypress run",
     "start": "yarn stripes serve --port 3001",
     "lint": "eslint ."
   },
