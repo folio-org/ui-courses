@@ -1,0 +1,14 @@
+{
+  "plugins": [
+    "cypress"
+  ],
+  "globals": {
+    "cy": "readonly",
+    "describe": "readonly",
+    "it": "readonly",
+    "expect": "readonly"
+  },
+  "rules": {
+    "semi": ["warn", "never"]
+  }
+}
