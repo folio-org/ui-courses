@@ -13,6 +13,7 @@ const FilterNavigation = ({ current }) => (
           key={`${name}`}
           to={`/cr/${name}`}
           buttonStyle={`${current === name ? 'primary' : 'default'}`}
+          aria-selected={current === name}
           id={`segment-navigation-${name}`}
         >
           <FormattedMessage id={`ui-courses.filters.${name}`} />
