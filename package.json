@@ -7,6 +7,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "yarn cypress run",
+    "test-folio-snapshot": "yarn cypress run --config-file cypress-folio-snapshot.json",
     "start": "yarn stripes serve --port 3001",
     "lint": "eslint ."
   },
