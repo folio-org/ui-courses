@@ -6,10 +6,10 @@
   "license": "Apache-2.0",
   "main": "src/index.js",
   "scripts": {
-    "test": "yarn start & sleep 30 && yarn cypress run && kill $!",
-    "test-running-service": "yarn cypress run",
-    "test-folio-snapshot": "yarn cypress run --config-file cypress-folio-snapshot.json",
-    "start": "yarn stripes serve --port 3001",
+    "test": "stripes serve --port 3001 & wait-on http://localhost:3001 && cypress run && kill $!",
+    "test-running-service": "cypress run",
+    "test-folio-snapshot": "cypress run --config-file cypress-folio-snapshot.json",
+    "start": "stripes serve --port 3001",
     "lint": "eslint ."
   },
   "stripes": {
@@ -165,6 +165,7 @@
     "react": "^16.8.6",
     "react-intl": "^4.5.3",
     "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "wait-on": "^5.0.1"
   }
 }
