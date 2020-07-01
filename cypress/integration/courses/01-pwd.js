@@ -10,7 +10,7 @@ describe('ui-courses: tab navigation', () => {
       cy.visit('')
 
       // Warning: see caveats at https://docs.cypress.io/guides/core-concepts/conditional-testing.html#Element-existence
-      // This is not working correctly yet, and may be impossible to do right.
+      // This relies on a timeout so cannot be reliable, and may be impossible to do right
       // console.log('considering whether to logout')
       cy.wait(2000) // long enough for the loaded app to start up
       cy.get('#root').then(($body) => {
