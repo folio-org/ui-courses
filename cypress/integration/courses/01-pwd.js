@@ -7,7 +7,7 @@ describe('Sanity test', () => {
 describe('ui-courses: tab navigation', () => {
   describe('Login > navigate to app > verify tabs work', () => {
     it('logs out if already logged in', () => {
-      cy.visit('http://localhost:3001/')
+      cy.visit('')
 
       // Warning: see caveats at https://docs.cypress.io/guides/core-concepts/conditional-testing.html#Element-existence
       // This is not working correctly yet, and may be impossible to do right.
