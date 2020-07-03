@@ -17,7 +17,7 @@ const optionDefinitions = [
   { name: 'ignoreheaders', alias: 'i', type: Boolean, defaultValue: false },
   { name: 'port', alias: 'p', type: Number, defaultValue: 3002 },
   { name: 'tapes', alias: 't', type: String, defaultValue: 'tapes' },
-  { name: 'server', alias: 's', type: String, defaultValue: 'https://folio-snapshot-okapi.aws.indexdata.com', defaultOption: true },
+  { name: 'server', alias: 's', type: String, defaultOption: true },
 ];
 
 let options;
@@ -34,6 +34,11 @@ Usage: ${process.argv[1]} [options] <serverUrl>
         -t|--tapes <dir>        Write tapes to <dir> [default: tapes]`
   );
   process.exit(1);
+}
+
+if (!options.server) {
+  console.error(`${process.argv[1]}: no server address supplied`);
+  process.exit(2);
 }
 
 if (options.verbose) {
