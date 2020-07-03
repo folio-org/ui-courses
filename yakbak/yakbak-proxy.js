@@ -44,11 +44,5 @@ http.createServer(yakbak(options.server, {
   // Yakbak can't find its own tapes if this is not an absolute path
   dirname: path.resolve(options.tapes),
   noRecord: options.norecord,
-  // Modified local copy of standard hash-function which omits headers
-  hash: !options.ignoreheaders ? undefined : (req, body) => {
-    // console.log('ignoring headers from req =', req);
-    const tweaked = Object.assign({}, req, { headers: {} });
-    // console.log('tweaked =', tweaked);
-    return hash.sync(tweaked, body);
-  },
+  hash: !options.ignoreheaders ? undefined : (req, body) => hash.sync({ ...req, headers: {} }, body),
 })).listen(options.port);
