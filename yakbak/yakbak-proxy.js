@@ -9,7 +9,7 @@ const path = require('path');
 const commandLineArgs = require('command-line-args');
 const http = require('http');
 const yakbak = require('yakbak');
-// const hash = require('./hash-simplified');
+const hash = require('./hash-simplified');
 
 const optionDefinitions = [
   { name: 'verbose', alias: 'v', type: Boolean, defaultValue: false },
@@ -42,6 +42,6 @@ http.createServer(yakbak(options.server, {
   // Yakbak can't find its own tapes if this is not an absolute path
   dirname: path.resolve(options.tapes),
   noRecord: options.norecord,
-  // If needed, modified local copy of standard hash-function which omits headers
-  // hash: hash.sync,
+  // Modified local copy of standard hash-function which omits headers
+  hash: hash.sync,
 })).listen(options.port);
