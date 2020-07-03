@@ -9,11 +9,12 @@ const path = require('path');
 const commandLineArgs = require('command-line-args');
 const http = require('http');
 const yakbak = require('yakbak');
-const hash = require('./hash-simplified');
+const hash = require('incoming-message-hash');
 
 const optionDefinitions = [
   { name: 'verbose', alias: 'v', type: Boolean, defaultValue: false },
   { name: 'norecord', alias: 'n', type: Boolean, defaultValue: false },
+  { name: 'ignoreheaders', alias: 'i', type: Boolean, defaultValue: false },
   { name: 'port', alias: 'p', type: Number, defaultValue: 3002 },
   { name: 'tapes', alias: 't', type: String, defaultValue: 'tapes' },
   { name: 'server', alias: 's', type: String, defaultValue: 'https://folio-snapshot-okapi.aws.indexdata.com', defaultOption: true },
@@ -28,6 +29,7 @@ try {
 Usage: ${process.argv[1]} [options] <serverUrl>
         -v|--verbose            Log parameters before starting server
         -n|--norecord           Fail requests that have no tape [default: false]
+        -i|--ignoreheaders      Exclude headers from hash function [default: false]
         -p|--port <num>         Listen on port <num> [default: 3002]
         -t|--tapes <dir>        Write tapes to <dir> [default: tapes]`
   );
@@ -43,5 +45,10 @@ http.createServer(yakbak(options.server, {
   dirname: path.resolve(options.tapes),
   noRecord: options.norecord,
   // Modified local copy of standard hash-function which omits headers
-  hash: hash.sync,
+  hash: !options.ignoreheaders ? undefined : (req, body) => {
+    // console.log('ignoring headers from req =', req);
+    const tweaked = Object.assign({}, req, { headers: {} });
+    // console.log('tweaked =', tweaked);
+    return hash.sync(tweaked, body);
+  },
 })).listen(options.port);
