@@ -6,10 +6,12 @@
   "license": "Apache-2.0",
   "main": "src/index.js",
   "scripts": {
-    "test": "stripes serve --port 3001 & wait-on http://localhost:3001 && cypress run && kill $!",
-    "test-running-service": "cypress run",
     "test-folio-snapshot": "cypress run --config baseUrl=https://folio-snapshot.aws.indexdata.com",
     "start": "stripes serve --port 3001",
+    "test-running-service": "cypress run",
+    "test-new-ui": "stripes serve --port 3001 & wait-on http://localhost:3001 && cypress run && kill $!",
+    "test": "stripes serve --port 3001 --okapi http://localhost:3002 & pid1=$! && ./yakbak/yakbak-proxy.js -v -t yakbak/tapes -n & pid2=$! && cypress run && kill $pid1 $pid2",
+    "regenerate": "stripes serve --port 3001 --okapi http://localhost:3002 & pid1=$! && rm -rf yakbak/tapes && ./yakbak/yakbak-proxy.js -v -t yakbak/tapes & pid2=$! && cypress run && kill $pid1 $pid2",
     "lint": "eslint ."
   },
   "stripes": {
