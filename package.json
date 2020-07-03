@@ -10,8 +10,8 @@
     "start": "stripes serve --port 3001",
     "test-running-service": "cypress run",
     "test-new-ui": "stripes serve --port 3001 & wait-on http://localhost:3001 && cypress run && kill $!",
-    "test": "stripes serve --port 3001 --okapi http://localhost:3002 & pid1=$! && yakbak-proxy -v -t yakbak/tapes -i -n https://folio-snapshot-okapi.aws.indexdata.com & pid2=$! && wait-on http://localhost:3001 && cypress run && kill $pid1 $pid2",
-    "regenerate": "stripes serve --port 3001 --okapi http://localhost:3002 & pid1=$! && rm -rf yakbak/tapes && yakbak-proxy -v -t yakbak/tapes -i https://folio-snapshot-okapi.aws.indexdata.com & pid2=$! && wait-on http://localhost:3001 && cypress run && kill $pid1 $pid2",
+    "test": "stripes serve --port 3001 --okapi http://localhost:3002 & pid1=$! && yakbak-proxy -v -i -n https://folio-snapshot-okapi.aws.indexdata.com & pid2=$! && wait-on http://localhost:3001 && cypress run && kill $pid1 $pid2",
+    "regenerate": "stripes serve --port 3001 --okapi http://localhost:3002 & pid1=$! && rm -rf tapes && yakbak-proxy -v -i https://folio-snapshot-okapi.aws.indexdata.com & pid2=$! && wait-on http://localhost:3001 && cypress run && kill $pid1 $pid2",
     "lint": "eslint ."
   },
   "stripes": {
