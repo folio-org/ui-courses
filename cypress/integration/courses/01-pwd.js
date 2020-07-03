@@ -7,6 +7,8 @@ describe('Sanity test', () => {
 describe('ui-courses: tab navigation', () => {
   describe('Login > navigate to app > verify tabs work', () => {
     it('logs out if already logged in', () => {
+      // XXX this may suffice: localforage.removeItem('okapiSess');
+
       cy.visit('')
 
       // Warning: see caveats at https://docs.cypress.io/guides/core-concepts/conditional-testing.html#Element-existence
@@ -29,6 +31,7 @@ describe('ui-courses: tab navigation', () => {
       cy.get('#input-username').type('diku_admin')
       cy.get('#input-password').type('admin')
       cy.get('#clickable-login').click()
+      cy.wait(2000) // Login can be too slow for the default 4-second timeout
       cy.contains('Welcome')
     })
 
