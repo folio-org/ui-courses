@@ -82,7 +82,9 @@ The Stripes CLI has built-in support for tests based on NightmareJS or BigTest, 
 
 A FOLIO backend is a big, heavy unit, containing an [Okapi](https://github.com/folio-org/okapi) fronting a set of at least a dozen modules, often many more. Running a FOLIO backend is a laborious inconvenience for a frontend developer. This can be ameliorated by using a "FOLIO-in-a-box" virtual machine [provisioned by Vagrant](https://github.com/folio-org/folio-ansible), but the resulting VM is memory-hungry and best avoided where possible.
 
-As a result, UI testing is often most conveniently performed against one of the public FOLIO nodes. There are several of these including
+As a result, UI testing is often most conveniently performed against one of the public FOLIO nodes. There are
+[several of these](https://dev.folio.org/guides/automation/)
+including
 [Fameflower-Dev](https://folio-fameflower.dev.folio.org/),
 [Snapshot](https://folio-snapshot.aws.indexdata.com/)
 and
