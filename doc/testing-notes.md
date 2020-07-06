@@ -189,12 +189,15 @@ We favour the following combination of software packages:
 * [The Stripes CLI](https://github.com/folio-org/stripes-cli) to provide the running UI app to test against
 * [Mocha](https://mochajs.org/) to run the tests
 * [Chai](https://www.chaijs.com/) to provide the assertions that tests make
-* [Cypress](https://www.cypress.io/) to drive the web browser
+* [Cypress](https://www.cypress.io/) to drive the web browser (also providing Mocha and Chai)
 * [YakBak](https://github.com/flickr/yakbak) to record and replay tapes of back-end responses
 
 Although Jest may be an improvement over Mocha and Chai, there is no particular need for those libraries to be improved upon, so sticking with what we know is the default choice. Similarly, whatever advantages Polly offers over YakBak are probably not worth the disruption that would be involved in moving to a new taping library when we are not struggling with any deficiencies in YakBak.
 
 The one adventurous choice here is the adoption of Cypress for browser automation in place of Nightmare. This is a judgement call: the technical advantages of Cypress probably outweigh the benefits of the Stripes CLI's Nightmare integration, and the Stripes community's accumulated experience with Nightmare. Much of that experience pertains to ways of work around Nightmare's limitations, which will hopefully prove non-issues with Cypress. Time will tell whether this is a smart choice.
+
+From here, you may wish to skip on to the sequel document [Testing Stripes modules with Cypress and Yakbak](testing-with-cypress.md), which explains in more detail how we set up and run these tests. Or you can read on through the rest of this document if you're interested in a grab-bag of "Things I wish someone had told me" ideas.
+
 
 
 ## Configuration, invocation, coding
