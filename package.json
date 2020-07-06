@@ -6,8 +6,12 @@
   "license": "Apache-2.0",
   "main": "src/index.js",
   "scripts": {
-    "test": "stripes test karma --karma.singleRun",
-    "start": "yarn stripes serve --port 3001",
+    "test-folio-snapshot": "cypress run --config baseUrl=https://folio-snapshot.aws.indexdata.com",
+    "start": "stripes serve --port 3001",
+    "test-running-service": "cypress run",
+    "test-new-ui": "stripes serve --port 3001 & wait-on http://localhost:3001 && cypress run && kill $!",
+    "test": "stripes serve --port 3001 --okapi http://localhost:3002 & pid1=$! && yakbak-proxy -v -i -n https://folio-snapshot-okapi.aws.indexdata.com & pid2=$! && wait-on http://localhost:3001 && cypress run && kill $pid1 $pid2",
+    "regenerate": "stripes serve --port 3001 --okapi http://localhost:3002 & pid1=$! && rm -rf tapes && yakbak-proxy -v -i https://folio-snapshot-okapi.aws.indexdata.com & pid2=$! && wait-on http://localhost:3001 && cypress run && kill $pid1 $pid2",
     "lint": "eslint ."
   },
   "stripes": {
@@ -157,10 +161,14 @@
     "@folio/stripes": "^4.1.0",
     "@folio/stripes-cli": "^1.17.0",
     "babel-eslint": "^10.1.0",
+    "cypress": "^4.9.0",
     "eslint": "~7.2.0",
+    "eslint-plugin-cypress": "^2.11.1",
     "react": "^16.8.6",
     "react-intl": "^4.5.3",
     "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "wait-on": "^5.0.1",
+    "yakbak-proxy": "^1.1.0"
   }
 }
