@@ -1,3 +1,5 @@
+import localforage from 'localforage'
+
 describe('Sanity test', () => {
   it('checks true is truthful', () => {
     expect(true).to.equal(true)
@@ -7,26 +9,17 @@ describe('Sanity test', () => {
 describe('ui-courses: tab navigation', () => {
   describe('Login > navigate to app > verify tabs work', () => {
     it('logs out if already logged in', () => {
-      // XXX this may suffice: localforage.removeItem('okapiSess');
-
-      cy.visit('')
-
-      // Warning: see caveats at https://docs.cypress.io/guides/core-concepts/conditional-testing.html#Element-existence
-      // This relies on a timeout so cannot be reliable, and may be impossible to do right
-      // console.log('considering whether to logout')
-      cy.wait(2000) // long enough for the loaded app to start up
-      cy.get('#root').then(($body) => {
-        if ($body.find('#input-username').length) {
-          // console.log('no need to logout: already at login page')
-        } else {
-          // console.log('logging out')
-          cy.get('#profileDropdown').click()
-          cy.get('#clickable-logout').click()
-        }
-      })
+      // We use a behind-the-scenes method of ensuring we are logged
+      // out, rather than using the UI, in accordance with the Best
+      // Practices guidance at
+      // https://docs.cypress.io/guides/references/best-practices.html#Organizing-Tests-Logging-In-Controlling-State
+      localforage.removeItem('okapiSess')
     })
 
     it('logs in', () => {
+      // But it's not feasible to log in to Stipes using a similar
+      // behind-the-scenes approach, so we have to use the UI.
+      cy.visit('')
       cy.contains('Log in')
       cy.get('#input-username').type('diku_admin')
       cy.get('#input-password').type('admin')
