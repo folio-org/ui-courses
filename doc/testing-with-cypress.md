@@ -14,10 +14,11 @@ Mike Taylor, Index Data. &lt;mike@indexdata.com&gt;
         * [Yakbak proxy](#yakbak-proxy)
     * [Scenarios](#scenarios)
         * [Overview](#overview)
-        * [Scenario 1. Testing against snapshot UI](#scenario-1-testing-against-snapshot-ui)
-        * [Scenario 2. Local UI against snapshot backend](#scenario-2-local-ui-against-snapshot-backend)
-        * [Scenario 3. Regenerating mocked backend](#scenario-3-regenerating-mocked-backend)
-        * [Scenario 4. Local UI against mocked backend](#scenario-4-local-ui-against-mocked-backend)
+        * [Scenario 1. Testing against the Snapshot UI](#scenario-1-testing-against-the-snapshot-ui)
+        * [Scenario 2. Local UI against the Snapshot backend](#scenario-2-local-ui-against-the-snapshot-backend)
+        * [Scenario 3. Regenerating the mocked backend](#scenario-3-regenerating-the-mocked-backend)
+        * [Scenario 4. Local UI against the mocked backend](#scenario-4-local-ui-against-the-mocked-backend)
+        * [Summary](#summary)
 * [Setting up Cypress](#setting-up-cypress)
     * [Initialization and pruning](#initialization-and-pruning)
     * [ESLint configuration](#eslint-configuration)
@@ -31,7 +32,7 @@ Mike Taylor, Index Data. &lt;mike@indexdata.com&gt;
 
 ## Introduction
 
-In summer of 2020, as it became apparent that automated UI tests would be required for [FOLIO](https://www.folio.org/)'s [Course Reserves module](https://github.com/folio-org/ui-courses), there was an opportunity to reassess how we go about testing in the world of Stripes (FOLIO's UI toolkit).
+In summer of 2020, as it became apparent that automated UI tests would be required for [FOLIO](https://www.folio.org/)'s [Course Reserves module `ui-courses`](https://github.com/folio-org/ui-courses), there was an opportunity to reassess how we go about testing in the world of Stripes (FOLIO's UI toolkit).
 
 Previously, testing had taken two separate tracks: the use of [NightmareJS](http://www.nightmarejs.org/) to automate end-to-end testing for integration tests; and of [BigTest](https://bigtestjs.io/), including its mocking facilities, to create unit tests that do not require a FOLIO backend to be available. So UI modules have Nightmare-based integration tests, some have BigTest-based unit-tests and some have both. Both NightmareJS and BigTest are rather elderly, and not well supported. Almost all UI modules' tests are flaky, due largely to deficiencies in the Nightmare and BigTest libraries that they are based on. As a result, UI test maintenance is a major resource sink in the FOLIO project.
 
@@ -71,7 +72,7 @@ Running Cypress tests also leaves behind useful artifacts: a video of the browse
 
 #### Stripes CLI to provide the UI
 
-Cypress can run directly against a hosted FOLIO UI such as [FOLIO snapshot](https://folio-snapshot.aws.indexdata.com/) (see Scenario 1 below) but most of the time its value is in running against a local frontend built from the current source-code of the module being tested.
+Cypress can run directly against a hosted FOLIO UI such as [FOLIO Snapshot](https://folio-snapshot.aws.indexdata.com/) (see Scenario 1 below) but most of the time its value is in running against a local frontend built from the current source-code of the module being tested.
 
 Stripes bundles are built by [the Stripes CLI](https://github.com/folio-org/stripes-cli/). It can build an app or set of apps into a bundle of static files to be served by any HTTP server, or it can build the bundle in memory and serve it itself. The latter mode is most useful in development as it can respond quickly to changes in the source code.
 
@@ -95,7 +96,9 @@ and
 
 While the Yakbak library provides all the facilities we need to record and play back tapes in place of a real FOLIO backend, it can be awkward to integrate. Typically, the tests themselves are wired to know about Yakbak, to start and configure a Yakbak server, and to direct their requests to it rather than to the real backend. This introduces additional complexity to the tests and spreads responsiblity in an error-prone way.
 
-Instead, we created [`yakbak-proxy`](https://github.com/folio-org/yakbak-proxy), a simple standalone program that proxies HTTP requests to a nominated real server, while recording and/or playing back tapes. The [the usage documentation](for details), but most importantly the proxy may be run in `--norecord` mode, in which case it will _never_ call out to the real backend but only serve responses from tapes that it has previously made, returning 404 for any requests whose responses have not already been recorded.
+Instead, we created [`yakbak-proxy`](https://github.com/folio-org/yakbak-proxy), a simple standalone program that proxies HTTP requests to a nominated real server, while recording and/or playing back tapes. The [the usage documentation](for details), but most importantly the proxy may be run in `--norecord` mode, in which case it will _never_ call out to the real backend but only serve responses from tapes that it has previously made.
+
+(The Yakbak proxy can of course be used with any server-client system to generate and replace tapes. In particular, it can be used to record the responses for the existing Nightmare-based tests of other Stripes apps.)
 
 
 
@@ -104,27 +107,95 @@ Instead, we created [`yakbak-proxy`](https://github.com/folio-org/yakbak-proxy),
 
 #### Overview
 
-xxx snapshot ui
+The software components described above can be plugged together in various combinations to exercise different parts of the system in different ways.
 
-xxx local ui
-
-xxx snapshot backend
-
-xxx mocked backend
+We are now in a position to examine four testing scenarios. In the diagram below, blue boxes represent Cypress driving a Web browser; yellow boxes represent a Stripes UI (deep yellow for a remote hosted UI and pale yellow for a local UI in developement); purple boxes represent the Yakbak proxy; and green boxes represent FOLIO backends. As noted above, we describe this arrangement using FOLIO Snapshot as the backend, but any running backend can be used.
 
 ![Diagrams of four testing scenarios](testing-scenarios.svg)
 
-
-#### Scenario 1. Testing against snapshot UI
-
-
-#### Scenario 2. Local UI against snapshot backend
+We can now examine each scenario is more detail.
 
 
-#### Scenario 3. Regenerating mocked backend
+#### Scenario 1. Testing against the Snapshot UI
+
+In the simplest scenario, the Cypress tests run against a remote UI, such as that provided by FOLIO Snapshot. This is useful for two reasons: to get Cypress testing up and running with minimal scaffolding, and to verify that deployed versions of a FOLIO app pass the tests.
+
+THe default UI tested by Cypress is specified by the `baseUrl` entry in the `cypress.json` configuration file. However, this can be overridden at run-time by the `-config` option of the Cypress CLI as follows:
+
+	cypress run --config baseUrl=https://folio-snapshot.aws.indexdata.com
 
 
-#### Scenario 4. Local UI against mocked backend
+#### Scenario 2. Local UI against the Snapshot backend
+
+In the second scenario shows above, Stripes is running locally as Cypress is connecting to it -- but the local UI is connecting directly to remote FOLIO backend such that that provided by the public FOLIO Snapshot server. This is useful as an end-to-end integration test.
+
+The Cypress configuration in `ui-courses` establishes http://localhost:3001/ as the default UI to connect to, so this need not be overridden with `--config` when running in this way. The Stripes CLI will listen on port 3000, but this can be changed using the `--port` argument, so running the two services in different terminals:
+
+	terminal1$ stripes serve --port 3001
+	terminal2$ cypress run
+
+(It is helpful to use a port other than the default 3000 to avoid the possibility of a clash with another Stripes server already running on port 3000.)
+
+If running both parts of this together -- for example, in batch mode as part of a CI job -- it is necessary to run the Stripes server in the background and ensure that the Stripes server has begun listening before the Cypress tests commence. The simplest way to do this is with [the `wait-on` utility](https://github.com/jeffbski/wait-on), which simply waits until a given URL can be successfully requested before exiting. It is also polite to shut down the Stripes service after the tests have completed. So:
+
+	stripes serve --port 3001 & wait-on http://localhost:3001 && cypress run && kill $!
+
+
+#### Scenario 3. Regenerating the mocked backend
+
+This scenario is the same as the second, except that all traffic between the Stripes UI and the FOLIO backend is proxied via the Yakbak proxy so that tapes can be made of the requests and their corresponding responses.
+
+To do this, it necessary to include quite a bit of configuration:
+* The Yakbak proxy must be configured to contact the real backend, which is done by specifying the backend service's URL on the command-line.
+* The Yakbak must listen on a specified port: this can be done using the `-p` command-line options, but the defeault of 3002 is often appropriate.
+* The Stripes UI must be configured to use the Yakbak proxy as its FOLIO service, which can be done using its `--okapi` command-line argument.
+
+It is also helpful to remove any existing tapes to ensure that we have a complete new set.
+
+	terminal1$ stripes serve --port 3001 --okapi http://localhost:3002
+	terminal2$ rm -rf tapes && yakbak-proxy -i https://folio-snapshot-okapi.aws.indexdata.com
+	terminal3$ cypress run
+
+(The other option here given to `yakbak-proxy` is `-i`, which tells it to ignore headers when identifying requests, so that when the tapes are replayed a given request is recognised provided only that its protocol, method and URL are the same as before.)
+
+Note that there is rather a lot of plumbing here: Cypress must contact the Stripes UI on the correct port, the Stripes UI must contact the Yakbak proxy on the correct port, and the Yakbak proxy must contant the FOLIO backend on the correct URL. Some of this is obscured in the commands above because the Cypress configuration sets its connection URL appropriately, and because the Yakbak proxy's default port of 3002 is suitable.
+
+When running in CI, both the Stripes server and the Yakbak proxy must be run in the background, and as before Cypress must not be started until the Stripes server is listening for connections. Now that there are two background processes to be killed, we need to do a bit more work in order to capture both of the process-IDs to kill:
+
+	stripes serve --port 3001 --okapi http://localhost:3002 & pid1=$! &&
+	rm -rf tapes &&
+	yakbak-proxy -v -i https://folio-snapshot-okapi.aws.indexdata.com & pid2=$! &&
+	wait-on http://localhost:3001 &&
+	cypress run &&
+	kill $pid1 $pid2
+
+This is a slightly fearsome command (and it is a single shell command, even though here it is shown broken over six lines for clarity). It _may_ be worth building a higher-level tool to do this, but for now we go the more explicit route of invoking each component separately.
+
+
+#### Scenario 4. Local UI against the mocked backend
+
+This is the unit-testing scenario, which can only be run after tapes have been generated by scenario 3. In this, the Yakbak proxy is invoked (using the `--norecord` or `-n` command-line option) not to contact any back-end at all, but only to supply responses to requests for which it has tapes (returning 404 for any requests whose responses have not already been recorded).
+
+Invocation is very similar to that of scenario 3, except that the `tapes` directory is of course not removed, and the `-n` command-line option is given to `yakbak-proxy`. Hence:
+
+	stripes serve --port 3001 --okapi http://localhost:3002 & pid1=$! &&
+	rm -rf tapes &&
+	yakbak-proxy -v -i https://folio-snapshot-okapi.aws.indexdata.com & pid2=$! &&
+	wait-on http://localhost:3001 &&
+	cypress run &&
+	kill $pid1 $pid2
+
+
+#### Summary
+
+The same set of software components, then, can be be used to run in several different ways. In the `ui-courses` package file, `scripts` entries are provided for each of these scenarios:
+
+1. `yarn test-folio-snapshot` -- local tests against a remote UI
+2. `yarn test-running-service` -- against a local UI with a remote backend
+3, `yarn regenerate` -- against local UI via a taping proxy to a remote backend
+4. `yarn test` -- against a local UI with a mocked backend provided by tapes
+
+The last of these is the command run by [Jenkins](https://www.jenkins.io/) in continuous integration -- see [below](#jenkins-integration) for details.
 
 
 
