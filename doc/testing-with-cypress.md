@@ -69,6 +69,15 @@ First we will consider the four primary components of the testing system; then w
 
 Running Cypress tests also leaves behind useful artifacts: a video of the browser throughout the run, and screenshots of the various fail states.
 
+Cypress has
+[voluminous and helpful documentation](https://docs.cypress.io), including both
+[tutorials](https://docs.cypress.io/guides/overview/why-cypress.html#In-a-nutshell)
+and
+[reference guides](https://docs.cypress.io/api/api/table-of-contents.html);
+and
+[a Gitter](https://gitter.im/cypress-io/cypress)
+(Slack-like discussion app) where questions are usually answered helpfully and promptly.
+
 
 #### Stripes CLI to provide the UI
 
