@@ -2,7 +2,7 @@
 
 Mike Taylor, Index Data. &lt;mike@indexdata.com&gt;
 
-6 July 2020.
+6-7 July 2020.
 
 <!-- md2toc -l 2 testing-with-cypress.md -->
 * [Introduction](#introduction)
@@ -24,8 +24,10 @@ Mike Taylor, Index Data. &lt;mike@indexdata.com&gt;
     * [Jenkins integration](#jenkins-integration)
     * [ESLint configuration](#eslint-configuration)
     * [Measuring code coverage](#measuring-code-coverage)
-* [A standard Cypress-for-Stripes library](#a-standard-cypress-for-stripes-library)
-* [Further reading](#further-reading)
+        * [Instrumenting the code](#instrumenting-the-code)
+        * [Writing coverage data to files](#writing-coverage-data-to-files)
+        * [Generating coverage reports](#generating-coverage-reports)
+* [Now what?](#now-what)
 
 
 
@@ -276,6 +278,10 @@ Style conventions for Cypress tests are rather different from those used for Str
 
 ### Measuring code coverage
 
+To measure code coverage of Cypress-based tests is a three-stage process: it's necessary to instrument the code so that it generates coverage data, to get that data written to files, and to interpret the data in human-readable formats. Fortunately, all of these turn out to be fairly simple.
+
+<!--
+XXX delete this obsolete comment
 I have not yet made a serious attempt to get Cypress to provide me with code coverage statistics, but I know it can be done. Some places to start include
 * [_Code Coverage_ in the Cypress documentation](https://docs.cypress.io/guides/tooling/code-coverage.html)
 * [Cypress code coverage for applications created using create-react-app v3
@@ -284,7 +290,55 @@ I have not yet made a serious attempt to get Cypress to provide me with code cov
 ](https://levelup.gitconnected.com/generate-code-coverage-report-from-running-e2e-test-with-cypress-io-aaf6d47499e8)
 * [`@cypress/code-coverage`](https://github.com/cypress-io/code-coverage)
 
-XXX More to do here!
+**XXX The rest of this section is notes in progress**
+
+It looks like the way to generate instrumentation is with Babel's Istanbul plugin [`babel-plugin-instabul`](https://github.com/istanbuljs/babel-plugin-istanbul)
+and the way to generate reports about the data it gathers is with Cypress's misleadingly named Code Coverage plugin
+[`@cypress/code-coverage`](https://github.com/cypress-io/code-coverage).
+-->
+
+
+#### Instrumenting the code
+
+[The Istanbul library](https://istanbul.js.org/) knows how to modify JavaScript code by inserting statements that increment counters when different regions of the code are reached, and there is [a Babel plugin](https://github.com/istanbuljs/babel-plugin-istanbul) that uses it to have this happen for any code that is already being translated by Babel -- as Stripes modules are.
+
+To use this for your app, `yarn add --dev babel-plugin-istanbul`, then create a `.babelrc` in the top level of the project:
+
+	{
+	  "env": {
+	    "test": {
+	      "plugins": [ "istanbul" ]
+	    }
+	  }
+	}
+
+XXX `NODE_ENV=test yarn start`
+
+
+#### Writing coverage data to files
+
+XXX
+
+For reasons I do not understand, `@cypress/code-coverage` must be installed as a regular dependency, not a dev dependency: otherwise `yarn start` will fail, saying:
+
+	Error: Cannot find module '@babel/plugin-proposal-decorators' from '/Users/mike/ui-courses'
+
+
+#### Generating coverage reports
+
+XXX
+
+```
+$ nyc report --reporter=text-summary
+
+=============================== Coverage summary ===============================
+Statements   : 36.54% ( 228/624 )
+Branches     : 27.57% ( 75/272 )
+Functions    : 23.48% ( 54/230 )
+Lines        : 37.77% ( 224/593 )
+================================================================================
+Done in 0.57s.
+```
 
 
 
