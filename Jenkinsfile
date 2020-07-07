@@ -2,5 +2,8 @@ buildNPM {
   publishModDescriptor = 'yes'
   runLint = 'yes'
   runSonarqube = true
-  runTest = 'yes'
+  runScripts = [
+   ['add': '--dev @cypress/code-coverage'],
+   ['test': ''] 
+  ]
 }
