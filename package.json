@@ -10,9 +10,12 @@
     "start": "stripes serve --port 3001",
     "test-running-service": "cypress run",
     "test-new-ui": "stripes serve --port 3001 & wait-on http://localhost:3001 && cypress run && kill $!",
-    "test": "stripes serve --port 3001 --okapi http://localhost:3002 & pid1=$! && yakbak-proxy -v -i -n https://folio-snapshot-okapi.aws.indexdata.com & pid2=$! && wait-on http://localhost:3001 && cypress run && kill $pid1 $pid2",
+    "test": "env NODE_ENV=test stripes serve --port 3001 --okapi http://localhost:3002 & pid1=$! && yakbak-proxy -v -i -n https://folio-snapshot-okapi.aws.indexdata.com & pid2=$! && wait-on http://localhost:3001 && cypress run && kill $pid1 $pid2",
     "regenerate": "stripes serve --port 3001 --okapi http://localhost:3002 & pid1=$! && rm -rf tapes && yakbak-proxy -v -i https://folio-snapshot-okapi.aws.indexdata.com & pid2=$! && wait-on http://localhost:3001 && cypress run && kill $pid1 $pid2",
-    "lint": "eslint ."
+    "coverage-summary": "nyc report --reporter=text-summary",
+    "coverage": "nyc report --reporter=text",
+    "lint": "eslint .",
+    "postinstall": "test -f node_modules/@babel/plugin-proposal-decorators/package.json || yarn add --dev @cypress/code-coverage"
   },
   "stripes": {
     "actsAs": [
@@ -157,10 +160,12 @@
     "redux-form": "*"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.8.1",
     "@folio/eslint-config-stripes": "~5.1.0",
     "@folio/stripes": "^4.1.0",
     "@folio/stripes-cli": "^1.17.0",
     "babel-eslint": "^10.1.0",
+    "babel-plugin-istanbul": "^6.0.0",
     "cypress": "^4.9.0",
     "eslint": "~7.2.0",
     "eslint-plugin-cypress": "^2.11.1",
