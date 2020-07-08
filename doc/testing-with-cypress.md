@@ -309,9 +309,7 @@ For reasons we do not understand, the inclusion of `@cypress/code-coverage` as a
 
 	Error: Cannot find module '@babel/plugin-proposal-decorators' from '/Users/mike/ui-courses'
 
-XXX Instead of specifying 'runTest',  you can specify the 'runScripts' option. See https://github.com/folio-org/stripes-core/blob/master/Jenkinsfile for an example.
-What do `test:core` and `test:webpack` mean here?
-Those are defined as run scripts in the the package file. The second parameters are options to invoke with the scripts.
+At the time or writing, we are working around this bug with [a horrible kludge](https://github.com/folio-org/ui-courses/blob/coverage/package.json#L18): the package file has a `postinstall` script that immediately runs the `yarn add` command if the relevant package has not been put in place by `yarn install`. This is bad and evil, and we will get rid of it as soon as Yarn is fixed.
 
 
 #### Generating coverage reports
