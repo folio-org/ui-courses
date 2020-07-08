@@ -28,7 +28,7 @@ Mike Taylor, Index Data. &lt;mike@indexdata.com&gt;
         * [Writing coverage data to files](#writing-coverage-data-to-files)
             * [!!! WARNING: LARK'S VOMIT !!!](#-warning-larks-vomit-)
         * [Generating coverage reports](#generating-coverage-reports)
-* [Now what?](#now-what)
+* [What next?](#what-next)
 
 
 
@@ -331,11 +331,11 @@ Done in 0.57s.
 
 
 
-## Now what?
+## What next?
 
 Some thoughts on where we might go next ...
 
-As noted [above](#stripes-cli-to-provide-the-ui), when the Stripes CLI is used to run Nightmare tests, it furnishes a set of helper functions to the tests, which can be used for common actions like logging in, switching to a specific app, and logging out. As we gain experience in using Cypress with Stripes, we may find it helpful to provide **a standard Cypress-for-Stripes library** of similar functions that all UI apps using Cypress testing can make use of. If we do this, we may find it simplest to provide these as simple importable function, as Cypress commands (in `cypress/support/commands.js`) or as Cypress plugins (in `cypress/plugins`). More experience is needed before a decision can be made.
+As noted [above](#stripes-cli-to-provide-the-ui), when the Stripes CLI is used to run Nightmare tests, it furnishes a set of helper functions to the tests, which can be used for common actions like logging in, switching to a specific app, and logging out. As we gain experience in using Cypress with Stripes, we may find it helpful to provide a standard Cypress-for-Stripes library of similar functions that all UI apps using Cypress testing can make use of. If we do this, we may find it simplest to provide these as simple importable function, as Cypress commands (in `cypress/support/commands.js`) or as Cypress plugins (in `cypress/plugins`). More experience is needed before a decision can be made.
 
 Also as noted [above](#summary), it may prove worthwhile to simplify invocation of the various testing scenarios by providing a higher-level script that starts all the nececesary software components with appropriate plumbing to connect each to the others. Again, only experience will show whether this would be worth the work of building it -- or even whether the addition of another layer would make the underlying reality _more_ difficult to understand.
 
@@ -343,7 +343,7 @@ For further learning:
 * [_Best Practices_ in the Cypress documentation](https://docs.cypress.io/guides/references/best-practices.html)
 * [The Cypress documentation more generally](https://docs.cypress.io/)
 * [The example tests generated for a new Cypress installation](https://github.com/cypress-io/birdboard/tree/master/cypress/integration/examples) will probably illustrate numerous helpful techniques.
-* [Numerous tutorial videos]https://www.youtube.com/c/Cypressio/videos]
+* [Numerous tutorial videos](https://www.youtube.com/c/Cypressio/videos)
 
 Finally: feedback on this document is welcome! Email &lt;mike@indexdata.com&gt;
 
