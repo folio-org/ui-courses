@@ -284,20 +284,9 @@ To measure code coverage of Cypress-based tests is a three-stage process: it's n
 
 #### Instrumenting the code
 
-[The Istanbul library](https://istanbul.js.org/) knows how to modify JavaScript code by inserting statements that increment counters when different regions of the code are reached, and there is [a Babel plugin](https://github.com/istanbuljs/babel-plugin-istanbul) that uses it to have this happen for any code that is already being translated by Babel -- as Stripes modules are.
+[The Istanbul library](https://istanbul.js.org/) knows how to modify JavaScript code by inserting statements that increment counters when different regions of the code are reached, and there is [a Babel plugin](https://github.com/istanbuljs/babel-plugin-istanbul) that uses it to have this happen for any code that is already being translated by Babel -- as Stripes modules are. As of version 1.18.0, the Stripes CLI can run in a mode that invokes this plugin by specifying the `--coverage` option on the command line.
 
-To use this for your app, `yarn add --dev babel-plugin-istanbul`, then create a `.babelrc` in the top level of the project:
-
-	{
-	  "env": {
-	    "test": {
-	      "plugins": [ "istanbul" ]
-	    }
-	  }
-	}
-
-This specifies that when the value of the `NODE_ENV` environment variable is "test", the Istanbul plugin should be used: so when starting the Stripes server, use something like `env NODE_ENV=test stripes serve --port 3001` to generate these statistics. In the absence of this setting, coverage data is not generated, so that the code runs more efficiently.
-
+So when starting the Stripes server with the intention to generate coverage reports, use something like `stripes serve --coverage --port 3001`. In the absence of this setting, coverage data is not generated, so that the code runs more efficiently.
 
 #### Writing coverage data to files
 
