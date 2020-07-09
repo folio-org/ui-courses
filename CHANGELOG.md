@@ -4,6 +4,7 @@
 
 * Upgrade to `@folio/stripes` `^4.0`, including `plugin-find-user` `v3`, `react-intl` `v4.0`.
 * correctly import `requried` via `@folio/stripes/util`.
+* Rename the problematic `package.json` `scripts` entries `test` and `postinstall` with `-UNUSED`
 
 ## [1.1.7](https://github.com/folio-org/ui-courses/tree/v1.1.7) (2020-05-11)
 [Full Changelog](https://github.com/folio-org/ui-courses/compare/v1.1.6...v1.1.7)
