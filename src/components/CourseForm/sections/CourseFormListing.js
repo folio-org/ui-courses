@@ -11,7 +11,7 @@ const optionsShape = PropTypes.arrayOf(
   })
 );
 
-export default class CourseFormInfo extends React.Component {
+export default class CourseFormListing extends React.Component {
   static propTypes = {
     data: PropTypes.shape({
       coursetypes: optionsShape,
