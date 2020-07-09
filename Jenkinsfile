@@ -4,7 +4,6 @@ buildNPM {
   runSonarqube = true
   runTest = false
   runScripts = [
-   ['postinstall-UNUSED':''],
-   ['test-UNUSED':'']
+   ['postinstall-and-test':'']
   ]
 }
