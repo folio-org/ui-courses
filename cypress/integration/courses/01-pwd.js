@@ -25,7 +25,7 @@ describe('ui-courses: tab navigation', () => {
       cy.get('#input-password').type('admin')
       cy.get('#clickable-login').click()
       // Login can be too slow for the default 4-second timeout
-      cy.contains('Go away', { timeout: 10000 })
+      cy.contains('Welcome', { timeout: 10000 })
     })
 
     it('should open app and see selected Course Reserves tab', () => {
