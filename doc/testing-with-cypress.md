@@ -299,9 +299,9 @@ Instead, the present approach is to modify the Jenkins configuration so that ins
 	  ]
 	}
 
-And the package file defines a `postinstall-and-test` rule that invokes both a postinstall rule (named `postinstall-UNUSED` to avoid the STRIPES-689 problem) and the `test` rule:
+And the package file defines a `postinstall-and-test` rule that invokes both a postinstall rule (named `fix` to avoid the STRIPES-689 problem) and the `test` rule:
 
-	"postinstall-and-test": "yarn postinstall-UNUSED && yarn test"
+	"postinstall-and-test": "yarn fix && yarn test"
 
 All of this is unpleasant. Hopefully it can be ripped out once we get to the bottom of UICR-96, or at least find a less offensive workaround for it.
 

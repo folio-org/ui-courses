@@ -15,8 +15,8 @@
     "coverage-summary": "nyc report --reporter=text-summary",
     "coverage": "nyc report --reporter=text",
     "lint": "eslint .",
-    "postinstall-UNUSED": "test -f node_modules/@babel/plugin-proposal-decorators/package.json || yarn add --dev @cypress/code-coverage",
-    "postinstall-and-test": "yarn postinstall-UNUSED && yarn test"
+    "fix": "test -f node_modules/@babel/plugin-proposal-decorators/package.json || yarn add --dev @cypress/code-coverage",
+    "postinstall-and-test": "yarn fix && yarn test"
   },
   "stripes": {
     "actsAs": [
