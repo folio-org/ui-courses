@@ -10,7 +10,7 @@ var path = require("path");
  * origin: http://localhost:3001
  * sec-fetch-dest: empty
  * x-okapi-tenant: diku
- * user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/4.9.0 Chrome/80.0.3987.165 Electron/8.3.1 Safari/537.36
+ * user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/4.10.0 Chrome/80.0.3987.165 Electron/8.3.1 Safari/537.36
  * sec-fetch-site: same-site
  * sec-fetch-mode: cors
  * referer: http://localhost:3001/
@@ -21,13 +21,13 @@ var path = require("path");
 module.exports = function (req, res) {
   res.statusCode = 200;
 
-  res.setHeader("date", "Fri, 03 Jul 2020 03:59:50 GMT");
+  res.setHeader("date", "Tue, 14 Jul 2020 14:59:45 GMT");
   res.setHeader("content-type", "application/json");
   res.setHeader("transfer-encoding", "chunked");
   res.setHeader("connection", "keep-alive");
   res.setHeader("access-control-allow-origin", "*");
   res.setHeader("access-control-expose-headers", "location,X-Okapi-Trace,X-Okapi-Token,Authorization,X-Okapi-Request-Id,X-Okapi-Module-Id");
-  res.setHeader("x-okapi-trace", "GET mod-authtoken-2.6.0-SNAPSHOT.73 http://10.36.1.251:9178/saml/check : 202 828us, GET mod-login-saml-2.1.0-SNAPSHOT.53 http://10.36.1.251:9156/saml/check : 200 11485us");
+  res.setHeader("x-okapi-trace", "GET mod-authtoken-2.6.0-SNAPSHOT.73 http://10.36.1.111:9178/saml/check : 202 383us, GET mod-login-saml-2.1.0-SNAPSHOT.53 http://10.36.1.111:9156/saml/check : 200 17400us");
   res.setHeader("content-encoding", "gzip");
 
   res.setHeader("x-yakbak-tape", path.basename(__filename, ".js"));

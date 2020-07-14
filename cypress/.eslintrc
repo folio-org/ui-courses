@@ -3,6 +3,7 @@
     "cypress"
   ],
   "globals": {
+    "Cypress": "readonly",
     "cy": "readonly",
     "describe": "readonly",
     "it": "readonly",
