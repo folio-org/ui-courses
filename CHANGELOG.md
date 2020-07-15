@@ -1,5 +1,9 @@
 # Change history for ui-courses
 
+## 2.1.1 (IN PROGRESS)
+
+* Add ability to delete a course. Fixes UICR-98.
+
 ## 2.0.0 (IN PROGRESS)
 
 * Upgrade to `@folio/stripes` `^4.0`, including `plugin-find-user` `v3`, `react-intl` `v4.0`.

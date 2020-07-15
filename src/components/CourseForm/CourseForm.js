@@ -28,6 +28,8 @@ class CourseForm extends React.Component {
       onClose: PropTypes.func.isRequired,
     }),
     handleSubmit: PropTypes.func.isRequired,
+    deleteCourse: PropTypes.bool,
+    handleDelete: PropTypes.func.isRequired,
     isLoading: PropTypes.bool,
     form: PropTypes.object,
     pristine: PropTypes.bool,
@@ -55,6 +57,8 @@ class CourseForm extends React.Component {
       pristine,
       submitting,
       values,
+      deleteCourse,
+      handleDelete
     } = this.props;
 
     return (
@@ -70,16 +74,41 @@ class CourseForm extends React.Component {
           </Button>
         )}
         renderEnd={(
-          <Button
-            buttonStyle="primary mega"
-            disabled={pristine || submitting}
-            id={values.id ? 'clickable-update-course' : 'clickable-create-course'}
-            marginBottom0
-            onClick={handleSubmit}
-            type="submit"
-          >
-            <FormattedMessage id="stripes-components.saveAndClose" />
-          </Button>
+          <>
+            <Button
+              buttonStyle="primary mega"
+              disabled={pristine || submitting}
+              id={values.id ? 'clickable-update-course' : 'clickable-create-course'}
+              marginBottom0
+              onClick={handleSubmit}
+              type="submit"
+            >
+              <FormattedMessage id="stripes-components.saveAndClose" />
+            </Button>
+            {
+              values.id && (
+                !deleteCourse ? (
+                  <Button
+                    buttonStyle="default mega"
+                    id="clickable-delete-course"
+                    marginBottom0
+                    to="delete"
+                  >
+                    <FormattedMessage id="ui-courses.delete" />
+                  </Button>
+                ) : (
+                  <Button
+                    buttonStyle="danger mega"
+                    id="clickable-really-delete-course"
+                    marginBottom0
+                    onClick={handleDelete}
+                  >
+                    <FormattedMessage id="ui-courses.reallyDelete" />
+                  </Button>
+                )
+              )
+            }
+          </>
         )}
       />
     );

@@ -33,6 +33,7 @@ class EditCourseRoute extends React.Component {
 
   static propTypes = {
     handlers: PropTypes.object,
+    deleteCourse: PropTypes.bool,
     history: PropTypes.shape({
       push: PropTypes.func.isRequired,
     }).isRequired,
@@ -51,6 +52,7 @@ class EditCourseRoute extends React.Component {
     mutator: PropTypes.shape({
       course: PropTypes.shape({
         PUT: PropTypes.func.isRequired,
+        DELETE: PropTypes.func.isRequired,
       }).isRequired,
       courselisting: PropTypes.shape({
         PUT: PropTypes.func.isRequired,
@@ -96,6 +98,12 @@ class EditCourseRoute extends React.Component {
       .then(this.handleClose);
   }
 
+  handleDelete = () => {
+    const { location } = this.props;
+    this.props.mutator.course.DELETE({})
+      .then(this.props.history.push(`/cr/courses${location.search}`));
+  }
+
   render() {
     const { handlers, stripes, intl } = this.props;
 
@@ -118,6 +126,8 @@ class EditCourseRoute extends React.Component {
         initialValues={this.getInitialValues()}
         isLoading={fetchIsPending(this.props.resources)}
         onSubmit={this.handleSubmit}
+        deleteCourse={this.props.deleteCourse}
+        handleDelete={this.handleDelete}
       />
     );
   }
