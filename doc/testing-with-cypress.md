@@ -2,7 +2,7 @@
 
 Mike Taylor, Index Data. &lt;mike@indexdata.com&gt;
 
-6-7 July 2020.
+6th-16th July 2020.
 
 <!-- md2toc -l 2 testing-with-cypress.md -->
 * [Introduction](#introduction)
@@ -28,6 +28,12 @@ Mike Taylor, Index Data. &lt;mike@indexdata.com&gt;
         * [Writing coverage data to files](#writing-coverage-data-to-files)
             * [!!! WARNING: LARK'S VOMIT !!!](#-warning-larks-vomit-)
         * [Generating coverage reports](#generating-coverage-reports)
+* [Repeated requests when using YakBak](#repeated-requests-when-using-yakbak)
+    * [The problem](#the-problem)
+    * [Solutions](#solutions)
+        * [Write tests not to make the same request twice](#write-tests-not-to-make-the-same-request-twice)
+        * [Have Yakbak proxy insert serial numbers into requests](#have-yakbak-proxy-insert-serial-numbers-into-requests)
+        * [Something cleverer that I've not thought of yet](#something-cleverer-that-ive-not-thought-of-yet)
 * [What next?](#what-next)
 
 
@@ -159,7 +165,7 @@ This scenario is the same as the second, except that all traffic between the Str
 
 To do this, it necessary to include quite a bit of configuration:
 * The Yakbak proxy must be configured to contact the real backend, which is done by specifying the backend service's URL on the command-line.
-* The Yakbak must listen on a specified port: this can be done using the `-p` command-line options, but the defeault of 3002 is often appropriate.
+* The Yakbak must listen on a specified port: this can be done using the `-p` command-line options, but the default of 3002 is often appropriate.
 * The Stripes UI must be configured to use the Yakbak proxy as its FOLIO service, which can be done using its `--okapi` command-line argument.
 
 It is also helpful to remove any existing tapes to ensure that we have a complete new set.
@@ -321,6 +327,57 @@ Lines        : 37.77% ( 224/593 )
 ================================================================================
 Done in 0.57s.
 ```
+
+
+
+
+## Repeated requests when using YakBak
+
+
+
+### The problem
+
+Our intention is that the Yakbak proxy should be entirely transparent in use, so that any test that runs correctly without it will also run the same through it, and then against against the tapes that it makes.
+
+However, this goal breaks down in some circumstances. Consider this test:
+
+1. Search for all records
+2. Verify that there are 5
+3. Create a record
+4. Search for all records
+5. Verify that there are now 6
+
+Since the HTTP request in step 4 is the same as that in step 2, the Yakbak proxy will return the real server's response once as its response to step 2, and then again as its response to step 4. As a result, there will be only five records in the response despite one having been added, and step 5 of the test will fail.
+
+
+
+### Solutions
+
+
+#### Write tests not to make the same request twice
+
+The simplest solution to this is require that tests work around it. For example, in the scenario above, step 4 could search for all records but then sort them in a different order from the first time the request was made, so that a fresh back-end request is made and a fresh tape recorded.
+
+This will work, but violates our desire that developers should be able to write tests without knowing or caring about the use of the proxy. It suffices as a backup plan, but it would be disappointing to require this.
+
+
+#### Yakbak proxy inserts serial numbers into requests
+
+A first attempt to preserve completely transparent use of the proxy is the addition of [the `--sequence` option](https://github.com/folio-org/yakbak-proxy/commit/06d9f57f9976af8cca77bb8b5f9b525fd44b133e), which modifies the hashing function that Yakbak uses in determining when two requests are considered the same. (This function maps each incoming request to a digest which is uses as the filename for the tape that records the response.) When `--sequence` is specified on the command-line, each request is considered to contain an additional `X-sequence` header whose value is an integer that is incremented for each request.
+
+This works so far as preserving separate responses to multiple identical requests is concerned. However it does not solve the problem of repeatable tests due to the non-deterministic order of network requests issued by Stripes. [The front page of the Course Reserves app](https://folio-snapshot.aws.indexdata.com/cr/courses?sort=name), for example, fetches not only the list of courses, but also lists of departments, course-types, terms and locations in order to populate the filters in the left-hand pane. All these requests are issues simultaneously in principle, and they may be activated in any order. If an attempt to run tests against tapes happens to use a different order from that in which the tapes were recorded, the requests will fail because they will be made with different sequence numbers from those used to generate the tapes.
+
+
+#### Yakbak proxy inserts serial numbers into duplicate requests
+
+A second attempt at a similar solution (not yet implemented) uses a smarter approach to assigning serial numbers. The hash function runs on the unmodified request, yielding the same base digest as usual; however, a register is kept of how many times each request has been seen, and a request-specific counter is incremented each time a given request is seen. The returned digest is a combination of the base digest and the counter.
+
+This approach should ensure that each successive instance of the same request records its own response, but that the sequence numbering for any given request will not interfere with or be interfered with by that of any other request.
+
+
+#### Something cleverer that I've not thought of yet
+
+Seriously, folks, I am open to suggestions. [Let me know!](mailto:mike@indexdata.com)
 
 
 
