@@ -165,5 +165,7 @@
     "addItem.duplicateItem": "重复条码{barcode} ：此单件已作为此课程教参",
     "addItem.failure": "无法添加单件{barcode} ： {message}",
     "instructor.pluralized": "{count} {count, plural, one {教师} other {教师}}",
-    "removeInstructor.failure": "移除教师失败： {message}"
+    "removeInstructor.failure": "移除教师失败： {message}",
+    "delete": "Delete",
+    "reallyDelete": "Really delete?"
 }
