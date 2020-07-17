@@ -363,19 +363,30 @@ This will work, but violates our desire that developers should be able to write 
 
 #### Yakbak proxy inserts serial numbers into requests
 
-A first attempt to preserve completely transparent use of the proxy is the addition of [the `--sequence` option](https://github.com/folio-org/yakbak-proxy/commit/06d9f57f9976af8cca77bb8b5f9b525fd44b133e), which modifies the hashing function that Yakbak uses in determining when two requests are considered the same. (This function maps each incoming request to a digest which is uses as the filename for the tape that records the response.) When `--sequence` is specified on the command-line, each request is considered to contain an additional `X-sequence` header whose value is an integer that is incremented for each request.
+A first attempt to preserve completely transparent use of the proxy is the addition of the `--sequence` (`-q`) option in [v1.2.0 of yakbak-proxy](https://github.com/folio-org/yakbak-proxy/tree/v1.2.0), which modifies the hashing function that Yakbak uses in determining when two requests are considered the same. (This function maps each incoming request to a digest which is uses as the filename for the tape that records the response.) When `--sequence` is specified on the command-line, each request is considered to contain an additional `X-sequence` header whose value is an integer that is incremented for each request.
 
 This works so far as preserving separate responses to multiple identical requests is concerned. However it does not solve the problem of repeatable tests due to the non-deterministic order of network requests issued by Stripes. [The front page of the Course Reserves app](https://folio-snapshot.aws.indexdata.com/cr/courses?sort=name), for example, fetches not only the list of courses, but also lists of departments, course-types, terms and locations in order to populate the filters in the left-hand pane. All these requests are issues simultaneously in principle, and they may be activated in any order. If an attempt to run tests against tapes happens to use a different order from that in which the tapes were recorded, the requests will fail because they will be made with different sequence numbers from those used to generate the tapes.
 
 
 #### Yakbak proxy inserts serial numbers into duplicate requests
 
-A second attempt at a similar solution (not yet implemented) uses a smarter approach to assigning serial numbers. The hash function runs on the unmodified request, yielding the same base digest as usual; however, a register is kept of how many times each request has been seen, and a request-specific counter is incremented each time a given request is seen. The returned digest is a combination of the base digest and the counter.
+A second attempt at a similar solution uses a smarter approach to assigning serial numbers. As of [yakbak-proxy v1.3.0](https://github.com/folio-org/yakbak-proxy/tree/v1.3.0), the hash function runs on the unmodified request, yielding the same base digest as without the `--sequence` option; however, a register is kept of how many times each request has been seen, and a request-specific counter is incremented each time a given request is seen. The returned digest is a combination of the base digest and the counter.
 
-This approach should ensure that each successive instance of the same request records its own response, but that the sequence numbering for any given request will not interfere with or be interfered with by that of any other request.
+This approach ensures that each successive instance of the same request records its own response, but that the sequence numbering for any given request does not interfere with, and is not interfered with by, that of any other request.
+
+Experimentally, this works correctly. However, even this does not suffice to allow the recorded tests to pass due to another problem: when a new record is created, stripes-connect generates a random UUID and includes it as the `id` in the POSTed record. When running against recorded tapes, the generated `id` is different from when they were recorded, so the new-record POST response is not found.
+
+
+#### Excising `id` fields from POST requests
+
+And so was born the `--exciseid` (`-x`) option (also in [v1.2.0 of yakbak-proxy](https://github.com/folio-org/yakbak-proxy/tree/v1.2.0)), When this is specified, the hash function modifies the body of POST requests (and _only_ POSTs, not PUTs), to remove the `id` field at the top level if it exists. This does not affect some POSTs -- e.g. the POST to `/bl-users/login` that is used to log in at the start of the session. But when the POST is used to create a new record, the specific ID chosen by stripes-connect is ignored for the purposes of creating the request's hash.
+
+And this seems to be enough for tests to record and pass correctly.
 
 
 #### Something cleverer that I've not thought of yet
+
+The addition of the `--sequence` and (especially) `--exciseid` options to yakbak-proxy is starting to feel like special pleading. Part of me feels there has to be a more elegant way to do this. Is there?
 
 Seriously, folks, I am open to suggestions. [Let me know!](mailto:mike@indexdata.com)
 
