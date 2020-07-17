@@ -9,9 +9,9 @@
     "test-folio-snapshot": "cypress run --config baseUrl=https://folio-snapshot.aws.indexdata.com",
     "start": "stripes serve --port 3001",
     "test-running-service": "cypress run",
-    "test-new-ui": "stripes serve --port 3001 & wait-on http://localhost:3001 && cypress run && kill $!",
-    "test": "env NODE_ENV=test stripes serve --coverage --port 3001 --okapi http://localhost:3002 & pid1=$! && yakbak-proxy -v -i -n https://folio-snapshot-okapi.aws.indexdata.com & pid2=$! && wait-on http://localhost:3001 && cypress run && kill $pid1 $pid2",
-    "regenerate": "stripes serve --port 3001 --okapi http://localhost:3002 & pid1=$! && rm -rf tapes && yakbak-proxy -v -i https://folio-snapshot-okapi.aws.indexdata.com & pid2=$! && wait-on http://localhost:3001 && cypress run && kill $pid1 $pid2",
+    "test-new-ui": "stripes serve --port 3001 & wait-on http://localhost:3001 && cypress run; kill $!",
+    "test": "env NODE_ENV=test stripes serve --coverage --port 3001 --okapi http://localhost:3002 & pid1=$! && yakbak-proxy -v -i -q -x -n & pid2=$! && wait-on http://localhost:3001 && cypress run; kill $pid1 $pid2",
+    "regenerate": "stripes serve --port 3001 --okapi http://localhost:3002 & pid1=$! && rm -rf tapes && yakbak-proxy -v -i -q -x https://folio-snapshot-okapi.aws.indexdata.com & pid2=$! && wait-on http://localhost:3001 && cypress run; kill $pid1 $pid2",
     "coverage-summary": "nyc report --reporter=text-summary",
     "coverage": "nyc report --reporter=text",
     "lint": "eslint .",
@@ -152,7 +152,7 @@
     "react-hot-loader": "^4.3.12"
   },
   "peerDependencies": {
-    "@folio/stripes": "^4.0.0",
+    "@folio/stripes": "^4.0.0 || ^5.0.0",
     "prop-types": "*",
     "react": "*",
     "react-intl": "*",
@@ -175,6 +175,6 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "wait-on": "^5.0.1",
-    "yakbak-proxy": "^1.1.0"
+    "yakbak-proxy": "^1.3.0"
   }
 }
