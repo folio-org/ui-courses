@@ -27,7 +27,9 @@ const ViewCourseInstructors = (props) => {
 
   const { record, stripes } = props;
   const courseListingObject = record.courseListingObject || {};
-  const instructorObjects = courseListingObject.instructorObjects || [];
+  const instructorObjects = (courseListingObject.instructorObjects || []).sort((a, b) => (
+    a.name < b.name ? -1 : a.name > b.name ? 1 : 0
+  ));
   const permissions = {
     add: stripes.hasPerm('course-reserves-storage.courselistings.instructors.item.post'),
     edit: stripes.hasPerm('course-reserves-storage.courselistings.instructors.item.put'),
