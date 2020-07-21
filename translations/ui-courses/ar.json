@@ -165,5 +165,7 @@
     "addItem.duplicateItem": "باركود مكرر {barcode}: هذه المادة موجودة في الحجز بالفعل لهذا المقرر",
     "addItem.failure": "فشل إضافة المادة {barcode}: {message}",
     "instructor.pluralized": "{count} {count, plural, one {مدرباً} other {مدرباً}}",
-    "removeInstructor.failure": "فشلت إزالة المدرب: {message}"
+    "removeInstructor.failure": "فشلت إزالة المدرب: {message}",
+    "delete": "حذف",
+    "reallyDelete": "تأكيد الحذف؟"
 }

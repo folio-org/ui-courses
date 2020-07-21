@@ -98,7 +98,7 @@
     "accordion.courseFormInstructors.help": " ",
     "front.welcome": "欢迎来到教学参考书！",
     "addItem": "添加一个单件到本课程的教参",
-    "crosslistCourse": "列表中的新课程",
+    "crosslistCourse": "清单中的新课程",
     "button.crosslist": "交叉列出课程",
     "accordion.courseFormCrosslisting": "交叉列出课程信息",
     "crosslist": "交叉列出课程",
@@ -165,5 +165,7 @@
     "addItem.duplicateItem": "重复条码{barcode} ：此单件已作为此课程教参",
     "addItem.failure": "无法添加单件{barcode} ： {message}",
     "instructor.pluralized": "{count} {count, plural, one {教师} other {教师}}",
-    "removeInstructor.failure": "移除教师失败： {message}"
+    "removeInstructor.failure": "移除教师失败： {message}",
+    "delete": "删除",
+    "reallyDelete": "真的删除？"
 }

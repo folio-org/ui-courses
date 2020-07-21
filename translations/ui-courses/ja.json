@@ -165,5 +165,7 @@
     "addItem.duplicateItem": "Duplicate barcode {barcode}: this item is already on reserve for this course",
     "addItem.failure": "Failed to add item {barcode}: {message}",
     "instructor.pluralized": "{count} {count, plural, one { 講師 } other { 講師 }}",
-    "removeInstructor.failure": "Remove instructor failed: {message}"
+    "removeInstructor.failure": "Remove instructor failed: {message}",
+    "delete": "Delete",
+    "reallyDelete": "Really delete?"
 }
