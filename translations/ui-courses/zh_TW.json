@@ -165,5 +165,7 @@
     "addItem.duplicateItem": "條碼重複 {barcode}：此單件已被設定為此課程的指定參考書",
     "addItem.failure": "Failed to add item {barcode}: {message}",
     "instructor.pluralized": "{count} {count, plural, one {instructor} other {instructors}}",
-    "removeInstructor.failure": "無法移除授課老師：{message}"
+    "removeInstructor.failure": "無法移除授課老師：{message}",
+    "delete": "Delete",
+    "reallyDelete": "Really delete?"
 }

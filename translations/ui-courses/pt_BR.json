@@ -165,5 +165,7 @@
     "addItem.duplicateItem": "Código de barras duplicado {barcode}: este item já está na reserva deste curso",
     "addItem.failure": "Falha ao adicionar o item {barcode}: {message}",
     "instructor.pluralized": "{count} {count, plural, one {instrutor} other {instrutores}}",
-    "removeInstructor.failure": "Falha ao remover o instrutor: {message}"
+    "removeInstructor.failure": "Falha ao remover o instrutor: {message}",
+    "delete": "Excluir",
+    "reallyDelete": "Realmente excluir?"
 }
