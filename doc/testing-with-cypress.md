@@ -389,17 +389,21 @@ This seems to be enough for tests to record and pass correctly. But it multiples
 
 #### Re-use tapes until the next write event
 
-If we think of the accumulating set of tapes, in response to a given set of requests, as a cache, then we can consider cache invalidation strategies. The strategy in use as described in [the earlier section](#yakbak-proxy-inserts-serial-numbers-into-requests) amounts to "consider the cache as always invalid" -- hence each new request generates a new response, resulting in the many dupliate responses. A very smart strategy would understand all the different possible write operations in the Course Reserves app, and knew which writes invalidate which parts of the cache. However, experience teaches us that "smart" in a cache-invalidation strategy is a synonym for "error-prone" -- cache invalidation is after one of the [Two Hard Problems in computer science](https://martinfowler.com/bliki/TwoHardThings.html). So instead we can use the simplest possible strategy: _any_ write invalides _the entire cache_.
+If we think of the accumulating set of tapes, in response to a given set of requests, as a cache, then we can consider cache invalidation strategies. The strategy in use as described in [the earlier section](#yakbak-proxy-inserts-serial-numbers-into-requests) amounts to "consider the cache as always invalid" -- hence each new request generates a new response, resulting in the many dupliate responses. A very smart strategy would understand all the different possible write operations in the Course Reserves app, and knew which writes invalidate which parts of the cache. However, experience teaches us that "smart" in a cache-invalidation strategy is a synonym for "error-prone" -- cache invalidation is after one of the [Two Hard Problems in computer science](https://martinfowler.com/bliki/TwoHardThings.html). So instead we can use the simplest possible strategy: _any_ write (except the POST used for login) invalides _the entire cache_.
 
 So the strategy here is:
 * When request comes in for the first time, fetch it, cache the response and return in.
 * When it comes in subsequrntly, return the cached response.
-* When any POST, PUT or DELETE request is received, all cached responses are consider invalidated, a subsequent instance of a prevously cached request will result in its sequence number being incremented and a new back-end request being made.
+* When any POST, PUT or DELETE request other than a login is received, all cached responses are consider invalidated, a subsequent instance of a prevously cached request will result in its sequence number being incremented and a new back-end request being made.
+
+This is implemented in v1.5.0 of yakbak-proxy, and has been demonstrated to work with the ui-courses tests. The number of tapes generated for the tests is down from 176 to 98. Also: since the new sequence-numbering strategy results in no duplicate tapes at all when handling only read requests, there is no need ever _not_ to run in `--sequence` mode. That mode is therefore now permanently on, and the command-line switch is removed.
+
+We now have a proxying setup that should work with any test-suite.
 
 
 #### Something cleverer that I've not thought of yet
 
-The addition of the `--sequence` and (especially) `--exciseid` options to yakbak-proxy is starting to feel like special pleading. Part of me feels there has to be a more elegant way to do this. Is there?
+The addition of sequence-numbering and (especially) the `--exciseid` option to yakbak-proxy is starting to feel like special pleading. Part of me feels there has to be a more elegant way to do this. Is there?
 
 Seriously, folks, I am open to suggestions. [Let me know!](mailto:mike@indexdata.com)
 
