@@ -2,7 +2,7 @@
 
 Mike Taylor, Index Data. &lt;mike@indexdata.com&gt;
 
-6th-16th July 2020.
+6th-20th July 2020.
 
 <!-- md2toc -l 2 testing-with-cypress.md -->
 * [Introduction](#introduction)
@@ -32,7 +32,10 @@ Mike Taylor, Index Data. &lt;mike@indexdata.com&gt;
     * [The problem](#the-problem)
     * [Solutions](#solutions)
         * [Write tests not to make the same request twice](#write-tests-not-to-make-the-same-request-twice)
-        * [Have Yakbak proxy insert serial numbers into requests](#have-yakbak-proxy-insert-serial-numbers-into-requests)
+        * [Yakbak proxy inserts serial numbers into requests](#yakbak-proxy-inserts-serial-numbers-into-requests)
+        * [Yakbak proxy inserts serial numbers into duplicate requests](#yakbak-proxy-inserts-serial-numbers-into-duplicate-requests)
+        * [Excise `id` fields from POST requests](#excise-id-fields-from-post-requests)
+        * [Re-use tapes until the next write event](#re-use-tapes-until-the-next-write-event)
         * [Something cleverer that I've not thought of yet](#something-cleverer-that-ive-not-thought-of-yet)
 * [What next?](#what-next)
 
@@ -377,11 +380,21 @@ This approach ensures that each successive instance of the same request records 
 Experimentally, this works correctly. However, even this does not suffice to allow the recorded tests to pass due to another problem: when a new record is created, stripes-connect generates a random UUID and includes it as the `id` in the POSTed record. When running against recorded tapes, the generated `id` is different from when they were recorded, so the new-record POST response is not found.
 
 
-#### Excising `id` fields from POST requests
+#### Excise `id` fields from POST requests
 
 And so was born the `--exciseid` (`-x`) option (also in [v1.2.0 of yakbak-proxy](https://github.com/folio-org/yakbak-proxy/tree/v1.2.0)), When this is specified, the hash function modifies the body of POST requests (and _only_ POSTs, not PUTs), to remove the `id` field at the top level if it exists. This does not affect some POSTs -- e.g. the POST to `/bl-users/login` that is used to log in at the start of the session. But when the POST is used to create a new record, the specific ID chosen by stripes-connect is ignored for the purposes of creating the request's hash.
 
-And this seems to be enough for tests to record and pass correctly.
+This seems to be enough for tests to record and pass correctly. But it multiples tapes, as pefectly innocent requests like "give me all the course-types so I can populate the filter" are repeated over and over, and record numerous identical tapes. As a result, [at the time of writing](https://github.com/folio-org/ui-courses/tree/30853a28362d1b33a681795fdc1ee737c5608bc8/tapes) there are 176 tapes, including some that are repeated nine times.
+
+
+#### Re-use tapes until the next write event
+
+If we think of the accumulating set of tapes, in response to a given set of requests, as a cache, then we can consider cache invalidation strategies. The strategy in use as described in [the earlier section](#yakbak-proxy-inserts-serial-numbers-into-requests) amounts to "consider the cache as always invalid" -- hence each new request generates a new response, resulting in the many dupliate responses. A very smart strategy would understand all the different possible write operations in the Course Reserves app, and knew which writes invalidate which parts of the cache. However, experience teaches us that "smart" in a cache-invalidation strategy is a synonym for "error-prone" -- cache invalidation is after one of the [Two Hard Problems in computer science](https://martinfowler.com/bliki/TwoHardThings.html). So instead we can use the simplest possible strategy: _any_ write invalides _the entire cache_.
+
+So the strategy here is:
+* When request comes in for the first time, fetch it, cache the response and return in.
+* When it comes in subsequrntly, return the cached response.
+* When any POST, PUT or DELETE request is received, all cached responses are consider invalidated, a subsequent instance of a prevously cached request will result in its sequence number being incremented and a new back-end request being made.
 
 
 #### Something cleverer that I've not thought of yet

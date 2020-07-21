@@ -1,12 +1,12 @@
 var path = require("path");
 
 /**
- * OPTIONS /coursereserves/courses?
+ * OPTIONS /coursereserves/courses
  *
  * connection: keep-alive
  * host: folio-snapshot-okapi.aws.indexdata.com
  * proxy-connection: keep-alive
- * access-control-request-method: GET
+ * access-control-request-method: POST
  * origin: http://localhost:3001
  * sec-fetch-dest: empty
  * user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/4.10.0 Chrome/80.0.3987.165 Electron/8.3.1 Safari/537.36
@@ -14,7 +14,7 @@ var path = require("path");
  * accept: * / *
  * sec-fetch-site: same-site
  * sec-fetch-mode: cors
- * referer: http://localhost:3001/cr/courses/9ddc9cff-cdaa-4aec-9de6-907124893d4f?sort=name
+ * referer: http://localhost:3001/cr/courses/create?sort=name
  * accept-encoding: gzip
  * accept-language: en-GB
  */
@@ -22,7 +22,7 @@ var path = require("path");
 module.exports = function (req, res) {
   res.statusCode = 200;
 
-  res.setHeader("date", "Fri, 17 Jul 2020 18:54:00 GMT");
+  res.setHeader("date", "Tue, 21 Jul 2020 00:30:56 GMT");
   res.setHeader("content-length", "0");
   res.setHeader("connection", "keep-alive");
   res.setHeader("access-control-allow-origin", "*");
