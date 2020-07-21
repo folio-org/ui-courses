@@ -88,7 +88,57 @@ describe('ui-courses: course creation, editing and deletion', () => {
       cy.contains('Trinity 2020')
       cy.contains('Main Library')
     })
-    it('can be edited', () => {
+    it('adds instructors', () => {
+      // No plugin available in unit test, so we have to enter by hand
+      cy.contains('0 instructors')
+      cy.contains('Edit instructor').should('not.exist')
+      cy.get('#clickable-add-instructor').click()
+      cy.get('#edit-instructor-name').type('Hillare Belloc')
+      cy.get('#edit-instructor-barcode').type('12345')
+      cy.get('#clickable-update-course').click()
+
+      cy.contains('1 instructor')
+      cy.contains('Edit instructor')
+      cy.contains('12345')
+      cy.get('#clickable-add-instructor').click()
+      cy.get('#edit-instructor-name').type('G. K. Chesterton')
+      cy.get('#edit-instructor-barcode').type('67890')
+      cy.get('#clickable-update-course').click()
+
+      cy.contains('2 instructors')
+      cy.contains('G. K. Chesterton')
+      cy.contains('67890')
+    })
+    it('edits an instructor', () => {
+      // IDs are numbered from 0; #1 is second, which is Belloc by alpha-sorting
+      cy.get('#clickable-edit-instructor-1').click()
+      // XXX should work, does but not: cy.contains('Hillare Belloc')
+      // XXX should work, does but not: cy.contains('12345')
+      cy.get('#edit-instructor-name').clear().type('George Bernard Shaw')
+      cy.get('#edit-instructor-barcode').clear().type('13579')
+      cy.get('#clickable-update-course').click()
+
+      cy.contains('2 instructors')
+      cy.contains('George Bernard Shaw')
+      cy.contains('13579')
+      cy.contains('Hillare Belloc').should('not.exist')
+      cy.contains('12345').should('not.exist')
+    })
+    it('deletes the instructors', () => {
+      cy.get('#clickable-remove-instructor-0').click()
+      // Chesterton should be gone as he is alphatically first
+      cy.contains('1 instructor')
+      cy.contains('George Bernard Shaw')
+      cy.contains('13579')
+      cy.contains('G. K. Chesterton').should('not.exist')
+      cy.contains('12345').should('not.exist')
+
+      cy.get('#clickable-remove-instructor-0').click()
+      cy.contains('0 instructors')
+      cy.contains('George Bernard Shaw').should('not.exist')
+      cy.contains('13579').should('not.exist')
+    })
+    it('edits the record', () => {
       cy.get('#clickable-edit-course').click()
       // Change a field from the course itself and one from the listing
       cy.get('#edit-course-name').clear().type('Aardvark husbandry')
@@ -108,7 +158,7 @@ describe('ui-courses: course creation, editing and deletion', () => {
       cy.contains('Trinity 2020')
       cy.contains('Main Library')
     })
-    it('can be deleted', () => {
+    it('deletes the record', () => {
       cy.get('#clickable-edit-course').click()
       cy.contains('Really delete').should('not.exist')
       cy.get('#clickable-delete-course').click()
