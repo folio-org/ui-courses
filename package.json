@@ -14,7 +14,7 @@
     "regenerate": "stripes serve --port 3001 --okapi http://localhost:3002 & pid1=$! && rm -rf tapes && env LOGCAT=startup yakbak-proxy -i -x https://folio-snapshot-okapi.aws.indexdata.com & pid2=$! && wait-on http://localhost:3001 && cypress run; kill $pid1 $pid2",
     "coverage-summary": "nyc report --reporter=text-summary",
     "coverage": "nyc report --reporter=text",
-    "lsof": "for i in 3000 3001 3002; do lsof -P -i :$i; done",
+    "lsof": "lsof -P -i :3001 -i :3002 || true",
     "lint": "eslint .",
     "fix": "test -f node_modules/@babel/plugin-proposal-decorators/package.json || yarn add --dev @cypress/code-coverage",
     "postinstall-and-test": "yarn fix && yarn test"
