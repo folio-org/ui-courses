@@ -46,3 +46,6 @@ describe('ui-courses: reserves searching', () => {
     })
   })
 })
+
+
+// Editing reserves is handled in 02-courses.js
