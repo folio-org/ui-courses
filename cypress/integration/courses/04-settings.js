@@ -5,42 +5,74 @@ describe('ui-courses: settings', () => {
     cy.get('[aria-label=Settings]').contains('Courses').click() // Is there really no better way?
   })
 
-  describe('manages course types', () => {
-    it('lists course types', () => {
-      cy.contains('Course Types').click()
-      cy.contains('No online component')
-      cy.contains('All in-person').should('not.exist') // will add later
-      cy.contains('No in-person component')
-      cy.contains('Both online and in-person components')
-    })
-    it('edits a course type', () => {
-      // Edit but cancal
-      cy.get('#clickable-edit-coursetypes-0').click()
-      cy.get('[aria-label="Description 0"]').clear().type('All in-person')
-      cy.get('#clickable-cancel-coursetypes-0').click()
-      cy.contains('All in-person').should('not.exist')
-      cy.contains('No online component')
+  function describeTests(descriptor) {
+    const { singular, plural, settingsName, id, initialDescription, newDescription, newName, secondDescription } = descriptor
 
-      // Edit and save
-      cy.get('#clickable-edit-coursetypes-0').click()
-      cy.get('[aria-label="Description 0"]').clear().type('All in-person')
-      cy.get('#clickable-save-coursetypes-0').click()
-      cy.contains('All in-person')
-      cy.contains('No online component').should('not.exist')
+    describe(`manages ${plural}`, () => {
+      it('lists course types', () => {
+        cy.contains(settingsName).click()
+        cy.contains(initialDescription)
+        cy.contains(newDescription).should('not.exist') // will add later
+        cy.contains(secondDescription)
+      })
+      it(`edits a ${singular}`, () => {
+        // Edit but cancal
+        cy.get(`#clickable-edit-${id}-0`).click()
+        cy.get('[aria-label="Description 0"]').clear().type(newDescription)
+        cy.get(`#clickable-cancel-${id}-0`).click()
+        cy.contains(newDescription).should('not.exist')
+        cy.contains(initialDescription)
 
-      // Revert
-      cy.get('#clickable-edit-coursetypes-0').click()
-      cy.get('[aria-label="Description 0"]').clear().type('No online component')
-      cy.get('#clickable-save-coursetypes-0').click()
-      cy.contains('All in-person').should('not.exist')
-      cy.contains('No online component')
+        // Edit and save
+        cy.get(`#clickable-edit-${id}-0`).click()
+        cy.get('[aria-label="Description 0"]').clear().type(newDescription)
+        cy.get(`#clickable-save-${id}-0`).click()
+        cy.contains(newDescription)
+        cy.contains(initialDescription).should('not.exist')
+
+        // Revert
+        cy.get(`#clickable-edit-${id}-0`).click()
+        cy.get('[aria-label="Description 0"]').clear().type(initialDescription)
+        cy.get(`#clickable-save-${id}-0`).click()
+        cy.contains(newDescription).should('not.exist')
+        cy.contains(initialDescription)
+      })
+      it(`adds and deletes a ${singular}`, () => {
+        cy.get(`#clickable-add-${id}`).click()
+        cy.get('[aria-label="Name 0"]').type(`AAA ${newName}`) // force to top
+        cy.get('[aria-label="Description 0"]').clear().type(newDescription)
+        cy.get(`#clickable-save-${id}-0`).click()
+        cy.contains(newDescription)
+        cy.contains(initialDescription)
+
+        cy.get(`#clickable-delete-${id}-0`).click()
+        cy.contains('will be deleted')
+        cy.get('#clickable-delete-controlled-vocab-entry-confirmation-confirm').click()
+        cy.contains(newDescription).should('not.exist')
+        cy.contains(initialDescription)
+      })
     })
-    it('adds and deletes a course type', () => {
-      expect(true).not.to.equal(false) // More to do here
-    })
+  }
+
+  // Testing terms is more complicated due to the datepickers; skip for now
+  describeTests({
+    singular: 'course type',
+    plural: 'course types',
+    settingsName: 'Course Types',
+    id: 'coursetypes',
+    initialDescription: 'No online component',
+    newDescription: 'All in-person',
+    newName: 'Colocated',
+    secondDescription: 'No in-person component',
   })
-
-  // We COULD add similar code for terms, course departments,
-  // processing statuses and copyright statuses, but the extra level
-  // of checking would not really merit the additional work
+  describeTests({
+    singular: 'course department',
+    plural: 'course departments',
+    settingsName: 'Course Departments',
+    id: 'departments',
+    initialDescription: 'Including geology, petrology and palaeontology',
+    newDescription: 'The study of the planet',
+    newName: 'Geology',
+    secondDescription: 'Including both pure and applied maths',
+  })
 })
