@@ -30,6 +30,7 @@ describe('ui-courses: tab navigation', () => {
       cy.get('#clickable-login').click()
       // Login can be too slow for the default 4-second timeout
       cy.contains('Welcome', { timeout: 10000 })
+      cy.wait(1000) // Otherwise sometimes the app button becomes detached from the DOM
     })
 
     it('should open app and see selected Course Reserves tab', () => {
