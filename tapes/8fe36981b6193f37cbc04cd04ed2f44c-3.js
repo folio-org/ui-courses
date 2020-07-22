@@ -8,14 +8,14 @@ var path = require("path");
  * proxy-connection: keep-alive
  * origin: http://localhost:3001
  * x-okapi-tenant: diku
- * x-okapi-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaWt1X2FkbWluIiwidXNlcl9pZCI6ImI4YTNmODAxLThlN2MtNTQ4ZS1hYjAzLWIzNWIyZWRkOTI3NiIsImlhdCI6MTU5NTM4NjA4NCwidGVuYW50IjoiZGlrdSJ9.OK4gSnaVO_1dN9PDNRdzk2LuT9yDVvXAuob5krFEYOo
+ * x-okapi-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaWt1X2FkbWluIiwidXNlcl9pZCI6Ijk1ZmM0NTBiLTIwYjItNTBkNy1hM2RjLThiYjM0NGFmZTk1MyIsImlhdCI6MTU5NTQyNTA5OCwidGVuYW50IjoiZGlrdSJ9.aHj-rxp-mOr098lh3N69WV5hM_yWQTaIvDvCbb433No
  * user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/4.11.0 Chrome/80.0.3987.165 Electron/8.3.1 Safari/537.36
  * content-type: application/json
  * accept: application/json
  * sec-fetch-dest: empty
  * sec-fetch-site: same-site
  * sec-fetch-mode: cors
- * referer: http://localhost:3001/cr/courses/2a8125a3-2ab4-4e5a-a5c3-bc8d1da0f7dc/edit
+ * referer: http://localhost:3001/cr/courses/b5d06488-418f-4c65-a440-4f2613619e6d/edit
  * accept-encoding: gzip
  * accept-language: en-GB
  */
@@ -23,18 +23,18 @@ var path = require("path");
 module.exports = function (req, res) {
   res.statusCode = 200;
 
-  res.setHeader("date", "Wed, 22 Jul 2020 02:49:24 GMT");
+  res.setHeader("date", "Wed, 22 Jul 2020 13:39:37 GMT");
   res.setHeader("content-type", "application/json");
   res.setHeader("transfer-encoding", "chunked");
   res.setHeader("connection", "keep-alive");
   res.setHeader("access-control-allow-origin", "*");
   res.setHeader("access-control-expose-headers", "location,X-Okapi-Trace,X-Okapi-Token,Authorization,X-Okapi-Request-Id,X-Okapi-Module-Id");
-  res.setHeader("x-okapi-trace", "GET mod-authtoken-2.6.0-SNAPSHOT.73 http://10.36.1.174:9178/coursereserves/terms.. : 202 6734us, GET mod-courses-1.0.6-SNAPSHOT.95 http://10.36.1.174:9157/coursereserves/terms.. : 200 2645us");
+  res.setHeader("x-okapi-trace", "GET mod-authtoken-2.6.0-SNAPSHOT.73 http://10.36.1.55:9178/coursereserves/terms.. : 202 7137us, GET mod-courses-1.0.6-SNAPSHOT.95 http://10.36.1.55:9157/coursereserves/terms.. : 200 2799us");
   res.setHeader("content-encoding", "gzip");
 
   res.setHeader("x-yakbak-tape", path.basename(__filename, ".js"));
 
-  res.write(new Buffer("H4sIAAAAAAAAAKSTPU8DMQyG9/6K6FZqlDhfTWcGFhbUDTE4l5w4qdeiaxhQ1f+O70pBulKBSoZI9pvXcR7F+5kQVcl9t6vEUjyJPcecadMQVkQ2UGoaCBkjGK8TLDgBEaOVLhpvCav50bKhLo+m+3ZN/btAifKk7Qr15Y7K8cCggFSgwknPmzRRNShzUrtcKFGhQT72x8m6z+yY2jygWkm91HZp3a315kby+izErrfX9HfXaDrwfphPuDTBK8RgAKX2YEzjYSGd4zKOcrCyRlefcVn17aYtv4Phqu4yGL5E/huMw8UVYL5cl8HUSeXocwL0/A4THUEYECXfKLLaqsbFMzAPbf1Ced3Rjtl8f4opGxVASVD6ZzaDitzx/9noq9joMzbieT4O17bQ+jHX2z6NM6Znhw8AAAD//wMA4e21hXUDAAA=", "base64"));
+  res.write(new Buffer("H4sIAAAAAAAAAKSTsU7DMBCG9z6FlZUess+OXXdmYGFB3RDDOXbUSEmLUjOgqu/OJaUgpVSg1oOlu9//+fzJt58JUeTUd7tCLMWL2HPMmSYOYUFUeop1DT5hAON0hAUnIGAopQ3GlYTF/GjZUJdG02PTUv8hUKI8abtMfX6gfDwwKCAVKH/S0yZOVA3KnNQuZYqUaZCP/XGy6hM7pjYHiCuplwaXxtyXuryTvL4Ksev9Lf7fNZoOvB/mEy61dwrRG0CpHRhTO1hIawGVpeRLWaGtzris+mbT5L/BcFV7GQxfIm8GY6W9Asy36zKYKqoUXIqAjt9hgiXwA6LoakUMVtU2nIF5aqo1pbajHbP5+RRTNsqDkqD072wGFbnj29moq9ioMzbidT4O1zZT+5yqbR/HGdOzwycAAAD//wMAisxd2nUDAAA=", "base64"));
   res.end();
 
   return __filename;

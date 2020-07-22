@@ -14,7 +14,7 @@ var path = require("path");
  * accept: * / *
  * sec-fetch-site: same-site
  * sec-fetch-mode: cors
- * referer: http://localhost:3001/cr/reserves/1c8edbab-ab5b-4d56-a396-0bc48cde3a3a/2a8125a3-2ab4-4e5a-a5c3-bc8d1da0f7dc/6601c6ca-e252-484f-b39b-90e222225326/7212ba6a-8dcf-45a1-be9a-ffaa847c4423/edit
+ * referer: http://localhost:3001/cr/reserves/cf3e8181-67c3-4653-9eec-db2c54ed49f5/b5d06488-418f-4c65-a440-4f2613619e6d/5ad0e9c4-586c-4365-a55b-f2042677d606/7212ba6a-8dcf-45a1-be9a-ffaa847c4423/edit
  * accept-encoding: gzip
  * accept-language: en-GB
  */
@@ -22,7 +22,7 @@ var path = require("path");
 module.exports = function (req, res) {
   res.statusCode = 200;
 
-  res.setHeader("date", "Wed, 22 Jul 2020 02:49:14 GMT");
+  res.setHeader("date", "Wed, 22 Jul 2020 13:39:26 GMT");
   res.setHeader("content-length", "0");
   res.setHeader("connection", "keep-alive");
   res.setHeader("access-control-allow-origin", "*");
