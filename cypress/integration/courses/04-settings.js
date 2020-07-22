@@ -54,7 +54,10 @@ describe('ui-courses: settings', () => {
     })
   }
 
-  // Testing terms is more complicated due to the datepickers; skip for now
+  // Testing terms is more complicated due to absence of a description
+  // field and the use of datepickers for start-date and end-date;
+  // skip for now.
+
   describeTests({
     singular: 'course type',
     plural: 'course types',
@@ -65,6 +68,7 @@ describe('ui-courses: settings', () => {
     newName: 'Colocated',
     secondDescription: 'No in-person component',
   })
+
   describeTests({
     singular: 'course department',
     plural: 'course departments',
@@ -74,5 +78,27 @@ describe('ui-courses: settings', () => {
     newDescription: 'The study of the planet',
     newName: 'Geology',
     secondDescription: 'Including both pure and applied maths',
+  })
+
+  describeTests({
+    singular: 'processing status',
+    plural: 'processing statuses',
+    settingsName: 'Processing Statuses',
+    id: 'processingstatuses',
+    initialDescription: 'Received but not yet catalogued',
+    newDescription: 'Being catalogued right now',
+    newName: 'Pending',
+    secondDescription: 'Ordered, but not yet available',
+  })
+
+  describeTests({
+    singular: 'copyright status',
+    plural: 'copyright statuses',
+    settingsName: 'Copyright Statuses',
+    id: 'copyrightstatuses',
+    initialDescription: 'Patron may not copy at all',
+    newDescription: 'Actively blocking the progress of scholarship',
+    newName: 'Elsevier license',
+    secondDescription: 'Creative Commons attribution license',
   })
 })
