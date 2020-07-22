@@ -42,4 +42,11 @@ Cypress.Commands.add('login', (username, password) => {
   cy.get('#clickable-login').click()
   // Login can be too slow for the default 4-second timeout
   cy.contains('Welcome', { timeout: 10000 })
+
+  // There seems to be a race condition here: sometimes there is
+  // re-render that happens so quickly that following actions like
+  //       cy.get('#app-list-item-clickable-courses-module').click()
+  // fail because the button becomes detached from the DOM after the
+  // get() but before the click().
+  cy.wait(1000)
 })
