@@ -89,7 +89,9 @@ describe('ui-courses: course creation, editing and deletion', () => {
       cy.contains('Trinity 2020')
       cy.contains('Main Library')
     })
+  })
 
+  describe('manages instructors', () => {
     it('adds instructors', () => {
       // No plugin available in unit test, so we have to enter by hand
       cy.contains('0 instructors')
@@ -142,7 +144,9 @@ describe('ui-courses: course creation, editing and deletion', () => {
       cy.contains('George Bernard Shaw').should('not.exist')
       cy.contains('13579').should('not.exist')
     })
+  })
 
+  describe('manages reserved items', () => {
     it('adds reserved items', () => {
       cy.contains('Enter or scan barcode')
       cy.get('#add-item-barcode').type('4539876054383')
@@ -202,7 +206,9 @@ describe('ui-courses: course creation, editing and deletion', () => {
       cy.get('#clickable-remove-reserve-0').click()
       cy.contains('A semantic web primer').should('not.exist')
     })
+  })
 
+  describe('edits and deletes course', () => {
     it('edits the record', () => {
       cy.get('#clickable-edit-course').click()
       // Change a field from the course itself and one from the listing
