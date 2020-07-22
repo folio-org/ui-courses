@@ -75,6 +75,7 @@ describe('ui-courses: course creation, editing and deletion', () => {
       cy.get('#clickable-reset-all').click()
       cy.contains('Aardvark breeding')
     })
+
     it('has expected contents', () => {
       cy.contains('Aardvark breeding').click()
       cy.contains('Aardvark breeding')
@@ -88,6 +89,7 @@ describe('ui-courses: course creation, editing and deletion', () => {
       cy.contains('Trinity 2020')
       cy.contains('Main Library')
     })
+
     it('adds instructors', () => {
       // No plugin available in unit test, so we have to enter by hand
       cy.contains('0 instructors')
@@ -95,7 +97,7 @@ describe('ui-courses: course creation, editing and deletion', () => {
       cy.get('#clickable-add-instructor').click()
       cy.get('#edit-instructor-name').type('Hillare Belloc')
       cy.get('#edit-instructor-barcode').type('12345')
-      cy.get('#clickable-update-course').click()
+      cy.get('#clickable-update-instructor').click()
 
       cy.contains('1 instructor')
       cy.contains('Edit instructor')
@@ -103,12 +105,13 @@ describe('ui-courses: course creation, editing and deletion', () => {
       cy.get('#clickable-add-instructor').click()
       cy.get('#edit-instructor-name').type('G. K. Chesterton')
       cy.get('#edit-instructor-barcode').type('67890')
-      cy.get('#clickable-update-course').click()
+      cy.get('#clickable-update-instructor').click()
 
       cy.contains('2 instructors')
       cy.contains('G. K. Chesterton')
       cy.contains('67890')
     })
+
     it('edits an instructor', () => {
       // IDs are numbered from 0; #1 is second, which is Belloc by alpha-sorting
       cy.get('#clickable-edit-instructor-1').click()
@@ -116,7 +119,7 @@ describe('ui-courses: course creation, editing and deletion', () => {
       // XXX should work, does but not: cy.contains('12345')
       cy.get('#edit-instructor-name').clear().type('George Bernard Shaw')
       cy.get('#edit-instructor-barcode').clear().type('13579')
-      cy.get('#clickable-update-course').click()
+      cy.get('#clickable-update-instructor').click()
 
       cy.contains('2 instructors')
       cy.contains('George Bernard Shaw')
@@ -124,9 +127,10 @@ describe('ui-courses: course creation, editing and deletion', () => {
       cy.contains('Hillare Belloc').should('not.exist')
       cy.contains('12345').should('not.exist')
     })
+
     it('deletes the instructors', () => {
       cy.get('#clickable-remove-instructor-0').click()
-      // Chesterton should be gone as he is alphatically first
+      // Chesterton should be gone as he is alphabetically first
       cy.contains('1 instructor')
       cy.contains('George Bernard Shaw')
       cy.contains('13579')
@@ -138,12 +142,74 @@ describe('ui-courses: course creation, editing and deletion', () => {
       cy.contains('George Bernard Shaw').should('not.exist')
       cy.contains('13579').should('not.exist')
     })
+
+    it('adds reserved items', () => {
+      cy.contains('Enter or scan barcode')
+      cy.get('#add-item-barcode').type('4539876054383')
+      cy.get('#clickable-add-item').click()
+      cy.contains("Bridget Jones's Baby: the diaries")
+      cy.contains('Fielding, Helen')
+      cy.contains('PR6056.I4588') // from copiedItem
+      cy.contains('Annex') // from copiedItem.permanentLocationObject
+      cy.contains('Main Library') // from temporaryLocation object
+
+      // This time we'll do it by hitting Return instead of clicking
+      cy.get('#add-item-barcode').type('10101{enter}')
+      cy.contains('A semantic web primer')
+      cy.contains('Antoniou, Grigoris')
+      cy.contains('TK5105.88815') // from copiedItem
+      cy.contains('Links available').should('have.attr', 'href', 'http://www.loc.gov/catdir/toc/ecip0718/2007020429.html')
+    })
+
+    it('edits a reserve', () => {
+      cy.get('#clickable-edit-reserve-0').click() // 0 is the 1st link
+      cy.contains('A semantic web primer') // Check we're in the right record
+      cy.contains('AB101: Aardvark breeding (Earth Sciences)') // And associated with the right course
+      cy.get('#edit-reserve-temporary-location').select('ORWIG ETHNO CD')
+      cy.get('#edit-reserve-temporary-loan-type').select('Reading room')
+      cy.get('#edit-reserve-processing-status').select('Recalled')
+      cy.get('#edit-reserve-start-date').click()
+      // We can't know what month will show when the test is run, but
+      // we can ensure that we choose the 25th of that month
+      cy.get('#datepicker-choose-date-button-25-edit-reserve-start-date').click()
+      cy.get('#edit-reserve-copyright-additional').click()
+      cy.get('#edit-reserve-copyright-status').select('Public domain')
+      cy.get('#edit-reserve-copyright-total-pages').type('567')
+      cy.get('#edit-reserve-copyright-pages-used').type('42')
+      cy.get('#edit-reserve-copyright-percentage-used').type('7%')
+      cy.get('#edit-reserve-copyright-payment-basis').type('sheer guesswork')
+      cy.get('#clickable-update-reserve').click()
+
+      // Now check that we've got all the new fields we expected
+      cy.contains('ORWIG ETHNO CD')
+      cy.contains('Reading room')
+      cy.contains('Recalled')
+      // XXX Next test disabled for now, as a probable timezone error means we sometimes get an off-by-one
+      // cy.contains('/25/20') // Date on 25th day of some month in 1st Century of the 2000s
+      cy.contains('Yes') // Additional sections of this item used
+      cy.contains('Public domain')
+      cy.contains('567')
+      cy.contains('42')
+      cy.contains('7%')
+      cy.contains('sheer guesswork')
+    })
+
+    it('deletes the reserves', () => {
+      cy.get('#clickable-remove-reserve-1').click()
+      cy.contains("Bridget Jones's Baby: the diaries").should('not.exist')
+      cy.contains('A semantic web primer')
+
+      cy.get('#clickable-remove-reserve-0').click()
+      cy.contains('A semantic web primer').should('not.exist')
+    })
+
     it('edits the record', () => {
       cy.get('#clickable-edit-course').click()
       // Change a field from the course itself and one from the listing
       cy.get('#edit-course-name').clear().type('Aardvark husbandry')
       cy.get('#edit-course-registrar').clear().type('sAB101')
       cy.get('#clickable-update-course').click()
+
       // This leaves us on the view-record page
       cy.contains('Aardvark husbandry')
       cy.contains('Aardvark breeding').should('not.exist')
@@ -158,6 +224,7 @@ describe('ui-courses: course creation, editing and deletion', () => {
       cy.contains('Trinity 2020')
       cy.contains('Main Library')
     })
+
     it('deletes the record', () => {
       cy.get('#clickable-edit-course').click()
       cy.contains('Really delete').should('not.exist')
