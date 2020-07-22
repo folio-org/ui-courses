@@ -15,6 +15,7 @@
     "coverage-summary": "nyc report --reporter=text-summary",
     "coverage": "nyc report --reporter=text",
     "lsof": "lsof -P -i :3001 -i :3002 || true",
+    "kill": "yarn lsof | awk '{print $2}' | egrep '^[0-9]+$' | xargs kill",
     "lint": "eslint .",
     "fix": "test -f node_modules/@babel/plugin-proposal-decorators/package.json || yarn add --dev @cypress/code-coverage",
     "postinstall-and-test": "yarn fix && yarn test"
