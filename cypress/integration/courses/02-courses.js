@@ -1,5 +1,5 @@
 describe('ui-courses: course searching', () => {
-  it('logs in and navigates to Course Reserves', () => {
+  before('logs in and navigates to Course Reserves', () => {
     cy.login('diku_admin', 'admin')
     cy.get('#app-list-item-clickable-courses-module').click()
   })
@@ -52,7 +52,7 @@ describe('ui-courses: course searching', () => {
 
 
 describe('ui-courses: course creation, editing and deletion', () => {
-  it('logs in and navigates to Course Reserves', () => {
+  before('logs in and navigates to Course Reserves', () => {
     cy.login('diku_admin', 'admin')
     cy.get('#app-list-item-clickable-courses-module').click()
   })
