@@ -61,7 +61,7 @@ class InstructorForm extends React.Component {
           <Button
             buttonStyle="primary mega"
             disabled={pristine || submitting}
-            id="clickable-update-course"
+            id="clickable-update-instructor"
             marginBottom0
             onClick={handleSubmit}
             type="submit"
