@@ -60,7 +60,7 @@ class ReserveForm extends React.Component {
           <Button
             buttonStyle="primary mega"
             disabled={pristine || submitting}
-            id="clickable-update-course"
+            id="clickable-update-reserve"
             marginBottom0
             onClick={handleSubmit}
             type="submit"
