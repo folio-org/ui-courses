@@ -4,7 +4,7 @@ describe('ui-courses: course searching', () => {
     cy.get('#app-list-item-clickable-courses-module').click()
   })
 
-  describe('searches and sorts', () => {
+  describe('searches and sorts courses', () => {
     describe('performs a search and sort', () => {
       it('searches', () => {
         cy.get('#input-courses-search').type('calcu')
@@ -25,7 +25,7 @@ describe('ui-courses: course searching', () => {
     })
   })
 
-  describe('inspects a single record', () => {
+  describe('inspects a single course', () => {
     it('finds the record', () => {
       // Here we check parts of the record that should have been drawn
       // in from various different back-end objects (departments,
@@ -57,7 +57,7 @@ describe('ui-courses: course creation, editing and deletion', () => {
     cy.get('#app-list-item-clickable-courses-module').click()
   })
 
-  describe('creates a new record', () => {
+  describe('creates a new course', () => {
     it('creates the record', () => {
       cy.contains('Aardvark breeding').should('not.exist')
       cy.get('#clickable-new-course').click()
