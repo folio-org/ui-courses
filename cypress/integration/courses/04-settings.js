@@ -10,6 +10,7 @@ describe('ui-courses: settings', () => {
 
     describe(`manages ${plural}`, () => {
       it(`lists ${plural}`, () => {
+        cy.wait(1000) // attempt to circumvent race condition causing Unsaved Changes modal
         cy.contains(settingsName).click()
         cy.contains(initialDescription)
         cy.contains(newDescription).should('not.exist') // will add later
