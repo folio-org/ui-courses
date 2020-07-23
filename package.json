@@ -10,7 +10,7 @@
     "start": "stripes serve --port 3001",
     "test-running-service": "cypress run",
     "test-new-ui": "stripes serve --port 3001 & wait-on http://localhost:3001 && cypress run; kill $!",
-    "test": "env NODE_ENV=test stripes serve --coverage --port 3001 --okapi http://localhost:3002 & pid1=$! && env LOGCAT=startup yakbak-proxy -i -x -n & pid2=$! && wait-on http://localhost:3001 && cypress run; kill $pid1 $pid2",
+    "test": "stripes serve --coverage --port 3001 --okapi http://localhost:3002 & pid1=$! && env LOGCAT=startup yakbak-proxy -i -x -n & pid2=$! && wait-on http://localhost:3001 && cypress run; kill $pid1 $pid2",
     "regenerate": "stripes serve --port 3001 --okapi http://localhost:3002 & pid1=$! && rm -rf tapes && env LOGCAT=startup yakbak-proxy -i -x https://folio-snapshot-okapi.aws.indexdata.com & pid2=$! && wait-on http://localhost:3001 && cypress run; kill $pid1 $pid2",
     "coverage-summary": "nyc report --reporter=text-summary",
     "coverage": "nyc report --reporter=text",
