@@ -9,7 +9,7 @@ describe('ui-courses: settings', () => {
     const { singular, plural, settingsName, id, initialDescription, newDescription, newName, secondDescription } = descriptor
 
     describe(`manages ${plural}`, () => {
-      it('lists course types', () => {
+      it(`lists ${plural}`, () => {
         cy.contains(settingsName).click()
         cy.contains(initialDescription)
         cy.contains(newDescription).should('not.exist') // will add later
