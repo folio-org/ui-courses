@@ -4,7 +4,7 @@ describe('ui-courses: course searching', () => {
     cy.get('#app-list-item-clickable-courses-module').click()
   })
 
-  describe('searches and sorts courses', () => {
+  describe.only('searches and sorts courses', () => {
     describe('performs a search and sort', () => {
       it('searches', () => {
         cy.get('#input-courses-search').type('calcu')
@@ -21,6 +21,37 @@ describe('ui-courses: course searching', () => {
         cy.get('[data-row-index="row-0"]').contains('Calculus 101')
         cy.get('[data-row-index="row-1"]').contains('Calculus 301')
         cy.get('[data-row-index="row-2"]').contains('Calculus 201')
+      })
+    })
+    describe('filter records', () => {
+      it('resets', () => {
+        cy.get('#clickable-reset-all').click()
+        cy.contains('5 records found')
+      })
+      it('filters by department', () => {
+        cy.get('#accordion-toggle-button-departments').click()
+        cy.get('#multiselect-2').click()
+        cy.contains('div[data-test-selection-option-segment="true"]', 'Mathematics').click()
+        cy.get('#accordion-toggle-button-departments').click()
+        cy.contains('4 records found')
+      })
+      it('filters by course type', () => {
+        cy.get('#accordion-toggle-button-coursetypes').click()
+        cy.get('#multiselect-4').click()
+        cy.contains('div[data-test-selection-option-segment="true"]', /^Online$/).click()
+        cy.contains('div[data-test-selection-option-segment="true"]', /^In person$/).click()
+        cy.get('#accordion-toggle-button-coursetypes').click()
+        cy.contains('2 records found')
+      })
+      it('filters by term', () => {
+        cy.get('#accordion-toggle-button-terms').click()
+        cy.get('#multiselect-6').click()
+        cy.contains('div[data-test-selection-option-segment="true"]', /Michaelmas/).click()
+        cy.get('#accordion-toggle-button-terms').click()
+        cy.contains('1 record found')
+      })
+      it('filters by location', () => {
+        // We can't really do anything here as all the sample courses have location=Annex
       })
     })
   })
