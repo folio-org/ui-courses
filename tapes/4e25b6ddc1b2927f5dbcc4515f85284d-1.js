@@ -6,36 +6,35 @@ var path = require("path");
  * connection: keep-alive
  * host: folio-snapshot-okapi.aws.indexdata.com
  * proxy-connection: keep-alive
- * accept: application/json
- * x-okapi-tenant: diku
- * x-okapi-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaWt1X2FkbWluIiwidXNlcl9pZCI6ImRhMzkwNTRmLTdjNGUtNTZhZS1iYTNjLWY2MDUwYzFhZWEyYSIsImlhdCI6MTU5NTYwOTgwMSwidGVuYW50IjoiZGlrdSJ9.3heHwaX1xIdKrzffWI8sDyjGaQq3dy25p9D8N-tIRSI
- * user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36
- * content-type: application/json
  * origin: http://localhost:3001
+ * x-okapi-tenant: diku
+ * x-okapi-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaWt1X2FkbWluIiwidXNlcl9pZCI6ImRhMzkwNTRmLTdjNGUtNTZhZS1iYTNjLWY2MDUwYzFhZWEyYSIsImlhdCI6MTU5NTYyNTM4NCwidGVuYW50IjoiZGlrdSJ9.t371K2r-2Rqkuyn5uSJLLpqqFdkL-VX0emGdhlU5pWI
+ * user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/4.11.0 Chrome/80.0.3987.165 Electron/8.3.1 Safari/537.36
+ * content-type: application/json
+ * accept: application/json
+ * sec-fetch-dest: empty
  * sec-fetch-site: same-site
  * sec-fetch-mode: cors
- * sec-fetch-dest: empty
- * referer: http://localhost:3001/cr/courses/83034b0a-bf71-4495-b642-2e998f721e5d?query=calcu&sort=courseNumber%2Cname
+ * referer: http://localhost:3001/cr/reserves/1049e672-dcde-4c7c-b95b-edf9f60c6cbd/0/83d1901e-9727-4ee1-8fb1-35045e9230b2/d6f7c1ba-a237-465e-94ed-f37e91bc64bd/edit?sort=barcode%2Ctitle
  * accept-encoding: gzip
- * accept-language: en-GB,en-US;q=0.9,en;q=0.8
+ * accept-language: en-GB
  */
 
 module.exports = function (req, res) {
   res.statusCode = 200;
 
-  res.setHeader("date", "Fri, 24 Jul 2020 16:56:53 GMT");
+  res.setHeader("date", "Fri, 24 Jul 2020 21:17:27 GMT");
   res.setHeader("content-type", "application/json");
   res.setHeader("transfer-encoding", "chunked");
   res.setHeader("connection", "keep-alive");
   res.setHeader("access-control-allow-origin", "*");
   res.setHeader("access-control-expose-headers", "location,X-Okapi-Trace,X-Okapi-Token,Authorization,X-Okapi-Request-Id,X-Okapi-Module-Id");
-  res.setHeader("x-okapi-trace", "GET mod-authtoken-2.6.0-SNAPSHOT.73 http://10.36.1.43:9178/coursereserves/courses.. : 202 11311us, GET mod-courses-1.0.6-SNAPSHOT.96 http://10.36.1.43:9157/coursereserves/courses.. : 200 68157us");
+  res.setHeader("x-okapi-trace", "GET mod-authtoken-2.6.0-SNAPSHOT.73 http://10.36.1.43:9178/coursereserves/courses.. : 202 9840us, GET mod-courses-1.0.6-SNAPSHOT.96 http://10.36.1.43:9157/coursereserves/courses.. : 200 76200us");
   res.setHeader("content-encoding", "gzip");
 
   res.setHeader("x-yakbak-tape", path.basename(__filename, ".js"));
 
-  res.write(new Buffer("H4sIAAAAAAAAAOybS3PbRhLH7/4UKF6jseeNGd9kOVVRre24Vk7lsLWHefRIWIMECwS1ZlL+7tsQSQh8ySTjOHEtdNADmG5M9/T8+zdg6fdnWTYK1byewWyUvcz+lf2OV/BaEds/R875lCepiXXCEBlyTrzwjEjllKJ5LoV2o4ulycSN4cHoetLUVdZU2XtXOqgmTVVWt4v1sAizUBfTpqgmD6NvmnlcZFXK3CQUMGmyskjwOHjq6maMl6+XE2JKayNZIIoFIDLKQJyjllBwnHlKLZVu1/hn/x8ITetgGd5jgCf464f4Izq+y27aCQfMXDdgO7jrSSjnsZjcZrfwkIWLbAqYnfZXDDhm0z0pQj9jaFx0jetPuV2pGlwD8TV+e3DPKaeE5oTLD1S8lPQly59rq36g+NU5Q7v5NB6yY/ql4i8Ffy6EPWT3avHLDOrVCkQnLFUykTxIIEo7IN6JQJKmigbmMHFutHLx+eHn59V6LOvsTTFrMCHr9aTSgsayiiFCW2CBeKs8gZgsegw6+DjaZ//Ekh7vEo1quEWHtVuHB58aqCeuZOFxzPra1hDeG4L5uS8CTKuiK1XhJDWKRyJtwm8xceJYskQD15I5DZal/Q52Y3uM7iSv/ZK9KuqQvYbZx4z174cqLu+HuHE9FrNQ3UO9eF3MpqVbvOv7mZeuLfGlO0Kyn1xZ/tct+vbTInycT99Uwa03Q1PPoTfgrirjzR2U6cdP06JevIe6qOJmzO005nXnQFz072CeMGXdovwK8HE26gZ87j1p1riUbspiupK4fz/bGjMqV9Nc+VIiJKt0IoHFRCSjnhgPjvA85YyH4PLwuE0646dW7SSP/VW7nEzg0971+scvL66uXry+fnHZv13MLkNT3MOehBcT3DjNvBenpACUBkecYqjuXlrigTJCtTCROumCyjee7cbT+WxlrHlIufY5wdkrLEQhiOUsb7eZ5AGYM9L0jcvC4y5brFMcc2OoABIcle2jcRKAUsKDFt5yiRPyG+VUF2O0vlnukvftLjlrO8x6Dq7jqiCO87KnbrACx6uAksWF5FYSTkVOpEw5MVRrwhkqpEVl5LonF63hU/Vykrd+vXyoi0nRLLJW4Uebe6ButvQfvev+GJhsdwh8IB3tRL3U4Q+LKaxip0JR4DkjMXqsowiJOO0MwbaQZKLM+9RT3EfzpzJwks9+Bn6elMUEXlxPsNPWM1SOvqhttedXFXbx6sHgoRsXE7I0ykI1nlYTRIfZbvztRqrnoanqZQBrWfka3dtSfUo=", "base64"));
-  res.write(new Buffer("9961e6LzvpuPPdRLF1Kb9TNwT4Q2I53C31RlB2D7QjkuEGk2AzkujLXVs3UQny+2kFREJFJq0M4wT6QOKFo6CGJQP1yS0uHe+RKS+uJJJH2DBIq1kE1ruEM4qOoiZE0x7kBvD5amYBnjkoTIHZEJlcw6QGGjQptoqDU87ho/wTDH++uH+dY1dzDGbhSOYlLflv90Xi+L302nZQExQ/u7nvkfQVEjzirmzm7AyAEjB4wcMHLAyAEjB4xcB/63wki6lvsdjOxunM+Qmp/DkGurwwxJJTjRFgTIFq8AZctbE1GDpMxBJOvULkNeuRI71nyGm6ILbbsSLuO9mwSEqFikBDUufLFsccuyaOB21YcGkDylnL8dSAZIikPyxItWwqWixFpNCcvxV66dtR3fHAuSJ7h8CiQf+9hBkOwNGUByAMkBJP+PQdI5ZV1MiVjgnshcRGLwAvHcK6q9zJXjx4PkSd769fJTUWKajuJIRph9miMFYfIIjrRMSSqNJ0JbLCMOAQsKqyqkAD5h76dWnsqRJ/ncfPN0BEC+q9b42AHjt+VFY+VZDbazO44XdW7sn/zaMafnIOPa6jAy5lwK5VXA845FeaES5cULR1SOAsGTsuDX1bsHGcVhZPy1+M3VkZRwD+WAjd8pNg7vH/c4GLDxcRoDNg7Y+D1g4/D+cXj/+BU67zd6/8iEyjvq+nN40qhzeHJtdZgnjaBCeuqIR+nErYFQ6bXkhIO1JuWcgeqIYZcn2WGefOVmRRhA8jsFyUCFD96JViUonjMVI14w3fYy1AoOOvGT3z8e7/IpkPwyRw4YOWDkgJEDRi63D/gcIi7pQ0DaEdsiYMwTc0oolnTvw4ovYeRJ3jbaSBHuHJRj9/Ch3cbbxW2SZJYwSpg4TJLtCI4KfwRJJoVFA2CIZyZgr+OeeBrQ3tNkRTQqp73wjyPJk3zukuQXXj/uQcajiXF3rhxwizueiPXRYsuRkfiA6KvzpBLXBqLf7KWP/17QEp1hDIjILWpDoBa1AWN11FETrEwgDmhDdOPZRXZ1V2P/ctnlpkz8oU774GM/PhwFEOY5FTsAcRRC9Cwfxbxbl31VolnQziJlcY86lNNAjNSCaGmlS5FRA/pA5n3uonaY6lxEgaoMFEUI94RJQUQvQeVw4LDmFmVVX2Rvi4/wt8o6U+dmvbM8Lus2BGMMKJJ0zNusY+tgTBBBsamY5EFvqn8/69yBFxFQYpUm0hksda5wETiqG3hgOt//wcKlu3V1xKy7eAvbO/yvT73h56be8EOp/0qfdeTnnU07uyPPplxIdehs+tYV3Rns/LOpFeecTa3YPpsu8zpqqsaV/4RQ1UsUUM8+/w8AAP//AwCHkjygIDgAAA==", "base64"));
+  res.write(new Buffer("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", "base64"));
   res.end();
 
   return __filename;

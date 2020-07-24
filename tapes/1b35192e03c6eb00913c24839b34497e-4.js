@@ -6,35 +6,35 @@ var path = require("path");
  * connection: keep-alive
  * host: folio-snapshot-okapi.aws.indexdata.com
  * proxy-connection: keep-alive
- * accept: application/json
- * x-okapi-tenant: diku
- * x-okapi-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaWt1X2FkbWluIiwidXNlcl9pZCI6ImRhMzkwNTRmLTdjNGUtNTZhZS1iYTNjLWY2MDUwYzFhZWEyYSIsImlhdCI6MTU5NTYwOTg2NiwidGVuYW50IjoiZGlrdSJ9.bsovF9Zun5yyT1F9VfaKl3XM6gN4pAGMkUcoZgY65Lg
- * user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36
- * content-type: application/json
  * origin: http://localhost:3001
+ * x-okapi-tenant: diku
+ * x-okapi-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaWt1X2FkbWluIiwidXNlcl9pZCI6ImRhMzkwNTRmLTdjNGUtNTZhZS1iYTNjLWY2MDUwYzFhZWEyYSIsImlhdCI6MTU5NTYyNTM4NCwidGVuYW50IjoiZGlrdSJ9.t371K2r-2Rqkuyn5uSJLLpqqFdkL-VX0emGdhlU5pWI
+ * user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/4.11.0 Chrome/80.0.3987.165 Electron/8.3.1 Safari/537.36
+ * content-type: application/json
+ * accept: application/json
+ * sec-fetch-dest: empty
  * sec-fetch-site: same-site
  * sec-fetch-mode: cors
- * sec-fetch-dest: empty
  * referer: http://localhost:3001/settings/cr/processingstatuses
  * accept-encoding: gzip
- * accept-language: en-GB,en-US;q=0.9,en;q=0.8
+ * accept-language: en-GB
  */
 
 module.exports = function (req, res) {
   res.statusCode = 200;
 
-  res.setHeader("date", "Fri, 24 Jul 2020 16:58:47 GMT");
+  res.setHeader("date", "Fri, 24 Jul 2020 21:18:28 GMT");
   res.setHeader("content-type", "application/json");
   res.setHeader("transfer-encoding", "chunked");
   res.setHeader("connection", "keep-alive");
   res.setHeader("access-control-allow-origin", "*");
   res.setHeader("access-control-expose-headers", "location,X-Okapi-Trace,X-Okapi-Token,Authorization,X-Okapi-Request-Id,X-Okapi-Module-Id");
-  res.setHeader("x-okapi-trace", "GET mod-authtoken-2.6.0-SNAPSHOT.73 http://10.36.1.43:9178/coursereserves/processingstatuses.. : 202 6379us, GET mod-courses-1.0.6-SNAPSHOT.96 http://10.36.1.43:9157/coursereserves/processingstatuses.. : 200 3782us");
+  res.setHeader("x-okapi-trace", "GET mod-authtoken-2.6.0-SNAPSHOT.73 http://10.36.1.43:9178/coursereserves/processingstatuses.. : 202 6369us, GET mod-courses-1.0.6-SNAPSHOT.96 http://10.36.1.43:9157/coursereserves/processingstatuses.. : 200 3585us");
   res.setHeader("content-encoding", "gzip");
 
   res.setHeader("x-yakbak-tape", path.basename(__filename, ".js"));
 
-  res.write(new Buffer("H4sIAAAAAAAAALRUPW/bMBTc8ysIrTUNfpPy5qBLphT9mIoOj+STI0CRDIlKEQT+76XkGG7jOEjTRgMB6XjHp7uTHi4IKbZ9F3AY6nbzJUEaBxwKsiLfyUMGM1zH6bbAKIJlzFIlfEVV6UvqpRLUMe59lFi56IrFntLCLc6k9XpNPmEbs/YBiziEvt6mumvnLZeYQRIgQdNtRoykrzc3ibTdzwPjFhPEjE/b9zPlh6FHSBg/5mWWEUwwmqcT6is3K+1Wyiy1sB9Yvh6FjqzL+28D9lf7F4sgS6ZVRW1QSLUBpB5koJVhmgUOCAKOCuM2vuHcR9bfnzsL7PK6WzzJg2unoSwjZV4ZqpyXtAQpqMrsijNZguEneVy1B6dfSOQzBqzvchJ+nHJI5B7TbwG9NRYmV4qtuF1aw5635wVT+bJk/P1NBReFssFRdJBLDtxQ57mlrDTKOiNRSnVi6nVLuj5if87P6wnEuPjDT7iDugHf4L/bqc8Y8zrWeTOcr4SDYCiEEKnSVlNXVUClydVjHrnTpw3L5YGmObbkmXLNOIE2krH9jzbIMx/d61hHG8iPSaFIXS58njZHO/8P1cXuFwAAAP//AwCDXaGCLgUAAA==", "base64"));
+  res.write(new Buffer("H4sIAAAAAAAAALRUyW7bMBS85ysIXetncBfpm4NeckrR5VT08EQ+OQIUydCSIgj876XkGG7jOEjThgcC1HCG5MxADxeMZduuDdT3VbP5MuAw9tRnbMW+s4cEJriK0zLzOndSWA/WqACapADMqQBD2qBSSstCZYs9pcFbmknr9Zp9oiYm7QMWqQ9dtR2qtpm3XFICWcAB63YzUmRdtbkZWNP+PDBuacCY8Gn7/k7pY+gIB4of0zTLSC458Byk/irFSriVdEvtxAeexqPQkXV5/62n7mr/sIjKc6NLyIMmMBYJCkxPLC03PAgklHhUGLfxDec+sv7+3Flgl+bd4kkewjiD3kfghbagXaHAo5KgE7sUXHm04iSPq+bg9AuJfKZA1V1KohinHAZ2T8NvAb01Fq5Wmq9Evswtf96eF0zVS+/z9zcVXZQ6Dw7IYQkahQVXiBy4t6n+VlHq+Ymp1w1ru0jdOT+vJ5Di4g8/8Q6rGoua/t1Oc6Ztr2OdN8MVpXQYLGAIEbTJDbiyRFA2VY8XJJw5bVgqD9b1sSXPlGvGGTaRjc1/tEGd6cfrWEcb2I9JIRvaVPh02xTt/D/UF7tfAAAA//8DALATJoAuBQAA", "base64"));
   res.end();
 
   return __filename;
