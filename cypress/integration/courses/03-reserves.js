@@ -23,7 +23,7 @@ describe('ui-courses: reserves searching', () => {
         cy.get('[data-row-index=row-0]').contains('semantic')
         cy.get('[data-row-index=row-1]').contains('Bridget')
       })
-      it('sorts by bard=code', () => {
+      it('sorts by barcode', () => {
         cy.get('#clickable-list-column-barcode').click()
         cy.get('[data-row-index=row-0]').contains('Bridget')
         cy.get('[data-row-index=row-1]').contains('semantic')
