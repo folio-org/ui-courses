@@ -6,30 +6,30 @@ var path = require("path");
  * connection: keep-alive
  * host: folio-snapshot-okapi.aws.indexdata.com
  * proxy-connection: keep-alive
- * origin: http://localhost:3001
- * sec-fetch-dest: empty
  * x-okapi-tenant: diku
- * x-okapi-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaWt1X2FkbWluIiwidXNlcl9pZCI6Ijk1ZmM0NTBiLTIwYjItNTBkNy1hM2RjLThiYjM0NGFmZTk1MyIsImlhdCI6MTU5NTQyNTA5OCwidGVuYW50IjoiZGlrdSJ9.aHj-rxp-mOr098lh3N69WV5hM_yWQTaIvDvCbb433No
- * user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/4.11.0 Chrome/80.0.3987.165 Electron/8.3.1 Safari/537.36
+ * x-okapi-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaWt1X2FkbWluIiwidXNlcl9pZCI6ImRhMzkwNTRmLTdjNGUtNTZhZS1iYTNjLWY2MDUwYzFhZWEyYSIsImlhdCI6MTU5NTYwOTgwMSwidGVuYW50IjoiZGlrdSJ9.3heHwaX1xIdKrzffWI8sDyjGaQq3dy25p9D8N-tIRSI
+ * user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36
  * content-type: application/json
  * accept: * / *
+ * origin: http://localhost:3001
  * sec-fetch-site: same-site
  * sec-fetch-mode: cors
+ * sec-fetch-dest: empty
  * referer: http://localhost:3001/
  * accept-encoding: gzip
- * accept-language: en-GB
+ * accept-language: en-GB,en-US;q=0.9,en;q=0.8
  */
 
 module.exports = function (req, res) {
   res.statusCode = 200;
 
-  res.setHeader("date", "Wed, 22 Jul 2020 13:38:20 GMT");
+  res.setHeader("date", "Fri, 24 Jul 2020 16:56:42 GMT");
   res.setHeader("content-type", "application/json");
   res.setHeader("transfer-encoding", "chunked");
   res.setHeader("connection", "keep-alive");
   res.setHeader("access-control-allow-origin", "*");
   res.setHeader("access-control-expose-headers", "location,X-Okapi-Trace,X-Okapi-Token,Authorization,X-Okapi-Request-Id,X-Okapi-Module-Id");
-  res.setHeader("x-okapi-trace", "GET mod-authtoken-2.6.0-SNAPSHOT.73 http://10.36.1.55:9178/configurations/entries.. : 202 11536us, GET mod-configuration-5.5.0-SNAPSHOT.76 http://10.36.1.55:9131/configurations/entries.. : 200 4995us");
+  res.setHeader("x-okapi-trace", "GET mod-authtoken-2.6.0-SNAPSHOT.73 http://10.36.1.43:9178/configurations/entries.. : 202 33850us, GET mod-configuration-5.5.0-SNAPSHOT.76 http://10.36.1.43:9131/configurations/entries.. : 200 5179us");
   res.setHeader("content-encoding", "gzip");
 
   res.setHeader("x-yakbak-tape", path.basename(__filename, ".js"));

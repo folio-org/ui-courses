@@ -6,36 +6,35 @@ var path = require("path");
  * connection: keep-alive
  * host: folio-snapshot-okapi.aws.indexdata.com
  * proxy-connection: keep-alive
- * origin: http://localhost:3001
- * x-okapi-tenant: diku
- * x-okapi-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaWt1X2FkbWluIiwidXNlcl9pZCI6Ijk1ZmM0NTBiLTIwYjItNTBkNy1hM2RjLThiYjM0NGFmZTk1MyIsImlhdCI6MTU5NTQyNTA5OCwidGVuYW50IjoiZGlrdSJ9.aHj-rxp-mOr098lh3N69WV5hM_yWQTaIvDvCbb433No
- * user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/4.11.0 Chrome/80.0.3987.165 Electron/8.3.1 Safari/537.36
- * content-type: application/json
  * accept: application/json
- * sec-fetch-dest: empty
+ * x-okapi-tenant: diku
+ * x-okapi-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaWt1X2FkbWluIiwidXNlcl9pZCI6ImRhMzkwNTRmLTdjNGUtNTZhZS1iYTNjLWY2MDUwYzFhZWEyYSIsImlhdCI6MTU5NTYwOTgwMSwidGVuYW50IjoiZGlrdSJ9.3heHwaX1xIdKrzffWI8sDyjGaQq3dy25p9D8N-tIRSI
+ * user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36
+ * content-type: application/json
+ * origin: http://localhost:3001
  * sec-fetch-site: same-site
  * sec-fetch-mode: cors
+ * sec-fetch-dest: empty
  * referer: http://localhost:3001/cr/courses?sort=name
  * accept-encoding: gzip
- * accept-language: en-GB
+ * accept-language: en-GB,en-US;q=0.9,en;q=0.8
  */
 
 module.exports = function (req, res) {
   res.statusCode = 200;
 
-  res.setHeader("date", "Wed, 22 Jul 2020 13:39:43 GMT");
+  res.setHeader("date", "Fri, 24 Jul 2020 16:57:44 GMT");
   res.setHeader("content-type", "application/json");
   res.setHeader("transfer-encoding", "chunked");
   res.setHeader("connection", "keep-alive");
   res.setHeader("access-control-allow-origin", "*");
   res.setHeader("access-control-expose-headers", "location,X-Okapi-Trace,X-Okapi-Token,Authorization,X-Okapi-Request-Id,X-Okapi-Module-Id");
-  res.setHeader("x-okapi-trace", "GET mod-authtoken-2.6.0-SNAPSHOT.73 http://10.36.1.55:9178/coursereserves/courses.. : 202 6868us, GET mod-courses-1.0.6-SNAPSHOT.95 http://10.36.1.55:9157/coursereserves/courses.. : 200 78525us");
+  res.setHeader("x-okapi-trace", "GET mod-authtoken-2.6.0-SNAPSHOT.73 http://10.36.1.43:9178/coursereserves/courses.. : 202 6403us, GET mod-courses-1.0.6-SNAPSHOT.96 http://10.36.1.43:9157/coursereserves/courses.. : 200 71264us");
   res.setHeader("content-encoding", "gzip");
 
   res.setHeader("x-yakbak-tape", path.basename(__filename, ".js"));
 
-  res.write(new Buffer("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", "base64"));
-  res.write(new Buffer("AwDoloo03DcAAA==", "base64"));
+  res.write(new Buffer("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", "base64"));
   res.end();
 
   return __filename;
