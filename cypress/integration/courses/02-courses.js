@@ -189,12 +189,11 @@ describe('ui-courses: course creation, editing and deletion', () => {
       cy.contains('Main Library') // from temporaryLocation object
 
       // This time we'll do it by hitting Return instead of clicking
-      cy.get('#add-item-barcode').type('A14837334306{enter}')
+      cy.get('#add-item-barcode').type('90000{enter}')
       cy.contains('A semantic web primer')
       cy.contains('Antoniou, Grigoris')
       cy.contains('TK5105.88815') // from copiedItem
-      // This link has gone away, so it's not reliable enough to test on
-      // cy.contains('Links available').should('have.attr', 'href', 'http://www.loc.gov/catdir/toc/ecip0718/2007020429.html')
+      cy.contains('Links available').should('have.attr', 'href', 'http://www.loc.gov/catdir/toc/ecip0718/2007020429.html')
     })
 
     it('edits a reserve', () => {
