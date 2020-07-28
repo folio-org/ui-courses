@@ -22,7 +22,7 @@ var path = require("path");
 module.exports = function (req, res) {
   res.statusCode = 200;
 
-  res.setHeader("date", "Fri, 24 Jul 2020 21:18:12 GMT");
+  res.setHeader("date", "Tue, 28 Jul 2020 11:51:46 GMT");
   res.setHeader("content-length", "0");
   res.setHeader("connection", "keep-alive");
   res.setHeader("access-control-allow-origin", "*");

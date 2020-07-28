@@ -1,0 +1,40 @@
+var path = require("path");
+
+/**
+ * GET /inventory/items?limit=20&query=id=("100d10bf-2f06-4aa0-be15-0b95b2d9f9e3")
+ *
+ * connection: keep-alive
+ * host: folio-snapshot-okapi.aws.indexdata.com
+ * proxy-connection: keep-alive
+ * origin: http://localhost:3001
+ * x-okapi-tenant: diku
+ * x-okapi-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaWt1X2FkbWluIiwidXNlcl9pZCI6ImUzYjhjNjc1LWJjNzAtNWJhOC04MDNiLWJiZmJhYWQwZGJhOSIsImlhdCI6MTU5NTkzNzI0NCwidGVuYW50IjoiZGlrdSJ9.8PHaFd3828ZJIAGiapdtKeg4YJgSDqmtKSfVlaYzjeQ
+ * user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/4.11.0 Chrome/80.0.3987.165 Electron/8.3.1 Safari/537.36
+ * content-type: application/json
+ * accept: application/json
+ * sec-fetch-dest: empty
+ * sec-fetch-site: same-site
+ * sec-fetch-mode: cors
+ * referer: http://localhost:3001/cr/courses/83034b0a-bf71-4495-b642-2e998f721e5d?filters=departments.1fc91124-cd2a-4fae-9ae4-40368d80982d%2Ccoursetypes.f5063ee8-b18c-402b-b0c9-1b0f93d8570b%2Ccoursetypes.9154048b-3698-42ec-a5ca-cfcebf04e094%2Cterms.cd1eb7ed-2704-4b6a-9037-d7f1a5351f6b&sort=name
+ * accept-encoding: gzip
+ * accept-language: en-GB
+ */
+
+module.exports = function (req, res) {
+  res.statusCode = 200;
+
+  res.setHeader("date", "Tue, 28 Jul 2020 11:54:43 GMT");
+  res.setHeader("content-type", "application/json; charset=utf-8");
+  res.setHeader("transfer-encoding", "chunked");
+  res.setHeader("connection", "keep-alive");
+  res.setHeader("access-control-allow-origin", "*");
+  res.setHeader("access-control-expose-headers", "location,X-Okapi-Trace,X-Okapi-Token,Authorization,X-Okapi-Request-Id,X-Okapi-Module-Id");
+  res.setHeader("x-okapi-trace", "GET mod-authtoken-2.6.0-SNAPSHOT.73 http://10.36.1.132:9178/inventory/items.. : 202 7150us, GET mod-inventory-16.1.0-SNAPSHOT.268 http://10.36.1.132:9173/inventory/items.. : 200 67991us");
+
+  res.setHeader("x-yakbak-tape", path.basename(__filename, ".js"));
+
+  res.write(new Buffer("ewogICJpdGVtcyIgOiBbIHsKICAgICJpZCIgOiAiMTAwZDEwYmYtMmYwNi00YWEwLWJlMTUtMGI5NWIyZDlmOWUzIiwKICAgICJzdGF0dXMiIDogewogICAgICAibmFtZSIgOiAiQXZhaWxhYmxlIgogICAgfSwKICAgICJ0aXRsZSIgOiAiQSBzZW1hbnRpYyB3ZWIgcHJpbWVyIiwKICAgICJjYWxsTnVtYmVyIiA6ICJUSzUxMDUuODg4MTUgLiBBNTggMjAwNCBGVCBNRUFERSIsCiAgICAiaHJpZCIgOiAiaXRlbTAwMDAwMDAwMDAxNSIsCiAgICAiY29udHJpYnV0b3JOYW1lcyIgOiBbIHsKICAgICAgIm5hbWUiIDogIkFudG9uaW91LCBHcmlnb3JpcyIKICAgIH0sIHsKICAgICAgIm5hbWUiIDogIlZhbiBIYXJtZWxlbiwgRnJhbmsiCiAgICB9IF0sCiAgICAiZm9ybWVySWRzIiA6IFsgXSwKICAgICJkaXNjb3ZlcnlTdXBwcmVzcyIgOiBudWxsLAogICAgImhvbGRpbmdzUmVjb3JkSWQiIDogImUzZmY2MTMzLWI5YTItNGQ0Yy1hMWM5LWRjMTg2N2Q0ZGYxOSIsCiAgICAiYmFyY29kZSIgOiAiOTAwMDAiLAogICAgIml0ZW1MZXZlbENhbGxOdW1iZXIiIDogIlRLNTEwNS44ODgxNSAuIEE1OCAyMDA0IEZUIE1FQURFIiwKICAgICJlbnVtZXJhdGlvbiIgOiAiIiwKICAgICJjaHJvbm9sb2d5IiA6ICIiLAogICAgIm5vdGVzIiA6IFsgXSwKICAgICJjaXJjdWxhdGlvbk5vdGVzIiA6IFsgXSwKICAgICJ0YWdzIiA6IHsKICAgICAgInRhZ0xpc3QiIDogWyBdCiAgICB9LAogICAgInllYXJDYXB0aW9uIiA6IFsgXSwKICAgICJlbGVjdHJvbmljQWNjZXNzIiA6IFsgewogICAgICAidXJpIiA6ICJodHRwOi8vd3d3LmxvYy5nb3YvY2F0ZGlyL3RvYy9lY2lwMDcxOC8yMDA3MDIwNDI5Lmh0bWwiLAogICAgICAibGlua1RleHQiIDogIkxpbmtzIGF2YWlsYWJsZSIsCiAgICAgICJtYXRlcmlhbHNTcGVjaWZpY2F0aW9uIiA6ICJUYWJsZSBvZiBjb250ZW50cyIsCiAgICAgICJwdWJsaWNOb3RlIiA6ICJUYWJsZSBvZiBjb250ZW50cyBvbmx5IiwKICAgICAgInJlbGF0aW9uc2hpcElkIiA6ICIzYjQzMDU5Mi0yZTA5LTRiNDgtOWEwYy0wNjM2ZDY2YjlmYjMiCiAgICB9IF0sCiAgICAic3RhdGlzdGljYWxDb2RlSWRzIiA6IFsgImI1OTY4YzllLWNkZGMtNDU3Ni05OWUzLThlNjBhZWQ4YjBkZCIgXSwKICAgICJwdXJjaGFzZU9yZGVyTGluZUlkZW50aWZpZXIiIDogbnVsbCwKICAgICJtYXRlcmlhbFR5cGUiIDogewogICAgICAiaWQiIDogIjFhNTRiNDMxLTJlNGYtNDUyZC05Y2FlLTljZWU2NmM5YTg5MiIsCiAgICAgICJuYW1lIiA6ICJib29rIgogICAgfSwKICAgICJwZXJtYW5lbnRMb2FuVHlwZSIgOiB7CiAgICAgICJpZCIgOiAiMmI5NGM2MzEtZmNhOS00ODkyLWE3MzAtMDNlZTUyOWZmZTI3IiwKICAgICAgIm5hbWUiIDogIkNhbiBjaXJjdWxhdGUiCiAgICB9LAogICAgInRlbXBvcmFyeUxvYW5UeXBlIiA6IHsKICAgICAgImlkIiA6ICIyZTQ4ZTcxMy0xN2YzLTRjMTMtYTlmOC0yMzg0NWJiMjEwYTQiLAogICAgICAibmFtZSIgOiAiUmVhZGluZyByb29tIgogICAgfSwKICAgICJwZXJtYW5lbnRMb2NhdGlvbiIgOiB7CiAgICAgICJpZCIgOiAiZmNkNjRjZTEtNjk5NS00OGYwLTg0MGUtODlmZmEyMjg4MzcxIiwKICAgICAgIm5hbWUiIDogIk1haW4gTGlicmFyeSIKICAgIH0sCiAgICAibWV0YWRhdGEiIDogewogICAgICAiY3JlYXRlZERhdGUiIDogIjIwMjAtMDctMjhUMDM6MzQ6MzAuODI3KzAwMDAiLAogICAgICAidXBkYXRlZERhdGUiIDogIjIwMjAtMDctMjhUMTE6NTA6MTUuNTg4KzAwMDAiLAogICAgICAidXBkYXRlZEJ5VXNlcklkIiA6ICJlM2I4YzY3NS1iYzcwLTViYTgtODAzYi1iYmZiYWFkMGRiYTkiCiAgICB9LAogICAgImxpbmtzIiA6IHsKICAgICAgInNlbGYiIDogImh0dHA6Ly9mb2xpby1zbmFwc2hvdC1va2FwaS5hd3MuaW5kZXhkYXRhLmNvbS9pbnZlbnRvcnkvaXRlbXMvMTAwZDEwYmYtMmYwNi00YWEwLWJlMTUtMGI5NWIyZDlmOWUzIgogICAgfSwKICAgICJlZmZlY3RpdmVDYWxsTnVtYmVyQ29tcG9uZW50cyIgOiB7CiAgICAgICJjYWxsTnVtYmVyIiA6ICJUSzUxMDUuODg4MTUgLiBBNTggMjAwNCBGVCBNRUFERSIsCiAgICAgICJwcmVmaXgiIDogbnVsbCwKICAgICAgInN1ZmZpeCIgOiBudWxsLAogICAgICAidHlwZUlkIiA6ICI1MTIxNzNhNy1iZDA5LTQ5MGUtYjc3My0xN2Q4M2YyYjYzZmUiCiAgICB9LAogICAgImVmZmVjdGl2ZUxvY2F0aW9uIiA6IHsKICAgICAgImlkIiA6ICJmY2Q2NGNlMS02OTk1LTQ4ZjAtODQwZS04OWZmYTIyODgzNzEiLAogICAgICAibmFtZSIgOiAiTWFpbiBMaWJyYXJ5IgogICAgfQogIH0gXSwKICAidG90YWxSZWNvcmRzIiA6IDEKfQ==", "base64"));
+  res.end();
+
+  return __filename;
+};
