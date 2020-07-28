@@ -60,11 +60,6 @@ class CoursesRoute extends React.Component {
     resources: PropTypes.shape({
       query: PropTypes.object,
     }),
-    mutator: PropTypes.shape({
-      query: PropTypes.shape({
-        update: PropTypes.func.isRequired,
-      }).isRequired,
-    }),
   };
 
   static manifest = Object.freeze({
