@@ -1,8 +1,9 @@
 # Change history for ui-courses
 
-## 2.1.1 (IN PROGRESS)
+## 2.1.0 (IN PROGRESS)
 
 * Add ability to delete a course. Fixes UICR-98.
+* Add test suite, and [document how it works](doc/testing-with-cypress.md). Fixes UICR-21.
 
 ## 2.0.0 (IN PROGRESS)
 
