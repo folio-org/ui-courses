@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { injectIntl } from 'react-intl';
 import { cloneDeep, get } from 'lodash';
+import queryString from 'query-string';
 import { stripesConnect } from '@folio/stripes/core';
 import CourseForm from '../components/CourseForm';
 import NoPermissions from '../components/NoPermissions';
@@ -105,7 +106,8 @@ class EditCourseRoute extends React.Component {
   }
 
   render() {
-    const { handlers, stripes, intl } = this.props;
+    const { handlers, stripes, intl, location } = this.props;
+    const query = queryString.parse(location.search);
 
     if (!stripes.hasPerm('course-reserves-storage.reserves.write')) return <NoPermissions />;
 
@@ -128,6 +130,7 @@ class EditCourseRoute extends React.Component {
         onSubmit={this.handleSubmit}
         deleteCourse={this.props.deleteCourse}
         handleDelete={this.handleDelete}
+        nreserves={query.nreserves}
       />
     );
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
+import queryString from 'query-string';
 import { stripesConnect } from '@folio/stripes/core';
 import Course from '../components/Course';
 
@@ -97,21 +98,30 @@ class CourseRoute extends React.Component {
     handlers: {},
   }
 
-  urls = {
-    edit: () => `${this.props.location.pathname}/edit${this.props.location.search}`,
-    crosslist: () => {
-      const clid = get(this.props.resources, 'course.records[0].courseListingId');
-      return `${this.props.location.pathname}/crosslist/${clid}${this.props.location.search}`;
-    }
-  }
-
   handleClose = () => {
     const { pathname, search } = this.props.location;
-    this.props.history.push(`${pathname.replace(/(.*)\/.*/, '$1')}${search}`);
+    const query = queryString.parse(search);
+    delete query.nreserves;
+    const newSearch = queryString.stringify(query);
+    this.props.history.push(`${pathname.replace(/(.*)\/.*/, '$1')}${newSearch ? '?' : ''}${newSearch}`);
   }
 
   render() {
-    const { handlers, resources, mutator } = this.props;
+    const { location, handlers, resources, mutator } = this.props;
+
+    const urls = {
+      edit: () => {
+        const query = queryString.parse(location.search);
+        const reserves = get(resources, 'reservesForCourse.records', []);
+        query.nreserves = reserves.length;
+        return `${this.props.location.pathname}/edit?${queryString.stringify(query)}`;
+      },
+      crosslist: () => {
+        const clid = get(this.props.resources, 'course.records[0].courseListingId');
+        return `${this.props.location.pathname}/crosslist/${clid}${this.props.location.search}`;
+      }
+    };
+
     return (
       <Course
         data={{
@@ -122,7 +132,7 @@ class CourseRoute extends React.Component {
         }}
         handlers={{ ...handlers, onClose: this.handleClose }}
         isLoading={get(resources, 'course.isPending', true)}
-        urls={this.urls}
+        urls={urls}
         mutator={mutator}
       />
     );

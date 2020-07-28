@@ -36,6 +36,7 @@ class CourseForm extends React.Component {
     submitting: PropTypes.bool,
     values: PropTypes.object,
     isCrosslist: PropTypes.bool,
+    nreserves: PropTypes.number,
   }
 
   getSectionProps(id) {
@@ -58,7 +59,8 @@ class CourseForm extends React.Component {
       submitting,
       values,
       deleteCourse,
-      handleDelete
+      handleDelete,
+      nreserves
     } = this.props;
 
     return (
@@ -86,13 +88,13 @@ class CourseForm extends React.Component {
               <FormattedMessage id="stripes-components.saveAndClose" />
             </Button>
             {
-              values.id && (
+              (values.id && nreserves === '0') && (
                 !deleteCourse ? (
                   <Button
                     buttonStyle="default mega"
                     id="clickable-delete-course"
                     marginBottom0
-                    to="delete"
+                    to={`delete?nreserves=${nreserves}`}
                   >
                     <FormattedMessage id="ui-courses.delete" />
                   </Button>
