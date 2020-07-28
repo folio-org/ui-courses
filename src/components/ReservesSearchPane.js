@@ -12,7 +12,6 @@ import {
   SearchField,
 } from '@folio/stripes/components';
 
-import updateLocation from '../util/updateLocation';
 import renderFilter from '../util/renderFilter';
 import filterString2state from '../util/filterString2state';
 import css from './Courses.css';
@@ -46,6 +45,11 @@ class ReservesSearchPane extends React.Component {
         qindex: PropTypes.string,
       }).isRequired,
     }).isRequired,
+    mutator: PropTypes.shape({
+      query: PropTypes.shape({
+        update: PropTypes.func.isRequired,
+      }).isRequired,
+    }),
     stripes: PropTypes.shape({
       logger: PropTypes.shape({
         log: PropTypes.func.isRequired,
@@ -64,7 +68,7 @@ class ReservesSearchPane extends React.Component {
   onChangeIndex = (e) => {
     const qindex = e.target.value;
     this.props.stripes.logger.log('action', `changed query-index to '${qindex}'`);
-    updateLocation(this.props, { qindex });
+    this.props.mutator.query.update({ qindex });
   };
 
   render() {
