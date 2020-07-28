@@ -4,7 +4,7 @@ describe('ui-courses: course searching', () => {
     cy.get('#app-list-item-clickable-courses-module').click()
   })
 
-  describe.only('searches and sorts courses', () => {
+  describe('searches and sorts courses', () => {
     describe('performs a search and sort', () => {
       it('searches', () => {
         cy.get('#input-courses-search').type('calcu')
