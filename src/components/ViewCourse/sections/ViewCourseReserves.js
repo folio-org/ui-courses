@@ -73,10 +73,13 @@ const ViewCourseReserves = (props) => {
       headers: { Accept: 'text/plain' },
     })
       .text()
-      .then(() => { props.mutator.reserveCount.replace(oldCount - 1); })
+      .then(() => {
+        // console.log('DELETE reserve succeeded');
+        props.mutator.reserveCount.replace(oldCount - 1);
+      })
       .catch(exception => callout.sendCallout({
         type: 'error',
-        message: <FormattedMessage id="ui-courses.removeReserve.failure" values={{ message: exception }} />,
+        message: <FormattedMessage id="ui-courses.removeReserve.failure" values={{ message: `${exception}` }} />,
       }));
   }
 
