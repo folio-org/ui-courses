@@ -168,6 +168,7 @@
   "devDependencies": {
     "@cypress/code-coverage": "^3.8.1",
     "@folio/eslint-config-stripes": "~5.1.0",
+    "@folio/stripes": "^4.0.0",
     "@folio/stripes-cli": "^1.17.0",
     "babel-eslint": "^10.1.0",
     "cypress": "^4.9.0",
