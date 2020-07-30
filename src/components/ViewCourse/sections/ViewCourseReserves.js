@@ -66,7 +66,6 @@ function makeContentLink(eaList) {
 const ViewCourseReserves = (props) => {
   const callout = useContext(CalloutContext);
   function removeReserve(reserveId) {
-    const oldCount = props.reserves.length;
     const clid = props.course.courseListingId;
     props.okapiKy(`coursereserves/courselistings/${clid}/reserves/${reserveId}`, {
       method: 'DELETE',
@@ -74,8 +73,7 @@ const ViewCourseReserves = (props) => {
     })
       .text()
       .then(() => {
-        // console.log('DELETE reserve succeeded');
-        props.mutator.reserveCount.replace(oldCount - 1);
+        props.mutator.toggleVal.replace(props.resources.toggleVal ? 0 : 1);
       })
       .catch(exception => callout.sendCallout({
         type: 'error',
@@ -233,8 +231,11 @@ ViewCourseReserves.propTypes = {
   stripes: PropTypes.shape({
     hasPerm: PropTypes.func.isRequired,
   }).isRequired,
+  resources: PropTypes.shape({
+    toggleVal: PropTypes.string.isRequired,
+  }).isRequired,
   mutator: PropTypes.shape({
-    reserveCount: PropTypes.shape({
+    toggleVal: PropTypes.shape({
       replace: PropTypes.func.isRequired,
     }).isRequired,
   }).isRequired,

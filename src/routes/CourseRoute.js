@@ -31,9 +31,9 @@ class CourseRoute extends React.Component {
       // We mutate this when we delete an instructor, to force a stripes-connect reload
       initialValue: 9999,
     },
-    reserveCount: {
+    toggleVal: {
       // We mutate this when we delete an reserve, to force a stripes-connect reload
-      initialValue: 9999,
+      initialValue: 0,
     },
     course: {
       type: 'okapi',
@@ -54,8 +54,8 @@ class CourseRoute extends React.Component {
       path: (_q, _p, _r, _l, props) => {
         const rec = get(props.resources, 'course.records.0');
         if (!rec) return null;
-        const reserveCount = get(props.resources, 'reserveCount');
-        return `coursereserves/courselistings/${rec.courseListingId}/reserves?unused=${reserveCount}&expand=*&limit=500&query=cql.allRecords=1 sortby copiedItem.title`;
+        const toggleVal = get(props.resources, 'toggleVal');
+        return `coursereserves/courselistings/${rec.courseListingId}/reserves?unused=${toggleVal}&expand=*&limit=500&query=cql.allRecords=1 sortby copiedItem.title`;
       },
       records: 'reserves',
     },
@@ -133,6 +133,7 @@ class CourseRoute extends React.Component {
         handlers={{ ...handlers, onClose: this.handleClose }}
         isLoading={get(resources, 'course.isPending', true)}
         urls={urls}
+        resources={resources}
         mutator={mutator}
       />
     );

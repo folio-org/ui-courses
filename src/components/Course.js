@@ -25,6 +25,7 @@ class Course extends React.Component {
     stripes: PropTypes.shape({
       hasPerm: PropTypes.func.isRequired,
     }).isRequired,
+    resources: PropTypes.object.isRequired,
     mutator: PropTypes.object.isRequired,
   };
 
@@ -78,7 +79,7 @@ class Course extends React.Component {
   }
 
   render() {
-    const { data, isLoading, handlers, stripes, mutator } = this.props;
+    const { data, isLoading, handlers, stripes, resources, mutator } = this.props;
     if (isLoading) return this.renderLoadingPane();
 
     const record = data.course;
@@ -96,7 +97,7 @@ class Course extends React.Component {
         paneSub={<FormattedMessage id="ui-courses.courseByNumber" values={{ number: record.courseNumber }} />}
       >
         <TitleManager record={record.name}>
-          <ViewCourse data={data} mutator={mutator} />
+          <ViewCourse data={data} resources={resources} mutator={mutator} />
         </TitleManager>
       </Pane>
     );

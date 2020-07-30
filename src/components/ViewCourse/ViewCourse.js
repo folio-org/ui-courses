@@ -19,6 +19,7 @@ class ViewCourse extends React.Component {
       reserves: PropTypes.arrayOf(PropTypes.object),
       items: PropTypes.arrayOf(PropTypes.object),
     }),
+    resources: PropTypes.object.isRequired,
     mutator: PropTypes.object.isRequired,
     stripes: PropTypes.shape({
       config: PropTypes.shape({
@@ -28,7 +29,7 @@ class ViewCourse extends React.Component {
   };
 
   render() {
-    const { data, mutator } = this.props;
+    const { data, resources, mutator } = this.props;
     const { course, crossListed, reserves, items } = data;
 
     return (
@@ -46,7 +47,7 @@ class ViewCourse extends React.Component {
           <ViewCourseTerm record={course} />
         </VCAccordion>
         <VCAccordion id="reserves">
-          <ViewCourseReserves course={course} reserves={reserves} items={items} mutator={mutator} />
+          <ViewCourseReserves course={course} reserves={reserves} items={items} resources={resources} mutator={mutator} />
         </VCAccordion>
         {
           !this.props.stripes.config.showDevInfo ? '' :
