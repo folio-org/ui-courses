@@ -153,8 +153,11 @@
     "react-final-form": "^6.3.0",
     "react-hot-loader": "^4.3.12"
   },
+  "resolutions": {
+    "@folio/stripes-core": "~5.0.2"
+  },
   "peerDependencies": {
-    "@folio/stripes": "^4.0.0 || ^5.0.0",
+    "@folio/stripes": "^4.0.0",
     "prop-types": "*",
     "react": "*",
     "react-intl": "*",
@@ -165,8 +168,7 @@
   "devDependencies": {
     "@cypress/code-coverage": "^3.8.1",
     "@folio/eslint-config-stripes": "~5.1.0",
-    "@folio/stripes": "^4.1.0",
-    "@folio/stripes-cli": "^1.18.0",
+    "@folio/stripes-cli": "^1.17.0",
     "babel-eslint": "^10.1.0",
     "cypress": "^4.9.0",
     "eslint": "~7.2.0",
