@@ -36,7 +36,7 @@ class CourseForm extends React.Component {
     submitting: PropTypes.bool,
     values: PropTypes.object,
     isCrosslist: PropTypes.bool,
-    nreserves: PropTypes.number,
+    nreserves: PropTypes.string,
   }
 
   getSectionProps(id) {
