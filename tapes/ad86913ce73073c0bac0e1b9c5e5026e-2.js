@@ -8,14 +8,14 @@ var path = require("path");
  * proxy-connection: keep-alive
  * origin: http://localhost:3001
  * x-okapi-tenant: diku
- * x-okapi-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaWt1X2FkbWluIiwidXNlcl9pZCI6ImUzYjhjNjc1LWJjNzAtNWJhOC04MDNiLWJiZmJhYWQwZGJhOSIsImlhdCI6MTU5NTkzNjkyNiwidGVuYW50IjoiZGlrdSJ9.a_A3vnYrca45cKS_eC5fi5Kagn_RZS5TV7ovFhYAGBw
+ * x-okapi-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaWt1X2FkbWluIiwidXNlcl9pZCI6ImIwNDhiNmVhLTQyODUtNTk0My04MDUxLWI2NDQyYWY1NDY5MCIsImlhdCI6MTU5NjE5OTAxNiwidGVuYW50IjoiZGlrdSJ9.Rfzb9MkbMTQdQrDUPfrXyZfFBQRHnWyMQPtPd_jqQ6I
  * user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/4.11.0 Chrome/80.0.3987.165 Electron/8.3.1 Safari/537.36
  * content-type: application/json
  * accept: application/json
  * sec-fetch-dest: empty
  * sec-fetch-site: same-site
  * sec-fetch-mode: cors
- * referer: http://localhost:3001/cr/reserves/9c95cea0-6453-42e1-bd6d-0a0c096d7bb4/574e947b-5cdd-4876-b477-45ff145a5959/77ff3d3b-5cc0-4e14-bad3-38aae25c1cf9/100d10bf-2f06-4aa0-be15-0b95b2d9f9e3/edit
+ * referer: http://localhost:3001/cr/reserves/abd88c4d-8de9-46b8-8291-0ccf916fb89e/09427a84-6777-487d-bdb3-75235f4012de/5b839674-34d7-40b9-aa7b-690a4668c09c/100d10bf-2f06-4aa0-be15-0b95b2d9f9e3/edit
  * accept-encoding: gzip
  * accept-language: en-GB
  */
@@ -23,18 +23,18 @@ var path = require("path");
 module.exports = function (req, res) {
   res.statusCode = 200;
 
-  res.setHeader("date", "Tue, 28 Jul 2020 11:50:07 GMT");
+  res.setHeader("date", "Fri, 31 Jul 2020 12:38:10 GMT");
   res.setHeader("content-type", "application/json");
   res.setHeader("transfer-encoding", "chunked");
   res.setHeader("connection", "keep-alive");
   res.setHeader("access-control-allow-origin", "*");
   res.setHeader("access-control-expose-headers", "location,X-Okapi-Trace,X-Okapi-Token,Authorization,X-Okapi-Request-Id,X-Okapi-Module-Id");
-  res.setHeader("x-okapi-trace", "GET mod-authtoken-2.6.0-SNAPSHOT.73 http://10.36.1.132:9178/coursereserves/copyrightstatuses.. : 202 7068us, GET mod-courses-1.0.6-SNAPSHOT.96 http://10.36.1.132:9157/coursereserves/copyrightstatuses.. : 200 2816us");
+  res.setHeader("x-okapi-trace", "GET mod-authtoken-2.6.0-SNAPSHOT.73 http://10.36.1.15:9178/coursereserves/copyrightstatuses.. : 202 6733us, GET mod-courses-1.0.6-SNAPSHOT.96 http://10.36.1.15:9157/coursereserves/copyrightstatuses.. : 200 4238us");
   res.setHeader("content-encoding", "gzip");
 
   res.setHeader("x-yakbak-tape", path.basename(__filename, ".js"));
 
-  res.write(new Buffer("H4sIAAAAAAAAAKyUTW/bMAyG7/0VQq6rCtmSLMm3NrvsUhTrdhp2ICV5NeaPwFYKBEX++2hnGYa2xtY0PhCwqJeQHr3k0wVjK99vdkP94yHdJ0jbMY4rVrJv7IlylK3D9LsSoJ0N3vNcmoqrYBS3SinuwGuwlQsK7OryIOmgjbNovWY3u+NqiKMf6k2q++6QHCKk+jGydd+2fTcySGmocTttYE3tYzfGo7aNCQIkmISHc03nngrE8JHCXDAXueDC8Nx+EbKUupTqKtfmg6DvdyFSbTfh/1WzaE9xf/mMR4WFrbRD7pSIXKkCuHUyUBCFC5lGK+QLHndbpIux0LdQd0tcbnv250WICYOmeT8Gk52C4ahaxoAWIypRcVchYQiabOGx4CJkhSiMcjng67bgt2t+f32SObq+457W4+BraNj4AEPk0NQ/4/l8Y8UpwI6qZWCQWV0oX3GLVpJvArWQ15ajcbLKggxGq0Vg56B1PkLuJELuX4SE0nkmjeDWFmSpLNDbTubSNGfQVdHYHF4Qum4aNnfMyIY4xuExhiVYd5AGwtLCjtCkudfO1mbuDUyyrBSuzOWVcvp11c3uK13l0wFLlGh9YTRHT2w0guU0YpAjVggQREBwf1Fl36dqq9QnaD5H3w9hHuv6Yv8LAAD//wMAqULhLvQFAAA=", "base64"));
+  res.write(new Buffer("H4sIAAAAAAAAAKyUTW/bMAyG7/0VQq4rC1miZCm3NrvsUhTrdhp2oD68GvNHYCsFgiL/fbLTFsM6Y0UWHwhY1EtIj17y6YKxle+3+6H+8ZDuE6XdGMcVW7Nv7CnncrYO0++Kk7ImeA9ClhVgKBEMIoIlr8hUNiCZ1eVR0lEbZ9Fmw272L6shjn6ot6nuu2NyiJTqx8g2fdv23cgopaF2u2kDa2ofuzG+aNuYKFCiSXg813TuqUAMH3OYCwouOPASZPGFy7VUa1RXwqgPPH/PhbJqtw3vV82iQ46Hyz94VE6bSlkHFnkERE1grAw5cG1DoZzh8g2Pu53LF2Ohb6nulrjc9uz1RTITRk3z3xgk5ydgeFUtY3DGRYe8Alu5jCGobAvvNPBQaK5LtILc320Btxu4vz7JHF3fgc/rcfA1NWx8oCECNfXPeDbfyKI4BdiLahkYFUZp9BUYZ2T2Tcgt5JUBV1pZFUGGUuEisHPQOhshcRIh8U9CHJUoZMnBGJ0tVYT8tpO5VJ4zzlaxNILeELpuGjZ3zMiGOMbhMYYlWHeUhoylpX1Gk+ZeO1ubSfF+JoVYS75GecWXmvNm/zVf5dNzp3E0TkcCzNMJlEUJhqsCnEYUVCnU9neq7PtUbZX6RM3n6PshzGNdXRx+AQAA//8DAInn1S30BQAA", "base64"));
   res.end();
 
   return __filename;

@@ -8,7 +8,7 @@ var path = require("path");
  * proxy-connection: keep-alive
  * origin: http://localhost:3001
  * x-okapi-tenant: diku
- * x-okapi-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaWt1X2FkbWluIiwidXNlcl9pZCI6ImUzYjhjNjc1LWJjNzAtNWJhOC04MDNiLWJiZmJhYWQwZGJhOSIsImlhdCI6MTU5NTkzNzA0OSwidGVuYW50IjoiZGlrdSJ9.nYqMdQip1AoJMuWtGzwLefJDWyth5jLB-ofX5PGa0HU
+ * x-okapi-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaWt1X2FkbWluIiwidXNlcl9pZCI6ImIwNDhiNmVhLTQyODUtNTk0My04MDUxLWI2NDQyYWY1NDY5MCIsImlhdCI6MTU5NjE5OTEyOCwidGVuYW50IjoiZGlrdSJ9.f2kv9mXeiWPyEFxhrB-T5MTZcrSUaW0XQi-AoL6NPVA
  * user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/4.11.0 Chrome/80.0.3987.165 Electron/8.3.1 Safari/537.36
  * content-type: application/json
  * accept: application/json
@@ -23,18 +23,18 @@ var path = require("path");
 module.exports = function (req, res) {
   res.statusCode = 200;
 
-  res.setHeader("date", "Tue, 28 Jul 2020 11:52:23 GMT");
+  res.setHeader("date", "Fri, 31 Jul 2020 12:40:22 GMT");
   res.setHeader("content-type", "application/json");
   res.setHeader("transfer-encoding", "chunked");
   res.setHeader("connection", "keep-alive");
   res.setHeader("access-control-allow-origin", "*");
   res.setHeader("access-control-expose-headers", "location,X-Okapi-Trace,X-Okapi-Token,Authorization,X-Okapi-Request-Id,X-Okapi-Module-Id");
-  res.setHeader("x-okapi-trace", "GET mod-authtoken-2.6.0-SNAPSHOT.73 http://10.36.1.132:9178/coursereserves/copyrightstatuses.. : 202 7054us, GET mod-courses-1.0.6-SNAPSHOT.96 http://10.36.1.132:9157/coursereserves/copyrightstatuses.. : 200 3650us");
+  res.setHeader("x-okapi-trace", "GET mod-authtoken-2.6.0-SNAPSHOT.73 http://10.36.1.15:9178/coursereserves/copyrightstatuses.. : 202 9284us, GET mod-courses-1.0.6-SNAPSHOT.96 http://10.36.1.15:9157/coursereserves/copyrightstatuses.. : 200 5407us");
   res.setHeader("content-encoding", "gzip");
 
   res.setHeader("x-yakbak-tape", path.basename(__filename, ".js"));
 
-  res.write(new Buffer("H4sIAAAAAAAAAKzUQW/bIBQH8Hs/BfJ1fRU2YENubXbZparW7TTt8B7g1ZptIptUiqp892Fn2aSm1rYsPiDZvP8T/GR4uWIss2GzG5pvT/ExYtyOfszYin1hL2kuzTZues24VEUuKg5alx5k7jxgTR6UQk2m9pUuMLs+RHrs/By6bVs2dx7Z4Ec/PHt3rHF+tEOziU3o59IHjEPoWYc71ofIpjUxjAzb9pjofESHEafyw9qmtQ8eo3fv0zC3KXjBgVdQ6E9crIRaCXlTGPOOp+dno5TabtxSKs9Xqljl5Q0X6u3U3e5z2sqHA4sXpG1ZKSCbbBShBs0FAVFNiI47QpPNDfZp3F+/VkVltLMWClHVIF0lQUspwaBNrrVxEvWJ6nrN7nZLjusJpHn2bB26LvRjQoxDQ9upgLWN9f3o/19UVX8veppa9sBcq1LaGjRpAVK6RGGVBqqMqHMnXKXk2x5wvz6LpA892PTdD7bB9nJC+h/+udPUshBp8iR5DWY6fdKp9MdYKoG7vORlJU2BtCgEj7eXQBqfcEjHv22++wuC8bPA+J/Aaip1rQyBkTyByRJBG+HSwEvjckXpvJ6APWwpbYy50GHTL5HdB/br6rzYXVXl5zAcU78Z2NepQxZDxPajt2Fw87WurvY/AAAA//8DAMFn8sn0BQAA", "base64"));
+  res.write(new Buffer("H4sIAAAAAAAAAKzUPW/bMBAG4D2/gtDaXECKR4n0lrhLlyBo2qnocPxQI1QfhkQHMAL/91Jy3QJxhAauNRCQeO+BfEDx5YqxzPWb3VD/eIqPkeJ2DGPGVuwbe0lzabb202vGUeVClhy0LgKg8AGosgGUIm1NFUqdU3Z9iHTUhjl02zRs7jyyIYxheA7+WOPD6IZ6E+u+m0sfKA59x1rasa6PbFoTo8ioaY6JNkTyFGkqP6xtWvsQKAb/MQ1zm5znHHgJUnzhciXVCtWNlPkHnp7fjVJqu/FLKZGvkK8E3qARb6fudl/TVj4dWCxHbYtAgLlWoAxK0FwJsAViTpXCwvBsbrBP4/76tSopo71zkMuyAvQlgkZEMOSSa2U8kj5RXa/Z3W7JcT2B1M+Brfu27bsxIcahttupgDW1C90Y/ls07fX9oqepZQ8SWhXoKtBWS0D0icIpDbY0shJe+lLh2x5wvz6LpOs7cOl7GFxNzcWEZL5wet6XWhay2gaLvAIz/X3oVToxzhbAvSh4UaLJyS4KwePtJZDGJxrS79/UP8PlwMRZYOKfYJUtdKWMBYM8gWFBoI30aeCF8UJZzeUJ2MPWpo0x37dUd0tk9z37c3Ve7K7i/ByGY+ovA/s+dchiH6n5HFw/+PlaV1f7XwAAAP//AwBcXfig9AUAAA==", "base64"));
   res.end();
 
   return __filename;

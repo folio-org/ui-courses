@@ -8,7 +8,7 @@ var path = require("path");
  * proxy-connection: keep-alive
  * origin: http://localhost:3001
  * x-okapi-tenant: diku
- * x-okapi-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaWt1X2FkbWluIiwidXNlcl9pZCI6ImUzYjhjNjc1LWJjNzAtNWJhOC04MDNiLWJiZmJhYWQwZGJhOSIsImlhdCI6MTU5NTkzNjkyNiwidGVuYW50IjoiZGlrdSJ9.a_A3vnYrca45cKS_eC5fi5Kagn_RZS5TV7ovFhYAGBw
+ * x-okapi-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaWt1X2FkbWluIiwidXNlcl9pZCI6ImIwNDhiNmVhLTQyODUtNTk0My04MDUxLWI2NDQyYWY1NDY5MCIsImlhdCI6MTU5NjE5OTAxNiwidGVuYW50IjoiZGlrdSJ9.Rfzb9MkbMTQdQrDUPfrXyZfFBQRHnWyMQPtPd_jqQ6I
  * user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/4.11.0 Chrome/80.0.3987.165 Electron/8.3.1 Safari/537.36
  * content-type: application/json
  * accept: application/json
@@ -23,18 +23,18 @@ var path = require("path");
 module.exports = function (req, res) {
   res.statusCode = 200;
 
-  res.setHeader("date", "Tue, 28 Jul 2020 11:49:25 GMT");
+  res.setHeader("date", "Fri, 31 Jul 2020 12:37:31 GMT");
   res.setHeader("content-type", "application/json");
   res.setHeader("transfer-encoding", "chunked");
   res.setHeader("connection", "keep-alive");
   res.setHeader("access-control-allow-origin", "*");
   res.setHeader("access-control-expose-headers", "location,X-Okapi-Trace,X-Okapi-Token,Authorization,X-Okapi-Request-Id,X-Okapi-Module-Id");
-  res.setHeader("x-okapi-trace", "GET mod-authtoken-2.6.0-SNAPSHOT.73 http://10.36.1.132:9178/coursereserves/courses.. : 202 7218us, GET mod-courses-1.0.6-SNAPSHOT.96 http://10.36.1.132:9157/coursereserves/courses.. : 200 30746us");
+  res.setHeader("x-okapi-trace", "GET mod-authtoken-2.6.0-SNAPSHOT.73 http://10.36.1.15:9178/coursereserves/courses.. : 202 7956us, GET mod-courses-1.0.6-SNAPSHOT.96 http://10.36.1.15:9157/coursereserves/courses.. : 200 40197us");
   res.setHeader("content-encoding", "gzip");
 
   res.setHeader("x-yakbak-tape", path.basename(__filename, ".js"));
 
-  res.write(new Buffer("H4sIAAAAAAAAAMxXS2/cNhC++1cIe63Z8CWKzM21C9Ro4gRNih6KHIbk0KtaKwmU5MYI/N/DfUvrjbFOC7Q+rLEiv9n55vHN6MtZls1cM8QOu1n2Ovsz+5KepGelX36daUGFtBSIDQUjUpqcWCU54WiMDgVnmPvZ+RpSwwJXoEuo3FANXcYo2x567Fws275s6tWdn6ArXebLEDBi3ZewPMmg9llZ93gbV9/34BZiv0j3rtduseAMY1wS5zkQGQCJAZREUqG019Ro7p+C39m/0PVLA2uSe5ovsDcm+hb6OS6Sq67bnx4yva5dNfiyvs1s08+zdoi44gltW5Xos4Sfj+AL7MFDD2M3lzmKCD36q/Sxssopp4QWhOuPVLwW+WshfxTC/EDT385Ywg2tPx23gT2u/j9u4reujjdl1ycOm/g7KqyzIAgooETynBErmCJUCWYtRxX4LvMT/LdT8AKTCRTxNhmMEDcO4eceYw3V6Mr20cENvr/RYbwvHbZNuSssAZLqnHsiTUgfPnACLBiikCvJQKFh4biBp8z23F5kddJJZXTZFXZ3GRufu8avz52fPPdl55p7jA9XZddW8HAztjNU6x5bmSMk+wWq6m94GOPb0t0N7ZvGwbZ6+zjg6MK8qfyHOVbh589tGR/eYywbP+W8dGOIOwPifHyy7O14v8vJH4h33Wx34XH0S10PIXyoynYjS5/ODu7Mqo2bG1u5cMHkKhDHfCCSUUu0RSC8SMrFnYPC7RtjB34uay+yOM7aRV3j56P5+vX3V5eXr66uX12Mj8vuwvXlPR4JeFmntumHEU9JESl1QCBnmkgrDbFI2bJPtKcgweXF5Ldh0Q7dBqy4C4WyBUne56kQhSCGs4KgD5I7ZKClHoOr0qYee9iG2BdaU4HEAZXLn05OYJJK7pSwhsvkkJ2UUywXCf1h3SXvl13yXe3QjQxc+01BnGblSN2kClxsZcwztAX6lNIVIQXEUFEQXwQGuchZUHtCK+Bz9fIia5MxUro5YLWALuOUmdm0DWI/Em9mCKOEifEdrP3BDZ4UfvaE+FqIPz60uKEf8lQ0iJpYpl2addwSS13CWxqM8Dov6Ij+Hv5cEF5kcxyEd3VV1jhRs4NBetOk3YC0GLukYq5ZtE2dhvpTnsueiYPrm7h2dLLYjH3lmFoceCDGepNGjvTEOgxEFSEPXGn0djpLUyFu50ReGM0YElGYpA2OmqQNiStQoNoZGVB8Qxs8LLrz7HIe0/yC7GIqE/9o0q5sHF8fTlwgVKEPF4gTV4gdci/mu7wcqxLFnAKTtixukw4V1BEtlSBKGgnBM6pRfSPytgCvIIW6EF4kVUaaRCj1hA5OeCsxL9AdjfxHeKiaeJ69Le/wfxX1wsjvjPoOeVrUjXNaa8xJUL5YRj2NDsYEETQNFR0sqqn6j6POAa3wmCQ2V0SCTqXO85QEntQNLTJVyOP1DrcQfYo6+Fs87PD/PPSaq+8M/Q75NPTZp39jmc/FE9dOcmyHe2aZvxkWFuP6zYcLmW9X9S6pZVLbm/37Tbl7BztG5TRREcWUyGmCskWdbUls4jrrmx6q39A1cb0KsLPHrwAAAP//AwB1Bk+2xg4AAA==", "base64"));
+  res.write(new Buffer("H4sIAAAAAAAAAMxXTW/cNhC951cIe63Z8EsUlZtrF6jRxAmaFD0UOQzJoZe1VhIoyfUi8H8P91u7Xhtrt0Drwxor8s3OvJl5M/r2Jssmthlih90ke5f9mX1LT9Kz4BZfJ1pQIQ0FYnzBiJRlToySnHAsS+0LzjB3k7MVpIYZLkEXUNmhGrqMUbY5dNjZGNo+NPXyzk/QBZu54D1GrPsAi5MMapeFusebuPy+A7cQ+1m6d7Vyi3lbMsYlsY4DkR6QlICSSCqUdpqWmrvH4I/mL7T9wsAqyF2YL7A3DvQD9FOcJVdttzs9jPSqttXgQn2TmaafZu0QcRkntG0V0GUJPx3BZ9iDgx7Gbi5yFBF6dJfpY2mVU04JLYhgX6h4J/J3Mv9RaPYDTX9bYwk3tO503Br2sPz/sOZvVR3vQ9enGNb8WyqMNSAIKKBE8pwRI5giVAlmDEfl+Tbze/inU/ACkwkU8SYZjBDXDuF9j7GGanRl8+jgBt/d6DDeBYttE7aFJUBSnXNHZOnTh/OcAPMlUciVZKCwZP64gceR7WJ7kdW9TgrRZpfY3WZsfG4btzq3bu+5C51t7jDOL0PXVjC/HtsZqlWPLc0Rkv0CVfU3zMf4NtjboX3fWNhUbx8HHF2YNpX7PMXK/3zfhjj/hDE0bj/mhRtD3BoQZ+OTRW/Hu21O/kC87SbbCw+jX+p68P5zFdq1LH19c3BnUq3dXNvKhfVlrjyxzHkiGTVEGwTCi6Rc3Foo7K4xtuDnsvYii+Osndc13h/N16+/v724eHt59fZ8fBy6c9uHOzxCeKhT2/TDKE5JESm1QCBnmkgjS2KQskWfaEdBgs2Lvd+GWTt0a7Di1hfKFCR5n6dCFIKUnBUEnZfcIgMt9RhcBZN6bL6h2BVaU4HEApWLn05OYJJKbpUwJZfJIbNXTjHMEvrzqks+LbrkVe3QjQxcuXVBnGblSN2kCpxtZMwxNAW6lNJlQApISUVBXOEZ5CJnXu0CWgKfq5cXWdsbI8FOAasZdBmnrJzst0HsR+LNSsIoYWJ8B2t3cIMnhZ88CnwlxF/mLa7D93kqGkRNDNM2zTpuiKE24Q31pXA6L+go/B38ORJeZHNMwse6CjXuqdnBIL1u0m5AWoxdUjHbzNqmTkP9cZyLnomD7Zu4cnRvsRn7yjG1OHBPSuPKNHKkI8aiJ6rwuedKozP7szQV4mZO5EWpGUMiijJpg6Vl0oYUK1Cg2pbSo3hCGxzMurPsYhrT/ILsfF8m/tGkXdo4vj6cuEAUKj9cIE5cIbbInZhv83KsShSzCsq0ZXGTdKiglmipBFGylOAdoxrVE8ybApyCRHUhnEiqjDSJUOoJ7a1wRmJeoD3K/BeYV008yz6EW/xfsV7S4pWsb5GnsV5aq7XGnHjligXraXQwJoigaahob1Dtq/+YdQ5ohMMksbkiEnQqdZ6nJPCkbmiQqUIer3e4gegS6+Bu8LDD/3vqxaupF09Sn339N5b5XD/qxZMc2+KeWeavh5nBuHrz4ULmm1W9S2qZ1PZ6934Ttu9gx0I5TVTYAcenCQob87sIYs3rpG96qH5D28TVKsDePHwHAAD//wMACqgj98YOAAA=", "base64"));
   res.end();
 
   return __filename;

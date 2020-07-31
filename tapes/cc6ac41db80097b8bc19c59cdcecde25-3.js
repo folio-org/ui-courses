@@ -14,7 +14,7 @@ var path = require("path");
  * accept: * / *
  * sec-fetch-site: same-site
  * sec-fetch-mode: cors
- * referer: http://localhost:3001/cr/courses?sort=name
+ * referer: http://localhost:3001/cr/courses?nreserves=0&sort=name
  * accept-encoding: gzip
  * accept-language: en-GB
  */
@@ -22,7 +22,7 @@ var path = require("path");
 module.exports = function (req, res) {
   res.statusCode = 200;
 
-  res.setHeader("date", "Tue, 28 Jul 2020 11:50:21 GMT");
+  res.setHeader("date", "Fri, 31 Jul 2020 12:38:24 GMT");
   res.setHeader("content-length", "0");
   res.setHeader("connection", "keep-alive");
   res.setHeader("access-control-allow-origin", "*");

@@ -21,13 +21,13 @@ var path = require("path");
 module.exports = function (req, res) {
   res.statusCode = 200;
 
-  res.setHeader("date", "Tue, 28 Jul 2020 11:50:48 GMT");
+  res.setHeader("date", "Fri, 31 Jul 2020 12:38:45 GMT");
   res.setHeader("content-type", "text/plain");
   res.setHeader("content-length", "5");
   res.setHeader("connection", "keep-alive");
   res.setHeader("access-control-allow-origin", "*");
   res.setHeader("access-control-expose-headers", "location,X-Okapi-Trace,X-Okapi-Token,Authorization,X-Okapi-Request-Id,X-Okapi-Module-Id");
-  res.setHeader("x-okapi-trace", "GET mod-authtoken-2.6.0-SNAPSHOT.73 http://10.36.1.132:9178/_/version : 202 492us, GET okapi-3.1.2 /_/version : 200 30us");
+  res.setHeader("x-okapi-trace", "GET mod-authtoken-2.6.0-SNAPSHOT.73 http://10.36.1.15:9178/_/version : 202 611us, GET okapi-3.1.2 /_/version : 200 39us");
 
   res.setHeader("x-yakbak-tape", path.basename(__filename, ".js"));
 
