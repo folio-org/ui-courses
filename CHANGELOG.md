@@ -1,15 +1,12 @@
 # Change history for ui-courses
 
-## 2.1.0 (IN PROGRESS)
-
-* Add ability to delete a course. Fixes UICR-98.
-* Add test suite, and [document how it works](doc/testing-with-cypress.md). Fixes UICR-21.
-
 ## 2.0.0 (IN PROGRESS)
 
 * Upgrade to `@folio/stripes` `^4.0`, including `plugin-find-user` `v3`, `react-intl` `v4.0`.
-* correctly import `requried` via `@folio/stripes/util`.
-* Rename the problematic `package.json` `scripts` entries `test` and `postinstall` with `-UNUSED`
+* Add ability to delete a course. Fixes UICR-98.
+* Add test suite, and [document how it works](doc/testing-with-cypress.md). Fixes UICR-21.
+* Correctly import `required` via `@folio/stripes/util`.
+* Simplify names of scripts in package file
 
 ## [1.1.7](https://github.com/folio-org/ui-courses/tree/v1.1.7) (2020-05-11)
 [Full Changelog](https://github.com/folio-org/ui-courses/compare/v1.1.6...v1.1.7)
