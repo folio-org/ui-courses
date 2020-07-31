@@ -1,6 +1,7 @@
 # Change history for ui-courses
 
-## 2.0.0 (IN PROGRESS)
+## [2.0.0](https://github.com/folio-org/ui-courses/tree/v2.0.0) (2020-07-31)
+[Full Changelog](https://github.com/folio-org/ui-courses/compare/v1.1.7...v2.0.0)
 
 * Upgrade to `@folio/stripes` `^4.0`, including `plugin-find-user` `v3`, `react-intl` `v4.0`.
 * Add ability to delete a course. Fixes UICR-98.
