@@ -230,12 +230,22 @@ describe('ui-courses: course creation, editing and deletion', () => {
     })
 
     it('deletes the reserves', () => {
+      // Check we can't delete a course with reserves
+      cy.get('#clickable-edit-course').click()
+      cy.get('#clickable-delete-course').should('not.exist')
+      cy.get('#close-course-form-button').click()
+
       cy.get('#clickable-remove-reserve-1').click()
       cy.contains("Bridget Jones's Baby: the diaries").should('not.exist')
       cy.contains('A semantic web primer')
 
       cy.get('#clickable-remove-reserve-0').click()
       cy.contains('A semantic web primer').should('not.exist')
+
+      // Check we can delete the course now it has no reserves
+      cy.get('#clickable-edit-course').click()
+      cy.get('#clickable-delete-course')
+      cy.get('#close-course-form-button').click()
     })
   })
 
