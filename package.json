@@ -15,10 +15,11 @@
     "coverage-summary": "nyc report --reporter=text-summary",
     "coverage": "nyc report --reporter=text",
     "lsof": "lsof -P -i :3001 -i :3002 || true",
-    "kill": "yarn lsof | awk '{print $2}' | egrep '^[0-9]+$' | xargs kill",
+    "kill": "yarn lsof | awk '{print $2}' | grep '^[0-9]+$' | xargs kill",
     "lint": "eslint .",
     "fix": "test -f node_modules/@babel/plugin-proposal-decorators/package.json || yarn add --dev @cypress/code-coverage",
-    "postinstall-and-test": "yarn fix && yarn test"
+    "postinstall-and-test": "yarn fix && yarn test",
+    "win-postinstall": "patch-package"
   },
   "stripes": {
     "actsAs": [
@@ -163,15 +164,22 @@
     "redux-form": "*"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.10.5",
+    "@babel/preset-typescript": "^7.10.4",
+    "@bigtest/cli": "^0.7.2",
+    "@bigtest/interactor": "^0.14.0",
     "@cypress/code-coverage": "^3.8.1",
     "@folio/eslint-config-stripes": "~5.1.0",
     "@folio/stripes": "^4.0.0",
     "@folio/stripes-cli": "^1.18.0",
     "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.2",
     "cypress": "^4.9.0",
     "eslint": "~7.2.0",
     "eslint-plugin-cypress": "^2.11.1",
     "localforage": "^1.7.4",
+    "miragejs": "^0.1.40",
+    "patch-package": "^6.2.2",
     "react": "^16.8.6",
     "react-intl": "^4.5.3",
     "react-router": "^4.3.1",
