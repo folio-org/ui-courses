@@ -1,0 +1,14 @@
+diff --git a/node_modules/@bigtest/server/dist/src/manifest-generator.js b/node_modules/@bigtest/server/dist/src/manifest-generator.js
+index 049a59a..4db6432 100644
+--- a/node_modules/@bigtest/server/dist/src/manifest-generator.js
++++ b/node_modules/@bigtest/server/dist/src/manifest-generator.js
+@@ -16,7 +16,8 @@ function* writeManifest(options) {
+     manifest += 'const children = [\n';
+     for (let file of files) {
+         let filePath = "./" + path.relative(path.dirname(options.destinationPath), file);
+-        manifest += `  Object.assign({}, load(require(${JSON.stringify(filePath)})), { path: ${JSON.stringify(file)} }),\n`;
++        filePath = filePath.split("\\").join('/');
++        manifest += `  Object.assign({}, load(require('${filePath}')), { path: ${JSON.stringify(file)} }),\n`;
+     }
+     manifest += "];\n";
+     manifest +=

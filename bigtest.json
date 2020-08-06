@@ -1,0 +1,15 @@
+{
+  "app": {
+    "command": "http-server",
+    "env": {
+      "PORT": 8080
+    },
+    "port": 8080
+  },
+  "testFiles": [
+    "test/**/*.test.js"
+  ],
+  "launch": [
+    "chrome.headless"
+  ]
+}

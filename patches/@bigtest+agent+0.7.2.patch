@@ -1,0 +1,22 @@
+diff --git a/node_modules/@bigtest/agent/dist/app/main.0a1a14a3.js b/node_modules/@bigtest/agent/dist/app/main.0a1a14a3.js
+index 679b47f..164b701 100644
+--- a/node_modules/@bigtest/agent/dist/app/main.0a1a14a3.js
++++ b/node_modules/@bigtest/agent/dist/app/main.0a1a14a3.js
+@@ -2614,7 +2614,7 @@ function runLaneSegment(testRunId, agent, test, context, remainingPath, prefix)
+             path: stepPath
+           });
+           _context5.next = 14;
+-          return timebox_1.timebox(step.action(context), 2000);
++          return timebox_1.timebox(step.action(context), 20000);
+ 
+         case 14:
+           result = _context5.sent;
+@@ -2713,7 +2713,7 @@ function runLaneSegment(testRunId, agent, test, context, remainingPath, prefix)
+                                           path: assertionPath
+                                         });
+                                         _context2.next = 6;
+-                                        return timebox_1.timebox(assertion.check(context), 2000);
++                                        return timebox_1.timebox(assertion.check(context), 20000);
+ 
+                                       case 6:
+                                         agent.send({
