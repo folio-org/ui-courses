@@ -93,7 +93,7 @@ and
 
 #### Stripes CLI to provide the UI
 
-Cypress can run directly against a hosted FOLIO UI such as [FOLIO Snapshot](https://folio-snapshot.aws.indexdata.com/) (see Scenario 1 below) but most of the time its value is in running against a local frontend built from the current source-code of the module being tested.
+Cypress can run directly against a hosted FOLIO UI such as [FOLIO Snapshot](https://folio-snapshot.dev.folio.org/) (see Scenario 1 below) but most of the time its value is in running against a local frontend built from the current source-code of the module being tested.
 
 Stripes bundles are built by [the Stripes CLI](https://github.com/folio-org/stripes-cli/). It can build an app or set of apps into a bundle of static files to be served by any HTTP server, or it can build the bundle in memory and serve it itself. The latter mode is most useful in development as it can respond quickly to changes in the source code.
 
@@ -108,9 +108,9 @@ As a result, UI testing is often most conveniently performed against one of the 
 [several of these](https://dev.folio.org/guides/automation/)
 including
 [Fameflower-Dev](https://folio-fameflower.dev.folio.org/),
-[Snapshot](https://folio-snapshot.aws.indexdata.com/)
+[Snapshot](https://folio-snapshot.dev.folio.org/)
 and
-[Snapshot-Stable](https://folio-snapshot-stable.aws.indexdata.com/). Since Snapshot is the most frequently updated of these (and therefore most likely to have fully up-to-date back-end modules), we will refer to it throughout this document, but any FOLIO backend can be used.
+[Snapshot-Stable](https://folio-snapshot-stable.dev.folio.org/). Since Snapshot is the most frequently updated of these (and therefore most likely to have fully up-to-date back-end modules), we will refer to it throughout this document, but any FOLIO backend can be used.
 
 
 #### Yakbak proxy
@@ -143,7 +143,7 @@ In the simplest scenario, the Cypress tests run against a remote UI, such as tha
 
 THe default UI tested by Cypress is specified by the `baseUrl` entry in the `cypress.json` configuration file. However, this can be overridden at run-time by the `-config` option of the Cypress CLI as follows:
 
-	cypress run --config baseUrl=https://folio-snapshot.aws.indexdata.com
+	cypress run --config baseUrl=https://folio-snapshot.dev.folio.org
 
 
 #### Scenario 2. Local UI against the Snapshot backend
@@ -174,7 +174,7 @@ To do this, it necessary to include quite a bit of configuration:
 It is also helpful to remove any existing tapes to ensure that we have a complete new set.
 
 	terminal1$ stripes serve --port 3001 --okapi http://localhost:3002
-	terminal2$ rm -rf tapes && yakbak-proxy -i https://folio-snapshot-okapi.aws.indexdata.com
+	terminal2$ rm -rf tapes && yakbak-proxy -i https://folio-snapshot-okapi.dev.folio.org
 	terminal3$ cypress run
 
 (The other option here given to `yakbak-proxy` is `-i`, which tells it to ignore headers when identifying requests, so that when the tapes are replayed a given request is recognised provided only that its protocol, method and URL are the same as before.)
@@ -185,7 +185,7 @@ When running in CI, both the Stripes server and the Yakbak proxy must be run in 
 
 	stripes serve --port 3001 --okapi http://localhost:3002 & pid1=$! &&
 	rm -rf tapes &&
-	yakbak-proxy -v -i https://folio-snapshot-okapi.aws.indexdata.com & pid2=$! &&
+	yakbak-proxy -v -i https://folio-snapshot-okapi.dev.folio.org & pid2=$! &&
 	wait-on http://localhost:3001 &&
 	cypress run &&
 	kill $pid1 $pid2
@@ -201,7 +201,7 @@ Invocation is very similar to that of scenario 3, except that the `tapes` direct
 
 	stripes serve --port 3001 --okapi http://localhost:3002 & pid1=$! &&
 	rm -rf tapes &&
-	yakbak-proxy -v -i https://folio-snapshot-okapi.aws.indexdata.com & pid2=$! &&
+	yakbak-proxy -v -i https://folio-snapshot-okapi.dev.folio.org & pid2=$! &&
 	wait-on http://localhost:3001 &&
 	cypress run &&
 	kill $pid1 $pid2
@@ -368,7 +368,7 @@ This will work, but violates our desire that developers should be able to write 
 
 A first attempt to preserve completely transparent use of the proxy is the addition of the `--sequence` (`-q`) option in [v1.2.0 of yakbak-proxy](https://github.com/folio-org/yakbak-proxy/tree/v1.2.0), which modifies the hashing function that Yakbak uses in determining when two requests are considered the same. (This function maps each incoming request to a digest which is uses as the filename for the tape that records the response.) When `--sequence` is specified on the command-line, each request is considered to contain an additional `X-sequence` header whose value is an integer that is incremented for each request.
 
-This works so far as preserving separate responses to multiple identical requests is concerned. However it does not solve the problem of repeatable tests due to the non-deterministic order of network requests issued by Stripes. [The front page of the Course Reserves app](https://folio-snapshot.aws.indexdata.com/cr/courses?sort=name), for example, fetches not only the list of courses, but also lists of departments, course-types, terms and locations in order to populate the filters in the left-hand pane. All these requests are issues simultaneously in principle, and they may be activated in any order. If an attempt to run tests against tapes happens to use a different order from that in which the tapes were recorded, the requests will fail because they will be made with different sequence numbers from those used to generate the tapes.
+This works so far as preserving separate responses to multiple identical requests is concerned. However it does not solve the problem of repeatable tests due to the non-deterministic order of network requests issued by Stripes. [The front page of the Course Reserves app](https://folio-snapshot.dev.folio.org/cr/courses?sort=name), for example, fetches not only the list of courses, but also lists of departments, course-types, terms and locations in order to populate the filters in the left-hand pane. All these requests are issues simultaneously in principle, and they may be activated in any order. If an attempt to run tests against tapes happens to use a different order from that in which the tapes were recorded, the requests will fail because they will be made with different sequence numbers from those used to generate the tapes.
 
 
 #### Yakbak proxy inserts serial numbers into duplicate requests
