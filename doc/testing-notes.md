@@ -233,7 +233,7 @@ The argument to `--run` is a comma-separated list of the names of test scripts t
 Various aspects of the Stripes CLI's functioning can be configured, but the most important for our purposes is nominating the FOLIO back-end to be contacted. This can be specified by a `.stripesclirc.js` file in the module directory or in any parent directory:
 
 	module.exports = {
-	  okapi: 'https://folio-snapshot-okapi.aws.indexdata.com',
+	  okapi: 'https://folio-snapshot-okapi.dev.folio.org',
 	  tenant: 'diku',
 	};
 

@@ -13,7 +13,7 @@ The Course Reserves UI Module, or `ui-courses`, is a Stripes UI module used for 
 
 This module's package file provides multiple `scripts` entries related to testing:
 
-* `test-folio-snapshot` -- Run the tests against the UI at folio-snapshot.aws.indexdata.com
+* `test-folio-snapshot` -- Run the tests against the UI at folio-snapshot.dev.folio.org
 * `start` -- Start the Stripes server for this module on port 3001, running against the folio-snapshot service
 * `test-running-service` -- Run the tests against a UI already running on port 3001, which you are expected to have started yourself (perhaps with `yarn start`)
 * `test-new-ui` -- Run the tests against a UI built freshly for the occasion
