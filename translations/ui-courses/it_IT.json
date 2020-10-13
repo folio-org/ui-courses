@@ -106,7 +106,7 @@
     "column.courseName": "Course name",
     "column.title": "Title",
     "column.barcode": "Codice a barre",
-    "column.permanentLocation": "Permanent location",
+    "column.permanentLocation": "Ubicazione permanente",
     "column.temporaryLocation": "Temporary location",
     "filters.courses": "Courses",
     "filters.reserves": "Reserves",
