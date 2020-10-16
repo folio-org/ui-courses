@@ -1,5 +1,9 @@
 # Change history for ui-courses
 
+## 3.0.0 IN PROGRESS
+
+* Upgrade to `@folio/stripes` `^5.0`, including `plugin-find-user` `v4`, `react-intl` `v5`, `react-router` `v5`. Fixes UICR-108, UICR-109.
+
 ## [2.0.0](https://github.com/folio-org/ui-courses/tree/v2.0.0) (2020-07-31)
 [Full Changelog](https://github.com/folio-org/ui-courses/compare/v1.1.7...v2.0.0)
 
