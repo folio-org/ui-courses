@@ -14,6 +14,7 @@ const dateFieldType = ({ fieldProps }) => (
     component={Datepicker}
     marginBottom0
     fullWidth
+    usePortal
   />
 );
 

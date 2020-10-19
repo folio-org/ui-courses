@@ -49,6 +49,7 @@ const ReserveFormInfo = (props) => {
                 backendDateStandard="YYYY-MM-DD"
                 label={placeholder}
                 component={Datepicker}
+                usePortal
               />
             )}
           </FormattedMessage>
@@ -63,6 +64,7 @@ const ReserveFormInfo = (props) => {
                 backendDateStandard="YYYY-MM-DD"
                 label={placeholder}
                 component={Datepicker}
+                usePortal
               />
             )}
           </FormattedMessage>
