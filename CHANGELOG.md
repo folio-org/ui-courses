@@ -1,5 +1,9 @@
 # Change history for ui-courses
 
+## 3.1.0 IN PROGRESS
+
+* Render `<Datepicker>` in a portal to avoid CSS clipping. Refs UICR-103.
+
 ## [3.0.0](https://github.com/folio-org/ui-courses/tree/v3.0.0) (2020-10-16)
 [Full Changelog](https://github.com/folio-org/ui-courses/compare/v2.0.0...v3.0.0)
 
