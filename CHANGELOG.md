@@ -1,6 +1,6 @@
 # Change history for ui-courses
 
-## 3.1.0 IN PROGRESS
+## 3.0.1 IN PROGRESS
 
 * Render `<Datepicker>` in a portal to avoid CSS clipping. Refs UICR-103.
 
