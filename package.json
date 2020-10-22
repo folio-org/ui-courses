@@ -163,7 +163,7 @@
     "redux-form": "*"
   },
   "devDependencies": {
-    "@cypress/code-coverage": "^3.8.1",
+    "@cypress/code-coverage": "^3.8.2",
     "@folio/eslint-config-stripes": "~5.1.0",
     "@folio/stripes": "^5.0.0",
     "@folio/stripes-cli": "^1.18.0",
