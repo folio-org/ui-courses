@@ -1,5 +1,10 @@
 # Change history for ui-courses
 
+## [3.0.2](https://github.com/folio-org/ui-courses/tree/v3.0.2) (2020-10-22)
+[Full Changelog](https://github.com/folio-org/ui-courses/compare/v3.0.1...v3.0.2)
+
+* A course can now be deleted if _either_ it has no reserves (so none are left danging) _or_ it has one or more cross-listed courses (which continue to hold the reserves). Fixes UICR-102.
+
 ## [3.0.1](https://github.com/folio-org/ui-courses/tree/v3.0.1) (2020-10-19)
 [Full Changelog](https://github.com/folio-org/ui-courses/compare/v3.0.0...v3.0.1)
 

@@ -26,6 +26,16 @@ class EditCourseRoute extends React.Component {
         return !rec ? null : `coursereserves/courselistings/${rec.courseListingId}`;
       },
     },
+    allCoursesInListing: {
+      type: 'okapi',
+      path: 'coursereserves/courses',
+      params: (_q, _p, resources) => {
+        const rec = get(resources, 'course.records.0');
+        if (!rec) return {};
+        return { query: `courseListingId=="${rec.courseListingId}"` };
+      },
+      records: 'courses',
+    },
     departments: manifest.departments,
     coursetypes: manifest.coursetypes,
     terms: manifest.terms,
@@ -49,6 +59,7 @@ class EditCourseRoute extends React.Component {
     resources: PropTypes.shape({
       course: PropTypes.object,
       departments: PropTypes.object,
+      allCoursesInListing: PropTypes.object,
     }).isRequired,
     mutator: PropTypes.shape({
       course: PropTypes.shape({
@@ -107,6 +118,7 @@ class EditCourseRoute extends React.Component {
 
   render() {
     const { handlers, stripes, intl, location } = this.props;
+    const { allCoursesInListing } = this.props.resources;
     const query = queryString.parse(location.search);
 
     if (!stripes.hasPerm('course-reserves-storage.reserves.write')) return <NoPermissions />;
@@ -131,6 +143,7 @@ class EditCourseRoute extends React.Component {
         deleteCourse={this.props.deleteCourse}
         handleDelete={this.handleDelete}
         nreserves={query.nreserves}
+        hasCrossListedCourses={allCoursesInListing.hasLoaded && allCoursesInListing.records.length > 1}
       />
     );
   }

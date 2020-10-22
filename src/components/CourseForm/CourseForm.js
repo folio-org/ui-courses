@@ -37,6 +37,7 @@ class CourseForm extends React.Component {
     values: PropTypes.object,
     isCrosslist: PropTypes.bool,
     nreserves: PropTypes.string,
+    hasCrossListedCourses: PropTypes.bool.isRequired,
   }
 
   getSectionProps(id) {
@@ -60,7 +61,8 @@ class CourseForm extends React.Component {
       values,
       deleteCourse,
       handleDelete,
-      nreserves
+      nreserves,
+      hasCrossListedCourses,
     } = this.props;
 
     return (
@@ -88,7 +90,7 @@ class CourseForm extends React.Component {
               <FormattedMessage id="stripes-components.saveAndClose" />
             </Button>
             {
-              (values.id && nreserves === '0') && (
+              (values.id && (nreserves === '0' || hasCrossListedCourses)) && (
                 !deleteCourse ? (
                   <Button
                     buttonStyle="default mega"
