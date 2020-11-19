@@ -160,7 +160,7 @@
     "copyrightTracking.yes": "Cet élément nécessite un suivi des droits d'auteur:",
     "removeReserve.failure": "Remove reserve failed: {message}",
     "addItem.enterBarcode": "Entrez ou scannez le code-barres",
-    "addItem.missingBarcode": "Please enter a barcode before selecting \"Add item\"",
+    "addItem.missingBarcode": "Veuillez saisir un code-barres avant de sélectionner \"Ajouter un article\"",
     "addItem.addedItem": "Élément ajouté \" {title} \"",
     "addItem.duplicateItem": "Duplicate barcode {barcode}: this item is already on reserve for this course",
     "addItem.failure": "Échec de l'ajout de l'élément {barcode} : {message}",
