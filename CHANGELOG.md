@@ -1,6 +1,6 @@
 # Change history for ui-courses
 
-## [3.1.0](https://github.com/folio-org/ui-courses/tree/v3.1.0) (IN PROGRESS)
+## [3.1.0](https://github.com/folio-org/ui-courses/tree/v3.1.0) (2020-12-12)
 [Full Changelog](https://github.com/folio-org/ui-courses/compare/v3.0.2...v3.1.0)
 
 * Dropdown options now display alphabetically. Fixes UICR-107.
