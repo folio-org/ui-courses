@@ -9,13 +9,15 @@
 import get from 'lodash/get';
 
 export default function getOptions(that, resource, element, emptyOption) {
-  const res = get(that.props.resources, `${resource}.records.0.${element || resource}`, [])
+  let res = get(that.props.resources, `${resource}.records.0.${element || resource}`, [])
     .map(x => ({ value: x.id, label: x.name }));
 
-  if (!emptyOption) return res;
+  if (emptyOption) {
+    res = [{
+      value: '',
+      label: emptyOption
+    }].concat(res);
+  }
 
-  return [{
-    value: '',
-    label: emptyOption
-  }].concat(res);
+  return res.sort((a, b) => (a.label < b.label ? -1 : a.label > b.label ? 1 : 0));
 }
