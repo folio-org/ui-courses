@@ -146,7 +146,6 @@
   },
   "dependencies": {
     "@folio/plugin-find-user": "^4.0.0",
-    "@folio/stripes": "^5.0.0",
     "final-form-set-field-data": "^1.0.2",
     "ky": "^0.19.0",
     "lodash": "^4.17.15",
@@ -155,6 +154,7 @@
     "react-hot-loader": "^4.3.12"
   },
   "peerDependencies": {
+    "@folio/stripes": "^5.0.0",
     "prop-types": "*",
     "react": "*",
     "react-intl": "*",
@@ -165,6 +165,7 @@
   "devDependencies": {
     "@cypress/code-coverage": "^3.8.2",
     "@folio/eslint-config-stripes": "~5.3.0",
+    "@folio/stripes": "^5.0.0",
     "@folio/stripes-cli": "^1.18.0",
     "babel-eslint": "^10.1.0",
     "cypress": "^4.9.0",
