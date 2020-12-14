@@ -1,5 +1,10 @@
 # Change history for ui-courses
 
+## [3.1.1](https://github.com/folio-org/ui-courses/tree/v3.1.1) (2020-12-14)
+[Full Changelog](https://github.com/folio-org/ui-courses/compare/v3.1.1...v3.1.0)
+
+* Revert a recent change that made `@folio/stripes` a main dependency rather than, as it needs to be, both a peer-dependency and a dev-dependency. This is necessary to allow the platforms to build correctly.
+
 ## [3.1.0](https://github.com/folio-org/ui-courses/tree/v3.1.0) (2020-12-12)
 [Full Changelog](https://github.com/folio-org/ui-courses/compare/v3.0.2...v3.1.0)
 
