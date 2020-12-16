@@ -1,5 +1,10 @@
 # Change history for ui-courses
 
+## [3.1.2](https://github.com/folio-org/ui-courses/tree/v3.1.2) (2020-12-16)
+[Full Changelog](https://github.com/folio-org/ui-courses/compare/v3.1.1...v3.1.2)
+
+* Sorting of candidate filter values is now case-insensitive. Fixes a lingering part of UICR-107.
+
 ## [3.1.1](https://github.com/folio-org/ui-courses/tree/v3.1.1) (2020-12-14)
 [Full Changelog](https://github.com/folio-org/ui-courses/compare/v3.1.1...v3.1.0)
 
