@@ -19,5 +19,7 @@ export default function getOptions(that, resource, element, emptyOption) {
     }].concat(res);
   }
 
-  return res.sort((a, b) => (a.label < b.label ? -1 : a.label > b.label ? 1 : 0));
+  return res.sort((a, b) => (a.label.toLowerCase() < b.label.toLowerCase() ? -1 :
+                             a.label.toLowerCase() > b.label.toLowerCase() ? 1 :
+                             0));
 }
