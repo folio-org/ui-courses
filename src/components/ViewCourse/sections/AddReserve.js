@@ -69,7 +69,6 @@ class AddReserve extends React.Component {
                 buttonStyle="primary"
                 id="clickable-add-item"
                 onClick={e => this.addItem(e, this.props.courseListingId)}
-                marginBottom0
               >
                 <FormattedMessage id="ui-courses.button.addItem" />
               </Button>

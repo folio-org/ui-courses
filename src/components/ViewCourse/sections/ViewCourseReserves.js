@@ -7,6 +7,7 @@ import { withStripes, CalloutContext } from '@folio/stripes/core';
 import withOkapiKy from '../../../util/withOkapiKy';
 import VCKeyValue from './VCKeyValue';
 import AddReserve from './AddReserve';
+import AddFastAddReserve from './AddFastAddReserve';
 
 
 const CopyrightTracking = ({ data }) => {
@@ -216,6 +217,7 @@ const ViewCourseReserves = (props) => {
         })
       }
       {permissions.add && <AddReserve courseListingId={course.courseListingId} />}
+      {permissions.add && <AddFastAddReserve courseListingId={course.courseListingId} />}
     </>
   );
 };

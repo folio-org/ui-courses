@@ -178,5 +178,8 @@
     "react-router-dom": "^5.2.0",
     "wait-on": "^5.0.1",
     "yakbak-proxy": "^1.5.0"
+  },
+  "optionalDependencies": {
+    "@folio/plugin-create-inventory-records": "^2.0.0"
   }
 }
