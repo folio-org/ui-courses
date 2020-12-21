@@ -65,7 +65,6 @@ class AddReserve extends React.Component {
             {ariaLabel => (
               <Button
                 aria-label={ariaLabel}
-                buttonStyle="primary"
                 id="clickable-add-item"
                 onClick={e => this.addItem(e, this.props.courseListingId)}
               >

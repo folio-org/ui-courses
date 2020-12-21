@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import get from 'lodash/get';
 import { withStripes, CalloutContext } from '@folio/stripes/core';
-import { Card, Button } from '@folio/stripes/components';
+import { Button, Card, IconButton } from '@folio/stripes/components';
 import withOkapiKy from '../../../util/withOkapiKy';
 import css from './Instructors.css';
 
@@ -66,15 +66,13 @@ const ViewCourseInstructors = (props) => {
                         permissions.edit && !instructor.patronGroupObject && (
                           <FormattedMessage id="ui-courses.editInstructor">
                             {ariaLabel => (
-                              <Button
+                              <IconButton
                                 aria-label={ariaLabel}
-                                buttonStyle="primary"
+                                icon="edit"
                                 id={`clickable-edit-instructor-${index}`}
                                 marginBottom0
                                 to={`/cr/instructors/${courseListingObject.id}/${record.id}/${instructor.id}/edit`}
-                              >
-                                <FormattedMessage id="ui-courses.button.editInstructor" />
-                              </Button>
+                              />
                             )}
                           </FormattedMessage>
                         )
@@ -83,15 +81,13 @@ const ViewCourseInstructors = (props) => {
                         permissions.delete && (
                           <FormattedMessage id="ui-courses.removeInstructor">
                             {ariaLabel => (
-                              <Button
+                              <IconButton
                                 aria-label={ariaLabel}
-                                buttonStyle="primary"
+                                icon="trash"
                                 id={`clickable-remove-instructor-${index}`}
                                 marginBottom0
                                 onClick={() => removeInstructor(instructor.id)}
-                              >
-                                <FormattedMessage id="ui-courses.button.removeInstructor" />
-                              </Button>
+                              />
                             )}
                           </FormattedMessage>
                         )
@@ -108,7 +104,6 @@ const ViewCourseInstructors = (props) => {
           {ariaLabel => (
             <Button
               aria-label={ariaLabel}
-              buttonStyle="primary"
               id="clickable-add-instructor"
               to={`/cr/instructors/${courseListingObject.id}/${record.id}/add`}
               marginBottom0

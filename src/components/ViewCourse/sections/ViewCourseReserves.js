@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, FormattedDate } from 'react-intl';
 import get from 'lodash/get';
-import { Button, Card, Col, Layout, Row } from '@folio/stripes/components';
+import { IconButton, Card, Col, Layout, Row } from '@folio/stripes/components';
 import { withStripes, CalloutContext } from '@folio/stripes/core';
 import withOkapiKy from '../../../util/withOkapiKy';
 import VCKeyValue from './VCKeyValue';
@@ -117,15 +117,14 @@ const ViewCourseReserves = (props) => {
           const editButton = permissions.edit && (
             <FormattedMessage id="ui-courses.editReserve">
               {ariaLabel => (
-                <Button
+                <IconButton
                   aria-label={ariaLabel}
                   buttonStyle="primary"
+                  icon="edit"
                   id={`clickable-edit-reserve-${index}`}
                   marginBottom0
                   to={`../reserves/${record.courseListingId}/${course.id}/${record.id}/${record.itemId}/edit`}
-                >
-                  <FormattedMessage id="ui-courses.button.editReserve" />
-                </Button>
+                />
               )}
             </FormattedMessage>
           );
@@ -133,15 +132,14 @@ const ViewCourseReserves = (props) => {
           const deleteButton = permissions.delete && (
             <FormattedMessage id="ui-courses.removeReserve">
               {ariaLabel => (
-                <Button
+                <IconButton
                   aria-label={ariaLabel}
                   buttonStyle="primary"
+                  icon="trash"
                   id={`clickable-remove-reserve-${index}`}
                   marginBottom0
                   onClick={() => removeReserve(record.id)}
-                >
-                  <FormattedMessage id="ui-courses.button.removeReserve" />
-                </Button>
+                />
               )}
             </FormattedMessage>
           );

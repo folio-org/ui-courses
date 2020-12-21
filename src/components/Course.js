@@ -49,7 +49,6 @@ class Course extends React.Component {
           {ariaLabel => (
             <Button
               aria-label={ariaLabel}
-              buttonStyle="primary"
               id="clickable-crosslist-course"
               marginBottom0
               to={this.props.urls.crosslist()}
