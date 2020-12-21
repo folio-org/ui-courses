@@ -115,6 +115,7 @@ class ReserveForm extends React.Component {
       <Paneset>
         <Pane
           appIcon={<AppIcon app="courses" />}
+          centerContent
           defaultWidth="100%"
           footer={this.renderPaneFooter()}
           firstMenu={this.renderFirstMenu()}

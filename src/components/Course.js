@@ -88,6 +88,7 @@ class Course extends React.Component {
     return (
       <Pane
         appIcon={<AppIcon app="courses" />}
+        centerContent
         defaultWidth="fill"
         dismissible
         id="pane-view-course"

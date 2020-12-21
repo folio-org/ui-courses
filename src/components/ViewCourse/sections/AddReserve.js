@@ -59,7 +59,6 @@ class AddReserve extends React.Component {
   render() {
     return (
       <>
-        <hr />
         <form id="form-course-item" onSubmit={e => this.addItem(e, this.props.courseListingId)}>
           <TextField label={<FormattedMessage id="ui-courses.addItem.enterBarcode" />} id="add-item-barcode" />
           <FormattedMessage id="ui-courses.addItem">

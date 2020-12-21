@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import { Button, Icon, Tooltip } from '@folio/stripes/components';
+import { Button, Icon } from '@folio/stripes/components';
 import { CalloutContext, Pluggable, stripesConnect } from '@folio/stripes/core';
 
 const AddFastReserve = ({
@@ -27,19 +27,11 @@ const AddFastReserve = ({
           });
       }}
       renderTrigger={({ onClick }) => (
-        <Tooltip text={<FormattedMessage id="ui-courses.addFastAddItem.tooltip" />}>
-          {({ ref, ariaIds }) => (
-            <Button
-              aria-labelledby={ariaIds.text}
-              onClick={onClick}
-              ref={ref}
-            >
-              <Icon icon="lightning">
-                <FormattedMessage id="ui-courses.addFastAddItem.title" />
-              </Icon>
-            </Button>
-          )}
-        </Tooltip>
+        <Button onClick={onClick}>
+          <Icon icon="lightning">
+            <FormattedMessage id="ui-courses.addFastAddItem.title" />
+          </Icon>
+        </Button>
       )}
       type="create-inventory-records"
     />
