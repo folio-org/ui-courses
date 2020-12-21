@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, FormattedDate } from 'react-intl';
 import get from 'lodash/get';
-import { Button, Card, Col, Row } from '@folio/stripes/components';
+import { Button, Card, Col, Layout, Row } from '@folio/stripes/components';
 import { withStripes, CalloutContext } from '@folio/stripes/core';
 import withOkapiKy from '../../../util/withOkapiKy';
 import VCKeyValue from './VCKeyValue';
@@ -216,8 +216,22 @@ const ViewCourseReserves = (props) => {
           );
         })
       }
-      {permissions.add && <AddReserve courseListingId={course.courseListingId} />}
-      {permissions.add && <AddFastAddReserve courseListingId={course.courseListingId} />}
+      <Row>
+        <Col xs={12} md={6}>
+          <Card headerStart={<FormattedMessage id="ui-courses.addItem.existing" />}>
+            <div style={{ minHeight: '5rem' }}>
+              {permissions.add && <AddReserve courseListingId={course.courseListingId} />}
+            </div>
+          </Card>
+        </Col>
+        <Col xs={12} md={6}>
+          <Card headerStart={<FormattedMessage id="ui-courses.addItem.new" />}>
+            <Layout className="textCentered" style={{ marginTop: '2rem', minHeight: '5rem' }}>
+              {permissions.add && <AddFastAddReserve courseListingId={course.courseListingId} />}
+            </Layout>
+          </Card>
+        </Col>
+      </Row>
     </>
   );
 };

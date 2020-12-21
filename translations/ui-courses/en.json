@@ -131,6 +131,8 @@
     "addItem.addedItem": "Added item \"{title}\"",
     "addItem.duplicateItem": "Duplicate barcode {barcode}: this item is already on reserve for this course",
     "addItem.failure": "Failed to add item {barcode}: {message}",
+    "addItem.existing": "Add existing Inventory item as a reserve",
+    "addItem.new": "Create new Inventory item and add it as a reserve",
     "button.addItem": "Add item",
     "instructor.pluralized": "{count} {count, plural, one {instructor} other {instructors}}",
     "addInstructor": "Add instructor",
