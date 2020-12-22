@@ -20,6 +20,6 @@ export default function getOptions(that, resource, element, emptyOption) {
   }
 
   return res.sort((a, b) => (a.label.toLowerCase() < b.label.toLowerCase() ? -1 :
-                             a.label.toLowerCase() > b.label.toLowerCase() ? 1 :
-                             0));
+    a.label.toLowerCase() > b.label.toLowerCase() ? 1 :
+      0));
 }
