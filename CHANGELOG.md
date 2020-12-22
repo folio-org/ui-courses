@@ -1,5 +1,9 @@
 # Change history for ui-courses
 
+## 3.2.0 (IN PROGRESS)
+
+* Added ability to Fast Add a reserve. I.e., adding on-the-fly Inventory records as reserves. UICR-91.
+
 ## [3.1.2](https://github.com/folio-org/ui-courses/tree/v3.1.2) (2020-12-16)
 [Full Changelog](https://github.com/folio-org/ui-courses/compare/v3.1.1...v3.1.2)
 
