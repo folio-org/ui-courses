@@ -70,7 +70,6 @@ const ViewCourseInstructors = (props) => {
                                 aria-label={ariaLabel}
                                 icon="edit"
                                 id={`clickable-edit-instructor-${index}`}
-                                marginBottom0
                                 to={`/cr/instructors/${courseListingObject.id}/${record.id}/${instructor.id}/edit`}
                               />
                             )}
@@ -85,7 +84,6 @@ const ViewCourseInstructors = (props) => {
                                 aria-label={ariaLabel}
                                 icon="trash"
                                 id={`clickable-remove-instructor-${index}`}
-                                marginBottom0
                                 onClick={() => removeInstructor(instructor.id)}
                               />
                             )}
@@ -106,7 +104,6 @@ const ViewCourseInstructors = (props) => {
               aria-label={ariaLabel}
               id="clickable-add-instructor"
               to={`/cr/instructors/${courseListingObject.id}/${record.id}/add`}
-              marginBottom0
             >
               <FormattedMessage id="ui-courses.button.addInstructor" />
             </Button>

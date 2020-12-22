@@ -119,10 +119,8 @@ const ViewCourseReserves = (props) => {
               {ariaLabel => (
                 <IconButton
                   aria-label={ariaLabel}
-                  buttonStyle="primary"
                   icon="edit"
                   id={`clickable-edit-reserve-${index}`}
-                  marginBottom0
                   to={`../reserves/${record.courseListingId}/${course.id}/${record.id}/${record.itemId}/edit`}
                 />
               )}
@@ -134,10 +132,8 @@ const ViewCourseReserves = (props) => {
               {ariaLabel => (
                 <IconButton
                   aria-label={ariaLabel}
-                  buttonStyle="primary"
                   icon="trash"
                   id={`clickable-remove-reserve-${index}`}
-                  marginBottom0
                   onClick={() => removeReserve(record.id)}
                 />
               )}
@@ -246,7 +242,7 @@ ViewCourseReserves.propTypes = {
     hasPerm: PropTypes.func.isRequired,
   }).isRequired,
   resources: PropTypes.shape({
-    toggleVal: PropTypes.string.isRequired,
+    toggleVal: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   }).isRequired,
   mutator: PropTypes.shape({
     toggleVal: PropTypes.shape({

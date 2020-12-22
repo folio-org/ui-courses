@@ -9,7 +9,7 @@ class AddReserve extends React.Component {
   static contextType = CalloutContext; // Too Much Magic
 
   static propTypes = {
-    courseListingId: PropTypes.string.isRequired,
+    courseListingId: PropTypes.string,
     mutator: PropTypes.shape({
       reserves: PropTypes.shape({
         POST: PropTypes.func.isRequired,
