@@ -210,22 +210,24 @@ const ViewCourseReserves = (props) => {
           );
         })
       }
-      <Row>
-        <Col xs={12} md={6}>
-          <Card headerStart={<FormattedMessage id="ui-courses.addItem.existing" />}>
-            <div style={{ minHeight: '5rem' }}>
-              {permissions.add && <AddReserve courseListingId={course.courseListingId} />}
-            </div>
-          </Card>
-        </Col>
-        <Col xs={12} md={6}>
-          <Card headerStart={<FormattedMessage id="ui-courses.addItem.new" />}>
-            <Layout className="textCentered" style={{ marginTop: '2rem', minHeight: '5rem' }}>
-              {permissions.add && <AddFastAddReserve courseListingId={course.courseListingId} />}
-            </Layout>
-          </Card>
-        </Col>
-      </Row>
+      { permissions.add && (
+        <Row>
+          <Col xs={12} md={6}>
+            <Card headerStart={<FormattedMessage id="ui-courses.addItem.existing" />}>
+              <div style={{ minHeight: '5rem' }}>
+                <AddReserve courseListingId={course.courseListingId} />
+              </div>
+            </Card>
+          </Col>
+          <Col xs={12} md={6}>
+            <Card headerStart={<FormattedMessage id="ui-courses.addItem.new" />}>
+              <Layout className="textCentered" style={{ marginTop: '2rem', minHeight: '5rem' }}>
+                <AddFastAddReserve courseListingId={course.courseListingId} />
+              </Layout>
+            </Card>
+          </Col>
+        </Row>
+      )}
     </>
   );
 };
