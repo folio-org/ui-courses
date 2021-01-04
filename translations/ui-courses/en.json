@@ -139,8 +139,6 @@
     "editInstructor": "Edit instructor",
     "removeInstructor": "Remove instructor",
     "removeInstructor.failure": "Remove instructor failed: {message}",
-    "button.removeInstructor": "Remove",
-    "button.editInstructor": "Edit instructor",
     "filters.courses": "Courses",
     "filters.reserves": "Reserves",
     "filters.department": "Department",

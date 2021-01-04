@@ -34,7 +34,10 @@ const AddFastReserve = ({
             callout.sendCallout({ message: <FormattedMessage id="ui-courses.addItem.addedItem" values={{ title: itemRecord.title }} /> });
           }).catch(exception => {
             exception.text().then(text => {
-              callout.sendCallout('error', <FormattedMessage id="ui-courses.addItem.failure" values={{ message: text }} />);
+              callout.sendCallout({
+                type: 'error',
+                message: <FormattedMessage id="ui-courses.addItem.failure" values={{ message: text }} />
+              });
             });
           });
       }}
