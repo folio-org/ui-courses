@@ -31,7 +31,7 @@ const ViewCourseData = ({ record }) => {
   );
 
   return (
-    <Card headerStart={record.name}>
+    <Card headerStart={record.name || ''}>
       <Row>
         <Col xs={3}>
           <KeyValue label={<FormattedMessage id="ui-courses.field.name" />} value={courseNameAndDescription} />

@@ -4,8 +4,7 @@ import { FormattedMessage, FormattedDate } from 'react-intl';
 import { Card, Col, Row, KeyValue } from '@folio/stripes/components';
 
 const ViewCourseTerm = ({ record }) => {
-  const courseListingObject = record.courseListingObject || {};
-  const termObject = courseListingObject.termObject || {};
+  const termObject = record?.courseListingObject?.termObject || { name: '' };
 
   return (
     <Card headerStart={termObject.name}>

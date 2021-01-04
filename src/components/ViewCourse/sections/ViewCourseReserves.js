@@ -2,11 +2,12 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, FormattedDate } from 'react-intl';
 import get from 'lodash/get';
-import { Button, Card, Col, Row } from '@folio/stripes/components';
+import { IconButton, Card, Col, Layout, Row } from '@folio/stripes/components';
 import { withStripes, CalloutContext } from '@folio/stripes/core';
 import withOkapiKy from '../../../util/withOkapiKy';
 import VCKeyValue from './VCKeyValue';
 import AddReserve from './AddReserve';
+import AddFastAddReserve from './AddFastAddReserve';
 
 
 const CopyrightTracking = ({ data }) => {
@@ -116,15 +117,12 @@ const ViewCourseReserves = (props) => {
           const editButton = permissions.edit && (
             <FormattedMessage id="ui-courses.editReserve">
               {ariaLabel => (
-                <Button
+                <IconButton
                   aria-label={ariaLabel}
-                  buttonStyle="primary"
+                  icon="edit"
                   id={`clickable-edit-reserve-${index}`}
-                  marginBottom0
                   to={`../reserves/${record.courseListingId}/${course.id}/${record.id}/${record.itemId}/edit`}
-                >
-                  <FormattedMessage id="ui-courses.button.editReserve" />
-                </Button>
+                />
               )}
             </FormattedMessage>
           );
@@ -132,15 +130,12 @@ const ViewCourseReserves = (props) => {
           const deleteButton = permissions.delete && (
             <FormattedMessage id="ui-courses.removeReserve">
               {ariaLabel => (
-                <Button
+                <IconButton
                   aria-label={ariaLabel}
-                  buttonStyle="primary"
+                  icon="trash"
                   id={`clickable-remove-reserve-${index}`}
-                  marginBottom0
                   onClick={() => removeReserve(record.id)}
-                >
-                  <FormattedMessage id="ui-courses.button.removeReserve" />
-                </Button>
+                />
               )}
             </FormattedMessage>
           );
@@ -215,7 +210,24 @@ const ViewCourseReserves = (props) => {
           );
         })
       }
-      {permissions.add && <AddReserve courseListingId={course.courseListingId} />}
+      { permissions.add && (
+        <Row>
+          <Col xs={12} md={6}>
+            <Card headerStart={<FormattedMessage id="ui-courses.addItem.existing" />}>
+              <div style={{ minHeight: '5rem' }}>
+                <AddReserve courseListingId={course.courseListingId} />
+              </div>
+            </Card>
+          </Col>
+          <Col xs={12} md={6}>
+            <Card headerStart={<FormattedMessage id="ui-courses.addItem.new" />}>
+              <Layout className="textCentered" style={{ marginTop: '2rem', minHeight: '5rem' }}>
+                <AddFastAddReserve courseListingId={course.courseListingId} />
+              </Layout>
+            </Card>
+          </Col>
+        </Row>
+      )}
     </>
   );
 };
@@ -232,7 +244,7 @@ ViewCourseReserves.propTypes = {
     hasPerm: PropTypes.func.isRequired,
   }).isRequired,
   resources: PropTypes.shape({
-    toggleVal: PropTypes.string.isRequired,
+    toggleVal: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   }).isRequired,
   mutator: PropTypes.shape({
     toggleVal: PropTypes.shape({

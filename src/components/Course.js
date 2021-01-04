@@ -49,7 +49,6 @@ class Course extends React.Component {
           {ariaLabel => (
             <Button
               aria-label={ariaLabel}
-              buttonStyle="primary"
               id="clickable-crosslist-course"
               marginBottom0
               to={this.props.urls.crosslist()}
@@ -88,6 +87,7 @@ class Course extends React.Component {
     return (
       <Pane
         appIcon={<AppIcon app="courses" />}
+        centerContent
         defaultWidth="fill"
         dismissible
         id="pane-view-course"

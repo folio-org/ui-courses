@@ -6,6 +6,7 @@ import { Layout, Pane, Paneset, Spinner } from '@folio/stripes/components';
 const LoadingPaneSet = (props) => (
   <Paneset>
     <Pane
+      centerContent
       dismissible
       defaultWidth="100%"
       id="pane-course-form"

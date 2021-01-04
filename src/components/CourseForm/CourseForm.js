@@ -148,6 +148,7 @@ class CourseForm extends React.Component {
               {crosslist => (
                 <Pane
                   appIcon={<AppIcon app="courses" />}
+                  centerContent
                   defaultWidth="100%"
                   footer={this.renderPaneFooter()}
                   firstMenu={this.renderFirstMenu()}

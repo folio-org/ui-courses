@@ -9,7 +9,7 @@ class AddReserve extends React.Component {
   static contextType = CalloutContext; // Too Much Magic
 
   static propTypes = {
-    courseListingId: PropTypes.string.isRequired,
+    courseListingId: PropTypes.string,
     mutator: PropTypes.shape({
       reserves: PropTypes.shape({
         POST: PropTypes.func.isRequired,
@@ -59,17 +59,14 @@ class AddReserve extends React.Component {
   render() {
     return (
       <>
-        <hr />
         <form id="form-course-item" onSubmit={e => this.addItem(e, this.props.courseListingId)}>
           <TextField label={<FormattedMessage id="ui-courses.addItem.enterBarcode" />} id="add-item-barcode" />
           <FormattedMessage id="ui-courses.addItem">
             {ariaLabel => (
               <Button
                 aria-label={ariaLabel}
-                buttonStyle="primary"
                 id="clickable-add-item"
                 onClick={e => this.addItem(e, this.props.courseListingId)}
-                marginBottom0
               >
                 <FormattedMessage id="ui-courses.button.addItem" />
               </Button>
