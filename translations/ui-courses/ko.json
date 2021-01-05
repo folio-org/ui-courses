@@ -127,9 +127,7 @@
     "button.addInstructor": "강사 추가",
     "addInstructor": "강사 추가",
     "removeInstructor": "강사 제거",
-    "button.removeInstructor": "제거",
     "editInstructor": "강사 수정",
-    "button.editInstructor": "강사 수정",
     "removeReserve": "예약 제거",
     "button.removeReserve": "제거",
     "button.addItem": "항목 추가",
@@ -167,5 +165,9 @@
     "instructor.pluralized": "{count} {count, plural, one {instructor} other {instructors}}",
     "removeInstructor.failure": "Remove instructor failed: {message}",
     "delete": "삭제",
-    "reallyDelete": "Really delete?"
+    "reallyDelete": "Really delete?",
+    "addItem.existing": "Add existing Inventory item as a reserve",
+    "addItem.new": "Create new Inventory item and add it as a reserve",
+    "addFastAddItem.title": "Add Fast Add item",
+    "addFastAddItem.tooltip": "Create a new Inventory record using 'Fast Add' and add it to this course as a reserve"
 }

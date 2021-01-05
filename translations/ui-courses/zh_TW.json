@@ -127,9 +127,7 @@
     "button.addInstructor": "新增授課老師",
     "addInstructor": "新增授課老師",
     "removeInstructor": "移除授課老師",
-    "button.removeInstructor": "移除",
     "editInstructor": "編輯授課老師",
-    "button.editInstructor": "編輯授課老師",
     "removeReserve": "移除指定參考書",
     "button.removeReserve": "移除",
     "button.addItem": "Add item",
@@ -167,5 +165,9 @@
     "instructor.pluralized": "{count} {count, plural, one {instructor} other {instructors}}",
     "removeInstructor.failure": "無法移除授課老師：{message}",
     "delete": "Delete",
-    "reallyDelete": "Really delete?"
+    "reallyDelete": "Really delete?",
+    "addItem.existing": "Add existing Inventory item as a reserve",
+    "addItem.new": "Create new Inventory item and add it as a reserve",
+    "addFastAddItem.title": "Add Fast Add item",
+    "addFastAddItem.tooltip": "Create a new Inventory record using 'Fast Add' and add it to this course as a reserve"
 }
