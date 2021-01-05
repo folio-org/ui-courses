@@ -127,9 +127,7 @@
     "button.addInstructor": "Ajouter un instructeur",
     "addInstructor": "Ajouter un instructeur",
     "removeInstructor": "Supprimer l'instructeur",
-    "button.removeInstructor": "Retirer",
     "editInstructor": "Modifier l'instructeur",
-    "button.editInstructor": "Modifier l'instructeur",
     "removeReserve": "Retirer la réservation",
     "button.removeReserve": "Retirer",
     "button.addItem": "Ajouter un élément",
@@ -167,5 +165,9 @@
     "instructor.pluralized": "{count} {count, plural, one {instructor} other {instructors}}",
     "removeInstructor.failure": "Remove instructor failed: {message}",
     "delete": "Supprimer",
-    "reallyDelete": "Vraiment supprimer?"
+    "reallyDelete": "Vraiment supprimer?",
+    "addItem.existing": "Add existing Inventory item as a reserve",
+    "addItem.new": "Create new Inventory item and add it as a reserve",
+    "addFastAddItem.title": "Add Fast Add item",
+    "addFastAddItem.tooltip": "Create a new Inventory record using 'Fast Add' and add it to this course as a reserve"
 }
