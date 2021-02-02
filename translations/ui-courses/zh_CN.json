@@ -166,8 +166,8 @@
     "removeInstructor.failure": "移除教师失败： {message}",
     "delete": "删除",
     "reallyDelete": "真的删除？",
-    "addItem.existing": "Add existing Inventory item as a reserve",
-    "addItem.new": "Create new Inventory item and add it as a reserve",
-    "addFastAddItem.title": "Add Fast Add item",
-    "addFastAddItem.tooltip": "Create a new Inventory record using 'Fast Add' and add it to this course as a reserve"
+    "addItem.existing": "将现有典藏单件添加为教参",
+    "addItem.new": "创建新的典藏单件并将其添加为教参",
+    "addFastAddItem.title": "添加快速添加单件",
+    "addFastAddItem.tooltip": "使用“快速添加”创建新的典藏记录，并将其添加到此课程中作为教参"
 }
