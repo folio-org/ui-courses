@@ -126,15 +126,15 @@ describe('ui-courses: course creation, editing and deletion', () => {
     it('adds instructors', () => {
       // No plugin available in unit test, so we have to enter by hand
       cy.contains('0 instructors')
-      cy.contains('Edit instructor').should('not.exist')
+      cy.get('[icon=edit]').should('not.exist')
       cy.get('#clickable-add-instructor').click()
       cy.get('#edit-instructor-name').type('Hillare Belloc')
       cy.get('#edit-instructor-barcode').type('12345')
       cy.get('#clickable-update-instructor').click()
 
       cy.contains('1 instructor')
-      cy.contains('Edit instructor')
       cy.contains('12345')
+      cy.get('[icon=edit]').should('exist')
       cy.get('#clickable-add-instructor').click()
       cy.get('#edit-instructor-name').type('G. K. Chesterton')
       cy.get('#edit-instructor-barcode').type('67890')
@@ -203,10 +203,11 @@ describe('ui-courses: course creation, editing and deletion', () => {
       cy.get('#edit-reserve-temporary-location').select('ORWIG ETHNO CD')
       cy.get('#edit-reserve-temporary-loan-type').select('Reading room')
       cy.get('#edit-reserve-processing-status').select('Recalled')
-      cy.get('#edit-reserve-start-date').click()
+      cy.get('#datepicker-toggle-calendar-button-edit-reserve-start-date').click()
       // We can't know what month will show when the test is run, but
       // we can ensure that we choose the 25th of that month
-      cy.get('#datepicker-choose-date-button-25-edit-reserve-start-date').click()
+      cy.contains('td[role=button]', '25').click()
+      // cy.get('#datepicker-choose-date-button-25-edit-reserve-start-date').click()
       cy.get('#edit-reserve-copyright-additional').click()
       cy.get('#edit-reserve-copyright-status').select('Public domain')
       cy.get('#edit-reserve-copyright-total-pages').type('567')
@@ -231,6 +232,7 @@ describe('ui-courses: course creation, editing and deletion', () => {
 
     it('deletes the reserves', () => {
       // Check we can't delete a course with reserves
+      cy.contains('button', 'Actions').click()
       cy.get('#clickable-edit-course').click()
       cy.get('#clickable-delete-course').should('not.exist')
       cy.get('#close-course-form-button').click()
@@ -243,6 +245,7 @@ describe('ui-courses: course creation, editing and deletion', () => {
       cy.contains('A semantic web primer').should('not.exist')
 
       // Check we can delete the course now it has no reserves
+      cy.contains('button', 'Actions').click()
       cy.get('#clickable-edit-course').click()
       cy.get('#clickable-delete-course')
       cy.get('#close-course-form-button').click()
@@ -251,6 +254,7 @@ describe('ui-courses: course creation, editing and deletion', () => {
 
   describe('edits and deletes course', () => {
     it('edits the record', () => {
+      cy.contains('button', 'Actions').click()
       cy.get('#clickable-edit-course').click()
       // Change a field from the course itself and one from the listing
       cy.get('#edit-course-name').clear().type('Aardvark husbandry')
@@ -273,6 +277,7 @@ describe('ui-courses: course creation, editing and deletion', () => {
     })
 
     it('deletes the record', () => {
+      cy.contains('button', 'Actions').click()
       cy.get('#clickable-edit-course').click()
       cy.contains('Really delete').should('not.exist')
       cy.get('#clickable-delete-course').click()

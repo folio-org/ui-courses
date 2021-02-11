@@ -106,21 +106,23 @@ class CourseRoute extends React.Component {
     this.props.history.push(`${pathname.replace(/(.*)\/.*/, '$1')}${newSearch ? '?' : ''}${newSearch}`);
   }
 
-  render() {
-    const { location, handlers, resources, mutator } = this.props;
+  handleCrosslist = () => {
+    const { history, location, resources } = this.props;
 
-    const urls = {
-      edit: () => {
-        const query = queryString.parse(location.search);
-        const reserves = get(resources, 'reservesForCourse.records', []);
-        query.nreserves = reserves.length;
-        return `${this.props.location.pathname}/edit?${queryString.stringify(query)}`;
-      },
-      crosslist: () => {
-        const clid = get(this.props.resources, 'course.records[0].courseListingId');
-        return `${this.props.location.pathname}/crosslist/${clid}${this.props.location.search}`;
-      }
-    };
+    const clid = resources.course?.records?.[0]?.courseListingId;
+    history.push(`${location.pathname}/crosslist/${clid}${location.search}`);
+  }
+
+  handleEdit = () => {
+    const { history, location, resources } = this.props;
+
+    const query = queryString.parse(location.search);
+    query.nreserves = resources.reservesForCourse?.records?.length ?? 0;
+    history.push(`${location.pathname}/edit?${queryString.stringify(query)}`);
+  }
+
+  render() {
+    const { handlers, resources, mutator } = this.props;
 
     return (
       <Course
@@ -130,9 +132,13 @@ class CourseRoute extends React.Component {
           reserves: get(resources, 'reservesForCourse.records', []),
           items: get(resources, 'items.records', []),
         }}
-        handlers={{ ...handlers, onClose: this.handleClose }}
+        handlers={{
+          ...handlers,
+          onClose: this.handleClose,
+          onCrosslist: this.handleCrosslist,
+          onEdit: this.handleEdit,
+        }}
         isLoading={get(resources, 'course.isPending', true)}
-        urls={urls}
         resources={resources}
         mutator={mutator}
       />
