@@ -1,7 +1,8 @@
 # Change history for ui-courses
 
-## 3.2.0 (IN PROGRESS)
+## 4.0.0 (2020-12-16)
 
+* Bumped to Stripes platform v6.0.0 and Stripes CLI v2.0.0. Fixes UICR-119.
 * Added ability to Fast Add a reserve. I.e., adding on-the-fly Inventory records as reserves. UICR-91.
 * Bump the maximum number of locations fetched from 500 to 1000. Fixes UICR-120.
 
