@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import get from 'lodash/get';
 import { Card, Col, Row, KeyValue, Tooltip } from '@folio/stripes/components';
+import { ViewMetaData } from '@folio/stripes/smart-components';
 
 const ViewCourseData = ({ record }) => {
   const departmentObject = record.departmentObject || {};
@@ -31,41 +32,44 @@ const ViewCourseData = ({ record }) => {
   );
 
   return (
-    <Card headerStart={record.name || ''}>
-      <Row>
-        <Col xs={3}>
-          <KeyValue label={<FormattedMessage id="ui-courses.field.name" />} value={courseNameAndDescription} />
-        </Col>
-        <Col xs={3}>
-          <KeyValue label={<FormattedMessage id="ui-courses.field.department" />} value={departmentNameAndDescription} />
-        </Col>
-        <Col xs={3}>
-          <KeyValue label={<FormattedMessage id="ui-courses.field.number" />} value={record.courseNumber} />
-        </Col>
-        <Col xs={3}>
-          <KeyValue label={<FormattedMessage id="ui-courses.field.section" />} value={record.sectionName} />
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={12}>
-          <KeyValue label={<FormattedMessage id="ui-courses.field.description" />} value={record.description} />
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={3}>
-          <KeyValue label={<FormattedMessage id="ui-courses.field.courseType" />} value={courseType} />
-        </Col>
-        <Col xs={3}>
-          <KeyValue label={<FormattedMessage id="ui-courses.field.registrarId" />} value={courseListingObject.registrarId} />
-        </Col>
-        <Col xs={3}>
-          <KeyValue label={<FormattedMessage id="ui-courses.field.externalId" />} value={courseListingObject.externalId} />
-        </Col>
-        <Col xs={3}>
-          <KeyValue label={<FormattedMessage id="ui-courses.field.location" />} value={location} />
-        </Col>
-      </Row>
-    </Card>
+    <>
+      <ViewMetaData metadata={record.metadata} />
+      <Card headerStart={record.name || ''}>
+        <Row>
+          <Col xs={3}>
+            <KeyValue label={<FormattedMessage id="ui-courses.field.name" />} value={courseNameAndDescription} />
+          </Col>
+          <Col xs={3}>
+            <KeyValue label={<FormattedMessage id="ui-courses.field.department" />} value={departmentNameAndDescription} />
+          </Col>
+          <Col xs={3}>
+            <KeyValue label={<FormattedMessage id="ui-courses.field.number" />} value={record.courseNumber} />
+          </Col>
+          <Col xs={3}>
+            <KeyValue label={<FormattedMessage id="ui-courses.field.section" />} value={record.sectionName} />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
+            <KeyValue label={<FormattedMessage id="ui-courses.field.description" />} value={record.description} />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={3}>
+            <KeyValue label={<FormattedMessage id="ui-courses.field.courseType" />} value={courseType} />
+          </Col>
+          <Col xs={3}>
+            <KeyValue label={<FormattedMessage id="ui-courses.field.registrarId" />} value={courseListingObject.registrarId} />
+          </Col>
+          <Col xs={3}>
+            <KeyValue label={<FormattedMessage id="ui-courses.field.externalId" />} value={courseListingObject.externalId} />
+          </Col>
+          <Col xs={3}>
+            <KeyValue label={<FormattedMessage id="ui-courses.field.location" />} value={location} />
+          </Col>
+        </Row>
+      </Card>
+    </>
   );
 };
 
