@@ -17,10 +17,11 @@ class Course extends React.Component {
     data: PropTypes.shape({
       course: PropTypes.object,
     }),
-    urls: PropTypes.object,
     isLoading: PropTypes.bool,
     handlers: PropTypes.shape({
       onClose: PropTypes.func.isRequired,
+      onCrosslist: PropTypes.func.isRequired,
+      onEdit: PropTypes.func.isRequired,
     }).isRequired,
     stripes: PropTypes.shape({
       hasPerm: PropTypes.func.isRequired,

@@ -90,6 +90,9 @@ class CourseRoute extends React.Component {
     handlers: PropTypes.object,
     resources: PropTypes.shape({
       course: PropTypes.object,
+      reservesForCourse: PropTypes.shape({
+        records: PropTypes.array,
+      }),
     }).isRequired,
     mutator: PropTypes.object.isRequired,
   };
