@@ -9,6 +9,7 @@ import {
   PaneMenu,
   Paneset,
 } from '@folio/stripes/components';
+import { ViewMetaData } from '@folio/stripes/smart-components';
 import { AppIcon, TitleManager, withStripes } from '@folio/stripes/core';
 import stripesFinalForm from '@folio/stripes/final-form';
 import { isEqual } from 'lodash';
@@ -124,6 +125,7 @@ class ReserveForm extends React.Component {
         >
           <TitleManager record={title}>
             <form id="form-course">
+              <ViewMetaData metadata={values.metadata} />
               <ReserveFormInfo {...sectionProps} />
               <ReserveFormCopyright {...sectionProps} />
               <ReserveFormCourses {...sectionProps} />
