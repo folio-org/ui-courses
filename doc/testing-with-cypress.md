@@ -314,6 +314,14 @@ And the package file defines a `postinstall-and-test` rule that invokes both a p
 
 All of this is unpleasant. Hopefully it can be ripped out once we get to the bottom of UICR-96, or at least find a less offensive workaround for it.
 
+##### Failing to output coverage reports
+
+Occaisionally, the `coverageReport` task will start failing for each suite. You'll see errors like this in the after-all hooks:
+
+> CypressError: `cy.task('coverageReport')` failed with the following error:
+> Cannot read property 'loc' of undefined
+
+[These have been reported](https://github.com/cypress-io/code-coverage/issues/216) and should generally be fixed with the versions of `@cypress/code-coverage` that is being installed. However, they can still happen with version 3.9.2 when the `.nyc_output` directory exists at the start of a run. `rm`ing that directory has fixed it for me since then. I believe this directory hangs around if you liberally Ctrl+C tests while they're running and catch it in a bad spot.
 
 #### Generating coverage reports
 

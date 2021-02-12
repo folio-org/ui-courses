@@ -4,26 +4,25 @@ var path = require("path");
  * OPTIONS /coursereserves/copyrightstatuses?limit=500
  *
  * connection: keep-alive
- * host: folio-snapshot-okapi.aws.indexdata.com
+ * host: folio-testing-okapi.dev.folio.org
  * proxy-connection: keep-alive
- * access-control-request-method: GET
- * origin: http://localhost:3001
- * sec-fetch-dest: empty
- * user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/4.11.0 Chrome/80.0.3987.165 Electron/8.3.1 Safari/537.36
- * access-control-request-headers: content-type,x-okapi-tenant,x-okapi-token
  * accept: * / *
- * sec-fetch-site: same-site
+ * access-control-request-method: GET
+ * access-control-request-headers: content-type,x-okapi-tenant,x-okapi-token
+ * origin: http://localhost:3001
+ * user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_1) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/6.4.0 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36
  * sec-fetch-mode: cors
+ * sec-fetch-site: same-site
+ * sec-fetch-dest: empty
  * referer: http://localhost:3001/cr/reserves?sort=name
  * accept-encoding: gzip
- * accept-language: en-GB
+ * accept-language: en-US
  */
 
 module.exports = function (req, res) {
-  res.statusCode = 200;
+  res.statusCode = 204;
 
-  res.setHeader("date", "Fri, 31 Jul 2020 15:38:55 GMT");
-  res.setHeader("content-length", "0");
+  res.setHeader("date", "Fri, 12 Feb 2021 17:51:33 GMT");
   res.setHeader("connection", "keep-alive");
   res.setHeader("access-control-allow-origin", "*");
   res.setHeader("access-control-allow-methods", "PUT,PATCH,DELETE,GET,POST");
