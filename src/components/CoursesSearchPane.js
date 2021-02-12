@@ -103,7 +103,7 @@ class CoursesSearchPane extends React.Component {
           <FilterNavigation current="courses" />
           <div className={css.searchGroupWrap}>
             <FormattedMessage id="ui-courses.searchInputLabel">
-              { ariaLabel => (
+              { ([ariaLabel]) => (
                 <SearchField
                   data-test-courses-search-input
                   id="input-courses-search"
