@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import {
   Button,
+  Icon,
   Layout,
   Pane,
-  PaneMenu,
   Spinner,
 } from '@folio/stripes/components';
 import { withStripes, AppIcon, TitleManager } from '@folio/stripes/core';
@@ -17,10 +17,11 @@ class Course extends React.Component {
     data: PropTypes.shape({
       course: PropTypes.object,
     }),
-    urls: PropTypes.object,
     isLoading: PropTypes.bool,
     handlers: PropTypes.shape({
       onClose: PropTypes.func.isRequired,
+      onCrosslist: PropTypes.func.isRequired,
+      onEdit: PropTypes.func.isRequired,
     }).isRequired,
     stripes: PropTypes.shape({
       hasPerm: PropTypes.func.isRequired,
@@ -29,37 +30,32 @@ class Course extends React.Component {
     mutator: PropTypes.object.isRequired,
   };
 
-  renderLastMenu = () => {
-    return (
-      <PaneMenu>
-        <FormattedMessage id="ui-courses.editCourse">
-          {ariaLabel => (
-            <Button
-              aria-label={ariaLabel}
-              buttonStyle="primary"
-              id="clickable-edit-course"
-              marginBottom0
-              to={this.props.urls.edit()}
-            >
-              <FormattedMessage id="stripes-components.button.edit" />
-            </Button>
-          )}
-        </FormattedMessage>
-        <FormattedMessage id="ui-courses.crosslistCourse">
-          {ariaLabel => (
-            <Button
-              aria-label={ariaLabel}
-              id="clickable-crosslist-course"
-              marginBottom0
-              to={this.props.urls.crosslist()}
-            >
-              <FormattedMessage id="ui-courses.button.crosslist" />
-            </Button>
-          )}
-        </FormattedMessage>
-      </PaneMenu>
-    );
-  }
+  renderActionMenu = ({ onToggle }) => (
+    <>
+      <Button
+        buttonStyle="dropdownItem"
+        id="clickable-edit-course"
+        onClick={() => {
+          onToggle();
+          this.props.handlers.onEdit();
+        }}
+      >
+        <Icon icon="edit">
+          <FormattedMessage id="stripes-components.button.edit" />
+        </Icon>
+      </Button>
+      <Button
+        buttonStyle="dropdownItem"
+        id="clickable-crosslist-course"
+        onClick={() => {
+          onToggle();
+          this.props.handlers.onCrosslist();
+        }}
+      >
+        <FormattedMessage id="ui-courses.button.crosslist" />
+      </Button>
+    </>
+  )
 
   renderLoadingPane = () => {
     return (
@@ -86,12 +82,12 @@ class Course extends React.Component {
 
     return (
       <Pane
+        actionMenu={hasPerm ? this.renderActionMenu : undefined}
         appIcon={<AppIcon app="courses" />}
         centerContent
         defaultWidth="fill"
         dismissible
         id="pane-view-course"
-        lastMenu={hasPerm ? this.renderLastMenu() : null}
         onClose={handlers.onClose}
         paneTitle={record.name}
         paneSub={<FormattedMessage id="ui-courses.courseByNumber" values={{ number: record.courseNumber }} />}
