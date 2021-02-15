@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { FormattedMessage, FormattedDate } from 'react-intl';
@@ -38,7 +38,6 @@ function calculateStatus(termObject) {
   return <FormattedMessage id={`ui-courses.status.${tag}`} />;
 }
 
-
 class Courses extends React.Component {
   static propTypes = {
     location: PropTypes.shape({
@@ -64,11 +63,51 @@ class Courses extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { filterPaneIsVisible: true };
+
+    this.resultsPaneTitleRef = createRef();
+  }
+
+  state = {
+    filterPaneIsVisible: true,
+    recordsArePending: true,
+    searchPending: false,
+  }
+
+  static getDerivedStateFromProps(props) {
+    return {
+      recordsArePending: props.source?.pending() ?? true
+    };
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      this.state.searchPending &&
+      prevState.recordsArePending === true &&
+      this.state.recordsArePending === false
+    ) {
+      this.onSearchComplete();
+    }
+  }
+
+  handleSubmitSearch = (e, onSubmitSearch) => {
+    this.setState({ searchPending: true });
+
+    onSubmitSearch(e);
   }
 
   onRowClick = (e, row) => {
     this.props.history.push(`/cr/courses/${row.id}${this.props.location.search}`);
+  }
+
+  onSearchComplete = () => {
+    const hasResults = !!(this.props.source?.totalCount() ?? 0);
+
+    this.setState({ searchPending: false });
+
+    // Focus the pane header if we have results to minimize tabbing distance
+    if (hasResults && this.resultsPaneTitleRef.current) {
+      this.resultsPaneTitleRef.current.focus();
+    }
   }
 
   toggleFilterPane = () => {
@@ -176,6 +215,7 @@ class Courses extends React.Component {
                 {this.state.filterPaneIsVisible && (
                   <CoursesSearchPane
                     {...sasqParams}
+                    onSubmitSearch={e => this.handleSubmitSearch(e, sasqParams.onSubmitSearch)}
                     source={source}
                     toggleFilterPane={this.toggleFilterPane}
                     searchField={this.searchField}
@@ -189,6 +229,7 @@ class Courses extends React.Component {
                   lastMenu={this.renderResultsLastMenu(this.props.location)}
                   padContent={false}
                   paneTitle={<FormattedMessage id="ui-courses.filters.courses" />}
+                  paneTitleRef={this.resultsPaneTitleRef}
                   paneSub={this.renderResultsPaneSubtitle(source)}
                 >
                   <MultiColumnList

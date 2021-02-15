@@ -107,7 +107,7 @@ class ReservesSearchPane extends React.Component {
           <FilterNavigation current="reserves" />
           <div className={css.searchGroupWrap}>
             <FormattedMessage id="ui-courses.searchInputLabel">
-              { ariaLabel => (
+              { ([ariaLabel]) => (
                 <SearchField
                   data-test-reserves-search-input
                   id="input-reserves-search"

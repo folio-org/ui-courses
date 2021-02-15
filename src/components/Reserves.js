@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { FormattedMessage } from 'react-intl';
@@ -46,11 +46,51 @@ class Reserves extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { filterPaneIsVisible: true };
+
+    this.resultsPaneTitleRef = createRef();
+  }
+
+  state = {
+    filterPaneIsVisible: true,
+    recordsArePending: true,
+    searchPending: false,
+  }
+
+  static getDerivedStateFromProps(props) {
+    return {
+      recordsArePending: props.source?.pending() ?? true
+    };
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      this.state.searchPending &&
+      prevState.recordsArePending === true &&
+      this.state.recordsArePending === false
+    ) {
+      this.onSearchComplete();
+    }
+  }
+
+  handleSubmitSearch = (e, onSubmitSearch) => {
+    this.setState({ searchPending: true });
+
+    onSubmitSearch(e);
   }
 
   onRowClick = (e, row) => {
     this.props.history.push(`/cr/reserves/${row.courseListingId}/0/${row.id}/${row.itemId}/edit${this.props.location.search}`);
+  }
+
+  onSearchComplete = () => {
+    const hasResults = !!(this.props.source?.totalCount() ?? 0);
+
+    this.setState({ searchPending: false });
+
+    // Focus the pane header if we have results to minimize tabbing distance
+    if (hasResults && this.resultsPaneTitleRef.current) {
+      this.resultsPaneTitleRef.current.focus();
+    }
   }
 
   toggleFilterPane = () => {
@@ -136,6 +176,7 @@ class Reserves extends React.Component {
                 {this.state.filterPaneIsVisible && (
                   <ReservesSearchPane
                     {...sasqParams}
+                    onSubmitSearch={e => this.handleSubmitSearch(e, sasqParams.onSubmitSearch)}
                     source={source}
                     toggleFilterPane={this.toggleFilterPane}
                     searchField={this.searchField}
@@ -148,6 +189,7 @@ class Reserves extends React.Component {
                   firstMenu={this.renderResultsFirstMenu(activeFilters)}
                   padContent={false}
                   paneTitle={<FormattedMessage id="ui-courses.filters.reserves" />}
+                  paneTitleRef={this.resultsPaneTitleRef}
                   paneSub={this.renderResultsPaneSubtitle(source)}
                 >
                   <MultiColumnList
