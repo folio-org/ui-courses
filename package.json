@@ -148,7 +148,7 @@
   "dependencies": {
     "@folio/plugin-find-user": "^4.0.0",
     "final-form-set-field-data": "^1.0.2",
-    "ky": "^0.19.0",
+    "ky": "^0.23.0",
     "lodash": "^4.17.15",
     "query-string": "^6.0.0",
     "react-final-form": "^6.3.0",
