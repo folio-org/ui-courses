@@ -31,6 +31,12 @@ const manifest = {
     path: 'coursereserves/copyrightstatuses?limit=500',
     shouldRefresh: () => false,
   },
+  displaySettings: {
+    type: 'okapi',
+    // This path is based on the props provided to `ConfigManager` in `DisplaySettings`
+    path: 'configurations/entries?query=(module=COURSES and configName=display)',
+    shouldRefresh: () => false,
+  }
 };
 
 export default manifest;

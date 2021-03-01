@@ -21,6 +21,7 @@ class Course extends React.Component {
     handlers: PropTypes.shape({
       onClose: PropTypes.func.isRequired,
       onCrosslist: PropTypes.func.isRequired,
+      onDuplicate: PropTypes.func.isRequired,
       onEdit: PropTypes.func.isRequired,
     }).isRequired,
     stripes: PropTypes.shape({
@@ -52,7 +53,21 @@ class Course extends React.Component {
           this.props.handlers.onCrosslist();
         }}
       >
-        <FormattedMessage id="ui-courses.button.crosslist" />
+        <Icon icon="transfer">
+          <FormattedMessage id="ui-courses.button.crosslist" />
+        </Icon>
+      </Button>
+      <Button
+        buttonStyle="dropdownItem"
+        id="clickable-duplicate-course"
+        onClick={() => {
+          onToggle();
+          this.props.handlers.onDuplicate();
+        }}
+      >
+        <Icon icon="duplicate">
+          <FormattedMessage id="ui-courses.button.duplicate" />
+        </Icon>
       </Button>
     </>
   )

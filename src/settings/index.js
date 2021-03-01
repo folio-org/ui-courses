@@ -1,6 +1,8 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Settings } from '@folio/stripes/smart-components';
+
+import DisplaySettings from './DisplaySettings';
 import TermSettings from './TermSettings';
 import CourseTypeSettings from './CourseTypeSettings';
 import DepartmentSettings from './DepartmentSettings';
@@ -9,6 +11,11 @@ import CopyrightStatusSettings from './CopyrightStatusSettings';
 
 export default class CoursesSettings extends React.Component {
   pages = [
+    {
+      route: 'display-settings',
+      label: <FormattedMessage id="ui-courses.settings.displaySettings" />,
+      component: DisplaySettings,
+    },
     {
       route: 'terms',
       label: <FormattedMessage id="ui-courses.settings.terms" />,
