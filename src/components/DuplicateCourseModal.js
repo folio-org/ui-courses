@@ -10,33 +10,32 @@ import { useOkapiKy } from '@folio/stripes/core';
 import manifest from '../util/manifest';
 
 const DuplicateCourseModal = ({ data, history, onClose }) => {
-  const [terms, setTerms] = useState([]);
-  const [term, setTerm] = useState();
-  const [duplicateCrosslistedCourses, setDuplicateCrosslistedCourses] = useState(false);
-
   const intl = useIntl();
   const ky = useOkapiKy();
 
-  // Fetch list of terms that are defined on the system.
-  useEffect(() => {
-    ky(manifest.terms.path).json()
-      .then(json => {
-        const options = json?.terms
-          .map(t => ({ value: t.id, label: t.name }))
-          .sort((a, b) => a.label.localeCompare(b.label))
-          ?? [];
+  const [term, setTerm] = useState();
+  const { data: terms } = useQuery(
+    ['ui-courses', 'terms'],
+    () => ky(manifest.terms.path).json(),
+    {
+      placeholderData: [],
+      onSuccess: data => setTerm(data[0]?.value),
+      select: data => ((data?.terms ?? [])
+        .map(t => ({ value: t.id, label: t.name }))
+        .sort((a, b) => a.label.localeCompare(b.label))
+      )
+    }
+  );
 
-        setTerms(options);
-        setTerm(options[0]?.value);
-      });
-
-    ky(manifest.displaySettings.path).json()
-      .then(json => {
-        console.log('Display Settings:');
-        console.log(json);
-        setDuplicateCrosslistedCourses(json.duplicateCrosslistedCourses);
-      });
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps (we only want this running on mount so don't include ky)
+  const [duplicateCrosslistedCourses, setDuplicateCrosslistedCourses] = useState(false);
+  useQuery(
+    ['ui-courses', 'duplicateCrosslistedCourses'],
+    () => ky(manifest.displaySettings.path).json(),
+    {
+      onSuccess: data => setDuplicateCrosslistedCourses(data.duplicateCrosslistedCourses),
+      select: data => JSON.parse(data.configs[0].value),
+    },
+  );
 
   const duplicateCourse = async () => {
     const { course, crossListed, reserves } = data;
@@ -71,7 +70,7 @@ const DuplicateCourseModal = ({ data, history, onClose }) => {
       courseNumber: course.courseNumber,
       departmentId: course.departmentId,
       description: course.description,
-      name: `${course.name}-${intl.formatMessage({ id: 'ui-courses.button.duplicate' })}`,
+      name: `${course.name} - ${intl.formatMessage({ id: 'ui-courses.button.duplicate' })}`,
       sectionName: course.sectionName,
     } }).json();
 
@@ -82,7 +81,7 @@ const DuplicateCourseModal = ({ data, history, onClose }) => {
           courseNumber: crossListed[i].courseNumber,
           departmentId: crossListed[i].departmentId,
           description: crossListed[i].description,
-          name: `${crossListed[i].name}-${intl.formatMessage({ id: 'ui-courses.button.duplicate' })}`,
+          name: `${crossListed[i].name} - ${intl.formatMessage({ id: 'ui-courses.button.duplicate' })}`,
           sectionName: crossListed[i].sectionName,
         } }).json();
       }
