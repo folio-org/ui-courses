@@ -95,6 +95,7 @@ const DuplicateCourseModal = ({ data, history, onClose }) => {
   return (
     <Modal
       dismissible
+      id="duplicate-course-modal"
       label={<FormattedMessage id="ui-courses.duplicateCourse" />}
       onClose={onClose}
       open
@@ -103,6 +104,7 @@ const DuplicateCourseModal = ({ data, history, onClose }) => {
         autoFocus
         dataOptions={terms}
         fullWidth
+        data-test-select-term-for-duplicate-course
         label={<FormattedMessage id="ui-courses.field.term" />}
         onChange={e => setTerm(e.target.value)}
         required
@@ -110,12 +112,14 @@ const DuplicateCourseModal = ({ data, history, onClose }) => {
       />
       <Checkbox
         checked={duplicateCrosslistedCourses}
+        data-test-checkbox-duplicate-crosslisted-courses
         label={<FormattedMessage id="ui-courses.duplicateCourse.duplicateCrosslistedCourses" />}
         onChange={e => setDuplicateCrosslistedCourses(e.target.checked)}
       />
       <Button
         disabled={term === undefined}
         fullWidth
+        data-test-duplicate-modal-clickable-duplicate
         onClick={duplicateCourse}
       >
         <FormattedMessage id="ui-courses.button.createDuplicateCourses" />
