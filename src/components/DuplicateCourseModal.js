@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { useQuery } from 'react-query';
@@ -19,8 +19,8 @@ const DuplicateCourseModal = ({ data, history, onClose }) => {
     () => ky(manifest.terms.path).json(),
     {
       placeholderData: [],
-      onSuccess: data => setTerm(data[0]?.value),
-      select: data => ((data?.terms ?? [])
+      onSuccess: json => setTerm(json[0]?.value),
+      select: json => ((json?.terms ?? [])
         .map(t => ({ value: t.id, label: t.name }))
         .sort((a, b) => a.label.localeCompare(b.label))
       )
@@ -32,8 +32,8 @@ const DuplicateCourseModal = ({ data, history, onClose }) => {
     ['ui-courses', 'duplicateCrosslistedCourses'],
     () => ky(manifest.displaySettings.path).json(),
     {
-      onSuccess: data => setDuplicateCrosslistedCourses(data.duplicateCrosslistedCourses),
-      select: data => JSON.parse(data.configs[0].value),
+      onSuccess: json => setDuplicateCrosslistedCourses(json.duplicateCrosslistedCourses),
+      select: json => JSON.parse(json.configs[0].value),
     },
   );
 
@@ -113,7 +113,11 @@ const DuplicateCourseModal = ({ data, history, onClose }) => {
         label={<FormattedMessage id="ui-courses.duplicateCourse.duplicateCrosslistedCourses" />}
         onChange={e => setDuplicateCrosslistedCourses(e.target.checked)}
       />
-      <Button fullWidth onClick={duplicateCourse}>
+      <Button
+        disabled={term === undefined}
+        fullWidth
+        onClick={duplicateCourse}
+      >
         <FormattedMessage id="ui-courses.button.createDuplicateCourses" />
       </Button>
     </Modal>

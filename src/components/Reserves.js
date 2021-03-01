@@ -37,6 +37,7 @@ class Reserves extends React.Component {
     query: PropTypes.object.isRequired,
     source: PropTypes.shape({
       loaded: PropTypes.func.isRequired,
+      pending: PropTypes.func.isRequired,
       totalCount: PropTypes.func.isRequired,
     }),
     history: PropTypes.shape({ // provided by withRouter

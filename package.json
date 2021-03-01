@@ -160,6 +160,7 @@
     "prop-types": "*",
     "react": "*",
     "react-intl": "*",
+    "react-query": "^3.12.0",
     "react-router": "*",
     "react-router-dom": "*",
     "redux-form": "*"
@@ -176,6 +177,7 @@
     "localforage": "^1.7.4",
     "react": "^16.8.6",
     "react-intl": "^5.7.0",
+    "react-query": "^3.12.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "wait-on": "^5.0.1",
