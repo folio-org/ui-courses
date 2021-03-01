@@ -72,6 +72,7 @@ describe('ui-courses: duplicating courses', () => {
     })
     it('deletes duplicated course', () => {
       cy.get('#clickable-remove-reserve-0').click()
+      cy.contains('A semantic web primer').should('not.exist')
       cy.contains('button', 'Actions').click()
       cy.get('#clickable-edit-course').click()
       cy.get('#clickable-delete-course').click()

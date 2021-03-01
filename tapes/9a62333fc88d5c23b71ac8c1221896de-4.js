@@ -4,12 +4,12 @@ var path = require("path");
  * GET /coursereserves/departments?query=cql.allRecords=1 sortby name&limit=2000
  *
  * connection: keep-alive
- * host: folio-testing-okapi.dev.folio.org
+ * host: folio-snapshot-okapi.dev.folio.org
  * proxy-connection: keep-alive
  * accept: application/json
  * x-okapi-tenant: diku
- * x-okapi-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaWt1X2FkbWluIiwidXNlcl9pZCI6Ijc3MzdlMTVkLTcwYjYtNWQ1MC1hMzNmLWY0N2RiOTFmMjFjNyIsImlhdCI6MTYxMzE1MjQxNCwidGVuYW50IjoiZGlrdSJ9.dRZZ4jECumVbaAR_RPDTwXgKKYQxYObvmLalfeGytGY
- * user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_1) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/6.4.0 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36
+ * x-okapi-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaWt1X2FkbWluIiwidXNlcl9pZCI6ImY0YmNkZDYwLWE5NDQtNTM5NS05YzNjLTNhN2E4ZGQ3NGNkZSIsImlhdCI6MTYxNDYyMTMzNywidGVuYW50IjoiZGlrdSJ9.wtxQuiFzCxqkGD2MGI_mTg9ppZ9Ug5jVeWarbc1FX6A
+ * user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_1) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/6.5.0 Chrome/87.0.4280.141 Electron/11.2.3 Safari/537.36
  * content-type: application/json
  * origin: http://localhost:3001
  * sec-fetch-site: same-site
@@ -23,7 +23,7 @@ var path = require("path");
 module.exports = function (req, res) {
   res.statusCode = 200;
 
-  res.setHeader("date", "Fri, 12 Feb 2021 17:54:37 GMT");
+  res.setHeader("date", "Mon, 01 Mar 2021 17:56:16 GMT");
   res.setHeader("content-type", "application/json");
   res.setHeader("transfer-encoding", "chunked");
   res.setHeader("connection", "keep-alive");
@@ -31,11 +31,12 @@ module.exports = function (req, res) {
   res.setHeader("access-control-allow-origin", "*");
   res.setHeader("access-control-expose-headers", "location,X-Okapi-Trace,X-Okapi-Token,Authorization,X-Okapi-Request-Id,X-Okapi-Module-Id");
   res.setHeader("content-encoding", "gzip");
-  res.setHeader("x-okapi-trace", "GET mod-courses-1.1.3-SNAPSHOT.106 http://10.36.1.253:9149/coursereserves/departments.. : 200 3207us");
+  res.setHeader("x-okapi-trace", "GET mod-courses-1.1.3-SNAPSHOT.106 http://10.36.1.217:9159/coursereserves/departments.. : 200 3206us");
 
   res.setHeader("x-yakbak-tape", path.basename(__filename, ".js"));
 
-  res.write(new Buffer("H4sIAAAAAAAAALyUT4/TMBDF7/sprFypq/G/OMmtCIT2wAWWE+Iw8UzaSGkSJe6hWvW746a7qmBZREHiYtmTec/O+1l+vBMiIx5xinvu45yJSnwVj6ma6i2dlxkzuRpISRXYSZsXTmKjgywMKG3yoBoXstVF0uOeF9FmsxEfeOiG7fH5G/EcpnaM7dAvLQ87FnM80FEMjYhpMXbYc3xu33NEwojn3suBUjFMjJHpXRoWDw1aSdBS6QflK2crk6+9cW8AKoAnp6vs7fHLzNP95be8N56VI+mhzqUjBxKNaWRjPdWlarQK/upwGOlvNn6S3b7xYnBK42n1Ew7l8rywKkiXeEhLNkhEKCUwalUDlGDxBY73CfBOfA4t94Hn14jc96E7UNtvxfaCbiVGjtMyFdiTGLFDHvr4A9dbQYGpNFTar9NNeiWv38Ss16VT/yPmJpRKaSsDaZS2QZYlspUWTF5QAWWh6UXMHzHd4z3GNvxBxvWQkIyHiZdocRy7lkkk9W7+92jLW6L9hewajPh2tsjiELH7xGGYaHklzN3pOwAAAP//AwDdu/RsPQQAAA==", "base64"));
+  res.write(new Buffer("H4sIAAAAAAAAALyUMW/bMBCF9/wKQmtM4yiSkqjNQYsiQ5cmmYIOJ97JFiBLgkQPRuD/XlqOYaRpiroFuhDi6d478nuCXm6ESIgHHMOWuzAlohTP4iVWY72h4zapjefKQy3zvKik4dzJymqQTntTK6etrfNkcZJ0uOVZtFqtxBfu2369P78jnvzYDKHpu7nlccNiCjvai74WIW6GFjsO5/YtByQMeOw9HSgW/cgYmD7FZfZIIVUStAT1qPLSZqXKlilktwAlwKvTRXa3f5p4vD9fq/JEGUh0xkirnZXOay815lgQ5cYTXxx2A/3N4FfZ9YNng0NcD4uf4lA2ywqjvLTKszRkvEQEJ4ExVRWAA4Pv4vgcA96IB99w53n6KJH7zrc7arq1WJ+iW4iBwzg/CuxIDNgi9114k+u1QYEqLZTWLmPpA16/wayXeab/B+baO6VSIz2lKE2NLB2ykQZ0VlABrkjpHeavGL/jLYbG/wHjqo+RDLuRZ7Q4DG3DJKJ6M/07Wg1XoP2F7AJGfD9aJKEP2H5j3480/yX0zeEHAAAA//8=", "base64"));
+  res.write(new Buffer("AwAE/2IUPQQAAA==", "base64"));
   res.end();
 
   return __filename;
