@@ -154,15 +154,12 @@ class CourseRoute extends React.Component {
           resources={resources}
           mutator={mutator}
         />
-        { // Conditionally render so that autofocus works naturally when mounting and state is reset
-          this.state.showDuplicateCourseModal && (
-          <DuplicateCourseModal
-            data={data}
-            history={history}
-            onClose={() => this.setState({ showDuplicateCourseModal: false })}
-          />
-          )}
-
+        <DuplicateCourseModal
+          data={data}
+          history={history}
+          onClose={() => this.setState({ showDuplicateCourseModal: false })}
+          open={this.state.showDuplicateCourseModal}
+        />
       </>
     );
   }

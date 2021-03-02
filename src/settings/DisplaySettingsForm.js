@@ -26,7 +26,7 @@ const DisplaySettingsForm = ({
       lastMenu={(
         <Button
           buttonStyle="primary"
-          disabled={(pristine || submitting)}
+          disabled={pristine || submitting}
           id="clickable-save-courses-display-settings"
           marginBottom0
           type="submit"
@@ -41,7 +41,6 @@ const DisplaySettingsForm = ({
         id="duplicateCrosslistedCourses"
         label={<FormattedMessage id="ui-courses.settings.display.duplicateCrosslistedCourses" />}
         name="duplicateCrosslistedCourses"
-        parse={v => !!v}
         type="checkbox"
       />
       <Layout className="padding-bottom-gutter padding-top-gutter">

@@ -140,6 +140,7 @@
     "button.createDuplicateCourses": "Create duplicate course(s)",
     "duplicateCourse": "Duplicate course",
     "duplicateCourse.duplicateCrosslistedCourses": "Duplicate all cross-listed courses",
+    "duplicateCourse.duplicatedCourseIndicator": "Duplicate",
     "button.addItem": "Add item",
     "instructor.pluralized": "{count} {count, plural, one {instructor} other {instructors}}",
     "addInstructor": "Add instructor",

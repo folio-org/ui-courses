@@ -6,20 +6,19 @@ import { useQuery } from 'react-query';
 import { Button, Checkbox, Modal, Select } from '@folio/stripes/components';
 import { useOkapiKy } from '@folio/stripes/core';
 
-
 import manifest from '../util/manifest';
 
-const DuplicateCourseModal = ({ data, history, onClose }) => {
+const DuplicateCourseModal = ({ data, history, onClose, open }) => {
   const intl = useIntl();
   const ky = useOkapiKy();
 
   const [term, setTerm] = useState();
   const { data: terms } = useQuery(
-    ['ui-courses', 'terms'],
+    ['ui-courses', manifest.terms.path],
     () => ky(manifest.terms.path).json(),
     {
-      placeholderData: [],
       onSuccess: json => setTerm(json[0]?.value),
+      placeholderData: [],
       select: json => ((json?.terms ?? [])
         .map(t => ({ value: t.id, label: t.name }))
         .sort((a, b) => a.label.localeCompare(b.label))
@@ -29,11 +28,11 @@ const DuplicateCourseModal = ({ data, history, onClose }) => {
 
   const [duplicateCrosslistedCourses, setDuplicateCrosslistedCourses] = useState(false);
   useQuery(
-    ['ui-courses', 'duplicateCrosslistedCourses'],
+    ['ui-courses', manifest.displaySettings.path],
     () => ky(manifest.displaySettings.path).json(),
     {
       onSuccess: json => setDuplicateCrosslistedCourses(json.duplicateCrosslistedCourses),
-      select: json => JSON.parse(json.configs[0].value),
+      select: json => JSON.parse(json.configs[0]?.value ?? 'false'),
     },
   );
 
@@ -50,6 +49,15 @@ const DuplicateCourseModal = ({ data, history, onClose }) => {
       termId: term,
     } }).json();
 
+    // The for-loops in this function wait for each POST to return before firing the next one.
+    // This approach was used because of my (Mark Deutsch) issues when writing node.js programs
+    // that POST courses into mod-courses. In my experience, the connection would drop intermittently
+    // when "lots" of requests were fired concurrently. I don't necessarily believe this was Folio,
+    // I think it was more an issue of the client's connection throwing the ECONNRESET errors.
+    // But since this is also a spot where we could fire a bunch of requests at once, I feel it's probably
+    // safer (if a tad - hopefully imperceptibly so - slower).
+    // Future Developer, feel free to convert these to Promise.all() and test it out yourself, but I beg that
+    // you test with at least 10 instructors, 10 reserves, 10 crosslisted courses, 10 times. :)
     for (let i = 0; i < courseListing.instructorObjects.length; i++) {
       await ky.post(`coursereserves/courselistings/${newCourseListing.id}/instructors`, { json: {
         courseListingId: newCourseListing.id,
@@ -70,7 +78,7 @@ const DuplicateCourseModal = ({ data, history, onClose }) => {
       courseNumber: course.courseNumber,
       departmentId: course.departmentId,
       description: course.description,
-      name: `${course.name} - ${intl.formatMessage({ id: 'ui-courses.button.duplicate' })}`,
+      name: `${course.name} - ${intl.formatMessage({ id: 'ui-courses.duplicateCourse.duplicatedCourseIndicator' })}`,
       sectionName: course.sectionName,
     } }).json();
 
@@ -81,7 +89,7 @@ const DuplicateCourseModal = ({ data, history, onClose }) => {
           courseNumber: crossListed[i].courseNumber,
           departmentId: crossListed[i].departmentId,
           description: crossListed[i].description,
-          name: `${crossListed[i].name} - ${intl.formatMessage({ id: 'ui-courses.button.duplicate' })}`,
+          name: `${crossListed[i].name} - ${intl.formatMessage({ id: 'ui-courses.duplicateCourse.duplicatedCourseIndicator' })}`,
           sectionName: crossListed[i].sectionName,
         } }).json();
       }
@@ -98,7 +106,7 @@ const DuplicateCourseModal = ({ data, history, onClose }) => {
       id="duplicate-course-modal"
       label={<FormattedMessage id="ui-courses.duplicateCourse" />}
       onClose={onClose}
-      open
+      open={open}
     >
       <Select
         autoFocus
@@ -157,6 +165,7 @@ DuplicateCourseModal.propTypes = {
   }),
   history: PropTypes.object,
   onClose: PropTypes.func.isRequired,
+  open: PropTypes.bool,
 };
 
 export default DuplicateCourseModal;
