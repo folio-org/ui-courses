@@ -4,6 +4,7 @@ import get from 'lodash/get';
 import queryString from 'query-string';
 import { stripesConnect } from '@folio/stripes/core';
 import Course from '../components/Course';
+import DuplicateCourseModal from '../components/DuplicateCourseModal';
 
 
 // There are two basic approaches to fetching the cross-listed courses
@@ -101,6 +102,10 @@ class CourseRoute extends React.Component {
     handlers: {},
   }
 
+  state = {
+    showDuplicateCourseModal: false,
+  }
+
   handleClose = () => {
     const { pathname, search } = this.props.location;
     const query = queryString.parse(search);
@@ -125,26 +130,37 @@ class CourseRoute extends React.Component {
   }
 
   render() {
-    const { handlers, resources, mutator } = this.props;
+    const { handlers, history, resources, mutator } = this.props;
+
+    const data = {
+      course: { ...get(resources, 'course.records[0]', {}) },
+      crossListed: get(resources, 'crossListed.records', []),
+      reserves: get(resources, 'reservesForCourse.records', []),
+      items: get(resources, 'items.records', []),
+    };
 
     return (
-      <Course
-        data={{
-          course: { ...get(resources, 'course.records[0]', {}) },
-          crossListed: get(resources, 'crossListed.records', []),
-          reserves: get(resources, 'reservesForCourse.records', []),
-          items: get(resources, 'items.records', []),
-        }}
-        handlers={{
-          ...handlers,
-          onClose: this.handleClose,
-          onCrosslist: this.handleCrosslist,
-          onEdit: this.handleEdit,
-        }}
-        isLoading={get(resources, 'course.isPending', true)}
-        resources={resources}
-        mutator={mutator}
-      />
+      <>
+        <Course
+          data={data}
+          handlers={{
+            ...handlers,
+            onClose: this.handleClose,
+            onCrosslist: this.handleCrosslist,
+            onDuplicate: () => this.setState({ showDuplicateCourseModal: true }),
+            onEdit: this.handleEdit,
+          }}
+          isLoading={get(resources, 'course.isPending', true)}
+          resources={resources}
+          mutator={mutator}
+        />
+        <DuplicateCourseModal
+          data={data}
+          history={history}
+          onClose={() => this.setState({ showDuplicateCourseModal: false })}
+          open={this.state.showDuplicateCourseModal}
+        />
+      </>
     );
   }
 }

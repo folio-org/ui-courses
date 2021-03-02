@@ -9,9 +9,9 @@
     "test-folio-snapshot": "cypress run --config baseUrl=https://folio-snapshot.dev.folio.org",
     "start": "stripes serve --port 3001",
     "test-running-service": "cypress run",
-    "test-new-ui": "stripes serve --okapi https://folio-testing-okapi.dev.folio.org --port 3001 & wait-on http://localhost:3001 && cypress run; kill $!",
+    "test-new-ui": "stripes serve --okapi https://folio-snapshot-okapi.dev.folio.org --port 3001 & wait-on http://localhost:3001 && cypress run; kill $!",
     "test": "stripes serve --coverage --port 3001 --okapi http://localhost:3002 & pid1=$! && env LOGCAT=startup yakbak-proxy -i -x -n & pid2=$! && wait-on http://localhost:3001 && cypress run; kill $pid1 $pid2",
-    "regenerate": "stripes serve --port 3001 --okapi http://localhost:3002 & pid1=$! && rm -rf tapes && env LOGCAT=startup yakbak-proxy -i -x https://folio-testing-okapi.dev.folio.org & pid2=$! && wait-on http://localhost:3001 && cypress run; kill $pid1 $pid2",
+    "regenerate": "stripes serve --port 3001 --okapi http://localhost:3002 & pid1=$! && rm -rf tapes && env LOGCAT=startup yakbak-proxy -i -x https://folio-snapshot-okapi.dev.folio.org & pid2=$! && wait-on http://localhost:3001 && cypress run; kill $pid1 $pid2",
     "coverage-summary": "nyc report --reporter=text-summary",
     "coverage": "nyc report --reporter=text",
     "lsof": "lsof -P -i :3001 -i :3002 || true",
@@ -146,6 +146,7 @@
     ]
   },
   "dependencies": {
+    "@folio/plugin-create-inventory-records": "^2.0.0",
     "@folio/plugin-find-user": "^4.0.0",
     "final-form-set-field-data": "^1.0.2",
     "ky": "^0.23.0",
@@ -159,6 +160,7 @@
     "prop-types": "*",
     "react": "*",
     "react-intl": "*",
+    "react-query": "^3.12.0",
     "react-router": "*",
     "react-router-dom": "*",
     "redux-form": "*"
@@ -175,6 +177,7 @@
     "localforage": "^1.7.4",
     "react": "^16.8.6",
     "react-intl": "^5.7.0",
+    "react-query": "^3.12.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "wait-on": "^5.0.1",
