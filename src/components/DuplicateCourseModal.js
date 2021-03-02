@@ -49,29 +49,20 @@ const DuplicateCourseModal = ({ data, history, onClose, open }) => {
       termId: term,
     } }).json();
 
-    // The for-loops in this function wait for each POST to return before firing the next one.
-    // This approach was used because of my (Mark Deutsch) issues when writing node.js programs
-    // that POST courses into mod-courses. In my experience, the connection would drop intermittently
-    // when "lots" of requests were fired concurrently. I don't necessarily believe this was Folio,
-    // I think it was more an issue of the client's connection throwing the ECONNRESET errors.
-    // But since this is also a spot where we could fire a bunch of requests at once, I feel it's probably
-    // safer (if a tad - hopefully imperceptibly so - slower).
-    // Future Developer, feel free to convert these to Promise.all() and test it out yourself, but I beg that
-    // you test with at least 10 instructors, 10 reserves, 10 crosslisted courses, 10 times. :)
-    for (let i = 0; i < courseListing.instructorObjects.length; i++) {
-      await ky.post(`coursereserves/courselistings/${newCourseListing.id}/instructors`, { json: {
+    await Promise.all(
+      courseListing.instructorObjects.map(instructor => ky.post(`coursereserves/courselistings/${newCourseListing.id}/instructors`, { json: {
         courseListingId: newCourseListing.id,
-        name: courseListing.instructorObjects[i].name,
-        userId: courseListing.instructorObjects[i].userId,
-      } }).json();
-    }
+        name: instructor.name,
+        userId: instructor.userId,
+      } }).json())
+    );
 
-    for (let i = 0; i < reserves.length; i++) {
-      await ky.post(`coursereserves/courselistings/${newCourseListing.id}/reserves`, { json: {
+    await Promise.all(
+      reserves.map(reserve => ky.post(`coursereserves/courselistings/${newCourseListing.id}/reserves`, { json: {
         courseListingId: newCourseListing.id,
-        itemId: reserves[i].itemId,
-      } }).json();
-    }
+        itemId: reserve.itemId,
+      } }).json())
+    );
 
     const newCourse = await ky.post(`coursereserves/courselistings/${newCourseListing.id}/courses`, { json: {
       courseListingId: newCourseListing.id,
@@ -83,16 +74,16 @@ const DuplicateCourseModal = ({ data, history, onClose, open }) => {
     } }).json();
 
     if (duplicateCrosslistedCourses) {
-      for (let i = 0; i < crossListed.length; i++) {
-        await ky.post(`coursereserves/courselistings/${newCourseListing.id}/courses`, { json: {
+      await Promise.all(
+        crossListed.map(crossListedCourse => ky.post(`coursereserves/courselistings/${newCourseListing.id}/courses`, { json: {
           courseListingId: newCourseListing.id,
-          courseNumber: crossListed[i].courseNumber,
-          departmentId: crossListed[i].departmentId,
-          description: crossListed[i].description,
-          name: `${crossListed[i].name} - ${intl.formatMessage({ id: 'ui-courses.duplicateCourse.duplicatedCourseIndicator' })}`,
-          sectionName: crossListed[i].sectionName,
-        } }).json();
-      }
+          courseNumber: crossListedCourse.courseNumber,
+          departmentId: crossListedCourse.departmentId,
+          description: crossListedCourse.description,
+          name: `${crossListedCourse.name} - ${intl.formatMessage({ id: 'ui-courses.duplicateCourse.duplicatedCourseIndicator' })}`,
+          sectionName: crossListedCourse.sectionName,
+        } }).json())
+      );
     }
 
     history.push(`/cr/courses/${newCourse.id}`);
