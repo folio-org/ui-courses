@@ -169,5 +169,13 @@
     "addItem.existing": "将现有典藏单件添加为教参",
     "addItem.new": "创建新的典藏单件并将其添加为教参",
     "addFastAddItem.title": "添加快速添加单件",
-    "addFastAddItem.tooltip": "使用“快速添加”创建新的典藏记录，并将其添加到此课程中作为教参"
+    "addFastAddItem.tooltip": "使用“快速添加”创建新的典藏记录，并将其添加到此课程中作为教参",
+    "settings.displaySettings": "Display settings",
+    "settings.display.duplicateCrosslistedCourses": "Duplicate cross-listed courses",
+    "settings.display.duplicateCrosslistedCourses.description": "If this setting is checked, when duplicating a course the \"Duplicate cross-listed courses\" checkbox in the Duplicate modal will be marked as checked by default.",
+    "button.duplicate": "Duplicate",
+    "button.createDuplicateCourses": "Create duplicate course(s)",
+    "duplicateCourse": "Duplicate course",
+    "duplicateCourse.duplicateCrosslistedCourses": "Duplicate all cross-listed courses",
+    "duplicateCourse.duplicatedCourseIndicator": "Duplicate"
 }
