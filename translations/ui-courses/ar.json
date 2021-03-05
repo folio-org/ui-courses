@@ -82,7 +82,7 @@
     "field.totalPagesInItem": "إجمالي عدد الصفحات في المادة",
     "field.totalPagesUsed": "إجمالي عدد الصفحات المستخدمة",
     "field.percentOfPages": "إجمالي %  من الصفحات المستخدمة",
-    "field.paymentBasis": "سداد على أساس",
+    "field.paymentBasis": "دفع على أساس",
     "SENTINEL": "حارس",
     "field.description": "وصف المقرر",
     "create": "مقرر جديد",
@@ -169,5 +169,13 @@
     "addItem.existing": "إضافة مادة المخزون الحالية كحجز",
     "addItem.new": "إنشاء مادة مخزون جديدة وإضافتها كحجز",
     "addFastAddItem.title": "إضافة سريعة إضافة مادة",
-    "addFastAddItem.tooltip": "قم بإنشاء تسجيلة مخزون جديدة باستخدام 'إضافة سريعة' وإضافتها إلى هذا الكورس كحجز"
+    "addFastAddItem.tooltip": "قم بإنشاء تسجيلة مخزون جديدة باستخدام 'إضافة سريعة' وإضافتها إلى هذا الكورس كحجز",
+    "settings.displaySettings": "إعدادات العرض",
+    "settings.display.duplicateCrosslistedCourses": "تكرار المقررات المتداخلة",
+    "settings.display.duplicateCrosslistedCourses.description": "إذا تم تحديد هذا الإعداد، عند تكرار مقرر دراسي، سيتم وضع علامة على مربع تحديد\"تكرار المقررات المتداخلة\" في نموذج تكرار افتراضيًا.",
+    "button.duplicate": "تكرار",
+    "button.createDuplicateCourses": "إنشاء مقررات مكررة",
+    "duplicateCourse": "تكرار المقرر",
+    "duplicateCourse.duplicateCrosslistedCourses": "تكرار كل المقررات المتداخلة",
+    "duplicateCourse.duplicatedCourseIndicator": "تكرار"
 }

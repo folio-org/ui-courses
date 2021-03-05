@@ -169,5 +169,13 @@
     "addItem.existing": "Tilføj eksisterende eksemplarer fra Katalogen som reserveret eksemplar",
     "addItem.new": "Opret nyt eksemplar i Katalogen, og tilføj den som reserveret",
     "addFastAddItem.title": "Tilføj kvik beskrivelse af eksemplar",
-    "addFastAddItem.tooltip": "Opret en ny post i Katalogen ved hjælp af 'Tilføj kvik post' og føj den til dette kursus som reservation"
+    "addFastAddItem.tooltip": "Opret en ny post i Katalogen ved hjælp af 'Tilføj kvik post' og føj den til dette kursus som reservation",
+    "settings.displaySettings": "Display settings",
+    "settings.display.duplicateCrosslistedCourses": "Duplicate cross-listed courses",
+    "settings.display.duplicateCrosslistedCourses.description": "If this setting is checked, when duplicating a course the \"Duplicate cross-listed courses\" checkbox in the Duplicate modal will be marked as checked by default.",
+    "button.duplicate": "Duplicate",
+    "button.createDuplicateCourses": "Create duplicate course(s)",
+    "duplicateCourse": "Duplicate course",
+    "duplicateCourse.duplicateCrosslistedCourses": "Duplicate all cross-listed courses",
+    "duplicateCourse.duplicatedCourseIndicator": "Duplicate"
 }

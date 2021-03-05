@@ -169,5 +169,13 @@
     "addItem.existing": "Add existing Inventory item as a reserve",
     "addItem.new": "Create new Inventory item and add it as a reserve",
     "addFastAddItem.title": "Add Fast Add item",
-    "addFastAddItem.tooltip": "Create a new Inventory record using 'Fast Add' and add it to this course as a reserve"
+    "addFastAddItem.tooltip": "Create a new Inventory record using 'Fast Add' and add it to this course as a reserve",
+    "settings.displaySettings": "Display settings",
+    "settings.display.duplicateCrosslistedCourses": "Duplicate cross-listed courses",
+    "settings.display.duplicateCrosslistedCourses.description": "If this setting is checked, when duplicating a course the \"Duplicate cross-listed courses\" checkbox in the Duplicate modal will be marked as checked by default.",
+    "button.duplicate": "Duplicate",
+    "button.createDuplicateCourses": "Create duplicate course(s)",
+    "duplicateCourse": "Duplicate course",
+    "duplicateCourse.duplicateCrosslistedCourses": "Duplicate all cross-listed courses",
+    "duplicateCourse.duplicatedCourseIndicator": "Duplicate"
 }
