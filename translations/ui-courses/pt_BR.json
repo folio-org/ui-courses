@@ -170,12 +170,12 @@
     "addItem.new": "Crie um novo item de inventário e adicione-o como reserva",
     "addFastAddItem.title": "Adicionar item Adicionar rápido",
     "addFastAddItem.tooltip": "Crie um novo registro de inventário usando 'Adição rápida' e adicione-o a este curso como uma reserva",
-    "settings.displaySettings": "Display settings",
+    "settings.displaySettings": "Configurações de exibição",
     "settings.display.duplicateCrosslistedCourses": "Duplicate cross-listed courses",
     "settings.display.duplicateCrosslistedCourses.description": "If this setting is checked, when duplicating a course the \"Duplicate cross-listed courses\" checkbox in the Duplicate modal will be marked as checked by default.",
-    "button.duplicate": "Duplicate",
+    "button.duplicate": "Duplicar",
     "button.createDuplicateCourses": "Create duplicate course(s)",
-    "duplicateCourse": "Duplicate course",
+    "duplicateCourse": "Duplicar curso",
     "duplicateCourse.duplicateCrosslistedCourses": "Duplicate all cross-listed courses",
-    "duplicateCourse.duplicatedCourseIndicator": "Duplicate"
+    "duplicateCourse.duplicatedCourseIndicator": "Duplicar"
 }
