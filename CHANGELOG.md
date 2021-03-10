@@ -1,10 +1,11 @@
 # Change history for ui-courses
 
-## 4.0.0 (2020-12-16)
+## 4.0.0 (IN PROGRESS)
 
 * Bumped to Stripes platform v6.0.0 and Stripes CLI v2.0.0. Fixes UICR-119.
 * Added ability to Fast Add a reserve. I.e., adding on-the-fly Inventory records as reserves. UICR-91.
 * Bump the maximum number of locations fetched from 500 to 1000. Fixes UICR-120.
+* Added ability to duplicate courses. Fixes UICR-23, UICR-121.
 
 ## [3.1.2](https://github.com/folio-org/ui-courses/tree/v3.1.2) (2020-12-16)
 [Full Changelog](https://github.com/folio-org/ui-courses/compare/v3.1.1...v3.1.2)
