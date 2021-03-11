@@ -1,6 +1,6 @@
 # Change history for ui-courses
 
-## 4.0.0 (IN PROGRESS)
+## [4.0.0](https://github.com/folio-org/ui-courses/tree/v4.0.0) (2021-03-11)
 
 * Bumped to Stripes platform v6.0.0 and Stripes CLI v2.0.0. Fixes UICR-119.
 * Added ability to Fast Add a reserve. I.e., adding on-the-fly Inventory records as reserves. UICR-91.
