@@ -97,7 +97,7 @@
     "accordion.courseFormInstructors": "Instructeurs de cours",
     "accordion.courseFormInstructors.help": ".",
     "front.welcome": "Bienvenue sur les réservations de cours!",
-    "addItem": "Ajouter un élément aux réservations (?) de ce cours",
+    "addItem": "Ajouter un élément aux réservations de ce cours",
     "crosslistCourse": "Nouveau cours dans la liste",
     "button.crosslist": "Liste croisée",
     "accordion.courseFormCrosslisting": "Informations sur les listes croisées",
@@ -170,12 +170,12 @@
     "addItem.new": "Create new Inventory item and add it as a reserve",
     "addFastAddItem.title": "Add Fast Add item",
     "addFastAddItem.tooltip": "Create a new Inventory record using 'Fast Add' and add it to this course as a reserve",
-    "settings.displaySettings": "Display settings",
+    "settings.displaySettings": "Paramètres d'affichage",
     "settings.display.duplicateCrosslistedCourses": "Duplicate cross-listed courses",
     "settings.display.duplicateCrosslistedCourses.description": "If this setting is checked, when duplicating a course the \"Duplicate cross-listed courses\" checkbox in the Duplicate modal will be marked as checked by default.",
-    "button.duplicate": "Duplicate",
-    "button.createDuplicateCourses": "Create duplicate course(s)",
-    "duplicateCourse": "Duplicate course",
+    "button.duplicate": "Dupliquer",
+    "button.createDuplicateCourses": "Créer un/des cours en double",
+    "duplicateCourse": "Dupliquer le cours",
     "duplicateCourse.duplicateCrosslistedCourses": "Duplicate all cross-listed courses",
-    "duplicateCourse.duplicatedCourseIndicator": "Duplicate"
+    "duplicateCourse.duplicatedCourseIndicator": "Dupliquer"
 }
