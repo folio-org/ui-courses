@@ -101,7 +101,7 @@
     "crosslistCourse": "Nowy kurs z listy",
     "button.crosslist": "Lista krzyżowa",
     "accordion.courseFormCrosslisting": "Informacje dotyczące zestawień krzyżowych",
-    "crosslist": "Crosslist course",
+    "crosslist": "Kurs z listy krzyżowej",
     "editReserve": "Edytuj rezerwację",
     "column.courseName": "Nazwa kursu",
     "column.title": "Tytuł",
@@ -171,11 +171,11 @@
     "addFastAddItem.title": "Dodaj egzemplarz szybkiego dodawania",
     "addFastAddItem.tooltip": "Utwórz nowy inwentarz za pomocą opcji Szybkie dodawanie i dodaj do tego kursu jako zarezerwowany",
     "settings.displaySettings": "Ustawienia wyświetlania",
-    "settings.display.duplicateCrosslistedCourses": "Duplicate cross-listed courses",
-    "settings.display.duplicateCrosslistedCourses.description": "If this setting is checked, when duplicating a course the \"Duplicate cross-listed courses\" checkbox in the Duplicate modal will be marked as checked by default.",
+    "settings.display.duplicateCrosslistedCourses": "Powiel kursy z listy krzyżowej",
+    "settings.display.duplicateCrosslistedCourses.description": "Jeśli to ustawienie jest zaznaczone, podczas kopiowania kursu pole wyboru „Powiel kursy z listy krzyżowej” w oknie dialogowym Powielanie będzie domyślnie zaznaczone jako wybrane.",
     "button.duplicate": "Powiel",
     "button.createDuplicateCourses": "Utwórz duplikat kursu (ów)",
     "duplicateCourse": "Powiel kurs",
-    "duplicateCourse.duplicateCrosslistedCourses": "Duplicate all cross-listed courses",
+    "duplicateCourse.duplicateCrosslistedCourses": "Powiel wszystkie kursy z listy krzyżowej",
     "duplicateCourse.duplicatedCourseIndicator": "Powiel"
 }
