@@ -1,5 +1,9 @@
 # Change history for ui-courses
 
+## IN PROGRESS
+
+* Fix visibility of permissions and canonicalize upper/lower case. Fixes UICR-122 and UICR-123.
+
 ## [4.0.0](https://github.com/folio-org/ui-courses/tree/v4.0.0) (2021-03-11)
 
 * Bumped to Stripes platform v6.0.0 and Stripes CLI v2.0.0. Fixes UICR-119.
