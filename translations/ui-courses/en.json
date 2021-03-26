@@ -178,5 +178,6 @@
     "reallyDelete": "Really delete?",
     "addFastAddItem.title": "Add Fast Add item",
     "addFastAddItem.tooltip": "Create a new Inventory record using 'Fast Add' and add it to this course as a reserve",
+    "errors.mustBeInteger": "This value must be an integer",
     "SENTINEL": "SENTINEL"
 }
