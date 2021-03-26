@@ -55,13 +55,23 @@ export default class CourseFormInfo extends React.Component {
               name="courseNumber"
             />
           </Col>
-          <Col xs={6}>
+          <Col xs={3}>
             <Field
               component={TextField}
               id="edit-course-section"
               label={<FormattedMessage id="ui-courses.field.section" />}
               maxLength={255}
               name="sectionName"
+            />
+          </Col>
+          <Col xs={3}>
+            <Field
+              component={TextField}
+              id="edit-course-number-of-students"
+              label={<FormattedMessage id="ui-courses.field.numberOfStudents" />}
+              name="numberOfStudents"
+              parse={value => parseInt(value, 10)}
+              type="number"
             />
           </Col>
         </Row>

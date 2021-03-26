@@ -3,6 +3,7 @@
 ## IN PROGRESS
 
 * Fix visibility of permissions and canonicalize upper/lower case. Fixes UICR-122 and UICR-123.
+* Added ability to view and edit a course's `numberOfStudents` field. Fixes UICR-128
 
 ## [4.0.0](https://github.com/folio-org/ui-courses/tree/v4.0.0) (2021-03-11)
 

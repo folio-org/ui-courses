@@ -121,6 +121,7 @@
     "field.totalPagesUsed": "Total number of pages used",
     "field.percentOfPages": "Total % of pages used",
     "field.paymentBasis": "Payment based on",
+    "field.numberOfStudents": "Number of students",
     "create": "New course",
     "crosslist": "Crosslist course",
     "closeEditCourse": "Close edit course",
