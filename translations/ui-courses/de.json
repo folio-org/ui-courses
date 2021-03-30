@@ -170,12 +170,14 @@
     "addItem.new": "Neuer Exemplardatensatz erstellen und als Reservierung hinzufügen",
     "addFastAddItem.title": "Neue Exemplar-Kurzaufnahme",
     "addFastAddItem.tooltip": "Neuer Katalogdatensatz durch Kurztitelaufnahme erstellen und als Reservierung zu diesem Kurs hinzufügen",
-    "settings.displaySettings": "Display settings",
-    "settings.display.duplicateCrosslistedCourses": "Duplicate cross-listed courses",
-    "settings.display.duplicateCrosslistedCourses.description": "If this setting is checked, when duplicating a course the \"Duplicate cross-listed courses\" checkbox in the Duplicate modal will be marked as checked by default.",
-    "button.duplicate": "Duplicate",
-    "button.createDuplicateCourses": "Create duplicate course(s)",
-    "duplicateCourse": "Duplicate course",
-    "duplicateCourse.duplicateCrosslistedCourses": "Duplicate all cross-listed courses",
-    "duplicateCourse.duplicatedCourseIndicator": "Duplicate"
+    "settings.displaySettings": "Einstellungen anzeigen",
+    "settings.display.duplicateCrosslistedCourses": "Verknüpfte Kurse duplizieren",
+    "settings.display.duplicateCrosslistedCourses.description": "Wenn diese Einstellung aktiviert ist, wird beim Duplizieren eines Kurses das Kontrollkästchen \"Verknüpfte Kurse duplizieren\" im Modal \"Duplizieren\" standardmäßig mit einem Haken versehen.",
+    "button.duplicate": "Duplizieren",
+    "button.createDuplicateCourses": "Duplizierte(n) Kurs(e) erstellen",
+    "duplicateCourse": "Kurse duplizieren",
+    "duplicateCourse.duplicateCrosslistedCourses": "Alle verknüpften Kurse duplizieren",
+    "duplicateCourse.duplicatedCourseIndicator": "Duplizieren",
+    "field.numberOfStudents": "Number of students",
+    "errors.mustBeInteger": "This value must be an integer"
 }

@@ -164,7 +164,7 @@
     "addItem.failure": "Impossibile aggiungere l'elemento {barcode} : {message}",
     "instructor.pluralized": "{count} {count, plural, one {instructor} other {instructors}}",
     "removeInstructor.failure": "Remove instructor failed: {message}",
-    "delete": "Delete",
+    "delete": "Elimina",
     "reallyDelete": "Really delete?",
     "addItem.existing": "Add existing Inventory item as a reserve",
     "addItem.new": "Create new Inventory item and add it as a reserve",
@@ -177,5 +177,7 @@
     "button.createDuplicateCourses": "Create duplicate course(s)",
     "duplicateCourse": "Duplicate course",
     "duplicateCourse.duplicateCrosslistedCourses": "Duplicate all cross-listed courses",
-    "duplicateCourse.duplicatedCourseIndicator": "Duplicate"
+    "duplicateCourse.duplicatedCourseIndicator": "Duplicate",
+    "field.numberOfStudents": "Number of students",
+    "errors.mustBeInteger": "This value must be an integer"
 }

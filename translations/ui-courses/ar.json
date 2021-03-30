@@ -177,5 +177,7 @@
     "button.createDuplicateCourses": "إنشاء مقررات مكررة",
     "duplicateCourse": "تكرار المقرر",
     "duplicateCourse.duplicateCrosslistedCourses": "تكرار كل المقررات المتداخلة",
-    "duplicateCourse.duplicatedCourseIndicator": "تكرار"
+    "duplicateCourse.duplicatedCourseIndicator": "تكرار",
+    "field.numberOfStudents": "عدد الطلاب",
+    "errors.mustBeInteger": "يجب أن تكون هذه القيمة عددًا صحيحًا"
 }
