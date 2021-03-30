@@ -121,6 +121,7 @@
     "field.totalPagesUsed": "Total number of pages used",
     "field.percentOfPages": "Total % of pages used",
     "field.paymentBasis": "Payment based on",
+    "field.numberOfStudents": "Number of students",
     "create": "New course",
     "crosslist": "Crosslist course",
     "closeEditCourse": "Close edit course",
@@ -177,5 +178,6 @@
     "reallyDelete": "Really delete?",
     "addFastAddItem.title": "Add Fast Add item",
     "addFastAddItem.tooltip": "Create a new Inventory record using 'Fast Add' and add it to this course as a reserve",
+    "errors.mustBeInteger": "This value must be an integer",
     "SENTINEL": "SENTINEL"
 }

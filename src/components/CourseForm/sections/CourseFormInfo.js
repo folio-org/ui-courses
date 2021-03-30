@@ -55,13 +55,42 @@ export default class CourseFormInfo extends React.Component {
               name="courseNumber"
             />
           </Col>
-          <Col xs={6}>
+          <Col xs={4}>
             <Field
               component={TextField}
               id="edit-course-section"
               label={<FormattedMessage id="ui-courses.field.section" />}
               maxLength={255}
               name="sectionName"
+            />
+          </Col>
+          <Col xs={2}>
+            <Field
+              component={TextField}
+              id="edit-course-number-of-students"
+              label={<FormattedMessage id="ui-courses.field.numberOfStudents" />}
+              name="numberOfStudents"
+              parse={value => {
+                if (!value) return undefined;
+
+                // We can't _always_ parse this because the parsed value is the one that gets
+                // checked in our `validate` callback. If we always parsed it, then it'd /already/
+                // be coalesced into an integer if the user entered a float. So if it is a float
+                // we leave it, knowing that it'll fail validation.
+                if (parseInt(value, 10) !== parseFloat(value)) {
+                  return value;
+                }
+
+                return parseInt(value, 10);
+              }}
+              type="number"
+              validate={value => {
+                if (value && (parseInt(value, 10) !== parseFloat(value))) {
+                  return <FormattedMessage id="ui-courses.errors.mustBeInteger" />;
+                }
+
+                return undefined;
+              }}
             />
           </Col>
         </Row>

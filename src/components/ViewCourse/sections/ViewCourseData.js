@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import get from 'lodash/get';
-import { Card, Col, Row, KeyValue, Tooltip } from '@folio/stripes/components';
+import { Card, Col, Row, KeyValue, NoValue, Tooltip } from '@folio/stripes/components';
 
 const ViewCourseData = ({ record }) => {
   const departmentObject = record.departmentObject || {};
@@ -40,11 +40,14 @@ const ViewCourseData = ({ record }) => {
           <Col xs={3}>
             <KeyValue label={<FormattedMessage id="ui-courses.field.department" />} value={departmentNameAndDescription} />
           </Col>
-          <Col xs={3}>
+          <Col xs={2}>
             <KeyValue label={<FormattedMessage id="ui-courses.field.number" />} value={record.courseNumber} />
           </Col>
-          <Col xs={3}>
+          <Col xs={2}>
             <KeyValue label={<FormattedMessage id="ui-courses.field.section" />} value={record.sectionName} />
+          </Col>
+          <Col xs={2}>
+            <KeyValue label={<FormattedMessage id="ui-courses.field.numberOfStudents" />} value={record.numberOfStudents ?? <NoValue />} />
           </Col>
         </Row>
         <Row>
