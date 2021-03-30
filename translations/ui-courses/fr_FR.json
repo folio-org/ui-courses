@@ -168,7 +168,7 @@
     "reallyDelete": "Vraiment supprimer?",
     "addItem.existing": "Add existing Inventory item as a reserve",
     "addItem.new": "Create new Inventory item and add it as a reserve",
-    "addFastAddItem.title": "Add Fast Add item",
+    "addFastAddItem.title": "Ajouter un élément Ajout rapide",
     "addFastAddItem.tooltip": "Create a new Inventory record using 'Fast Add' and add it to this course as a reserve",
     "settings.displaySettings": "Paramètres d'affichage",
     "settings.display.duplicateCrosslistedCourses": "Duplicate cross-listed courses",
@@ -177,5 +177,7 @@
     "button.createDuplicateCourses": "Créer un/des cours en double",
     "duplicateCourse": "Dupliquer le cours",
     "duplicateCourse.duplicateCrosslistedCourses": "Dupliquer tous les cours de la liste croisée",
-    "duplicateCourse.duplicatedCourseIndicator": "Dupliquer"
+    "duplicateCourse.duplicatedCourseIndicator": "Dupliquer",
+    "field.numberOfStudents": "Number of students",
+    "errors.mustBeInteger": "This value must be an integer"
 }

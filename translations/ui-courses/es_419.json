@@ -177,5 +177,7 @@
     "button.createDuplicateCourses": "Create duplicate course(s)",
     "duplicateCourse": "Duplicate course",
     "duplicateCourse.duplicateCrosslistedCourses": "Duplicate all cross-listed courses",
-    "duplicateCourse.duplicatedCourseIndicator": "Duplicate"
+    "duplicateCourse.duplicatedCourseIndicator": "Duplicate",
+    "field.numberOfStudents": "Number of students",
+    "errors.mustBeInteger": "This value must be an integer"
 }
