@@ -63,22 +63,20 @@
         "visible": false
       },
       {
-        "permissionName": "course-reserves.all",
+        "permissionName": "ui-courses.all",
+        "replaces": ["course-reserves.all"],
         "displayName": "Courses: All permissions",
         "description": "The highest level is CRUD Course Reserves which allows the user to maintain courses, items, instructors, cross listed courses, etc.",
         "subPermissions": [
           "module.courses.enabled",
-          "course-reserves.maintain-settings",
-          "course-reserves-storage.all",
-          "inventory-storage.locations.collection.get",
-          "inventory.items.collection.get",
-          "inventory-storage.loan-types.collection.get",
-          "inventory-storage.items.item.get"
+          "ui-courses.maintain-items",
+          "ui-courses.maintain-settings"
         ],
         "visible": true
       },
       {
-        "permissionName": "course-reserves.read-all",
+        "permissionName": "ui-courses.read-all",
+        "replaces": ["course-reserves.read-all"],
         "displayName": "Courses: Read all",
         "description": "Allows user read only access to Courses and Reserves",
         "subPermissions": [
@@ -98,8 +96,9 @@
         "visible": true
       },
       {
-        "permissionName": "course-reserves.read-add-edit",
-        "displayName": "Courses: Read, add, edit",
+        "permissionName": "ui-courses.read-add-edit",
+        "replaces": ["course-reserves.read-add-edit"],
+        "displayName": "Courses: Read, add, and edit courses",
         "description": "Allows user the ability to read, add and edit Course Records - but not to delete. (Does not include item add, edit and remove)",
         "subPermissions": [
           "module.courses.enabled",
@@ -111,15 +110,15 @@
         "visible": true
       },
       {
-        "permissionName": "course-reserves.maintain-items",
-        "displayName": "Courses: Add, edit, and remove items",
-        "description": "This permission allows a user to add and edit items to a course",
+        "permissionName": "ui-courses.add-edit-items",
+        "displayName": "Courses: Add and edit a courses' reserved items",
+        "description": "This permission allows a user to add and edit items on a course",
         "subPermissions": [
-          "course-reserves.read-all",
-          "course-reserves-storage.reserves.write",
+          "ui-courses.read-all",
+          "course-reserves-storage.reserves.item.post",
+          "course-reserves-storage.reserves.item.put",
           "course-reserves-storage.courselistings.reserves.item.put",
           "course-reserves-storage.courselistings.reserves.item.post",
-          "course-reserves-storage.courselistings.reserves.item.delete",
           "inventory-storage.locations.collection.get",
           "inventory.items.collection.get",
           "inventory-storage.loan-types.collection.get",
@@ -129,7 +128,21 @@
         "visible": true
       },
       {
-        "permissionName": "course-reserves.maintain-settings",
+        "permissionName": "ui-courses.maintain-items",
+        "replaces": ["course-reserves.maintain-items"],
+        "displayName": "Courses: Add, edit, and remove a courses' reserved items",
+        "description": "This permission allows a user to add, edit, and remove items on a course",
+        "subPermissions": [
+          "ui-courses.read-all",
+          "ui-courses.add-edit-items",
+          "course-reserves-storage.reserves.write",
+          "course-reserves-storage.courselistings.reserves.item.delete"
+        ],
+        "visible": true
+      },
+      {
+        "permissionName": "ui-courses.maintain-settings",
+        "replaces": ["course-reserves.maintain-settings"],
         "displayName": "Settings (Courses): Can create, edit and delete course settings",
         "description": "This permission allows the user to Create, edit and delete all Course Settings",
         "subPermissions": [
