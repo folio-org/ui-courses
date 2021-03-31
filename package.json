@@ -111,7 +111,6 @@
       },
       {
         "permissionName": "ui-courses.add-edit-items",
-        "replaces": ["course-reserves.add-edit-items"],
         "displayName": "Courses: Add and edit a courses' reserved items",
         "description": "This permission allows a user to add and edit items on a course",
         "subPermissions": [
