@@ -170,12 +170,14 @@
     "addItem.new": "创建新的典藏单件并将其添加为教参",
     "addFastAddItem.title": "添加快速添加单件",
     "addFastAddItem.tooltip": "使用“快速添加”创建新的典藏记录，并将其添加到此课程中作为教参",
-    "settings.displaySettings": "Display settings",
-    "settings.display.duplicateCrosslistedCourses": "Duplicate cross-listed courses",
-    "settings.display.duplicateCrosslistedCourses.description": "If this setting is checked, when duplicating a course the \"Duplicate cross-listed courses\" checkbox in the Duplicate modal will be marked as checked by default.",
-    "button.duplicate": "Duplicate",
-    "button.createDuplicateCourses": "Create duplicate course(s)",
-    "duplicateCourse": "Duplicate course",
-    "duplicateCourse.duplicateCrosslistedCourses": "Duplicate all cross-listed courses",
-    "duplicateCourse.duplicatedCourseIndicator": "Duplicate"
+    "settings.displaySettings": "显示设置",
+    "settings.display.duplicateCrosslistedCourses": "复制交叉列出课程",
+    "settings.display.duplicateCrosslistedCourses.description": "如果选中此设置，则在复制课程时，默认情况下，“复制”模式中的“复制交叉列出课程”复选框将被标记为选中。",
+    "button.duplicate": "复制",
+    "button.createDuplicateCourses": "创建重复的课程",
+    "duplicateCourse": "复制课程",
+    "duplicateCourse.duplicateCrosslistedCourses": "复制所有交叉列出课程",
+    "duplicateCourse.duplicatedCourseIndicator": "复制",
+    "field.numberOfStudents": "Number of students",
+    "errors.mustBeInteger": "This value must be an integer"
 }

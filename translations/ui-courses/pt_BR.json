@@ -174,8 +174,10 @@
     "settings.display.duplicateCrosslistedCourses": "Duplicate cross-listed courses",
     "settings.display.duplicateCrosslistedCourses.description": "If this setting is checked, when duplicating a course the \"Duplicate cross-listed courses\" checkbox in the Duplicate modal will be marked as checked by default.",
     "button.duplicate": "Duplicar",
-    "button.createDuplicateCourses": "Create duplicate course(s)",
+    "button.createDuplicateCourses": "Criar curso duplicado",
     "duplicateCourse": "Duplicar curso",
     "duplicateCourse.duplicateCrosslistedCourses": "Duplicate all cross-listed courses",
-    "duplicateCourse.duplicatedCourseIndicator": "Duplicar"
+    "duplicateCourse.duplicatedCourseIndicator": "Duplicar",
+    "field.numberOfStudents": "Number of students",
+    "errors.mustBeInteger": "This value must be an integer"
 }

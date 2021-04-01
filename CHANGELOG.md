@@ -1,5 +1,12 @@
 # Change history for ui-courses
 
+## IN PROGRESS
+
+* Fix visibility of permissions and canonicalize upper/lower case. Fixes UICR-122 and UICR-123.
+* Added ability to view and edit a course's `numberOfStudents` field. Fixes UICR-128
+* Replaced current permissions with ones that can be i18n'ed. Fixes UICR-130.
+* Added new permission for adding and editing a course's items. Fixes UICR-129.
+
 ## [4.0.1](https://github.com/folio-org/ui-courses/tree/v4.0.1) (2021-04-01)
 
 * Fixed crash when display settings were not defined on the backend. Fixes UICR-131.
