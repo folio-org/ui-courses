@@ -178,6 +178,12 @@
     "duplicateCourse": "Dupliquer le cours",
     "duplicateCourse.duplicateCrosslistedCourses": "Dupliquer tous les cours de la liste croisée",
     "duplicateCourse.duplicatedCourseIndicator": "Dupliquer",
-    "field.numberOfStudents": "Number of students",
-    "errors.mustBeInteger": "This value must be an integer"
+    "field.numberOfStudents": "Nombre d'étudiants",
+    "errors.mustBeInteger": "Cette valeur doit être un nombre entier",
+    "permission.all": "Cours: toutes les autorisations",
+    "permission.read-all": "Cours: tout lire",
+    "permission.read-add-edit": "Cours: lire, ajouter et modifier des cours",
+    "permission.add-edit-items": "Courses: Add and edit courses' reserved items",
+    "permission.maintain-items": "Courses: Add, edit, and remove courses' reserved items",
+    "permission.maintain-settings": "Paramètres (cours): peut créer, modifier et supprimer les paramètres du cours"
 }

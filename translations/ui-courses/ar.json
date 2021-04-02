@@ -179,5 +179,11 @@
     "duplicateCourse.duplicateCrosslistedCourses": "تكرار كل المقررات المتداخلة",
     "duplicateCourse.duplicatedCourseIndicator": "تكرار",
     "field.numberOfStudents": "عدد الطلاب",
-    "errors.mustBeInteger": "يجب أن تكون هذه القيمة عددًا صحيحًا"
+    "errors.mustBeInteger": "يجب أن تكون هذه القيمة عددًا صحيحًا",
+    "permission.all": "المقررات: كل الصلاحيات",
+    "permission.read-all": "المقررات: اقرأ الكل",
+    "permission.read-add-edit": "المقررات اقرأ، وأضف وحرّر المقررات",
+    "permission.add-edit-items": "المقررات أضف وحرّر مواد محجوزة للمقررات",
+    "permission.maintain-items": "المقررات أضف، وحرّر، واحذف مواد محجوزة للمقررات",
+    "permission.maintain-settings": "الإعدادات (المقررات): إمكانية إنشاء، وتحرير، وإزالة إعدادات المقرر"
 }
