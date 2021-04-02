@@ -178,6 +178,12 @@
     "duplicateCourse": "Duplicate course",
     "duplicateCourse.duplicateCrosslistedCourses": "Duplicate all cross-listed courses",
     "duplicateCourse.duplicatedCourseIndicator": "Duplicate",
-    "field.numberOfStudents": "Number of students",
-    "errors.mustBeInteger": "This value must be an integer"
+    "field.numberOfStudents": "學生人數",
+    "errors.mustBeInteger": "該值必須是整數",
+    "permission.all": "課程：所有權限",
+    "permission.read-all": "課程：全部閱讀",
+    "permission.read-add-edit": "課程：閱讀、新增和編輯課程",
+    "permission.add-edit-items": "課程：新增、編輯課程的指定館藏",
+    "permission.maintain-items": "課程：新增、編輯和移除課程的指定館藏",
+    "permission.maintain-settings": "設置（課程）：可以建立，編輯和刪除課程設置"
 }

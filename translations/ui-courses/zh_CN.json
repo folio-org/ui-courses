@@ -179,5 +179,11 @@
     "duplicateCourse.duplicateCrosslistedCourses": "复制所有交叉列出课程",
     "duplicateCourse.duplicatedCourseIndicator": "复制",
     "field.numberOfStudents": "Number of students",
-    "errors.mustBeInteger": "This value must be an integer"
+    "errors.mustBeInteger": "This value must be an integer",
+    "permission.all": "Courses: All permissions",
+    "permission.read-all": "Courses: Read all",
+    "permission.read-add-edit": "Courses: Read, add, and edit courses",
+    "permission.add-edit-items": "Courses: Add and edit courses' reserved items",
+    "permission.maintain-items": "Courses: Add, edit, and remove courses' reserved items",
+    "permission.maintain-settings": "Settings (Courses): Can create, edit and delete course settings"
 }
