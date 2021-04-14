@@ -178,12 +178,12 @@
     "duplicateCourse": "Kurse duplizieren",
     "duplicateCourse.duplicateCrosslistedCourses": "Alle verknüpften Kurse duplizieren",
     "duplicateCourse.duplicatedCourseIndicator": "Duplizieren",
-    "field.numberOfStudents": "Number of students",
-    "errors.mustBeInteger": "This value must be an integer",
-    "permission.all": "Courses: All permissions",
-    "permission.read-all": "Courses: Read all",
-    "permission.read-add-edit": "Courses: Read, add, and edit courses",
-    "permission.add-edit-items": "Courses: Add and edit courses' reserved items",
-    "permission.maintain-items": "Courses: Add, edit, and remove courses' reserved items",
-    "permission.maintain-settings": "Settings (Courses): Can create, edit and delete course settings"
+    "field.numberOfStudents": "Anzahl Studierende",
+    "errors.mustBeInteger": "Wert muss ganzzahlig sein",
+    "permission.all": "Semesterapparate: Alle Berechtigungen",
+    "permission.read-all": "Semesterapparate: Alles anzeigen",
+    "permission.read-add-edit": "Semesterapparate: Kurse anzeigen, hinzufügen und bearbeiten",
+    "permission.add-edit-items": "Semesterapparate: reservierte Exemplare hinzufügen und bearbeiten",
+    "permission.maintain-items": "Semesterapparate: reservierte Exemplare hinzufügen, bearbeiten und entfernen",
+    "permission.maintain-settings": "Einstellungen (Semesterapparate): Kann Semesterapparate-Einstellungen erstellen, bearbeiten und löschen"
 }

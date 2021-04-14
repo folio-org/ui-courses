@@ -65,7 +65,7 @@
     "field.endDate": "Date de fin",
     "field.location": "Emplacement",
     "field.serviceDesk": "Bureau de service",
-    "field.itemBarcode": "Code-barres de l'article",
+    "field.itemBarcode": "Code-barres de l'exemplaire",
     "field.contributor": "Contributeur",
     "field.permanentLocation": "Emplacement permanent",
     "field.callNumber": "Cote",
