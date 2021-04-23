@@ -64,7 +64,9 @@
       },
       {
         "permissionName": "ui-courses.all",
-        "replaces": ["course-reserves.all"],
+        "replaces": [
+          "course-reserves.all"
+        ],
         "displayName": "Courses: All permissions",
         "description": "The highest level is CRUD Course Reserves which allows the user to maintain courses, items, instructors, cross listed courses, etc.",
         "subPermissions": [
@@ -76,7 +78,9 @@
       },
       {
         "permissionName": "ui-courses.read-all",
-        "replaces": ["course-reserves.read-all"],
+        "replaces": [
+          "course-reserves.read-all"
+        ],
         "displayName": "Courses: Read all",
         "description": "Allows user read only access to Courses and Reserves",
         "subPermissions": [
@@ -97,7 +101,9 @@
       },
       {
         "permissionName": "ui-courses.read-add-edit",
-        "replaces": ["course-reserves.read-add-edit"],
+        "replaces": [
+          "course-reserves.read-add-edit"
+        ],
         "displayName": "Courses: Read, add, and edit courses",
         "description": "Allows user the ability to read, add and edit Course Records - but not to delete. (Does not include item add, edit and remove)",
         "subPermissions": [
@@ -129,7 +135,9 @@
       },
       {
         "permissionName": "ui-courses.maintain-items",
-        "replaces": ["course-reserves.maintain-items"],
+        "replaces": [
+          "course-reserves.maintain-items"
+        ],
         "displayName": "Courses: Add, edit, and remove a courses' reserved items",
         "description": "This permission allows a user to add, edit, and remove items on a course",
         "subPermissions": [
@@ -142,7 +150,9 @@
       },
       {
         "permissionName": "ui-courses.maintain-settings",
-        "replaces": ["course-reserves.maintain-settings"],
+        "replaces": [
+          "course-reserves.maintain-settings"
+        ],
         "displayName": "Settings (Courses): Can create, edit and delete course settings",
         "description": "This permission allows the user to Create, edit and delete all Course Settings",
         "subPermissions": [
