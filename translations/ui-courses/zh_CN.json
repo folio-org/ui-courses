@@ -178,12 +178,12 @@
     "duplicateCourse": "复制课程",
     "duplicateCourse.duplicateCrosslistedCourses": "复制所有交叉列出课程",
     "duplicateCourse.duplicatedCourseIndicator": "复制",
-    "field.numberOfStudents": "Number of students",
-    "errors.mustBeInteger": "This value must be an integer",
-    "permission.all": "Courses: All permissions",
-    "permission.read-all": "Courses: Read all",
-    "permission.read-add-edit": "Courses: Read, add, and edit courses",
-    "permission.add-edit-items": "Courses: Add and edit courses' reserved items",
-    "permission.maintain-items": "Courses: Add, edit, and remove courses' reserved items",
-    "permission.maintain-settings": "Settings (Courses): Can create, edit and delete course settings"
+    "field.numberOfStudents": "学生人数",
+    "errors.mustBeInteger": "该值必须是整数",
+    "permission.all": "课程：所有权限",
+    "permission.read-all": "课程：阅读全部",
+    "permission.read-add-edit": "课程：阅读、添加和编辑课程",
+    "permission.add-edit-items": "课程：添加和编辑课程的教参单件",
+    "permission.maintain-items": "课程：添加、编辑和移除课程的教参单件",
+    "permission.maintain-settings": "设置（课程）：可以创建、编辑和删除课程设置"
 }
