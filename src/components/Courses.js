@@ -24,7 +24,7 @@ import CoursesSearchPane from './CoursesSearchPane';
 
 // Returns a date object corresponding with the date string in format YYYY-MM-DD'
 function makeDate(s) {
-  const a = s.split('-');
+  const a = s.split('T')[0].split('-');
   const date = new Date(a[0], a[1] - 1, a[2]); // month is zero-based!
   return date;
 }
