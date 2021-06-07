@@ -70,9 +70,10 @@
         "displayName": "Courses: All permissions",
         "description": "The highest level is CRUD Course Reserves which allows the user to maintain courses, items, instructors, cross listed courses, etc.",
         "subPermissions": [
-          "module.courses.enabled",
+          "ui-courses.maintain-courses",
           "ui-courses.maintain-items",
-          "ui-courses.maintain-settings"
+          "ui-courses.maintain-settings",
+          "course-reserves-storage.all"
         ],
         "visible": true
       },
@@ -107,11 +108,29 @@
         "displayName": "Courses: Read, add, and edit courses",
         "description": "Allows user the ability to read, add and edit Course Records - but not to delete. (Does not include item add, edit and remove)",
         "subPermissions": [
-          "module.courses.enabled",
-          "course-reserves-storage.courselistings.write",
-          "course-reserves-storage.courses.write",
-          "inventory-storage.locations.collection.get",
-          "inventory.items.collection.get"
+          "ui-courses.read-all",
+          "course-reserves-storage.courses.item.post",
+          "course-reserves-storage.courses.item.put",
+          "course-reserves-storage.courselistings.item.post",
+          "course-reserves-storage.courselistings.item.put",
+          "course-reserves-storage.courselisting.courses.item.post",
+          "course-reserves-storage.courselistings.courses.item.put",
+          "course-reserves-storage.courselistings.instructors.item.post",
+          "course-reserves-storage.courselistings.instructors.item.put",
+          "course-reserves-storage.courselistings.instructors.item.delete"
+        ],
+        "visible": true
+      },
+      {
+        "permissionName": "ui-courses.maintain-courses",
+        "displayName": "Courses: Read, add, edit, and delete courses",
+        "description": "Allows user the ability to fully edit and delete Course Records.",
+        "subPermissions": [
+          "ui-courses.read-add-edit",
+          "course-reserves-storage.courses.item.delete",
+          "course-reserves-storage.courselistings.item.delete",
+          "course-reserves-storage.courselistings.courses.item.delete",
+          "course-reserves-storage.courselistings.reserves.item.delete"
         ],
         "visible": true
       },
