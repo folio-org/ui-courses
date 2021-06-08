@@ -10,7 +10,7 @@ import {
   PaneMenu,
   Paneset,
 } from '@folio/stripes/components';
-import { AppIcon, TitleManager } from '@folio/stripes/core';
+import { AppIcon, IfPermission, TitleManager } from '@folio/stripes/core';
 import stripesFinalForm from '@folio/stripes/final-form';
 import { isEqual } from 'lodash';
 import setFieldData from 'final-form-set-field-data';
@@ -89,29 +89,31 @@ class CourseForm extends React.Component {
             >
               <FormattedMessage id="stripes-components.saveAndClose" />
             </Button>
-            {
-              (values.id && (nreserves === '0' || hasCrossListedCourses)) && (
-                !deleteCourse ? (
-                  <Button
-                    buttonStyle="default mega"
-                    id="clickable-delete-course"
-                    marginBottom0
-                    to={`delete?nreserves=${nreserves}`}
-                  >
-                    <FormattedMessage id="ui-courses.delete" />
-                  </Button>
-                ) : (
-                  <Button
-                    buttonStyle="danger mega"
-                    id="clickable-really-delete-course"
-                    marginBottom0
-                    onClick={handleDelete}
-                  >
-                    <FormattedMessage id="ui-courses.reallyDelete" />
-                  </Button>
+            <IfPermission perm="course-reserves-storage.courses.item.delete">
+              {
+                (values.id && (nreserves === '0' || hasCrossListedCourses)) && (
+                  !deleteCourse ? (
+                    <Button
+                      buttonStyle="default mega"
+                      id="clickable-delete-course"
+                      marginBottom0
+                      to={`delete?nreserves=${nreserves}`}
+                    >
+                      <FormattedMessage id="ui-courses.delete" />
+                    </Button>
+                  ) : (
+                    <Button
+                      buttonStyle="danger mega"
+                      id="clickable-really-delete-course"
+                      marginBottom0
+                      onClick={handleDelete}
+                    >
+                      <FormattedMessage id="ui-courses.reallyDelete" />
+                    </Button>
+                  )
                 )
-              )
-            }
+              }
+            </IfPermission>
           </>
         )}
       />

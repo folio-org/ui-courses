@@ -102,7 +102,7 @@ class EditReserveRoute extends React.Component {
   render() {
     const { resources, stripes, intl } = this.props;
 
-    if (!stripes.hasPerm('course-reserves-storage.reserves.write')) return <NoPermissions />;
+    if (!stripes.hasPerm('course-reserves-storage.reserves.item.put')) return <NoPermissions />;
 
     const noneRequired = intl.formatMessage({ id: 'ui-courses.options.noneRequired' });
 
