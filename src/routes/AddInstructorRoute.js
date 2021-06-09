@@ -71,7 +71,7 @@ class AddInstructorRoute extends React.Component {
   render() {
     const { handlers, stripes, match } = this.props;
 
-    if (!stripes.hasPerm('course-reserves-storage.courselistings.reserves.item.post')) return <NoPermissions />;
+    if (!stripes.hasPerm('course-reserves-storage.courselistings.instructors.item.post')) return <NoPermissions />;
 
     return (
       <InstructorForm

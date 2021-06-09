@@ -126,7 +126,7 @@
         "displayName": "Courses: Read, add, edit, and delete courses",
         "description": "Allows user the ability to fully edit and delete Course Records.",
         "subPermissions": [
-          "ui-courses.read-add-edit",
+          "ui-courses.read-all",
           "course-reserves-storage.courses.item.delete",
           "course-reserves-storage.courselistings.item.delete",
           "course-reserves-storage.courselistings.courses.item.delete",

@@ -121,7 +121,7 @@ class EditCourseRoute extends React.Component {
     const { allCoursesInListing } = this.props.resources;
     const query = queryString.parse(location.search);
 
-    if (!stripes.hasPerm('course-reserves-storage.reserves.write')) return <NoPermissions />;
+    if (!stripes.hasPerm('course-reserves-storage.courses.item.put')) return <NoPermissions />;
 
     // Note: TOO MUCH MAGIC here. We pass `onSubmit`, which is not
     // used by <CourseForm>. It _is_ used by react-final-form's

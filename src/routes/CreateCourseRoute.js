@@ -90,7 +90,7 @@ class CreateCourseRoute extends React.Component {
   render() {
     const { handlers, stripes, intl } = this.props;
 
-    if (!stripes.hasPerm('course-reserves-storage.reserves.write')) return <NoPermissions />;
+    if (!stripes.hasPerm('course-reserves-storage.courses.item.post')) return <NoPermissions />;
 
     return (
       <CourseForm
