@@ -185,5 +185,6 @@
     "permission.read-add-edit": "Semesterapparate: Kurse anzeigen, hinzufügen und bearbeiten",
     "permission.add-edit-items": "Semesterapparate: reservierte Exemplare hinzufügen und bearbeiten",
     "permission.maintain-items": "Semesterapparate: reservierte Exemplare hinzufügen, bearbeiten und entfernen",
-    "permission.maintain-settings": "Einstellungen (Semesterapparate): Kann Semesterapparate-Einstellungen erstellen, bearbeiten und löschen"
+    "permission.maintain-settings": "Einstellungen (Semesterapparate): Kann Semesterapparate-Einstellungen erstellen, bearbeiten und löschen",
+    "permission.maintain-courses": "Courses: Read, add, edit, and delete courses"
 }
