@@ -185,5 +185,6 @@
     "permission.read-add-edit": "課程：閱讀、新增和編輯課程",
     "permission.add-edit-items": "課程：新增、編輯課程的指定館藏",
     "permission.maintain-items": "課程：新增、編輯和移除課程的指定館藏",
-    "permission.maintain-settings": "設置（課程）：可以建立，編輯和刪除課程設置"
+    "permission.maintain-settings": "設置（課程）：可以建立，編輯和刪除課程設置",
+    "permission.maintain-courses": "Courses: Read, add, edit, and delete courses"
 }
