@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 import get from 'lodash/get';
-import { AppIcon } from '@folio/stripes/core';
+import { AppIcon, withStripes } from '@folio/stripes/core';
 
 import {
   Paneset,
@@ -40,6 +40,9 @@ class Reserves extends React.Component {
       pending: PropTypes.func.isRequired,
       totalCount: PropTypes.func.isRequired,
     }),
+    stripes: PropTypes.shape({
+      hasPerm: PropTypes.func.isRequired,
+    }).isRequired,
     history: PropTypes.shape({ // provided by withRouter
       push: PropTypes.func.isRequired,
     }).isRequired,
@@ -159,6 +162,7 @@ class Reserves extends React.Component {
       onNeedMoreData,
       query,
       source,
+      stripes,
     } = this.props;
 
     const count = source ? source.totalCount() : 0;
@@ -225,10 +229,11 @@ class Reserves extends React.Component {
                     }}
                     contentData={data.reserves}
                     id="list-reserves"
+                    interactive={stripes.hasPerm('course-reserves-storage.reserves.item.put')}
                     isEmptyMessage={this.renderIsEmptyMessage(query, source)}
                     onHeaderClick={onSort}
                     onNeedMoreData={onNeedMoreData}
-                    onRowClick={this.onRowClick}
+                    onRowClick={stripes.hasPerm('course-reserves-storage.reserves.item.put') ? this.onRowClick : undefined}
                     sortDirection={sortOrder.startsWith('-') ? 'descending' : 'ascending'}
                     sortOrder={sortOrder.replace(/^-/, '').replace(/,.*/, '')}
                     totalCount={count}
@@ -247,4 +252,4 @@ class Reserves extends React.Component {
   }
 }
 
-export default withRouter(Reserves);
+export default withStripes(withRouter(Reserves));
