@@ -279,6 +279,14 @@ class Courses extends React.Component {
                     contentData={data.courses}
                     id="list-courses"
                     isEmptyMessage={this.renderIsEmptyMessage(query, source)}
+                    nonInteractiveHeaders={[
+                      'registrarId',
+                      'department',
+                      'startDate',
+                      'endDate',
+                      'instructor',
+                      'status'
+                    ]}
                     onHeaderClick={onSort}
                     onNeedMoreData={onNeedMoreData}
                     onRowClick={this.onRowClick}
