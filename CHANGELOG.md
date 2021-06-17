@@ -1,5 +1,15 @@
 # Change history for ui-courses
 
+## [4.2.1](https://github.com/folio-org/ui-courses/tree/v4.2.1) (2021-06-17)
+
+* Added usage of <NoValue> component for a11y. UICR-100
+
+## [4.2.0](https://github.com/folio-org/ui-courses/tree/v4.2.0) (2021-06-17)
+
+* Fixed bug where "All permissions" permission couldn't edit courses. UICR-141
+* Added support for new versions of find-user plugin. UICR-135
+* Fixed bug where term dates could be incorrectly parsed. UICR-137
+
 ## [4.1.0](https://github.com/folio-org/ui-courses/tree/v4.1.0) (2021-04-23)
 [Full Changelog](https://github.com/folio-org/ui-courses/compare/v4.0.1...v4.1.0)
 
