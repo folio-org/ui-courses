@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, FormattedDate } from 'react-intl';
 import get from 'lodash/get';
-import { IconButton, Card, Col, Layout, Row } from '@folio/stripes/components';
+import { IconButton, Card, Col, Layout, NoValue, Row } from '@folio/stripes/components';
 import { withStripes, CalloutContext } from '@folio/stripes/core';
 import withOkapiKy from '../../../util/withOkapiKy';
 import VCKeyValue from './VCKeyValue';
@@ -174,12 +174,12 @@ const ViewCourseReserves = (props) => {
                   <VCKeyValue id="enumeration" value={copiedItem.enumeration} />
                 </Col>
                 <Col xs={3}>
-                  <VCKeyValue id="status" value={item ? get(item, 'status.name') : '?'} />
+                  <VCKeyValue id="status" value={item?.status?.name ?? <NoValue />} />
                 </Col>
               </Row>
               <Row>
                 <Col xs={3}>
-                  <VCKeyValue id="temporaryLocation" value={item ? get(item, 'temporaryLocation.name') : '?'} />
+                  <VCKeyValue id="temporaryLocation" value={item?.temporaryLocation?.name ?? <NoValue />} />
                 </Col>
                 <Col xs={3}>
                   <VCKeyValue id="temporaryLoanType" value={tlt} />
@@ -188,7 +188,7 @@ const ViewCourseReserves = (props) => {
                   <VCKeyValue id="processingStatus" value={ps} />
                 </Col>
                 <Col xs={3}>
-                  <VCKeyValue id="urlLink" value={item ? makeContentLink(item.electronicAccess) : '?'} />
+                  <VCKeyValue id="urlLink" value={item ? makeContentLink(item.electronicAccess) : <NoValue />} />
                 </Col>
               </Row>
               <Row>

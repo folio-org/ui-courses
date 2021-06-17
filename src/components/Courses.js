@@ -11,6 +11,7 @@ import {
   Pane,
   PaneMenu,
   MultiColumnList,
+  NoValue,
 } from '@folio/stripes/components';
 
 import {
@@ -30,7 +31,7 @@ function makeDate(s) {
 }
 
 function calculateStatus(termObject) {
-  if (!termObject) return '?';
+  if (!termObject) return <NoValue />;
   const now = new Date();
   const startDate = makeDate(termObject.startDate);
   const endDate = makeDate(termObject.endDate);
