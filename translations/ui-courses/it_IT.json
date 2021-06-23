@@ -136,7 +136,7 @@
     "settings.objectLabel": "Entries",
     "options.noneRequired": "(Nessuno richiesto)",
     "noSource": "No source yet ...",
-    "courseByNumber": "Corso {numero}",
+    "courseByNumber": "Corso {number}",
     "index.reserves.allFields": "All fields",
     "index.reserves.title": "Title",
     "index.reserves.barcode": "Barcode",
