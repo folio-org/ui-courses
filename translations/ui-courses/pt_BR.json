@@ -186,5 +186,5 @@
     "permission.add-edit-items": "Cursos: Adicionar e editar os itens reservados aos cursos",
     "permission.maintain-items": "Cursos: Adicionar, editar e remover os itens reservados aos cursos",
     "permission.maintain-settings": "Configurações (Cursos): Pode criar, editar e excluir configurações de cursos",
-    "permission.maintain-courses": "Courses: Read, add, edit, and delete courses"
+    "permission.maintain-courses": "Cursos: Ler, adicionar, editar e excluir cursos"
 }
