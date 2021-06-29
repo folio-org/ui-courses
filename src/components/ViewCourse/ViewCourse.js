@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStripes } from '@folio/stripes/core';
+import { NotesSmartAccordion } from '@folio/stripes/smart-components';
 import { AccordionSet } from '@folio/stripes/components';
 import VCAccordion from './VCAccordion';
 import {
@@ -46,6 +47,15 @@ class ViewCourse extends React.Component {
         <VCAccordion id="term">
           <ViewCourseTerm record={course} />
         </VCAccordion>
+        <NotesSmartAccordion
+          id="viewCourseNotes"
+          domainName="courses"
+          entityName={course.name}
+          entityType="course"
+          entityId={course.id}
+          pathToNoteCreate="notes/new"
+          pathToNoteDetails="courses/notes"
+        />
         <VCAccordion id="reserves">
           <ViewCourseReserves course={course} reserves={reserves} items={items} resources={resources} mutator={mutator} />
         </VCAccordion>
