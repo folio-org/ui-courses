@@ -1,40 +1,36 @@
 import React from 'react';
-import { Redirect, useHistory, useLocation } from 'react-router-dom';
+import {
+  Redirect,
+  useHistory,
+  useLocation
+} from 'react-router-dom';
 
 import { NoteCreatePage } from '@folio/stripes/smart-components';
 
-const retrieveNoteReferredEntityDataFromLocationState = (state) => {
-  if (state) {
-    return {
-      name: state.entityName,
-      type: state.entityType,
-      id: state.entityId,
-    };
-  }
-
-  return null;
-};
-
-const renderCreatePage = (history, state) => {
-  const referredRecordData = retrieveNoteReferredEntityDataFromLocationState(state);
-
-  return (
-    <NoteCreatePage
-      referredEntityData={referredRecordData}
-      entityTypeTranslationKeys={{ course: 'ui-courses.course' }}
-      paneHeaderAppIcon="courses"
-      domain="courses"
-      navigateBack={history.goBack}
-    />
-  );
-};
+import retrieveNoteReferredEntityDataFromLocationState from '../util/retrieveNoteReferredEntityDataFromLocationState';
 
 const NoteCreateRoute = () => {
   const history = useHistory();
   const location = useLocation();
 
+  const state = location.state;
+
+  const renderCreatePage = () => {
+    const referredRecordData = retrieveNoteReferredEntityDataFromLocationState(state);
+
+    return (
+      <NoteCreatePage
+        referredEntityData={referredRecordData}
+        entityTypeTranslationKeys={{ course: 'ui-courses.course' }}
+        paneHeaderAppIcon="courses"
+        domain="courses"
+        navigateBack={history.goBack}
+      />
+    );
+  };
+
   return location.pathname
-    ? renderCreatePage(history, location.state)
+    ? renderCreatePage(history, state)
     : <Redirect to="/courses" />;
 };
 

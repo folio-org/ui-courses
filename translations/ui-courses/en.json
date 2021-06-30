@@ -127,6 +127,8 @@
     "closeEditCourse": "Close edit course",
     "closeEditReserve": "Close edit reserve",
     "closeEditInstructor": "Close edit instructor",
+    "course": "Course",
+    "course.pluralized": "{count} {count, plural, one {course} other {courses}}",
     "removeReserve.failure": "Remove reserve failed: {message}",
     "button.addInstructor": "Add instructor",
     "addItem": "Add an item to this course's reserves",
