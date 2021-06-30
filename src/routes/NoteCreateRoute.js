@@ -30,7 +30,7 @@ const NoteCreateRoute = () => {
   };
 
   return location.pathname
-    ? renderCreatePage(history, state)
+    ? renderCreatePage()
     : <Redirect to="/courses" />;
 };
 
