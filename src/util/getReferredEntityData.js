@@ -1,4 +1,4 @@
-const retrieveNoteReferredEntityDataFromLocationState = (state) => {
+const getReferredEntityData = (state) => {
   if (state) {
     return {
       name: state.entityName,
@@ -10,4 +10,4 @@ const retrieveNoteReferredEntityDataFromLocationState = (state) => {
   return null;
 };
 
-export default retrieveNoteReferredEntityDataFromLocationState;
+export default getReferredEntityData;

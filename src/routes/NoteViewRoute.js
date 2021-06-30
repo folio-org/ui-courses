@@ -8,7 +8,7 @@ import {
 
 import { NoteViewPage } from '@folio/stripes/smart-components';
 
-import retrieveNoteReferredEntityDataFromLocationState from '../util/retrieveNoteReferredEntityDataFromLocationState';
+import getReferredEntityData from '../util/getReferredEntityData';
 
 const NoteViewRoute = () => {
   const history = useHistory();
@@ -18,7 +18,7 @@ const NoteViewRoute = () => {
   const state = location.state;
   const noteId = match.params.id;
 
-  const referredEntityData = retrieveNoteReferredEntityDataFromLocationState(state);
+  const referredEntityData = getReferredEntityData(state);
 
   const onEdit = () => {
     history.replace({
@@ -40,7 +40,7 @@ const NoteViewRoute = () => {
   return (
     <NoteViewPage
       entityTypeTranslationKeys={{ course: 'ui-courses.course' }}
-      entityTypePluralizedTranslationKeys={{ course: 'courses.course.pluralized' }}
+      entityTypePluralizedTranslationKeys={{ course: 'ui-courses.course.pluralized' }}
       navigateBack={navigateBack}
       onEdit={onEdit}
       paneHeaderAppIcon="courses"

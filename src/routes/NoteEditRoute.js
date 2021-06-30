@@ -8,7 +8,7 @@ import {
 
 import { NoteEditPage } from '@folio/stripes/smart-components';
 
-import retrieveNoteReferredEntityDataFromLocationState from '../util/retrieveNoteReferredEntityDataFromLocationState';
+import getReferredEntityData from '../util/getReferredEntityData';
 
 const NoteEditRoute = () => {
   const history = useHistory();
@@ -18,7 +18,7 @@ const NoteEditRoute = () => {
   const state = location.state;
   const noteId = match.params.id;
 
-  const referredEntityData = retrieveNoteReferredEntityDataFromLocationState(state);
+  const referredEntityData = getReferredEntityData(state);
 
   const navigateBack = () => {
     const path = state ? history.goBack() : '/users';

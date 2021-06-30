@@ -7,7 +7,7 @@ import {
 
 import { NoteCreatePage } from '@folio/stripes/smart-components';
 
-import retrieveNoteReferredEntityDataFromLocationState from '../util/retrieveNoteReferredEntityDataFromLocationState';
+import getReferredEntityData from '../util/getReferredEntityData';
 
 const NoteCreateRoute = () => {
   const history = useHistory();
@@ -16,7 +16,7 @@ const NoteCreateRoute = () => {
   const state = location.state;
 
   const renderCreatePage = () => {
-    const referredRecordData = retrieveNoteReferredEntityDataFromLocationState(state);
+    const referredRecordData = getReferredEntityData(state);
 
     return (
       <NoteCreatePage
