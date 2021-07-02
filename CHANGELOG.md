@@ -3,6 +3,7 @@
 ## [4.2.1](https://github.com/folio-org/ui-courses/tree/v4.2.1) (2021-06-17)
 
 * Added usage of <NoValue> component for a11y. UICR-100
+* Implemented Notes helper module within Courses. UICR-126
 
 ## [4.2.0](https://github.com/folio-org/ui-courses/tree/v4.2.0) (2021-06-17)
 

@@ -15,6 +15,9 @@ import ReserveRoute from './routes/ReserveRoute';
 import EditReserveRoute from './routes/EditReserveRoute';
 import AddInstructorRoute from './routes/AddInstructorRoute';
 import EditInstructorRoute from './routes/EditInstructorRoute';
+import NoteCreateRoute from './routes/NoteCreateRoute';
+import NoteViewRoute from './routes/NoteViewRoute';
+import NoteEditRoute from './routes/NoteEditRoute';
 
 class CoursesApp extends React.Component {
   static propTypes = {
@@ -44,6 +47,9 @@ class CoursesApp extends React.Component {
             <NestedRoute path={`${path}/courses/:id/edit`} component={EditCourseRoute} />
             <NestedRoute path={`${path}/courses/:id/delete`} render={(props2) => <EditCourseRoute {...props2} deleteCourse />} />
             <NestedRoute path={`${path}/courses/:id/crosslist/:clid`} component={CrosslistCourseRoute} />
+            <NestedRoute path={`${path}/courses/notes/new`} component={NoteCreateRoute} />
+            <NestedRoute path={`${path}/courses/notes/:id`} exact component={NoteViewRoute} />
+            <NestedRoute path={`${path}/courses/notes/:id/edit`} component={NoteEditRoute} />
           </Switch>
         </NestedRoute>
         <NestedRoute path={`${path}/reserves`} exact component={ReservesRoute} />
