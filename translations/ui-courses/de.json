@@ -186,5 +186,7 @@
     "permission.add-edit-items": "Semesterapparate: reservierte Exemplare hinzufügen und bearbeiten",
     "permission.maintain-items": "Semesterapparate: reservierte Exemplare hinzufügen, bearbeiten und entfernen",
     "permission.maintain-settings": "Einstellungen (Semesterapparate): Kann Semesterapparate-Einstellungen erstellen, bearbeiten und löschen",
-    "permission.maintain-courses": "Semesterapparate: Kurse anzeigen, hinzufügen, bearbeiten und löschen"
+    "permission.maintain-courses": "Semesterapparate: Kurse anzeigen, hinzufügen, bearbeiten und löschen",
+    "course": "Course",
+    "course.pluralized": "{count} {count, plural, one {course} other {courses}}"
 }

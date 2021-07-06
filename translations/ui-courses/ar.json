@@ -186,5 +186,7 @@
     "permission.add-edit-items": "المقررات أضف وحرّر مواد محجوزة للمقررات",
     "permission.maintain-items": "المقررات أضف، وحرّر، واحذف مواد محجوزة للمقررات",
     "permission.maintain-settings": "الإعدادات (المقررات): إمكانية إنشاء، وتحرير، وإزالة إعدادات المقرر",
-    "permission.maintain-courses": "الكورسات: اقرأ، أضف، حرّر، واحذف الكورسات"
+    "permission.maintain-courses": "الكورسات: اقرأ، أضف، حرّر، واحذف الكورسات",
+    "course": "المقرر",
+    "course.pluralized": "{count} {count, plural, one {مقرر} other {مقرراً}}"
 }
