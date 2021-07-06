@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { injectIntl } from 'react-intl';
-import { Field, reduxForm } from 'redux-form';
+import { Field } from 'react-final-form';
 import { ControlledVocab } from '@folio/stripes/smart-components';
 import { withStripes } from '@folio/stripes/core';
 import { Datepicker } from '@folio/stripes/components';
@@ -44,6 +44,7 @@ class TermSettings extends React.Component {
 
     return (
       <this.connectedControlledVocab
+        formType="final-form"
         stripes={stripes}
         baseUrl="coursereserves/terms"
         records="terms"
@@ -69,6 +70,4 @@ class TermSettings extends React.Component {
   }
 }
 
-export default reduxForm({
-  form: 'course-reserves-terms'
-})(injectIntl(withStripes(TermSettings)));
+export default injectIntl(withStripes(TermSettings));
