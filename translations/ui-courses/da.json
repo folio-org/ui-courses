@@ -186,5 +186,7 @@
     "permission.add-edit-items": "Courses: Add and edit courses' reserved items",
     "permission.maintain-items": "Courses: Add, edit, and remove courses' reserved items",
     "permission.maintain-settings": "Settings (Courses): Can create, edit and delete course settings",
-    "permission.maintain-courses": "Courses: Read, add, edit, and delete courses"
+    "permission.maintain-courses": "Courses: Read, add, edit, and delete courses",
+    "course": "Course",
+    "course.pluralized": "{count} {count, plural, one {course} other {courses}}"
 }
