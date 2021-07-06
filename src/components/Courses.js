@@ -1,27 +1,40 @@
 import React, { createRef } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
-import { FormattedMessage, FormattedDate } from 'react-intl';
+import {
+  FormattedMessage,
+  FormattedDate,
+  injectIntl,
+} from 'react-intl';
 import get from 'lodash/get';
-import { AppIcon, IfPermission } from '@folio/stripes/core';
+import {
+  AppIcon,
+  IfPermission
+} from '@folio/stripes/core';
 
 import {
   Button,
+  Icon,
   Paneset,
   Pane,
   PaneMenu,
   MultiColumnList,
   NoValue,
+  MenuSection,
 } from '@folio/stripes/components';
 
 import {
   SearchAndSortQuery,
   SearchAndSortNoResultsMessage,
   SearchAndSortSearchButton as FilterPaneToggle,
+  ColumnManager,
 } from '@folio/stripes/smart-components';
 
 import packageInfo from '../../package';
 import CoursesSearchPane from './CoursesSearchPane';
+
+const VISIBLE_COLUMNS_STORAGE_KEY = 'courses-visible-columns';
+const NON_TOGGLEABLE_COLUMNS = ['name'];
 
 // Returns a date object corresponding with the date string in format YYYY-MM-DD'
 function makeDate(s) {
@@ -44,6 +57,7 @@ class Courses extends React.Component {
     location: PropTypes.shape({
       search: PropTypes.string.isRequired,
     }).isRequired,
+    intl: PropTypes.object.isRequired,
     children: PropTypes.object,
     data: PropTypes.shape({
       courses: PropTypes.arrayOf(
@@ -101,6 +115,22 @@ class Courses extends React.Component {
     this.props.history.push(`/cr/courses/${row.id}${this.props.location.search}`);
   }
 
+  getColumnMapping = () => {
+    const { intl } = this.props;
+
+    return {
+      name: intl.formatMessage({ id: 'ui-courses.column.name' }),
+      courseNumber: intl.formatMessage({ id: 'ui-courses.column.courseNumber' }),
+      sectionName: intl.formatMessage({ id: 'ui-courses.column.sectionName' }),
+      registrarId: intl.formatMessage({ id: 'ui-courses.column.registrarId' }),
+      department: intl.formatMessage({ id: 'ui-courses.column.department' }),
+      startDate: intl.formatMessage({ id: 'ui-courses.column.startDate' }),
+      endDate: intl.formatMessage({ id: 'ui-courses.column.endDate' }),
+      instructor: intl.formatMessage({ id: 'ui-courses.column.instructor' }),
+      status: intl.formatMessage({ id: 'ui-courses.column.status' }),
+    };
+  }
+
   onSearchComplete = () => {
     const hasResults = !!(this.props.source?.totalCount() ?? 0);
 
@@ -144,27 +174,36 @@ class Courses extends React.Component {
     );
   }
 
-  renderResultsLastMenu(location) {
+  getActionMenu = renderColumnsMenu => () => {
+    const { intl } = this.props;
+
     return (
-      <IfPermission perm="course-reserves-storage.courses.item.post">
-        <PaneMenu>
-          <FormattedMessage id="ui-courses.createCourse">
-            {ariaLabel => (
-              <Button
-                aria-label={ariaLabel}
-                buttonStyle="primary"
-                id="clickable-new-course"
-                marginBottom0
-                to={`${packageInfo.stripes.route}/courses/create${location.search}`}
-              >
-                <FormattedMessage id="stripes-smart-components.new" />
-              </Button>
-            )}
-          </FormattedMessage>
-        </PaneMenu>
-      </IfPermission>
+      <>
+        <MenuSection label={intl.formatMessage({ id: 'ui-courses.actions' })} id="actions-menu-section">
+          <IfPermission perm="course-reserves-storage.courses.item.post">
+            <PaneMenu>
+              <FormattedMessage id="stripes-smart-components.addNew">
+                {ariaLabel => (
+                  <Button
+                    aria-label={ariaLabel}
+                    buttonStyle="dropdownItem"
+                    id="clickable-new-course"
+                    marginBottom0
+                    to={`${packageInfo.stripes.route}/courses/create${this.props.location.search}`}
+                  >
+                    <Icon icon="plus-sign">
+                      <FormattedMessage id="stripes-smart-components.new" />
+                    </Icon>
+                  </Button>
+                )}
+              </FormattedMessage>
+            </PaneMenu>
+          </IfPermission>
+        </MenuSection>
+        {renderColumnsMenu}
+      </>
     );
-  }
+  };
 
   renderResultsPaneSubtitle = (source) => {
     if (source && source.loaded()) {
@@ -201,8 +240,40 @@ class Courses extends React.Component {
       source,
     } = this.props;
 
+    const columnMapping = this.getColumnMapping();
+
     const count = source ? source.totalCount() : 0;
     const sortOrder = query.sort || '';
+
+    const columnWidths = {
+      name: 200,
+      courseNumber: 110,
+      sectionName: 100,
+      registrarId: 110,
+      department: 120,
+      startDate: 100,
+      endDate: 100,
+      instructor: 180,
+      status: 100,
+    };
+
+    const resultsFormatter = {
+      registrarId: r => get(r, 'courseListingObject.registrarId'),
+      department: r => get(r, 'departmentObject.name'),
+      startDate: r => <FormattedDate value={get(r, 'courseListingObject.termObject.startDate')} />,
+      endDate: r => <FormattedDate value={get(r, 'courseListingObject.termObject.endDate')} />,
+      instructor: r => get(r, 'courseListingObject.instructorObjects', []).map(i => i.name).join('; '),
+      status: r => calculateStatus(get(r, 'courseListingObject.termObject')),
+    };
+
+    const nonInteractiveHeaders = [
+      'registrarId',
+      'department',
+      'startDate',
+      'endDate',
+      'instructor',
+      'status'
+    ];
 
     return (
       <SearchAndSortQuery
@@ -224,79 +295,43 @@ class Courses extends React.Component {
                     options={data.options}
                   />
                 )}
-                <Pane
-                  appIcon={<AppIcon app="courses" />}
-                  defaultWidth="fill"
-                  firstMenu={this.renderResultsFirstMenu(activeFilters)}
-                  lastMenu={this.renderResultsLastMenu(this.props.location)}
-                  padContent={false}
-                  paneTitle={<FormattedMessage id="ui-courses.filters.courses" />}
-                  paneTitleRef={this.resultsPaneTitleRef}
-                  paneSub={this.renderResultsPaneSubtitle(source)}
+                <ColumnManager
+                  id={VISIBLE_COLUMNS_STORAGE_KEY}
+                  columnMapping={columnMapping}
+                  excludeKeys={NON_TOGGLEABLE_COLUMNS}
                 >
-                  <MultiColumnList
-                    autosize
-                    visibleColumns={[
-                      'name',
-                      'courseNumber',
-                      'sectionName',
-                      'registrarId',
-                      'department',
-                      'startDate',
-                      'endDate',
-                      'instructor',
-                      'status'
-                    ]}
-                    columnWidths={{
-                      name: 200,
-                      courseNumber: 110,
-                      sectionName: 100,
-                      registrarId: 110,
-                      department: 120,
-                      startDate: 100,
-                      endDate: 100,
-                      instructor: 180,
-                      status: 100,
-                    }}
-                    columnMapping={{
-                      name: <FormattedMessage id="ui-courses.column.name" />,
-                      courseNumber: <FormattedMessage id="ui-courses.column.courseNumber" />,
-                      sectionName: <FormattedMessage id="ui-courses.column.sectionName" />,
-                      registrarId: <FormattedMessage id="ui-courses.column.registrarId" />,
-                      department: <FormattedMessage id="ui-courses.column.department" />,
-                      startDate: <FormattedMessage id="ui-courses.column.startDate" />,
-                      endDate: <FormattedMessage id="ui-courses.column.endDate" />,
-                      instructor: <FormattedMessage id="ui-courses.column.instructor" />,
-                      status: <FormattedMessage id="ui-courses.column.status" />,
-                    }}
-                    formatter={{
-                      registrarId: r => get(r, 'courseListingObject.registrarId'),
-                      department: r => get(r, 'departmentObject.name'),
-                      startDate: r => <FormattedDate value={get(r, 'courseListingObject.termObject.startDate')} />,
-                      endDate: r => <FormattedDate value={get(r, 'courseListingObject.termObject.endDate')} />,
-                      instructor: r => get(r, 'courseListingObject.instructorObjects', []).map(i => i.name).join('; '),
-                      status: r => calculateStatus(get(r, 'courseListingObject.termObject')),
-                    }}
-                    contentData={data.courses}
-                    id="list-courses"
-                    isEmptyMessage={this.renderIsEmptyMessage(query, source)}
-                    nonInteractiveHeaders={[
-                      'registrarId',
-                      'department',
-                      'startDate',
-                      'endDate',
-                      'instructor',
-                      'status'
-                    ]}
-                    onHeaderClick={onSort}
-                    onNeedMoreData={onNeedMoreData}
-                    onRowClick={this.onRowClick}
-                    sortDirection={sortOrder.startsWith('-') ? 'descending' : 'ascending'}
-                    sortOrder={sortOrder.replace(/^-/, '').replace(/,.*/, '')}
-                    totalCount={count}
-                    virtualize
-                  />
-                </Pane>
+                  {({ renderColumnsMenu, visibleColumns }) => (
+                    <Pane
+                      appIcon={<AppIcon app="courses" />}
+                      defaultWidth="fill"
+                      firstMenu={this.renderResultsFirstMenu(activeFilters)}
+                      actionMenu={this.getActionMenu(renderColumnsMenu)}
+                      padContent={false}
+                      paneTitle={<FormattedMessage id="ui-courses.filters.courses" />}
+                      paneTitleRef={this.resultsPaneTitleRef}
+                      paneSub={this.renderResultsPaneSubtitle(source)}
+                    >
+                      <MultiColumnList
+                        id="list-courses"
+                        visibleColumns={visibleColumns}
+                        columnWidths={columnWidths}
+                        columnMapping={columnMapping}
+                        formatter={resultsFormatter}
+                        contentData={data.courses}
+                        isEmptyMessage={this.renderIsEmptyMessage(query, source)}
+                        nonInteractiveHeaders={nonInteractiveHeaders}
+                        onHeaderClick={onSort}
+                        onNeedMoreData={onNeedMoreData}
+                        onRowClick={this.onRowClick}
+                        sortDirection={sortOrder.startsWith('-') ? 'descending' : 'ascending'}
+                        sortOrder={sortOrder.replace(/^-/, '').replace(/,.*/, '')}
+                        totalCount={count}
+                        autosize
+                        virtualize
+                      />
+                    </Pane>
+                  )}
+                </ColumnManager>
 
                 { children }
 
@@ -309,4 +344,4 @@ class Courses extends React.Component {
   }
 }
 
-export default withRouter(Courses);
+export default withRouter(injectIntl(Courses));
