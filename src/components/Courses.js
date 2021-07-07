@@ -179,7 +179,10 @@ class Courses extends React.Component {
 
     return (
       <>
-        <MenuSection label={intl.formatMessage({ id: 'ui-courses.actions' })} id="actions-menu-section">
+        <MenuSection
+          label={intl.formatMessage({ id: 'ui-courses.actions' })}
+          id="actions-menu-section"
+        >
           <IfPermission perm="course-reserves-storage.courses.item.post">
             <PaneMenu>
               <FormattedMessage id="stripes-smart-components.addNew">
