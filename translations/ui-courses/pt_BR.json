@@ -188,5 +188,6 @@
     "permission.maintain-settings": "Configurações (Cursos): Pode criar, editar e excluir configurações de cursos",
     "permission.maintain-courses": "Cursos: Ler, adicionar, editar e excluir cursos",
     "course": "Course",
-    "course.pluralized": "{count} {count, plural, one {course} other {courses}}"
+    "course.pluralized": "{count} {count, plural, one {course} other {courses}}",
+    "actions": "Actions"
 }

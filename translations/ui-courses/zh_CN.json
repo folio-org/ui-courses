@@ -188,5 +188,6 @@
     "permission.maintain-settings": "设置（课程）：可以创建、编辑和删除课程设置",
     "permission.maintain-courses": "课程：阅读、添加、编辑和删除课程",
     "course": "Course",
-    "course.pluralized": "{count} {count, plural, one {course} other {courses}}"
+    "course.pluralized": "{count} {count, plural, one {course} other {courses}}",
+    "actions": "Actions"
 }

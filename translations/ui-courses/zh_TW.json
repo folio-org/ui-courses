@@ -188,5 +188,6 @@
     "permission.maintain-settings": "設置（課程）：可以建立，編輯和刪除課程設置",
     "permission.maintain-courses": "Courses: Read, add, edit, and delete courses",
     "course": "Course",
-    "course.pluralized": "{count} {count, plural, one {course} other {courses}}"
+    "course.pluralized": "{count} {count, plural, one {course} other {courses}}",
+    "actions": "Actions"
 }
