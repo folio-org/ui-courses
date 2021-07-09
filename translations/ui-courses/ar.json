@@ -188,5 +188,6 @@
     "permission.maintain-settings": "الإعدادات (المقررات): إمكانية إنشاء، وتحرير، وإزالة إعدادات المقرر",
     "permission.maintain-courses": "الكورسات: اقرأ، أضف، حرّر، واحذف الكورسات",
     "course": "المقرر",
-    "course.pluralized": "{count} {count, plural, one {مقرر} other {مقرراً}}"
+    "course.pluralized": "{count} {count, plural, one {مقرر} other {مقرراً}}",
+    "actions": "الإجراءات"
 }

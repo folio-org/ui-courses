@@ -188,5 +188,6 @@
     "permission.maintain-settings": "Paramètres (cours): peut créer, modifier et supprimer les paramètres du cours",
     "permission.maintain-courses": "Cours : lire, ajouter, modifier et supprimer des cours",
     "course": "Cours",
-    "course.pluralized": "{count} {count, plural, one { cours } other { cours }}"
+    "course.pluralized": "{count} {count, plural, one { cours } other { cours }}",
+    "actions": "Actions"
 }
