@@ -4,7 +4,8 @@
 
 * Added usage of <NoValue> component for a11y. UICR-100
 * Implemented Notes helper module within Courses. UICR-126
-* Implemented `<ColumnManager>` for managing visible columns in the results list. UICR-132
+* Implemented `<ColumnManager>` for managing visible columns in the Courses results list. UICR-132
+* Implemented `<ColumnManager>` for managing visible columns in the Reserves results list. UICR-146
 
 ## [4.2.0](https://github.com/folio-org/ui-courses/tree/v4.2.0) (2021-06-17)
 

@@ -1,9 +1,15 @@
 import React, { createRef } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
-import { FormattedMessage } from 'react-intl';
+import {
+  FormattedMessage,
+  injectIntl,
+} from 'react-intl';
 import get from 'lodash/get';
-import { AppIcon, withStripes } from '@folio/stripes/core';
+import {
+  AppIcon,
+  withStripes,
+} from '@folio/stripes/core';
 
 import {
   Paneset,
@@ -16,16 +22,20 @@ import {
   SearchAndSortQuery,
   SearchAndSortNoResultsMessage,
   SearchAndSortSearchButton as FilterPaneToggle,
+  ColumnManager,
 } from '@folio/stripes/smart-components';
 
 import ReservesSearchPane from './ReservesSearchPane';
 
+const VISIBLE_COLUMNS_STORAGE_KEY = 'reserves-visible-columns';
+const NON_TOGGLEABLE_COLUMNS = ['title'];
 
 class Reserves extends React.Component {
   static propTypes = {
     location: PropTypes.shape({
       search: PropTypes.string.isRequired,
     }).isRequired,
+    intl: PropTypes.object.isRequired,
     children: PropTypes.object,
     data: PropTypes.shape({
       reserves: PropTypes.arrayOf(
@@ -62,7 +72,7 @@ class Reserves extends React.Component {
 
   static getDerivedStateFromProps(props) {
     return {
-      recordsArePending: props.source?.pending() ?? true
+      recordsArePending: props.source?.pending() ?? true,
     };
   }
 
@@ -86,6 +96,18 @@ class Reserves extends React.Component {
     this.props.history.push(`/cr/reserves/${row.courseListingId}/0/${row.id}/${row.itemId}/edit${this.props.location.search}`);
   }
 
+  getColumnMapping = () => {
+    const { intl } = this.props;
+
+    return {
+      title: intl.formatMessage({ id: 'ui-courses.column.title' }),
+      barcode: intl.formatMessage({ id: 'ui-courses.column.barcode' }),
+      status: intl.formatMessage({ id: 'ui-courses.column.processingStatus' }),
+      permanentLocation: intl.formatMessage({ id: 'ui-courses.column.permanentLocation' }),
+      temporaryLocation: intl.formatMessage({ id: 'ui-courses.column.temporaryLocation' }),
+    };
+  }
+
   onSearchComplete = () => {
     const hasResults = !!(this.props.source?.totalCount() ?? 0);
 
@@ -106,12 +128,16 @@ class Reserves extends React.Component {
   renderResultsFirstMenu = (filters) => {
     const { filterPaneIsVisible } = this.state;
     const filterCount = filters.string !== '' ? filters.string.split(',').length : 0;
-    const hideOrShowMessageId = filterPaneIsVisible ?
-      'stripes-smart-components.hideSearchPane' : 'stripes-smart-components.showSearchPane';
+    const hideOrShowMessageId = filterPaneIsVisible
+      ? 'stripes-smart-components.hideSearchPane'
+      : 'stripes-smart-components.showSearchPane';
 
     return (
       <PaneMenu>
-        <FormattedMessage id="stripes-smart-components.numberOfFilters" values={{ count: filterCount }}>
+        <FormattedMessage
+          id="stripes-smart-components.numberOfFilters"
+          values={{ count: filterCount }}
+        >
           {appliedFiltersMessage => (
             <FormattedMessage id={hideOrShowMessageId}>
               {hideOrShowMessage => (
@@ -132,7 +158,10 @@ class Reserves extends React.Component {
   renderResultsPaneSubtitle = (source) => {
     if (source && source.loaded()) {
       const count = source.totalCount();
-      return <FormattedMessage id="stripes-smart-components.searchResultsCountHeader" values={{ count }} />;
+      return <FormattedMessage
+        id="stripes-smart-components.searchResultsCountHeader"
+        values={{ count }}
+      />;
     }
 
     return <FormattedMessage id="stripes-smart-components.searchCriteria" />;
@@ -165,8 +194,26 @@ class Reserves extends React.Component {
       stripes,
     } = this.props;
 
+    const columnMapping = this.getColumnMapping();
+
     const count = source ? source.totalCount() : 0;
     const sortOrder = query.sort || '';
+
+    const columnWidths = {
+      title: 300,
+      barcode: 120,
+      status: 100,
+      permanentLocation: 180,
+      temporaryLocation: 180,
+    };
+
+    const resultsFormatter = {
+      title: r => get(r, 'copiedItem.title'),
+      barcode: r => get(r, 'copiedItem.barcode'),
+      status: r => get(r, 'processingStatusObject.name') || r.processingStatusId,
+      permanentLocation: r => get(r, 'copiedItem.permanentLocationObject.name') || r.copiedItem.permanentLocationId,
+      temporaryLocation: r => get(r, 'copiedItem.temporaryLocationObject.name') || r.copiedItem.temporaryLocationId,
+    };
 
     return (
       <SearchAndSortQuery
@@ -188,58 +235,43 @@ class Reserves extends React.Component {
                     options={data.options}
                   />
                 )}
-                <Pane
-                  appIcon={<AppIcon app="courses" />}
-                  defaultWidth="fill"
-                  firstMenu={this.renderResultsFirstMenu(activeFilters)}
-                  padContent={false}
-                  paneTitle={<FormattedMessage id="ui-courses.filters.reserves" />}
-                  paneTitleRef={this.resultsPaneTitleRef}
-                  paneSub={this.renderResultsPaneSubtitle(source)}
+                <ColumnManager
+                  id={VISIBLE_COLUMNS_STORAGE_KEY}
+                  columnMapping={columnMapping}
+                  excludeKeys={NON_TOGGLEABLE_COLUMNS}
                 >
-                  <MultiColumnList
-                    autosize
-                    visibleColumns={[
-                      'title',
-                      'barcode',
-                      'status',
-                      'permanentLocation',
-                      'temporaryLocation',
-                    ]}
-                    columnWidths={{
-                      title: 300,
-                      barcode: 120,
-                      status: 100,
-                      permanentLocation: 180,
-                      temporaryLocation: 180,
-                    }}
-                    columnMapping={{
-                      title: <FormattedMessage id="ui-courses.column.title" />,
-                      barcode: <FormattedMessage id="ui-courses.column.barcode" />,
-                      status: <FormattedMessage id="ui-courses.column.processingStatus" />,
-                      permanentLocation: <FormattedMessage id="ui-courses.column.permanentLocation" />,
-                      temporaryLocation: <FormattedMessage id="ui-courses.column.temporaryLocation" />,
-                    }}
-                    formatter={{
-                      title: r => get(r, 'copiedItem.title'),
-                      barcode: r => get(r, 'copiedItem.barcode'),
-                      status: r => get(r, 'processingStatusObject.name') || r.processingStatusId,
-                      permanentLocation: r => get(r, 'copiedItem.permanentLocationObject.name') || r.copiedItem.permanentLocationId,
-                      temporaryLocation: r => get(r, 'copiedItem.temporaryLocationObject.name') || r.copiedItem.temporaryLocationId,
-                    }}
-                    contentData={data.reserves}
-                    id="list-reserves"
-                    interactive={stripes.hasPerm('course-reserves-storage.reserves.item.put')}
-                    isEmptyMessage={this.renderIsEmptyMessage(query, source)}
-                    onHeaderClick={onSort}
-                    onNeedMoreData={onNeedMoreData}
-                    onRowClick={stripes.hasPerm('course-reserves-storage.reserves.item.put') ? this.onRowClick : undefined}
-                    sortDirection={sortOrder.startsWith('-') ? 'descending' : 'ascending'}
-                    sortOrder={sortOrder.replace(/^-/, '').replace(/,.*/, '')}
-                    totalCount={count}
-                    virtualize
-                  />
-                </Pane>
+                  {({ renderColumnsMenu, visibleColumns }) => (
+                    <Pane
+                      appIcon={<AppIcon app="courses" />}
+                      defaultWidth="fill"
+                      firstMenu={this.renderResultsFirstMenu(activeFilters)}
+                      actionMenu={() => renderColumnsMenu}
+                      padContent={false}
+                      paneTitle={<FormattedMessage id="ui-courses.filters.reserves" />}
+                      paneTitleRef={this.resultsPaneTitleRef}
+                      paneSub={this.renderResultsPaneSubtitle(source)}
+                    >
+                      <MultiColumnList
+                        autosize
+                        visibleColumns={visibleColumns}
+                        columnWidths={columnWidths}
+                        columnMapping={columnMapping}
+                        formatter={resultsFormatter}
+                        contentData={data.reserves}
+                        id="list-reserves"
+                        interactive={stripes.hasPerm('course-reserves-storage.reserves.item.put')}
+                        isEmptyMessage={this.renderIsEmptyMessage(query, source)}
+                        onHeaderClick={onSort}
+                        onNeedMoreData={onNeedMoreData}
+                        onRowClick={stripes.hasPerm('course-reserves-storage.reserves.item.put') ? this.onRowClick : undefined}
+                        sortDirection={sortOrder.startsWith('-') ? 'descending' : 'ascending'}
+                        sortOrder={sortOrder.replace(/^-/, '').replace(/,.*/, '')}
+                        totalCount={count}
+                        virtualize
+                      />
+                    </Pane>
+                  )}
+                </ColumnManager>
 
                 { children }
 
@@ -252,4 +284,4 @@ class Reserves extends React.Component {
   }
 }
 
-export default withStripes(withRouter(Reserves));
+export default withStripes(withRouter(injectIntl(Reserves)));
