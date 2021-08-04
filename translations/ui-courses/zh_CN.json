@@ -187,7 +187,7 @@
     "permission.maintain-items": "课程：添加、编辑和移除课程的教参单件",
     "permission.maintain-settings": "设置（课程）：可以创建、编辑和删除课程设置",
     "permission.maintain-courses": "课程：阅读、添加、编辑和删除课程",
-    "course": "Course",
-    "course.pluralized": "{count} {count, plural, one {course} other {courses}}",
-    "actions": "Actions"
+    "course": "课程",
+    "course.pluralized": "{count} {count, plural, one {课程} other {课程}}",
+    "actions": "操作"
 }
