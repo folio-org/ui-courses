@@ -42,7 +42,7 @@
     "accordion.crosslistings": "Verknüpfte Kurse",
     "accordion.crosslistings.help": "Kurs-Querverweise für den vorliegenden Kurs",
     "accordion.instructors": "Referenten",
-    "accordion.instructors.help": "Instructing the present course",
+    "accordion.instructors.help": "Unterrichten des vorliegenden Kurses",
     "accordion.term": "Laufzeit",
     "accordion.term.help": "Zeitplan für den vorliegenden Kurs",
     "accordion.organization": "Organisation",
@@ -189,5 +189,5 @@
     "permission.maintain-courses": "Semesterapparate: Kurse anzeigen, hinzufügen, bearbeiten und löschen",
     "course": "Kurs",
     "course.pluralized": "{count} {count, plural, one {Kurs} other {Kurse}}",
-    "actions": "Actions"
+    "actions": "Aktionen"
 }
