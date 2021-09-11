@@ -1,6 +1,6 @@
 @import "@folio/stripes-components/lib/variables";
 
-..searchControl {
+.searchControl {
   margin-left: -3px;
   margin-top: 8px;
   display: flex;
