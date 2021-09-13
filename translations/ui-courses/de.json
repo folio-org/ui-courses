@@ -50,7 +50,7 @@
     "accordion.reserves": "Exemplare",
     "accordion.reserves.help": "Für diesen Kurs reservierte Exemplare",
     "accordion.developer": "Entwicklerinfo",
-    "accordion.developer.help": "(JSON dump of raw record)",
+    "accordion.developer.help": "(JSON-Dump des Rohdatensatzes)",
     "field.name": "Kursname",
     "field.department": "Fachbereich",
     "field.number": "Kurscode",
