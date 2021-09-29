@@ -30,14 +30,14 @@ describe('ui-courses: course searching', () => {
       })
       it('filters by department', () => {
         cy.get('#accordion-toggle-button-departments').click()
-        cy.get('#multiselect-2').click()
+        cy.get('#multiselect-5').click()
         cy.contains('div[data-test-selection-option-segment="true"]', 'Mathematics').click()
         cy.get('#accordion-toggle-button-departments').click()
         cy.contains('4 records found')
       })
       it('filters by course type', () => {
         cy.get('#accordion-toggle-button-coursetypes').click()
-        cy.get('#multiselect-4').click()
+        cy.get('#multiselect-8').click()
         cy.contains('div[data-test-selection-option-segment="true"]', /^Online$/).click()
         cy.contains('div[data-test-selection-option-segment="true"]', /^In person$/).click()
         cy.get('#accordion-toggle-button-coursetypes').click()
@@ -45,7 +45,7 @@ describe('ui-courses: course searching', () => {
       })
       it('filters by term', () => {
         cy.get('#accordion-toggle-button-terms').click()
-        cy.get('#multiselect-6').click()
+        cy.get('#multiselect-11').click()
         cy.contains('div[data-test-selection-option-segment="true"]', /Michaelmas/).click()
         cy.get('#accordion-toggle-button-terms').click()
         cy.contains('1 record found')
@@ -91,6 +91,7 @@ describe('ui-courses: course creation, editing and deletion', () => {
   describe('creates a new course', () => {
     it('creates the record', () => {
       cy.contains('Aardvark breeding').should('not.exist')
+      cy.get('[data-test-pane-header-actions-button="true"]').click()
       cy.get('#clickable-new-course').click()
       cy.get('#edit-course-name').type('Aardvark breeding')
       cy.get('#edit-course-department').select('Earth Sciences')
