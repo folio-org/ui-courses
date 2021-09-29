@@ -1,6 +1,6 @@
 {
   "name": "@folio/courses",
-  "version": "4.2.1",
+  "version": "5.0.0",
   "description": "Maintain courses and reserve items for them",
   "repository": "https://github.com/folio-org/ui-courses",
   "license": "Apache-2.0",
@@ -198,8 +198,8 @@
     "react-hot-loader": "^4.3.12"
   },
   "peerDependencies": {
-    "@folio/stripes": "^6.0.0",
     "@folio/plugin-find-user": "^5.0.0||^6.0.0",
+    "@folio/stripes": "^7.0.0",
     "prop-types": "*",
     "react": "*",
     "react-intl": "*",
@@ -208,10 +208,10 @@
     "react-router-dom": "*"
   },
   "devDependencies": {
-    "@cypress/code-coverage": "^3.9.2",
+    "@cypress/code-coverage": "^3.9.11",
     "@folio/eslint-config-stripes": "~5.3.0",
-    "@folio/stripes": "^6.0.0",
-    "@folio/stripes-cli": "^2.0.0",
+    "@folio/stripes": "^7.0.0",
+    "@folio/stripes-cli": "^2.4.0",
     "@formatjs/cli": "^4.2.6",
     "babel-eslint": "^10.1.0",
     "cypress": "^6.4.0",
@@ -227,6 +227,6 @@
     "yakbak-proxy": "^1.6.0"
   },
   "optionalDependencies": {
-    "@folio/plugin-create-inventory-records": "^2.0.0"
+    "@folio/plugin-create-inventory-records": "^2.1.0"
   }
 }
