@@ -51,6 +51,7 @@
     "accordion.reserves.help": "本課程的指定參考書單件",
     "accordion.developer": "開發人員資訊",
     "accordion.developer.help": "（原始记录的JSON转储）",
+    "appMenu.keyboardShortcuts": "Keyboard shortcuts",
     "field.name": "課程名稱",
     "field.department": "系所",
     "field.number": "課程代碼",

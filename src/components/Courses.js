@@ -9,11 +9,13 @@ import {
 import get from 'lodash/get';
 import {
   AppIcon,
-  IfPermission
+  IfPermission,
 } from '@folio/stripes/core';
 
 import {
   Button,
+  HasCommand,
+  checkScope,
   Icon,
   Paneset,
   Pane,
@@ -30,8 +32,10 @@ import {
   ColumnManager,
 } from '@folio/stripes/smart-components';
 
+import { noop } from 'lodash';
 import packageInfo from '../../package';
 import CoursesSearchPane from './CoursesSearchPane';
+import { handleKeyCommand } from '../util/handleKeyCommand';
 
 const VISIBLE_COLUMNS_STORAGE_KEY = 'courses-visible-columns';
 const NON_TOGGLEABLE_COLUMNS = ['name'];
@@ -88,6 +92,7 @@ class Courses extends React.Component {
     recordsArePending: true,
     searchPending: false,
   }
+
 
   static getDerivedStateFromProps(props) {
     return {
@@ -241,7 +246,11 @@ class Courses extends React.Component {
       onNeedMoreData,
       query,
       source,
+      history,
+      location
     } = this.props;
+
+    const stripes = get(source, ['props', 'stripes'], { hasPerm: noop });
 
     const columnMapping = this.getColumnMapping();
 
@@ -278,12 +287,31 @@ class Courses extends React.Component {
       'status'
     ];
 
+    const shortcuts = [
+      {
+        name: 'new',
+        handler: handleKeyCommand(() => {
+          if (stripes.hasPerm('course-reserves-storage.courses.item.post')) {
+            history.push({
+              pathname: '/cr/courses/create',
+              search: location.search
+            });
+          }
+        })
+      }
+    ];
+
     return (
-      <SearchAndSortQuery
-        initialSearchState={{ query: '' }}
-        initialSortState={{ sort: 'name' }}
+      <HasCommand
+        commands={shortcuts}
+        isWithinScope={checkScope}
+        scope={document.body}
       >
-        {
+        <SearchAndSortQuery
+          initialSearchState={{ query: '' }}
+          initialSortState={{ sort: 'name' }}
+        >
+          {
           (sasqParams) => {
             const { onSort, activeFilters } = sasqParams;
             return (
@@ -342,7 +370,8 @@ class Courses extends React.Component {
             );
           }
         }
-      </SearchAndSortQuery>
+        </SearchAndSortQuery>
+      </HasCommand>
     );
   }
 }

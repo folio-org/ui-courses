@@ -51,6 +51,7 @@
     "accordion.reserves.help": "Articles réservés à ce cours",
     "accordion.developer": "Informations développeur",
     "accordion.developer.help": "(JSON dump of raw record)",
+    "appMenu.keyboardShortcuts": "Raccourcis clavier",
     "field.name": "Nom du cours",
     "field.department": "Département/Service",
     "field.number": "Code du cours",

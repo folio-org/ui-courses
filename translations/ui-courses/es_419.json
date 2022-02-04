@@ -51,6 +51,7 @@
     "accordion.reserves.help": "Ítems reservados a este curso",
     "accordion.developer": "Información del Desarrollador",
     "accordion.developer.help": "(volcado JSON del registro sin procesar)",
+    "appMenu.keyboardShortcuts": "Keyboard shortcuts",
     "field.name": "Nombre del curso",
     "field.department": "Departamento",
     "field.number": "Código/Número del curso",

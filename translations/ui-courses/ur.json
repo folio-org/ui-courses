@@ -96,6 +96,7 @@
     "column.registrarId": "Registrar ID",
     "accordion.courseFormInstructors": "Course instructors",
     "accordion.courseFormInstructors.help": ".",
+    "appMenu.keyboardShortcuts": "Keyboard shortcuts",
     "front.welcome": "Welcome to Course Reserves!",
     "addItem": "Add an item to this course's reserves",
     "crosslistCourse": "New course within listing",

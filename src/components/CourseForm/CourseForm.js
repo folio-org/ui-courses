@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import {
   AccordionSet,
+  AccordionStatus,
+  HasCommand,
+  checkScope,
   Button,
   IconButton,
   Pane,
   PaneFooter,
   PaneMenu,
   Paneset,
+  collapseAllSections,
+  expandAllSections,
 } from '@folio/stripes/components';
 import { AppIcon, IfPermission, TitleManager } from '@folio/stripes/core';
 import stripesFinalForm from '@folio/stripes/final-form';
@@ -20,6 +25,7 @@ import {
   CourseFormInfo,
   CourseFormListing,
 } from './sections';
+import { handleKeyCommand } from '../../util/handleKeyCommand';
 
 class CourseForm extends React.Component {
   static propTypes = {
@@ -39,6 +45,8 @@ class CourseForm extends React.Component {
     nreserves: PropTypes.string,
     hasCrossListedCourses: PropTypes.bool.isRequired,
   }
+
+  accordionStatusRef = createRef();
 
   getSectionProps(id) {
     const { data, handlers, form: { mutators }, values = {} } = this.props;
@@ -138,48 +146,84 @@ class CourseForm extends React.Component {
   }
 
   render() {
-    const { isLoading, values: { id, name }, isCrosslist } = this.props;
+    const {
+      isLoading,
+      values: { id, name },
+      isCrosslist,
+      handleSubmit,
+      submitting,
+      pristine,
+      handlers
+    } = this.props;
     if (isLoading) return <LoadingPaneSet onClose={this.props.handlers.onClose} />;
     const clKey = isCrosslist ? 'courseFormCrosslisting' : 'courseFormListing';
 
+    const shortcuts = [
+      {
+        name: 'save',
+        handler: handleKeyCommand(handleSubmit, { disabled: pristine || submitting }),
+      },
+      {
+        name: 'cancel',
+        shortcut: 'esc',
+        handler: handleKeyCommand(handlers.onClose),
+      },
+      {
+        name: 'expandAllSections',
+        handler: (e) => expandAllSections(e, this.accordionStatusRef),
+      },
+      {
+        name: 'collapseAllSections',
+        handler: (e) => collapseAllSections(e, this.accordionStatusRef),
+      },
+    ];
+
     return (
-      <Paneset>
-        <FormattedMessage id="ui-courses.create">
-          {create => (
-            <FormattedMessage id="ui-courses.crosslist">
-              {crosslist => (
-                <Pane
-                  appIcon={<AppIcon app="courses" />}
-                  centerContent
-                  defaultWidth="100%"
-                  footer={this.renderPaneFooter()}
-                  firstMenu={this.renderFirstMenu()}
-                  id="pane-course-form"
-                  paneTitle={
+      <HasCommand
+        commands={shortcuts}
+        scope={document.body}
+        isWithinScope={checkScope}
+      >
+        <Paneset>
+          <FormattedMessage id="ui-courses.create">
+            {create => (
+              <FormattedMessage id="ui-courses.crosslist">
+                {crosslist => (
+                  <Pane
+                    appIcon={<AppIcon app="courses" />}
+                    centerContent
+                    defaultWidth="100%"
+                    footer={this.renderPaneFooter()}
+                    firstMenu={this.renderFirstMenu()}
+                    id="pane-course-form"
+                    paneTitle={
                     id ? name :
                       isCrosslist ?
                         <FormattedMessage id="ui-courses.crosslistCourse" /> :
                         <FormattedMessage id="ui-courses.createCourse" />
                     }
-                >
-                  <TitleManager record={id ? name : isCrosslist ? crosslist : create}>
-                    <form id="form-course">
-                      <AccordionSet>
-                        <VCAccordion action="edit" id="courseFormInfo">
-                          <CourseFormInfo {...this.getSectionProps('courseFormInfo')} />
-                        </VCAccordion>
-                        <VCAccordion action="edit" id={clKey}>
-                          <CourseFormListing {...this.getSectionProps(clKey)} />
-                        </VCAccordion>
-                      </AccordionSet>
-                    </form>
-                  </TitleManager>
-                </Pane>
-              )}
-            </FormattedMessage>
-          )}
-        </FormattedMessage>
-      </Paneset>
+                  >
+                    <TitleManager record={id ? name : isCrosslist ? crosslist : create}>
+                      <form id="form-course">
+                        <AccordionStatus ref={this.accordionStatusRef}>
+                          <AccordionSet>
+                            <VCAccordion action="edit" id="courseFormInfo">
+                              <CourseFormInfo {...this.getSectionProps('courseFormInfo')} />
+                            </VCAccordion>
+                            <VCAccordion action="edit" id={clKey}>
+                              <CourseFormListing {...this.getSectionProps(clKey)} />
+                            </VCAccordion>
+                          </AccordionSet>
+                        </AccordionStatus>
+                      </form>
+                    </TitleManager>
+                  </Pane>
+                )}
+              </FormattedMessage>
+            )}
+          </FormattedMessage>
+        </Paneset>
+      </HasCommand>
     );
   }
 }
