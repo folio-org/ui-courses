@@ -1,0 +1,1250 @@
+{
+  "SENTINEL": [
+    {
+      "type": 0,
+      "value": "SENTINEL"
+    }
+  ],
+  "accordion.courseFormCrosslisting": [
+    {
+      "type": 0,
+      "value": "交叉列出課程資訊"
+    }
+  ],
+  "accordion.courseFormInfo": [
+    {
+      "type": 0,
+      "value": "課程基本資訊"
+    }
+  ],
+  "accordion.courseFormInfo.help": [
+    {
+      "type": 0,
+      "value": " "
+    }
+  ],
+  "accordion.courseFormInstructors": [
+    {
+      "type": 0,
+      "value": "課程授課老師"
+    }
+  ],
+  "accordion.courseFormInstructors.help": [
+    {
+      "type": 0,
+      "value": " "
+    }
+  ],
+  "accordion.courseFormListing": [
+    {
+      "type": 0,
+      "value": "課程資訊清單"
+    }
+  ],
+  "accordion.courseFormListing.help": [
+    {
+      "type": 0,
+      "value": " "
+    }
+  ],
+  "accordion.crosslistings": [
+    {
+      "type": 0,
+      "value": "交叉列出課程"
+    }
+  ],
+  "accordion.crosslistings.help": [
+    {
+      "type": 0,
+      "value": "交叉列出與本課程相關課程"
+    }
+  ],
+  "accordion.data": [
+    {
+      "type": 0,
+      "value": "課程資料"
+    }
+  ],
+  "accordion.data.help": [
+    {
+      "type": 0,
+      "value": "主要数据"
+    }
+  ],
+  "accordion.developer": [
+    {
+      "type": 0,
+      "value": "開發人員資訊"
+    }
+  ],
+  "accordion.developer.help": [
+    {
+      "type": 0,
+      "value": "（原始记录的JSON转储）"
+    }
+  ],
+  "accordion.instructors": [
+    {
+      "type": 0,
+      "value": "授課老師"
+    }
+  ],
+  "accordion.instructors.help": [
+    {
+      "type": 0,
+      "value": "教授本課程"
+    }
+  ],
+  "accordion.organization": [
+    {
+      "type": 0,
+      "value": "組織機構"
+    }
+  ],
+  "accordion.organization.help": [
+    {
+      "type": 0,
+      "value": "本地資訊"
+    }
+  ],
+  "accordion.reserves": [
+    {
+      "type": 0,
+      "value": "單件"
+    }
+  ],
+  "accordion.reserves.help": [
+    {
+      "type": 0,
+      "value": "本課程的指定參考書單件"
+    }
+  ],
+  "accordion.term": [
+    {
+      "type": 0,
+      "value": "條款"
+    }
+  ],
+  "accordion.term.help": [
+    {
+      "type": 0,
+      "value": "本課程的上課時間"
+    }
+  ],
+  "actions": [
+    {
+      "type": 0,
+      "value": "Actions"
+    }
+  ],
+  "addFastAddItem.title": [
+    {
+      "type": 0,
+      "value": "添加快速添加单件"
+    }
+  ],
+  "addFastAddItem.tooltip": [
+    {
+      "type": 0,
+      "value": "使用“快速添加”创建新的典藏记录，并将其添加到此课程中作为教参"
+    }
+  ],
+  "addInstructor": [
+    {
+      "type": 0,
+      "value": "新增授課老師"
+    }
+  ],
+  "addItem": [
+    {
+      "type": 0,
+      "value": "增加一筆單件到此課程的指定參考書"
+    }
+  ],
+  "addItem.addedItem": [
+    {
+      "type": 0,
+      "value": "已添加单件“ "
+    },
+    {
+      "type": 1,
+      "value": "title"
+    },
+    {
+      "type": 0,
+      "value": " ”"
+    }
+  ],
+  "addItem.duplicateItem": [
+    {
+      "type": 0,
+      "value": "條碼重複 "
+    },
+    {
+      "type": 1,
+      "value": "barcode"
+    },
+    {
+      "type": 0,
+      "value": "：此單件已被設定為此課程的指定參考書"
+    }
+  ],
+  "addItem.enterBarcode": [
+    {
+      "type": 0,
+      "value": "輸入或掃描條碼"
+    }
+  ],
+  "addItem.existing": [
+    {
+      "type": 0,
+      "value": "将现有典藏单件添加为教参"
+    }
+  ],
+  "addItem.failure": [
+    {
+      "type": 0,
+      "value": "无法添加单件"
+    },
+    {
+      "type": 1,
+      "value": "barcode"
+    },
+    {
+      "type": 0,
+      "value": " ： "
+    },
+    {
+      "type": 1,
+      "value": "message"
+    }
+  ],
+  "addItem.missingBarcode": [
+    {
+      "type": 0,
+      "value": "请在选择“添加单件”前输入条码"
+    }
+  ],
+  "addItem.new": [
+    {
+      "type": 0,
+      "value": "创建新的典藏单件并将其添加为教参"
+    }
+  ],
+  "appMenu.keyboardShortcuts": [
+    {
+      "type": 0,
+      "value": "Keyboard shortcuts"
+    }
+  ],
+  "boolean.no": [
+    {
+      "type": 0,
+      "value": "否"
+    }
+  ],
+  "boolean.yes": [
+    {
+      "type": 0,
+      "value": "是"
+    }
+  ],
+  "button.addInstructor": [
+    {
+      "type": 0,
+      "value": "新增授課老師"
+    }
+  ],
+  "button.addItem": [
+    {
+      "type": 0,
+      "value": "添加单件"
+    }
+  ],
+  "button.createDuplicateCourses": [
+    {
+      "type": 0,
+      "value": "创建重复的课程"
+    }
+  ],
+  "button.crosslist": [
+    {
+      "type": 0,
+      "value": "交叉列出课程"
+    }
+  ],
+  "button.duplicate": [
+    {
+      "type": 0,
+      "value": "复制"
+    }
+  ],
+  "button.editReserve": [
+    {
+      "type": 0,
+      "value": "編輯指定參考書"
+    }
+  ],
+  "button.removeReserve": [
+    {
+      "type": 0,
+      "value": "移除"
+    }
+  ],
+  "closeEditCourse": [
+    {
+      "type": 0,
+      "value": "關閉編輯課程"
+    }
+  ],
+  "closeEditInstructor": [
+    {
+      "type": 0,
+      "value": "關閉編輯授課老師"
+    }
+  ],
+  "closeEditReserve": [
+    {
+      "type": 0,
+      "value": "關閉編輯指定參考書"
+    }
+  ],
+  "column.barcode": [
+    {
+      "type": 0,
+      "value": "條碼"
+    }
+  ],
+  "column.courseName": [
+    {
+      "type": 0,
+      "value": "課程名稱"
+    }
+  ],
+  "column.courseNumber": [
+    {
+      "type": 0,
+      "value": "課程代碼"
+    }
+  ],
+  "column.department": [
+    {
+      "type": 0,
+      "value": "系所"
+    }
+  ],
+  "column.endDate": [
+    {
+      "type": 0,
+      "value": "結束日期"
+    }
+  ],
+  "column.instructor": [
+    {
+      "type": 0,
+      "value": "授課老師"
+    }
+  ],
+  "column.name": [
+    {
+      "type": 0,
+      "value": "課程名稱"
+    }
+  ],
+  "column.permanentLocation": [
+    {
+      "type": 0,
+      "value": "長期館藏地"
+    }
+  ],
+  "column.processingStatus": [
+    {
+      "type": 0,
+      "value": "处理状态"
+    }
+  ],
+  "column.registrarId": [
+    {
+      "type": 0,
+      "value": "注册商 ID"
+    }
+  ],
+  "column.sectionName": [
+    {
+      "type": 0,
+      "value": "部分"
+    }
+  ],
+  "column.serviceDesk": [
+    {
+      "type": 0,
+      "value": "服务台"
+    }
+  ],
+  "column.startDate": [
+    {
+      "type": 0,
+      "value": "開始日期"
+    }
+  ],
+  "column.status": [
+    {
+      "type": 0,
+      "value": "状态"
+    }
+  ],
+  "column.temporaryLocation": [
+    {
+      "type": 0,
+      "value": "短期館藏地"
+    }
+  ],
+  "column.title": [
+    {
+      "type": 0,
+      "value": "題名"
+    }
+  ],
+  "copyrightTracking.no": [
+    {
+      "type": 0,
+      "value": "无需版权跟踪"
+    }
+  ],
+  "copyrightTracking.yes": [
+    {
+      "type": 0,
+      "value": "此单件需要版权跟踪："
+    }
+  ],
+  "course": [
+    {
+      "type": 0,
+      "value": "Course"
+    }
+  ],
+  "course.pluralized": [
+    {
+      "type": 1,
+      "value": "count"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "offset": 0,
+      "options": {
+        "one": {
+          "value": [
+            {
+              "type": 0,
+              "value": "course"
+            }
+          ]
+        },
+        "other": {
+          "value": [
+            {
+              "type": 0,
+              "value": "courses"
+            }
+          ]
+        }
+      },
+      "pluralType": "cardinal",
+      "type": 6,
+      "value": "count"
+    }
+  ],
+  "courseByNumber": [
+    {
+      "type": 0,
+      "value": "課程 "
+    },
+    {
+      "type": 1,
+      "value": "number"
+    }
+  ],
+  "create": [
+    {
+      "type": 0,
+      "value": "新增課程"
+    }
+  ],
+  "createCourse": [
+    {
+      "type": 0,
+      "value": "新增課程"
+    }
+  ],
+  "crosslist": [
+    {
+      "type": 0,
+      "value": "課程交叉列表"
+    }
+  ],
+  "crosslistCourse": [
+    {
+      "type": 0,
+      "value": "清单中的新课程"
+    }
+  ],
+  "delete": [
+    {
+      "type": 0,
+      "value": "删除"
+    }
+  ],
+  "duplicateCourse": [
+    {
+      "type": 0,
+      "value": "复制课程"
+    }
+  ],
+  "duplicateCourse.duplicateCrosslistedCourses": [
+    {
+      "type": 0,
+      "value": "复制所有交叉列出课程"
+    }
+  ],
+  "duplicateCourse.duplicatedCourseIndicator": [
+    {
+      "type": 0,
+      "value": "复制"
+    }
+  ],
+  "editCourse": [
+    {
+      "type": 0,
+      "value": "編輯課程"
+    }
+  ],
+  "editInstructor": [
+    {
+      "type": 0,
+      "value": "編輯授課老師"
+    }
+  ],
+  "editReserve": [
+    {
+      "type": 0,
+      "value": "編輯指定參考書"
+    }
+  ],
+  "errors.mustBeInteger": [
+    {
+      "type": 0,
+      "value": "該值必須是整數"
+    }
+  ],
+  "field.additionalSectionsUsed": [
+    {
+      "type": 0,
+      "value": "此单件所用其他部分"
+    }
+  ],
+  "field.barcode": [
+    {
+      "type": 0,
+      "value": "條碼"
+    }
+  ],
+  "field.callNumber": [
+    {
+      "type": 0,
+      "value": "索书号"
+    }
+  ],
+  "field.contributor": [
+    {
+      "type": 0,
+      "value": "贡献者"
+    }
+  ],
+  "field.copy": [
+    {
+      "type": 0,
+      "value": "複製"
+    }
+  ],
+  "field.copyrightStatusId": [
+    {
+      "type": 0,
+      "value": "著作權狀態"
+    }
+  ],
+  "field.copyrightTrackingNeeded": [
+    {
+      "type": 0,
+      "value": "需要版权追踪吗？"
+    }
+  ],
+  "field.courseType": [
+    {
+      "type": 0,
+      "value": "課程類型"
+    }
+  ],
+  "field.department": [
+    {
+      "type": 0,
+      "value": "系所"
+    }
+  ],
+  "field.description": [
+    {
+      "type": 0,
+      "value": "課程說明"
+    }
+  ],
+  "field.endDate": [
+    {
+      "type": 0,
+      "value": "結束日期"
+    }
+  ],
+  "field.enumeration": [
+    {
+      "type": 0,
+      "value": "期数"
+    }
+  ],
+  "field.externalId": [
+    {
+      "type": 0,
+      "value": "外部ID"
+    }
+  ],
+  "field.instructorName": [
+    {
+      "type": 0,
+      "value": "授課老師名字"
+    }
+  ],
+  "field.itemBarcode": [
+    {
+      "type": 0,
+      "value": "單件條碼"
+    }
+  ],
+  "field.location": [
+    {
+      "type": 0,
+      "value": "馆藏地"
+    }
+  ],
+  "field.name": [
+    {
+      "type": 0,
+      "value": "課程名稱"
+    }
+  ],
+  "field.number": [
+    {
+      "type": 0,
+      "value": "課程代碼"
+    }
+  ],
+  "field.numberOfStudents": [
+    {
+      "type": 0,
+      "value": "學生人數"
+    }
+  ],
+  "field.patronGroup": [
+    {
+      "type": 0,
+      "value": "讀者群組"
+    }
+  ],
+  "field.paymentBasis": [
+    {
+      "type": 0,
+      "value": "支付依据"
+    }
+  ],
+  "field.percentOfPages": [
+    {
+      "type": 0,
+      "value": "所用页面的总%"
+    }
+  ],
+  "field.permanentLocation": [
+    {
+      "type": 0,
+      "value": "長期館藏地"
+    }
+  ],
+  "field.processingStatus": [
+    {
+      "type": 0,
+      "value": "处理状态"
+    }
+  ],
+  "field.registrarId": [
+    {
+      "type": 0,
+      "value": "注册商 ID"
+    }
+  ],
+  "field.section": [
+    {
+      "type": 0,
+      "value": "部分"
+    }
+  ],
+  "field.serviceDesk": [
+    {
+      "type": 0,
+      "value": "服务台"
+    }
+  ],
+  "field.startDate": [
+    {
+      "type": 0,
+      "value": "開始日期"
+    }
+  ],
+  "field.status": [
+    {
+      "type": 0,
+      "value": "状态"
+    }
+  ],
+  "field.temporaryLoanType": [
+    {
+      "type": 0,
+      "value": "临时借阅类型"
+    }
+  ],
+  "field.temporaryLocation": [
+    {
+      "type": 0,
+      "value": "短期館藏地"
+    }
+  ],
+  "field.term": [
+    {
+      "type": 0,
+      "value": "条款"
+    }
+  ],
+  "field.totalPagesInItem": [
+    {
+      "type": 0,
+      "value": "单件中总页数"
+    }
+  ],
+  "field.totalPagesUsed": [
+    {
+      "type": 0,
+      "value": "已用总页数"
+    }
+  ],
+  "field.urlLink": [
+    {
+      "type": 0,
+      "value": "URL / PDF链接"
+    }
+  ],
+  "field.volume": [
+    {
+      "type": 0,
+      "value": "卷"
+    }
+  ],
+  "filters.copyrightStatus": [
+    {
+      "type": 0,
+      "value": "著作權狀態"
+    }
+  ],
+  "filters.copyrightTracking": [
+    {
+      "type": 0,
+      "value": "版权追踪？"
+    }
+  ],
+  "filters.courses": [
+    {
+      "type": 0,
+      "value": "課程"
+    }
+  ],
+  "filters.coursetype": [
+    {
+      "type": 0,
+      "value": "課程類型"
+    }
+  ],
+  "filters.department": [
+    {
+      "type": 0,
+      "value": "系所"
+    }
+  ],
+  "filters.location": [
+    {
+      "type": 0,
+      "value": "馆藏地"
+    }
+  ],
+  "filters.permanentLocation": [
+    {
+      "type": 0,
+      "value": "長期館藏地"
+    }
+  ],
+  "filters.processingstatus": [
+    {
+      "type": 0,
+      "value": "處理狀態"
+    }
+  ],
+  "filters.reserves": [
+    {
+      "type": 0,
+      "value": "指定參考書"
+    }
+  ],
+  "filters.status": [
+    {
+      "type": 0,
+      "value": "状态"
+    }
+  ],
+  "filters.temporaryLocation": [
+    {
+      "type": 0,
+      "value": "短期館藏地"
+    }
+  ],
+  "filters.term": [
+    {
+      "type": 0,
+      "value": "条款"
+    }
+  ],
+  "front.welcome": [
+    {
+      "type": 0,
+      "value": "歡迎來到課程指定參考書！"
+    }
+  ],
+  "headings.copyrightInformation": [
+    {
+      "type": 0,
+      "value": "版权信息"
+    }
+  ],
+  "headings.description": [
+    {
+      "type": 0,
+      "value": "描述"
+    }
+  ],
+  "headings.endDate": [
+    {
+      "type": 0,
+      "value": "結束日期"
+    }
+  ],
+  "headings.name": [
+    {
+      "type": 0,
+      "value": "名称"
+    }
+  ],
+  "headings.reserveCourses": [
+    {
+      "type": 0,
+      "value": "指定此單件為指定參考書的課程"
+    }
+  ],
+  "headings.startDate": [
+    {
+      "type": 0,
+      "value": "開始日期"
+    }
+  ],
+  "index.courses.allFields": [
+    {
+      "type": 0,
+      "value": "全部欄位"
+    }
+  ],
+  "index.courses.courseCode": [
+    {
+      "type": 0,
+      "value": "課程代碼"
+    }
+  ],
+  "index.courses.courseName": [
+    {
+      "type": 0,
+      "value": "課程名稱"
+    }
+  ],
+  "index.courses.externalId": [
+    {
+      "type": 0,
+      "value": "外部ID"
+    }
+  ],
+  "index.courses.instructor": [
+    {
+      "type": 0,
+      "value": "授課老師"
+    }
+  ],
+  "index.courses.registrarId": [
+    {
+      "type": 0,
+      "value": "注册商 ID"
+    }
+  ],
+  "index.courses.section": [
+    {
+      "type": 0,
+      "value": "部门"
+    }
+  ],
+  "index.reserves.allFields": [
+    {
+      "type": 0,
+      "value": "全部欄位"
+    }
+  ],
+  "index.reserves.barcode": [
+    {
+      "type": 0,
+      "value": "條碼"
+    }
+  ],
+  "index.reserves.callNumber": [
+    {
+      "type": 0,
+      "value": "索書號"
+    }
+  ],
+  "index.reserves.title": [
+    {
+      "type": 0,
+      "value": "題名"
+    }
+  ],
+  "instructor.pluralized": [
+    {
+      "type": 1,
+      "value": "count"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "offset": 0,
+      "options": {
+        "one": {
+          "value": [
+            {
+              "type": 0,
+              "value": "教师"
+            }
+          ]
+        },
+        "other": {
+          "value": [
+            {
+              "type": 0,
+              "value": "教师"
+            }
+          ]
+        }
+      },
+      "pluralType": "cardinal",
+      "type": 6,
+      "value": "count"
+    }
+  ],
+  "link": [
+    {
+      "type": 0,
+      "value": "链接"
+    }
+  ],
+  "loading": [
+    {
+      "type": 0,
+      "value": "载入中..."
+    }
+  ],
+  "lookUpUser": [
+    {
+      "type": 0,
+      "value": "查找用户"
+    }
+  ],
+  "meta.title": [
+    {
+      "type": 0,
+      "value": "課程"
+    }
+  ],
+  "noSource": [
+    {
+      "type": 0,
+      "value": "尚无来源……"
+    }
+  ],
+  "objectName.copyrightstatus": [
+    {
+      "type": 0,
+      "value": "著作權狀態"
+    }
+  ],
+  "objectName.copyrightstatuses": [
+    {
+      "type": 0,
+      "value": "著作權狀態"
+    }
+  ],
+  "objectName.coursetype": [
+    {
+      "type": 0,
+      "value": "課程類型"
+    }
+  ],
+  "objectName.coursetypes": [
+    {
+      "type": 0,
+      "value": "課程類型"
+    }
+  ],
+  "objectName.department": [
+    {
+      "type": 0,
+      "value": "系所"
+    }
+  ],
+  "objectName.departments": [
+    {
+      "type": 0,
+      "value": "系所"
+    }
+  ],
+  "objectName.processingstatus": [
+    {
+      "type": 0,
+      "value": "处理状态"
+    }
+  ],
+  "objectName.processingstatuses": [
+    {
+      "type": 0,
+      "value": "處理狀態"
+    }
+  ],
+  "objectName.role": [
+    {
+      "type": 0,
+      "value": "角色"
+    }
+  ],
+  "objectName.roles": [
+    {
+      "type": 0,
+      "value": "角色"
+    }
+  ],
+  "objectName.term": [
+    {
+      "type": 0,
+      "value": "条款"
+    }
+  ],
+  "objectName.terms": [
+    {
+      "type": 0,
+      "value": "条款"
+    }
+  ],
+  "options.noneRequired": [
+    {
+      "type": 0,
+      "value": "（不需要）"
+    }
+  ],
+  "permission.add-edit-items": [
+    {
+      "type": 0,
+      "value": "課程：新增、編輯課程的指定館藏"
+    }
+  ],
+  "permission.all": [
+    {
+      "type": 0,
+      "value": "課程：所有權限"
+    }
+  ],
+  "permission.maintain-courses": [
+    {
+      "type": 0,
+      "value": "Courses: Read, add, edit, and delete courses"
+    }
+  ],
+  "permission.maintain-items": [
+    {
+      "type": 0,
+      "value": "課程：新增、編輯和移除課程的指定館藏"
+    }
+  ],
+  "permission.maintain-settings": [
+    {
+      "type": 0,
+      "value": "設置（課程）：可以建立，編輯和刪除課程設置"
+    }
+  ],
+  "permission.read-add-edit": [
+    {
+      "type": 0,
+      "value": "課程：閱讀、新增和編輯課程"
+    }
+  ],
+  "permission.read-all": [
+    {
+      "type": 0,
+      "value": "課程：全部閱讀"
+    }
+  ],
+  "reallyDelete": [
+    {
+      "type": 0,
+      "value": "真的删除？"
+    }
+  ],
+  "removeInstructor": [
+    {
+      "type": 0,
+      "value": "移除授課老師"
+    }
+  ],
+  "removeInstructor.failure": [
+    {
+      "type": 0,
+      "value": "無法移除授課老師："
+    },
+    {
+      "type": 1,
+      "value": "message"
+    }
+  ],
+  "removeReserve": [
+    {
+      "type": 0,
+      "value": "移除指定參考書"
+    }
+  ],
+  "removeReserve.failure": [
+    {
+      "type": 0,
+      "value": "無法移除指定參考書："
+    },
+    {
+      "type": 1,
+      "value": "message"
+    }
+  ],
+  "searchInputLabel": [
+    {
+      "type": 0,
+      "value": "查詢課程"
+    }
+  ],
+  "settings.copyrightstatuses": [
+    {
+      "type": 0,
+      "value": "著作權狀態"
+    }
+  ],
+  "settings.coursetypes": [
+    {
+      "type": 0,
+      "value": "課程類型"
+    }
+  ],
+  "settings.departments": [
+    {
+      "type": 0,
+      "value": "課程系所"
+    }
+  ],
+  "settings.display.duplicateCrosslistedCourses": [
+    {
+      "type": 0,
+      "value": "复制交叉列出课程"
+    }
+  ],
+  "settings.display.duplicateCrosslistedCourses.description": [
+    {
+      "type": 0,
+      "value": "如果选中此设置，则在复制课程时，默认情况下，“复制”模式中的“复制交叉列出课程”复选框将被标记为选中。"
+    }
+  ],
+  "settings.displaySettings": [
+    {
+      "type": 0,
+      "value": "顯示設定"
+    }
+  ],
+  "settings.objectLabel": [
+    {
+      "type": 0,
+      "value": "条目"
+    }
+  ],
+  "settings.paneTitle": [
+    {
+      "type": 0,
+      "value": "課程"
+    }
+  ],
+  "settings.processingstatuses": [
+    {
+      "type": 0,
+      "value": "處理狀態"
+    }
+  ],
+  "settings.roles": [
+    {
+      "type": 0,
+      "value": "角色"
+    }
+  ],
+  "settings.terms": [
+    {
+      "type": 0,
+      "value": "条款"
+    }
+  ],
+  "status.active": [
+    {
+      "type": 0,
+      "value": "激活"
+    }
+  ],
+  "status.inactive": [
+    {
+      "type": 0,
+      "value": "未激活"
+    }
+  ],
+  "status.pending": [
+    {
+      "type": 0,
+      "value": "等待"
+    }
+  ]
+}

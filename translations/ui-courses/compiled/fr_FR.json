@@ -1,0 +1,1250 @@
+{
+  "SENTINEL": [
+    {
+      "type": 0,
+      "value": "SENTINEL"
+    }
+  ],
+  "accordion.courseFormCrosslisting": [
+    {
+      "type": 0,
+      "value": "Informations sur les listes croisées"
+    }
+  ],
+  "accordion.courseFormInfo": [
+    {
+      "type": 0,
+      "value": "Informations de base sur les cours"
+    }
+  ],
+  "accordion.courseFormInfo.help": [
+    {
+      "type": 0,
+      "value": " "
+    }
+  ],
+  "accordion.courseFormInstructors": [
+    {
+      "type": 0,
+      "value": "Enseignants"
+    }
+  ],
+  "accordion.courseFormInstructors.help": [
+    {
+      "type": 0,
+      "value": "."
+    }
+  ],
+  "accordion.courseFormListing": [
+    {
+      "type": 0,
+      "value": "Informations sur la liste des cours"
+    }
+  ],
+  "accordion.courseFormListing.help": [
+    {
+      "type": 0,
+      "value": "."
+    }
+  ],
+  "accordion.crosslistings": [
+    {
+      "type": 0,
+      "value": "Cours croisés"
+    }
+  ],
+  "accordion.crosslistings.help": [
+    {
+      "type": 0,
+      "value": "Inter-listés avec le cours actuel"
+    }
+  ],
+  "accordion.data": [
+    {
+      "type": 0,
+      "value": "Données du cours"
+    }
+  ],
+  "accordion.data.help": [
+    {
+      "type": 0,
+      "value": "Données principales"
+    }
+  ],
+  "accordion.developer": [
+    {
+      "type": 0,
+      "value": "Informations développeur"
+    }
+  ],
+  "accordion.developer.help": [
+    {
+      "type": 0,
+      "value": "(JSON dump of raw record)"
+    }
+  ],
+  "accordion.instructors": [
+    {
+      "type": 0,
+      "value": "Enseignants"
+    }
+  ],
+  "accordion.instructors.help": [
+    {
+      "type": 0,
+      "value": "Enseigner le cours actuel"
+    }
+  ],
+  "accordion.organization": [
+    {
+      "type": 0,
+      "value": "Organisation"
+    }
+  ],
+  "accordion.organization.help": [
+    {
+      "type": 0,
+      "value": "Informations locales"
+    }
+  ],
+  "accordion.reserves": [
+    {
+      "type": 0,
+      "value": "Publications/exemplaires"
+    }
+  ],
+  "accordion.reserves.help": [
+    {
+      "type": 0,
+      "value": "Articles réservés à ce cours"
+    }
+  ],
+  "accordion.term": [
+    {
+      "type": 0,
+      "value": "Terme / période"
+    }
+  ],
+  "accordion.term.help": [
+    {
+      "type": 0,
+      "value": "Horaires pour ce cours"
+    }
+  ],
+  "actions": [
+    {
+      "type": 0,
+      "value": "Actions"
+    }
+  ],
+  "addFastAddItem.title": [
+    {
+      "type": 0,
+      "value": "Ajouter un exemplaire Ajout rapide"
+    }
+  ],
+  "addFastAddItem.tooltip": [
+    {
+      "type": 0,
+      "value": "Create a new Inventory record using 'Fast Add' and add it to this course as a reserve"
+    }
+  ],
+  "addInstructor": [
+    {
+      "type": 0,
+      "value": "Ajouter un enseignant"
+    }
+  ],
+  "addItem": [
+    {
+      "type": 0,
+      "value": "Ajouter un exemplaire aux réservations de ce cours"
+    }
+  ],
+  "addItem.addedItem": [
+    {
+      "type": 0,
+      "value": "Élément ajouté \" "
+    },
+    {
+      "type": 1,
+      "value": "title"
+    },
+    {
+      "type": 0,
+      "value": " \""
+    }
+  ],
+  "addItem.duplicateItem": [
+    {
+      "type": 0,
+      "value": "Doublon: "
+    },
+    {
+      "type": 1,
+      "value": "barcode"
+    },
+    {
+      "type": 0,
+      "value": " : cet exemplaire est déjà en réserve pour ce cours"
+    }
+  ],
+  "addItem.enterBarcode": [
+    {
+      "type": 0,
+      "value": "Entrez ou scannez le code-barres"
+    }
+  ],
+  "addItem.existing": [
+    {
+      "type": 0,
+      "value": "Add existing Inventory item as a reserve"
+    }
+  ],
+  "addItem.failure": [
+    {
+      "type": 0,
+      "value": "Échec de l'ajout de l'exemplaire "
+    },
+    {
+      "type": 1,
+      "value": "barcode"
+    },
+    {
+      "type": 0,
+      "value": " : "
+    },
+    {
+      "type": 1,
+      "value": "message"
+    }
+  ],
+  "addItem.missingBarcode": [
+    {
+      "type": 0,
+      "value": "Veuillez saisir un code-barres avant de sélectionner \"Ajouter un exemplaire\""
+    }
+  ],
+  "addItem.new": [
+    {
+      "type": 0,
+      "value": "Create new Inventory item and add it as a reserve"
+    }
+  ],
+  "appMenu.keyboardShortcuts": [
+    {
+      "type": 0,
+      "value": "Raccourcis clavier"
+    }
+  ],
+  "boolean.no": [
+    {
+      "type": 0,
+      "value": "Non"
+    }
+  ],
+  "boolean.yes": [
+    {
+      "type": 0,
+      "value": "Oui"
+    }
+  ],
+  "button.addInstructor": [
+    {
+      "type": 0,
+      "value": "Ajouter un enseignant"
+    }
+  ],
+  "button.addItem": [
+    {
+      "type": 0,
+      "value": "Ajouter un exemplaire"
+    }
+  ],
+  "button.createDuplicateCourses": [
+    {
+      "type": 0,
+      "value": "Créer un/des cours en double"
+    }
+  ],
+  "button.crosslist": [
+    {
+      "type": 0,
+      "value": "Liste croisée"
+    }
+  ],
+  "button.duplicate": [
+    {
+      "type": 0,
+      "value": "Dupliquer"
+    }
+  ],
+  "button.editReserve": [
+    {
+      "type": 0,
+      "value": "Modifier la réservation"
+    }
+  ],
+  "button.removeReserve": [
+    {
+      "type": 0,
+      "value": "Retirer"
+    }
+  ],
+  "closeEditCourse": [
+    {
+      "type": 0,
+      "value": "Fermer l'édition du cours"
+    }
+  ],
+  "closeEditInstructor": [
+    {
+      "type": 0,
+      "value": "Fermer l'édition de l'enseignant"
+    }
+  ],
+  "closeEditReserve": [
+    {
+      "type": 0,
+      "value": "Fermer l'édition de la réservation"
+    }
+  ],
+  "column.barcode": [
+    {
+      "type": 0,
+      "value": "Code-barres"
+    }
+  ],
+  "column.courseName": [
+    {
+      "type": 0,
+      "value": "Nom du cours"
+    }
+  ],
+  "column.courseNumber": [
+    {
+      "type": 0,
+      "value": "Code du cours"
+    }
+  ],
+  "column.department": [
+    {
+      "type": 0,
+      "value": "Département/Service"
+    }
+  ],
+  "column.endDate": [
+    {
+      "type": 0,
+      "value": "Date de fin"
+    }
+  ],
+  "column.instructor": [
+    {
+      "type": 0,
+      "value": "Enseignant"
+    }
+  ],
+  "column.name": [
+    {
+      "type": 0,
+      "value": "Nom du cours"
+    }
+  ],
+  "column.permanentLocation": [
+    {
+      "type": 0,
+      "value": "Emplacement permanent"
+    }
+  ],
+  "column.processingStatus": [
+    {
+      "type": 0,
+      "value": "Statut de traitement"
+    }
+  ],
+  "column.registrarId": [
+    {
+      "type": 0,
+      "value": "ID"
+    }
+  ],
+  "column.sectionName": [
+    {
+      "type": 0,
+      "value": "Section"
+    }
+  ],
+  "column.serviceDesk": [
+    {
+      "type": 0,
+      "value": "Bureau de service"
+    }
+  ],
+  "column.startDate": [
+    {
+      "type": 0,
+      "value": "Date de début"
+    }
+  ],
+  "column.status": [
+    {
+      "type": 0,
+      "value": "Statut"
+    }
+  ],
+  "column.temporaryLocation": [
+    {
+      "type": 0,
+      "value": "Emplacement temporaire"
+    }
+  ],
+  "column.title": [
+    {
+      "type": 0,
+      "value": "Titre"
+    }
+  ],
+  "copyrightTracking.no": [
+    {
+      "type": 0,
+      "value": "Aucun suivi des droits d'auteur requis"
+    }
+  ],
+  "copyrightTracking.yes": [
+    {
+      "type": 0,
+      "value": "Cet élément nécessite un suivi des droits d'auteur:"
+    }
+  ],
+  "course": [
+    {
+      "type": 0,
+      "value": "Cours"
+    }
+  ],
+  "course.pluralized": [
+    {
+      "type": 1,
+      "value": "count"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "offset": 0,
+      "options": {
+        "one": {
+          "value": [
+            {
+              "type": 0,
+              "value": " cours "
+            }
+          ]
+        },
+        "other": {
+          "value": [
+            {
+              "type": 0,
+              "value": " cours "
+            }
+          ]
+        }
+      },
+      "pluralType": "cardinal",
+      "type": 6,
+      "value": "count"
+    }
+  ],
+  "courseByNumber": [
+    {
+      "type": 0,
+      "value": "Cours "
+    },
+    {
+      "type": 1,
+      "value": "number"
+    }
+  ],
+  "create": [
+    {
+      "type": 0,
+      "value": "Nouveau cours"
+    }
+  ],
+  "createCourse": [
+    {
+      "type": 0,
+      "value": "Créer un cours"
+    }
+  ],
+  "crosslist": [
+    {
+      "type": 0,
+      "value": "Liste croisée-Cours"
+    }
+  ],
+  "crosslistCourse": [
+    {
+      "type": 0,
+      "value": "Nouveau cours dans la liste"
+    }
+  ],
+  "delete": [
+    {
+      "type": 0,
+      "value": "Supprimer"
+    }
+  ],
+  "duplicateCourse": [
+    {
+      "type": 0,
+      "value": "Dupliquer le cours"
+    }
+  ],
+  "duplicateCourse.duplicateCrosslistedCourses": [
+    {
+      "type": 0,
+      "value": "Dupliquer tous les cours de la liste croisée"
+    }
+  ],
+  "duplicateCourse.duplicatedCourseIndicator": [
+    {
+      "type": 0,
+      "value": "Dupliquer"
+    }
+  ],
+  "editCourse": [
+    {
+      "type": 0,
+      "value": "Modifier le cours"
+    }
+  ],
+  "editInstructor": [
+    {
+      "type": 0,
+      "value": "Modifier l'enseignant"
+    }
+  ],
+  "editReserve": [
+    {
+      "type": 0,
+      "value": "Modifier la réservation"
+    }
+  ],
+  "errors.mustBeInteger": [
+    {
+      "type": 0,
+      "value": "Cette valeur doit être un nombre entier"
+    }
+  ],
+  "field.additionalSectionsUsed": [
+    {
+      "type": 0,
+      "value": "Additional sections of this item used"
+    }
+  ],
+  "field.barcode": [
+    {
+      "type": 0,
+      "value": "Code-barres"
+    }
+  ],
+  "field.callNumber": [
+    {
+      "type": 0,
+      "value": "Cote"
+    }
+  ],
+  "field.contributor": [
+    {
+      "type": 0,
+      "value": "Contributeur / auteur"
+    }
+  ],
+  "field.copy": [
+    {
+      "type": 0,
+      "value": "exemplaire"
+    }
+  ],
+  "field.copyrightStatusId": [
+    {
+      "type": 0,
+      "value": "Statut du droit d'auteur"
+    }
+  ],
+  "field.copyrightTrackingNeeded": [
+    {
+      "type": 0,
+      "value": "Un suivi des droits d'auteur est-il nécessaire?"
+    }
+  ],
+  "field.courseType": [
+    {
+      "type": 0,
+      "value": "Type de cours"
+    }
+  ],
+  "field.department": [
+    {
+      "type": 0,
+      "value": "Département/Service"
+    }
+  ],
+  "field.description": [
+    {
+      "type": 0,
+      "value": "Description du cours"
+    }
+  ],
+  "field.endDate": [
+    {
+      "type": 0,
+      "value": "Date de fin"
+    }
+  ],
+  "field.enumeration": [
+    {
+      "type": 0,
+      "value": "Tomaison"
+    }
+  ],
+  "field.externalId": [
+    {
+      "type": 0,
+      "value": "ID externe"
+    }
+  ],
+  "field.instructorName": [
+    {
+      "type": 0,
+      "value": "Nom"
+    }
+  ],
+  "field.itemBarcode": [
+    {
+      "type": 0,
+      "value": "Code-barres de l'exemplaire"
+    }
+  ],
+  "field.location": [
+    {
+      "type": 0,
+      "value": "Emplacement"
+    }
+  ],
+  "field.name": [
+    {
+      "type": 0,
+      "value": "Nom du cours"
+    }
+  ],
+  "field.number": [
+    {
+      "type": 0,
+      "value": "Code du cours"
+    }
+  ],
+  "field.numberOfStudents": [
+    {
+      "type": 0,
+      "value": "Nombre d'étudiants"
+    }
+  ],
+  "field.patronGroup": [
+    {
+      "type": 0,
+      "value": "Groupe / Catégorie d'utilisateurs"
+    }
+  ],
+  "field.paymentBasis": [
+    {
+      "type": 0,
+      "value": "Règlement basé sur"
+    }
+  ],
+  "field.percentOfPages": [
+    {
+      "type": 0,
+      "value": "% total de pages utilisées"
+    }
+  ],
+  "field.permanentLocation": [
+    {
+      "type": 0,
+      "value": "Emplacement permanent"
+    }
+  ],
+  "field.processingStatus": [
+    {
+      "type": 0,
+      "value": "Statut de traitement"
+    }
+  ],
+  "field.registrarId": [
+    {
+      "type": 0,
+      "value": "ID"
+    }
+  ],
+  "field.section": [
+    {
+      "type": 0,
+      "value": "Section"
+    }
+  ],
+  "field.serviceDesk": [
+    {
+      "type": 0,
+      "value": "Bureau de service"
+    }
+  ],
+  "field.startDate": [
+    {
+      "type": 0,
+      "value": "Date de début"
+    }
+  ],
+  "field.status": [
+    {
+      "type": 0,
+      "value": "Statut"
+    }
+  ],
+  "field.temporaryLoanType": [
+    {
+      "type": 0,
+      "value": "Type de prêt temporaire"
+    }
+  ],
+  "field.temporaryLocation": [
+    {
+      "type": 0,
+      "value": "Emplacement temporaire"
+    }
+  ],
+  "field.term": [
+    {
+      "type": 0,
+      "value": "Terme / période"
+    }
+  ],
+  "field.totalPagesInItem": [
+    {
+      "type": 0,
+      "value": "Nombre total de pages dans l'exemplaire"
+    }
+  ],
+  "field.totalPagesUsed": [
+    {
+      "type": 0,
+      "value": "Nombre total de pages utilisées"
+    }
+  ],
+  "field.urlLink": [
+    {
+      "type": 0,
+      "value": "Lien URL / PDF"
+    }
+  ],
+  "field.volume": [
+    {
+      "type": 0,
+      "value": "Volume"
+    }
+  ],
+  "filters.copyrightStatus": [
+    {
+      "type": 0,
+      "value": "Statut du droit d'auteur"
+    }
+  ],
+  "filters.copyrightTracking": [
+    {
+      "type": 0,
+      "value": "Suivi des droits d'auteur?"
+    }
+  ],
+  "filters.courses": [
+    {
+      "type": 0,
+      "value": "Cours"
+    }
+  ],
+  "filters.coursetype": [
+    {
+      "type": 0,
+      "value": "Type de cours"
+    }
+  ],
+  "filters.department": [
+    {
+      "type": 0,
+      "value": "Département / Service"
+    }
+  ],
+  "filters.location": [
+    {
+      "type": 0,
+      "value": "Emplacement"
+    }
+  ],
+  "filters.permanentLocation": [
+    {
+      "type": 0,
+      "value": "Emplacement permanent"
+    }
+  ],
+  "filters.processingstatus": [
+    {
+      "type": 0,
+      "value": "Statut de traitement"
+    }
+  ],
+  "filters.reserves": [
+    {
+      "type": 0,
+      "value": "Réservations"
+    }
+  ],
+  "filters.status": [
+    {
+      "type": 0,
+      "value": "Statut"
+    }
+  ],
+  "filters.temporaryLocation": [
+    {
+      "type": 0,
+      "value": "Emplacement temporaire"
+    }
+  ],
+  "filters.term": [
+    {
+      "type": 0,
+      "value": "Terme / période"
+    }
+  ],
+  "front.welcome": [
+    {
+      "type": 0,
+      "value": "Bienvenue sur les réservations de cours!"
+    }
+  ],
+  "headings.copyrightInformation": [
+    {
+      "type": 0,
+      "value": "Informations sur le droit d'auteur"
+    }
+  ],
+  "headings.description": [
+    {
+      "type": 0,
+      "value": "Description"
+    }
+  ],
+  "headings.endDate": [
+    {
+      "type": 0,
+      "value": "Date de fin"
+    }
+  ],
+  "headings.name": [
+    {
+      "type": 0,
+      "value": "Nom"
+    }
+  ],
+  "headings.reserveCourses": [
+    {
+      "type": 0,
+      "value": "Cours pour lesquels cet exemplaire est réservé"
+    }
+  ],
+  "headings.startDate": [
+    {
+      "type": 0,
+      "value": "Date de début"
+    }
+  ],
+  "index.courses.allFields": [
+    {
+      "type": 0,
+      "value": "Tous les champs"
+    }
+  ],
+  "index.courses.courseCode": [
+    {
+      "type": 0,
+      "value": "Code du cours"
+    }
+  ],
+  "index.courses.courseName": [
+    {
+      "type": 0,
+      "value": "Nom du cours"
+    }
+  ],
+  "index.courses.externalId": [
+    {
+      "type": 0,
+      "value": "ID externe"
+    }
+  ],
+  "index.courses.instructor": [
+    {
+      "type": 0,
+      "value": "Enseignant"
+    }
+  ],
+  "index.courses.registrarId": [
+    {
+      "type": 0,
+      "value": "ID"
+    }
+  ],
+  "index.courses.section": [
+    {
+      "type": 0,
+      "value": "Section"
+    }
+  ],
+  "index.reserves.allFields": [
+    {
+      "type": 0,
+      "value": "Tous les champs"
+    }
+  ],
+  "index.reserves.barcode": [
+    {
+      "type": 0,
+      "value": "Code-barres"
+    }
+  ],
+  "index.reserves.callNumber": [
+    {
+      "type": 0,
+      "value": "Cote"
+    }
+  ],
+  "index.reserves.title": [
+    {
+      "type": 0,
+      "value": "Titre"
+    }
+  ],
+  "instructor.pluralized": [
+    {
+      "type": 1,
+      "value": "count"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "offset": 0,
+      "options": {
+        "one": {
+          "value": [
+            {
+              "type": 0,
+              "value": " enseignant "
+            }
+          ]
+        },
+        "other": {
+          "value": [
+            {
+              "type": 0,
+              "value": " enseignants "
+            }
+          ]
+        }
+      },
+      "pluralType": "cardinal",
+      "type": 6,
+      "value": "count"
+    }
+  ],
+  "link": [
+    {
+      "type": 0,
+      "value": "Lien"
+    }
+  ],
+  "loading": [
+    {
+      "type": 0,
+      "value": "Chargement..."
+    }
+  ],
+  "lookUpUser": [
+    {
+      "type": 0,
+      "value": "Rechercher un utilisateur"
+    }
+  ],
+  "meta.title": [
+    {
+      "type": 0,
+      "value": "Cours"
+    }
+  ],
+  "noSource": [
+    {
+      "type": 0,
+      "value": "Pas encore de source ..."
+    }
+  ],
+  "objectName.copyrightstatus": [
+    {
+      "type": 0,
+      "value": "Statut du droit d'auteur"
+    }
+  ],
+  "objectName.copyrightstatuses": [
+    {
+      "type": 0,
+      "value": "Statuts des droits d'auteur"
+    }
+  ],
+  "objectName.coursetype": [
+    {
+      "type": 0,
+      "value": "Type de cours"
+    }
+  ],
+  "objectName.coursetypes": [
+    {
+      "type": 0,
+      "value": "Types de cours"
+    }
+  ],
+  "objectName.department": [
+    {
+      "type": 0,
+      "value": "Département/Service"
+    }
+  ],
+  "objectName.departments": [
+    {
+      "type": 0,
+      "value": "Départements/Services"
+    }
+  ],
+  "objectName.processingstatus": [
+    {
+      "type": 0,
+      "value": "Statut du traitement"
+    }
+  ],
+  "objectName.processingstatuses": [
+    {
+      "type": 0,
+      "value": "Statuts des traitements"
+    }
+  ],
+  "objectName.role": [
+    {
+      "type": 0,
+      "value": "Rôle"
+    }
+  ],
+  "objectName.roles": [
+    {
+      "type": 0,
+      "value": "Rôles"
+    }
+  ],
+  "objectName.term": [
+    {
+      "type": 0,
+      "value": "Terme / période"
+    }
+  ],
+  "objectName.terms": [
+    {
+      "type": 0,
+      "value": "Termes / périodes"
+    }
+  ],
+  "options.noneRequired": [
+    {
+      "type": 0,
+      "value": "(Aucun n’est requis)"
+    }
+  ],
+  "permission.add-edit-items": [
+    {
+      "type": 0,
+      "value": "Cours: ajouter et modifier les ressources réservées pour les cours"
+    }
+  ],
+  "permission.all": [
+    {
+      "type": 0,
+      "value": "Cours: toutes les autorisations"
+    }
+  ],
+  "permission.maintain-courses": [
+    {
+      "type": 0,
+      "value": "Cours : lire, ajouter, modifier et supprimer des cours"
+    }
+  ],
+  "permission.maintain-items": [
+    {
+      "type": 0,
+      "value": "Cours: ajouter, modifier et supprimer les ressources réservées pour les cours"
+    }
+  ],
+  "permission.maintain-settings": [
+    {
+      "type": 0,
+      "value": "Paramètres (cours): peut créer, modifier et supprimer les paramètres du cours"
+    }
+  ],
+  "permission.read-add-edit": [
+    {
+      "type": 0,
+      "value": "Cours: lire, ajouter et modifier des cours"
+    }
+  ],
+  "permission.read-all": [
+    {
+      "type": 0,
+      "value": "Cours: tout lire"
+    }
+  ],
+  "reallyDelete": [
+    {
+      "type": 0,
+      "value": "Vraiment supprimer?"
+    }
+  ],
+  "removeInstructor": [
+    {
+      "type": 0,
+      "value": "Supprimer l'enseignant"
+    }
+  ],
+  "removeInstructor.failure": [
+    {
+      "type": 0,
+      "value": "Échec de la suppression de l'enseignant: "
+    },
+    {
+      "type": 1,
+      "value": "message"
+    }
+  ],
+  "removeReserve": [
+    {
+      "type": 0,
+      "value": "Retirer la réservation"
+    }
+  ],
+  "removeReserve.failure": [
+    {
+      "type": 0,
+      "value": "Échec de la suppression de la réservation: "
+    },
+    {
+      "type": 1,
+      "value": "message"
+    }
+  ],
+  "searchInputLabel": [
+    {
+      "type": 0,
+      "value": "Rechercher des cours"
+    }
+  ],
+  "settings.copyrightstatuses": [
+    {
+      "type": 0,
+      "value": "Statuts des droits d'auteur"
+    }
+  ],
+  "settings.coursetypes": [
+    {
+      "type": 0,
+      "value": "Types de cours"
+    }
+  ],
+  "settings.departments": [
+    {
+      "type": 0,
+      "value": "Cours : départements/services"
+    }
+  ],
+  "settings.display.duplicateCrosslistedCourses": [
+    {
+      "type": 0,
+      "value": "Dupliquer les cours de la liste croisée"
+    }
+  ],
+  "settings.display.duplicateCrosslistedCourses.description": [
+    {
+      "type": 0,
+      "value": "If this setting is checked, when duplicating a course the \"Duplicate cross-listed courses\" checkbox in the Duplicate modal will be marked as checked by default."
+    }
+  ],
+  "settings.displaySettings": [
+    {
+      "type": 0,
+      "value": "Paramètres d'affichage"
+    }
+  ],
+  "settings.objectLabel": [
+    {
+      "type": 0,
+      "value": "Entrées"
+    }
+  ],
+  "settings.paneTitle": [
+    {
+      "type": 0,
+      "value": "Cours"
+    }
+  ],
+  "settings.processingstatuses": [
+    {
+      "type": 0,
+      "value": "Statuts des traitements"
+    }
+  ],
+  "settings.roles": [
+    {
+      "type": 0,
+      "value": "Rôles"
+    }
+  ],
+  "settings.terms": [
+    {
+      "type": 0,
+      "value": "Termes / périodes"
+    }
+  ],
+  "status.active": [
+    {
+      "type": 0,
+      "value": "Actif"
+    }
+  ],
+  "status.inactive": [
+    {
+      "type": 0,
+      "value": "Inactif"
+    }
+  ],
+  "status.pending": [
+    {
+      "type": 0,
+      "value": "En attente"
+    }
+  ]
+}

@@ -1,0 +1,1250 @@
+{
+  "SENTINEL": [
+    {
+      "type": 0,
+      "value": "SENTINEL"
+    }
+  ],
+  "accordion.courseFormCrosslisting": [
+    {
+      "type": 0,
+      "value": "교차 목록 정보"
+    }
+  ],
+  "accordion.courseFormInfo": [
+    {
+      "type": 0,
+      "value": "Basic course information"
+    }
+  ],
+  "accordion.courseFormInfo.help": [
+    {
+      "type": 0,
+      "value": " "
+    }
+  ],
+  "accordion.courseFormInstructors": [
+    {
+      "type": 0,
+      "value": "Course instructors"
+    }
+  ],
+  "accordion.courseFormInstructors.help": [
+    {
+      "type": 0,
+      "value": " "
+    }
+  ],
+  "accordion.courseFormListing": [
+    {
+      "type": 0,
+      "value": "Course listing information"
+    }
+  ],
+  "accordion.courseFormListing.help": [
+    {
+      "type": 0,
+      "value": " "
+    }
+  ],
+  "accordion.crosslistings": [
+    {
+      "type": 0,
+      "value": "교차 목록 수업"
+    }
+  ],
+  "accordion.crosslistings.help": [
+    {
+      "type": 0,
+      "value": "현재 수업과 교차 목록"
+    }
+  ],
+  "accordion.data": [
+    {
+      "type": 0,
+      "value": "수업 데이터"
+    }
+  ],
+  "accordion.data.help": [
+    {
+      "type": 0,
+      "value": "주 데이터"
+    }
+  ],
+  "accordion.developer": [
+    {
+      "type": 0,
+      "value": "개발자 정보"
+    }
+  ],
+  "accordion.developer.help": [
+    {
+      "type": 0,
+      "value": "(JSON 원시 레코드 덤프)"
+    }
+  ],
+  "accordion.instructors": [
+    {
+      "type": 0,
+      "value": "강사"
+    }
+  ],
+  "accordion.instructors.help": [
+    {
+      "type": 0,
+      "value": "현재 수업 지도"
+    }
+  ],
+  "accordion.organization": [
+    {
+      "type": 0,
+      "value": "공급사"
+    }
+  ],
+  "accordion.organization.help": [
+    {
+      "type": 0,
+      "value": "지역 정보"
+    }
+  ],
+  "accordion.reserves": [
+    {
+      "type": 0,
+      "value": "항목"
+    }
+  ],
+  "accordion.reserves.help": [
+    {
+      "type": 0,
+      "value": "이 수업에 예약된 항목"
+    }
+  ],
+  "accordion.term": [
+    {
+      "type": 0,
+      "value": "학기"
+    }
+  ],
+  "accordion.term.help": [
+    {
+      "type": 0,
+      "value": "현재 수업 일정"
+    }
+  ],
+  "actions": [
+    {
+      "type": 0,
+      "value": "Actions"
+    }
+  ],
+  "addFastAddItem.title": [
+    {
+      "type": 0,
+      "value": "Add Fast Add item"
+    }
+  ],
+  "addFastAddItem.tooltip": [
+    {
+      "type": 0,
+      "value": "Create a new Inventory record using 'Fast Add' and add it to this course as a reserve"
+    }
+  ],
+  "addInstructor": [
+    {
+      "type": 0,
+      "value": "강사 추가"
+    }
+  ],
+  "addItem": [
+    {
+      "type": 0,
+      "value": "Add an item to this course's reserves"
+    }
+  ],
+  "addItem.addedItem": [
+    {
+      "type": 0,
+      "value": "Added item \""
+    },
+    {
+      "type": 1,
+      "value": "title"
+    },
+    {
+      "type": 0,
+      "value": "\""
+    }
+  ],
+  "addItem.duplicateItem": [
+    {
+      "type": 0,
+      "value": "Duplicate barcode "
+    },
+    {
+      "type": 1,
+      "value": "barcode"
+    },
+    {
+      "type": 0,
+      "value": ": this item is already on reserve for this course"
+    }
+  ],
+  "addItem.enterBarcode": [
+    {
+      "type": 0,
+      "value": "Enter or scan barcode"
+    }
+  ],
+  "addItem.existing": [
+    {
+      "type": 0,
+      "value": "Add existing Inventory item as a reserve"
+    }
+  ],
+  "addItem.failure": [
+    {
+      "type": 0,
+      "value": "Failed to add item "
+    },
+    {
+      "type": 1,
+      "value": "barcode"
+    },
+    {
+      "type": 0,
+      "value": ": "
+    },
+    {
+      "type": 1,
+      "value": "message"
+    }
+  ],
+  "addItem.missingBarcode": [
+    {
+      "type": 0,
+      "value": "Please enter a barcode before selecting \"Add item\""
+    }
+  ],
+  "addItem.new": [
+    {
+      "type": 0,
+      "value": "Create new Inventory item and add it as a reserve"
+    }
+  ],
+  "appMenu.keyboardShortcuts": [
+    {
+      "type": 0,
+      "value": "키보드 단축키"
+    }
+  ],
+  "boolean.no": [
+    {
+      "type": 0,
+      "value": "No"
+    }
+  ],
+  "boolean.yes": [
+    {
+      "type": 0,
+      "value": "Yes"
+    }
+  ],
+  "button.addInstructor": [
+    {
+      "type": 0,
+      "value": "강사 추가"
+    }
+  ],
+  "button.addItem": [
+    {
+      "type": 0,
+      "value": "항목 추가"
+    }
+  ],
+  "button.createDuplicateCourses": [
+    {
+      "type": 0,
+      "value": "Create duplicate course(s)"
+    }
+  ],
+  "button.crosslist": [
+    {
+      "type": 0,
+      "value": "교차 리스트"
+    }
+  ],
+  "button.duplicate": [
+    {
+      "type": 0,
+      "value": "Duplicate"
+    }
+  ],
+  "button.editReserve": [
+    {
+      "type": 0,
+      "value": "예약 수정"
+    }
+  ],
+  "button.removeReserve": [
+    {
+      "type": 0,
+      "value": "제거"
+    }
+  ],
+  "closeEditCourse": [
+    {
+      "type": 0,
+      "value": "Close edit course"
+    }
+  ],
+  "closeEditInstructor": [
+    {
+      "type": 0,
+      "value": "강사 수정 닫기"
+    }
+  ],
+  "closeEditReserve": [
+    {
+      "type": 0,
+      "value": "예약 수정 닫기"
+    }
+  ],
+  "column.barcode": [
+    {
+      "type": 0,
+      "value": "바코드"
+    }
+  ],
+  "column.courseName": [
+    {
+      "type": 0,
+      "value": "수업 이름"
+    }
+  ],
+  "column.courseNumber": [
+    {
+      "type": 0,
+      "value": "수업 코드"
+    }
+  ],
+  "column.department": [
+    {
+      "type": 0,
+      "value": "학과"
+    }
+  ],
+  "column.endDate": [
+    {
+      "type": 0,
+      "value": "종료일"
+    }
+  ],
+  "column.instructor": [
+    {
+      "type": 0,
+      "value": "강사"
+    }
+  ],
+  "column.name": [
+    {
+      "type": 0,
+      "value": "수업 이름"
+    }
+  ],
+  "column.permanentLocation": [
+    {
+      "type": 0,
+      "value": "영구적인 위치"
+    }
+  ],
+  "column.processingStatus": [
+    {
+      "type": 0,
+      "value": "처리 상태"
+    }
+  ],
+  "column.registrarId": [
+    {
+      "type": 0,
+      "value": "Registrar ID"
+    }
+  ],
+  "column.sectionName": [
+    {
+      "type": 0,
+      "value": "Section"
+    }
+  ],
+  "column.serviceDesk": [
+    {
+      "type": 0,
+      "value": "서비스 데스크"
+    }
+  ],
+  "column.startDate": [
+    {
+      "type": 0,
+      "value": "시작일"
+    }
+  ],
+  "column.status": [
+    {
+      "type": 0,
+      "value": "상태"
+    }
+  ],
+  "column.temporaryLocation": [
+    {
+      "type": 0,
+      "value": "임시 위치"
+    }
+  ],
+  "column.title": [
+    {
+      "type": 0,
+      "value": "제목"
+    }
+  ],
+  "copyrightTracking.no": [
+    {
+      "type": 0,
+      "value": "No copyright tracking required"
+    }
+  ],
+  "copyrightTracking.yes": [
+    {
+      "type": 0,
+      "value": "This item requires copyright tracking:"
+    }
+  ],
+  "course": [
+    {
+      "type": 0,
+      "value": "Course"
+    }
+  ],
+  "course.pluralized": [
+    {
+      "type": 1,
+      "value": "count"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "offset": 0,
+      "options": {
+        "one": {
+          "value": [
+            {
+              "type": 0,
+              "value": "course"
+            }
+          ]
+        },
+        "other": {
+          "value": [
+            {
+              "type": 0,
+              "value": "courses"
+            }
+          ]
+        }
+      },
+      "pluralType": "cardinal",
+      "type": 6,
+      "value": "count"
+    }
+  ],
+  "courseByNumber": [
+    {
+      "type": 0,
+      "value": "Course "
+    },
+    {
+      "type": 1,
+      "value": "number"
+    }
+  ],
+  "create": [
+    {
+      "type": 0,
+      "value": "New course"
+    }
+  ],
+  "createCourse": [
+    {
+      "type": 0,
+      "value": "수업 만들기"
+    }
+  ],
+  "crosslist": [
+    {
+      "type": 0,
+      "value": "교차리스트 수업"
+    }
+  ],
+  "crosslistCourse": [
+    {
+      "type": 0,
+      "value": "New course within listing"
+    }
+  ],
+  "delete": [
+    {
+      "type": 0,
+      "value": "삭제"
+    }
+  ],
+  "duplicateCourse": [
+    {
+      "type": 0,
+      "value": "Duplicate course"
+    }
+  ],
+  "duplicateCourse.duplicateCrosslistedCourses": [
+    {
+      "type": 0,
+      "value": "Duplicate all cross-listed courses"
+    }
+  ],
+  "duplicateCourse.duplicatedCourseIndicator": [
+    {
+      "type": 0,
+      "value": "Duplicate"
+    }
+  ],
+  "editCourse": [
+    {
+      "type": 0,
+      "value": "수업 편집"
+    }
+  ],
+  "editInstructor": [
+    {
+      "type": 0,
+      "value": "강사 수정"
+    }
+  ],
+  "editReserve": [
+    {
+      "type": 0,
+      "value": "예약 수정"
+    }
+  ],
+  "errors.mustBeInteger": [
+    {
+      "type": 0,
+      "value": "This value must be an integer"
+    }
+  ],
+  "field.additionalSectionsUsed": [
+    {
+      "type": 0,
+      "value": "Additional sections of this item used"
+    }
+  ],
+  "field.barcode": [
+    {
+      "type": 0,
+      "value": "바코드"
+    }
+  ],
+  "field.callNumber": [
+    {
+      "type": 0,
+      "value": "Call number"
+    }
+  ],
+  "field.contributor": [
+    {
+      "type": 0,
+      "value": "Contributor"
+    }
+  ],
+  "field.copy": [
+    {
+      "type": 0,
+      "value": "Copy"
+    }
+  ],
+  "field.copyrightStatusId": [
+    {
+      "type": 0,
+      "value": "Copyright status"
+    }
+  ],
+  "field.copyrightTrackingNeeded": [
+    {
+      "type": 0,
+      "value": "저작권 추적이 필요합니까?"
+    }
+  ],
+  "field.courseType": [
+    {
+      "type": 0,
+      "value": "수업 유형"
+    }
+  ],
+  "field.department": [
+    {
+      "type": 0,
+      "value": "학과"
+    }
+  ],
+  "field.description": [
+    {
+      "type": 0,
+      "value": "수업 설명"
+    }
+  ],
+  "field.endDate": [
+    {
+      "type": 0,
+      "value": "종료일"
+    }
+  ],
+  "field.enumeration": [
+    {
+      "type": 0,
+      "value": "열거"
+    }
+  ],
+  "field.externalId": [
+    {
+      "type": 0,
+      "value": "외부 ID"
+    }
+  ],
+  "field.instructorName": [
+    {
+      "type": 0,
+      "value": "이름"
+    }
+  ],
+  "field.itemBarcode": [
+    {
+      "type": 0,
+      "value": "품목 바코드"
+    }
+  ],
+  "field.location": [
+    {
+      "type": 0,
+      "value": "위치"
+    }
+  ],
+  "field.name": [
+    {
+      "type": 0,
+      "value": "수업 이름"
+    }
+  ],
+  "field.number": [
+    {
+      "type": 0,
+      "value": "수업 코드"
+    }
+  ],
+  "field.numberOfStudents": [
+    {
+      "type": 0,
+      "value": "Number of students"
+    }
+  ],
+  "field.patronGroup": [
+    {
+      "type": 0,
+      "value": "사용자 그룹"
+    }
+  ],
+  "field.paymentBasis": [
+    {
+      "type": 0,
+      "value": "지불 기준"
+    }
+  ],
+  "field.percentOfPages": [
+    {
+      "type": 0,
+      "value": "사용된 총 페이지 비율"
+    }
+  ],
+  "field.permanentLocation": [
+    {
+      "type": 0,
+      "value": "영구적인 위치"
+    }
+  ],
+  "field.processingStatus": [
+    {
+      "type": 0,
+      "value": "처리 상태"
+    }
+  ],
+  "field.registrarId": [
+    {
+      "type": 0,
+      "value": "레지스트라 ID"
+    }
+  ],
+  "field.section": [
+    {
+      "type": 0,
+      "value": "섹션"
+    }
+  ],
+  "field.serviceDesk": [
+    {
+      "type": 0,
+      "value": "서비스 데스크"
+    }
+  ],
+  "field.startDate": [
+    {
+      "type": 0,
+      "value": "시작일"
+    }
+  ],
+  "field.status": [
+    {
+      "type": 0,
+      "value": "상태"
+    }
+  ],
+  "field.temporaryLoanType": [
+    {
+      "type": 0,
+      "value": "임시 대출 유형"
+    }
+  ],
+  "field.temporaryLocation": [
+    {
+      "type": 0,
+      "value": "임시 위치"
+    }
+  ],
+  "field.term": [
+    {
+      "type": 0,
+      "value": "기간"
+    }
+  ],
+  "field.totalPagesInItem": [
+    {
+      "type": 0,
+      "value": "항목의 총 페이지 수"
+    }
+  ],
+  "field.totalPagesUsed": [
+    {
+      "type": 0,
+      "value": "사용된 총 페이지 수"
+    }
+  ],
+  "field.urlLink": [
+    {
+      "type": 0,
+      "value": "URL / PDF 링크"
+    }
+  ],
+  "field.volume": [
+    {
+      "type": 0,
+      "value": "권(Volume)"
+    }
+  ],
+  "filters.copyrightStatus": [
+    {
+      "type": 0,
+      "value": "저작권 상태"
+    }
+  ],
+  "filters.copyrightTracking": [
+    {
+      "type": 0,
+      "value": "저작권 추적?"
+    }
+  ],
+  "filters.courses": [
+    {
+      "type": 0,
+      "value": "수업"
+    }
+  ],
+  "filters.coursetype": [
+    {
+      "type": 0,
+      "value": "수업 유형"
+    }
+  ],
+  "filters.department": [
+    {
+      "type": 0,
+      "value": "학과"
+    }
+  ],
+  "filters.location": [
+    {
+      "type": 0,
+      "value": "위치"
+    }
+  ],
+  "filters.permanentLocation": [
+    {
+      "type": 0,
+      "value": "영구적인 위치"
+    }
+  ],
+  "filters.processingstatus": [
+    {
+      "type": 0,
+      "value": "처리 상태"
+    }
+  ],
+  "filters.reserves": [
+    {
+      "type": 0,
+      "value": "보유"
+    }
+  ],
+  "filters.status": [
+    {
+      "type": 0,
+      "value": "상태"
+    }
+  ],
+  "filters.temporaryLocation": [
+    {
+      "type": 0,
+      "value": "임시 위치"
+    }
+  ],
+  "filters.term": [
+    {
+      "type": 0,
+      "value": "학기"
+    }
+  ],
+  "front.welcome": [
+    {
+      "type": 0,
+      "value": "Welcome to Course Reserves!"
+    }
+  ],
+  "headings.copyrightInformation": [
+    {
+      "type": 0,
+      "value": "Copyright Information"
+    }
+  ],
+  "headings.description": [
+    {
+      "type": 0,
+      "value": "설명"
+    }
+  ],
+  "headings.endDate": [
+    {
+      "type": 0,
+      "value": "종료일"
+    }
+  ],
+  "headings.name": [
+    {
+      "type": 0,
+      "value": "이름"
+    }
+  ],
+  "headings.reserveCourses": [
+    {
+      "type": 0,
+      "value": "이 항목이 예약된 수업"
+    }
+  ],
+  "headings.startDate": [
+    {
+      "type": 0,
+      "value": "시작일"
+    }
+  ],
+  "index.courses.allFields": [
+    {
+      "type": 0,
+      "value": "모든 필드"
+    }
+  ],
+  "index.courses.courseCode": [
+    {
+      "type": 0,
+      "value": "수업 코드"
+    }
+  ],
+  "index.courses.courseName": [
+    {
+      "type": 0,
+      "value": "수업 이름"
+    }
+  ],
+  "index.courses.externalId": [
+    {
+      "type": 0,
+      "value": "외부 ID"
+    }
+  ],
+  "index.courses.instructor": [
+    {
+      "type": 0,
+      "value": "강사"
+    }
+  ],
+  "index.courses.registrarId": [
+    {
+      "type": 0,
+      "value": "등록 담당자 ID"
+    }
+  ],
+  "index.courses.section": [
+    {
+      "type": 0,
+      "value": "섹션"
+    }
+  ],
+  "index.reserves.allFields": [
+    {
+      "type": 0,
+      "value": "All fields"
+    }
+  ],
+  "index.reserves.barcode": [
+    {
+      "type": 0,
+      "value": "Barcode"
+    }
+  ],
+  "index.reserves.callNumber": [
+    {
+      "type": 0,
+      "value": "Call Number"
+    }
+  ],
+  "index.reserves.title": [
+    {
+      "type": 0,
+      "value": "Title"
+    }
+  ],
+  "instructor.pluralized": [
+    {
+      "type": 1,
+      "value": "count"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "offset": 0,
+      "options": {
+        "one": {
+          "value": [
+            {
+              "type": 0,
+              "value": "instructor"
+            }
+          ]
+        },
+        "other": {
+          "value": [
+            {
+              "type": 0,
+              "value": "instructors"
+            }
+          ]
+        }
+      },
+      "pluralType": "cardinal",
+      "type": 6,
+      "value": "count"
+    }
+  ],
+  "link": [
+    {
+      "type": 0,
+      "value": "Link"
+    }
+  ],
+  "loading": [
+    {
+      "type": 0,
+      "value": "로드 중 ..."
+    }
+  ],
+  "lookUpUser": [
+    {
+      "type": 0,
+      "value": "Look up user"
+    }
+  ],
+  "meta.title": [
+    {
+      "type": 0,
+      "value": "지정자료(Courses)"
+    }
+  ],
+  "noSource": [
+    {
+      "type": 0,
+      "value": "No source yet ..."
+    }
+  ],
+  "objectName.copyrightstatus": [
+    {
+      "type": 0,
+      "value": "저작권 상태"
+    }
+  ],
+  "objectName.copyrightstatuses": [
+    {
+      "type": 0,
+      "value": "저작권 상태"
+    }
+  ],
+  "objectName.coursetype": [
+    {
+      "type": 0,
+      "value": "수업 유형"
+    }
+  ],
+  "objectName.coursetypes": [
+    {
+      "type": 0,
+      "value": "수업 유형"
+    }
+  ],
+  "objectName.department": [
+    {
+      "type": 0,
+      "value": "학과"
+    }
+  ],
+  "objectName.departments": [
+    {
+      "type": 0,
+      "value": "학과"
+    }
+  ],
+  "objectName.processingstatus": [
+    {
+      "type": 0,
+      "value": "처리 상태"
+    }
+  ],
+  "objectName.processingstatuses": [
+    {
+      "type": 0,
+      "value": "처리 상태"
+    }
+  ],
+  "objectName.role": [
+    {
+      "type": 0,
+      "value": "역할"
+    }
+  ],
+  "objectName.roles": [
+    {
+      "type": 0,
+      "value": "역할"
+    }
+  ],
+  "objectName.term": [
+    {
+      "type": 0,
+      "value": "학기"
+    }
+  ],
+  "objectName.terms": [
+    {
+      "type": 0,
+      "value": "학기"
+    }
+  ],
+  "options.noneRequired": [
+    {
+      "type": 0,
+      "value": "(필요 없음)"
+    }
+  ],
+  "permission.add-edit-items": [
+    {
+      "type": 0,
+      "value": "Courses: Add and edit courses' reserved items"
+    }
+  ],
+  "permission.all": [
+    {
+      "type": 0,
+      "value": "Courses: All permissions"
+    }
+  ],
+  "permission.maintain-courses": [
+    {
+      "type": 0,
+      "value": "Courses: Read, add, edit, and delete courses"
+    }
+  ],
+  "permission.maintain-items": [
+    {
+      "type": 0,
+      "value": "Courses: Add, edit, and remove courses' reserved items"
+    }
+  ],
+  "permission.maintain-settings": [
+    {
+      "type": 0,
+      "value": "Settings (Courses): Can create, edit and delete course settings"
+    }
+  ],
+  "permission.read-add-edit": [
+    {
+      "type": 0,
+      "value": "Courses: Read, add, and edit courses"
+    }
+  ],
+  "permission.read-all": [
+    {
+      "type": 0,
+      "value": "Courses: Read all"
+    }
+  ],
+  "reallyDelete": [
+    {
+      "type": 0,
+      "value": "Really delete?"
+    }
+  ],
+  "removeInstructor": [
+    {
+      "type": 0,
+      "value": "강사 제거"
+    }
+  ],
+  "removeInstructor.failure": [
+    {
+      "type": 0,
+      "value": "Remove instructor failed: "
+    },
+    {
+      "type": 1,
+      "value": "message"
+    }
+  ],
+  "removeReserve": [
+    {
+      "type": 0,
+      "value": "예약 제거"
+    }
+  ],
+  "removeReserve.failure": [
+    {
+      "type": 0,
+      "value": "Remove reserve failed: "
+    },
+    {
+      "type": 1,
+      "value": "message"
+    }
+  ],
+  "searchInputLabel": [
+    {
+      "type": 0,
+      "value": "수업 검색"
+    }
+  ],
+  "settings.copyrightstatuses": [
+    {
+      "type": 0,
+      "value": "저작권 상태"
+    }
+  ],
+  "settings.coursetypes": [
+    {
+      "type": 0,
+      "value": "수업 유형"
+    }
+  ],
+  "settings.departments": [
+    {
+      "type": 0,
+      "value": "수업 학과"
+    }
+  ],
+  "settings.display.duplicateCrosslistedCourses": [
+    {
+      "type": 0,
+      "value": "Duplicate cross-listed courses"
+    }
+  ],
+  "settings.display.duplicateCrosslistedCourses.description": [
+    {
+      "type": 0,
+      "value": "If this setting is checked, when duplicating a course the \"Duplicate cross-listed courses\" checkbox in the Duplicate modal will be marked as checked by default."
+    }
+  ],
+  "settings.displaySettings": [
+    {
+      "type": 0,
+      "value": "Display settings"
+    }
+  ],
+  "settings.objectLabel": [
+    {
+      "type": 0,
+      "value": "항목"
+    }
+  ],
+  "settings.paneTitle": [
+    {
+      "type": 0,
+      "value": "지정자료"
+    }
+  ],
+  "settings.processingstatuses": [
+    {
+      "type": 0,
+      "value": "처리 상태"
+    }
+  ],
+  "settings.roles": [
+    {
+      "type": 0,
+      "value": "역할"
+    }
+  ],
+  "settings.terms": [
+    {
+      "type": 0,
+      "value": "학기"
+    }
+  ],
+  "status.active": [
+    {
+      "type": 0,
+      "value": "활성화"
+    }
+  ],
+  "status.inactive": [
+    {
+      "type": 0,
+      "value": "비활성"
+    }
+  ],
+  "status.pending": [
+    {
+      "type": 0,
+      "value": "보류 중"
+    }
+  ]
+}

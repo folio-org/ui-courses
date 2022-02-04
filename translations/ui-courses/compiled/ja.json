@@ -1,0 +1,1250 @@
+{
+  "SENTINEL": [
+    {
+      "type": 0,
+      "value": "SENTINEL"
+    }
+  ],
+  "accordion.courseFormCrosslisting": [
+    {
+      "type": 0,
+      "value": "クロスリスト情報"
+    }
+  ],
+  "accordion.courseFormInfo": [
+    {
+      "type": 0,
+      "value": "コース基本情報"
+    }
+  ],
+  "accordion.courseFormInfo.help": [
+    {
+      "type": 0,
+      "value": " "
+    }
+  ],
+  "accordion.courseFormInstructors": [
+    {
+      "type": 0,
+      "value": "コースの講師"
+    }
+  ],
+  "accordion.courseFormInstructors.help": [
+    {
+      "type": 0,
+      "value": " "
+    }
+  ],
+  "accordion.courseFormListing": [
+    {
+      "type": 0,
+      "value": "Course listing information"
+    }
+  ],
+  "accordion.courseFormListing.help": [
+    {
+      "type": 0,
+      "value": " "
+    }
+  ],
+  "accordion.crosslistings": [
+    {
+      "type": 0,
+      "value": "Cross-listed courses"
+    }
+  ],
+  "accordion.crosslistings.help": [
+    {
+      "type": 0,
+      "value": "Cross-listed with present course"
+    }
+  ],
+  "accordion.data": [
+    {
+      "type": 0,
+      "value": "コースデータ"
+    }
+  ],
+  "accordion.data.help": [
+    {
+      "type": 0,
+      "value": "Principal data"
+    }
+  ],
+  "accordion.developer": [
+    {
+      "type": 0,
+      "value": "開発者情報"
+    }
+  ],
+  "accordion.developer.help": [
+    {
+      "type": 0,
+      "value": "(JSON dump of raw record)"
+    }
+  ],
+  "accordion.instructors": [
+    {
+      "type": 0,
+      "value": "講師"
+    }
+  ],
+  "accordion.instructors.help": [
+    {
+      "type": 0,
+      "value": "Instructing the present course"
+    }
+  ],
+  "accordion.organization": [
+    {
+      "type": 0,
+      "value": "組織"
+    }
+  ],
+  "accordion.organization.help": [
+    {
+      "type": 0,
+      "value": "Local information"
+    }
+  ],
+  "accordion.reserves": [
+    {
+      "type": 0,
+      "value": "資料"
+    }
+  ],
+  "accordion.reserves.help": [
+    {
+      "type": 0,
+      "value": "Items reserved to this course"
+    }
+  ],
+  "accordion.term": [
+    {
+      "type": 0,
+      "value": "ターム"
+    }
+  ],
+  "accordion.term.help": [
+    {
+      "type": 0,
+      "value": "現在のコースのスケジュール"
+    }
+  ],
+  "actions": [
+    {
+      "type": 0,
+      "value": "Actions"
+    }
+  ],
+  "addFastAddItem.title": [
+    {
+      "type": 0,
+      "value": "Add Fast Add item"
+    }
+  ],
+  "addFastAddItem.tooltip": [
+    {
+      "type": 0,
+      "value": "Create a new Inventory record using 'Fast Add' and add it to this course as a reserve"
+    }
+  ],
+  "addInstructor": [
+    {
+      "type": 0,
+      "value": "講師の追加"
+    }
+  ],
+  "addItem": [
+    {
+      "type": 0,
+      "value": "Add an item to this course's reserves"
+    }
+  ],
+  "addItem.addedItem": [
+    {
+      "type": 0,
+      "value": "Added item \""
+    },
+    {
+      "type": 1,
+      "value": "title"
+    },
+    {
+      "type": 0,
+      "value": "\""
+    }
+  ],
+  "addItem.duplicateItem": [
+    {
+      "type": 0,
+      "value": "Duplicate barcode "
+    },
+    {
+      "type": 1,
+      "value": "barcode"
+    },
+    {
+      "type": 0,
+      "value": ": this item is already on reserve for this course"
+    }
+  ],
+  "addItem.enterBarcode": [
+    {
+      "type": 0,
+      "value": "バーコードの入力またはスキャン"
+    }
+  ],
+  "addItem.existing": [
+    {
+      "type": 0,
+      "value": "Add existing Inventory item as a reserve"
+    }
+  ],
+  "addItem.failure": [
+    {
+      "type": 0,
+      "value": "Failed to add item "
+    },
+    {
+      "type": 1,
+      "value": "barcode"
+    },
+    {
+      "type": 0,
+      "value": ": "
+    },
+    {
+      "type": 1,
+      "value": "message"
+    }
+  ],
+  "addItem.missingBarcode": [
+    {
+      "type": 0,
+      "value": "Please enter a barcode before selecting \"Add item\""
+    }
+  ],
+  "addItem.new": [
+    {
+      "type": 0,
+      "value": "Create new Inventory item and add it as a reserve"
+    }
+  ],
+  "appMenu.keyboardShortcuts": [
+    {
+      "type": 0,
+      "value": "Keyboard shortcuts"
+    }
+  ],
+  "boolean.no": [
+    {
+      "type": 0,
+      "value": "いいえ"
+    }
+  ],
+  "boolean.yes": [
+    {
+      "type": 0,
+      "value": "はい"
+    }
+  ],
+  "button.addInstructor": [
+    {
+      "type": 0,
+      "value": "講師の追加"
+    }
+  ],
+  "button.addItem": [
+    {
+      "type": 0,
+      "value": "Add item"
+    }
+  ],
+  "button.createDuplicateCourses": [
+    {
+      "type": 0,
+      "value": "Create duplicate course(s)"
+    }
+  ],
+  "button.crosslist": [
+    {
+      "type": 0,
+      "value": "Crosslist"
+    }
+  ],
+  "button.duplicate": [
+    {
+      "type": 0,
+      "value": "Duplicate"
+    }
+  ],
+  "button.editReserve": [
+    {
+      "type": 0,
+      "value": "予約を編集"
+    }
+  ],
+  "button.removeReserve": [
+    {
+      "type": 0,
+      "value": "削除"
+    }
+  ],
+  "closeEditCourse": [
+    {
+      "type": 0,
+      "value": "Close edit course"
+    }
+  ],
+  "closeEditInstructor": [
+    {
+      "type": 0,
+      "value": "講師の編集を閉じる"
+    }
+  ],
+  "closeEditReserve": [
+    {
+      "type": 0,
+      "value": "Close edit reserve"
+    }
+  ],
+  "column.barcode": [
+    {
+      "type": 0,
+      "value": "バーコード"
+    }
+  ],
+  "column.courseName": [
+    {
+      "type": 0,
+      "value": "コース名"
+    }
+  ],
+  "column.courseNumber": [
+    {
+      "type": 0,
+      "value": "コースコード"
+    }
+  ],
+  "column.department": [
+    {
+      "type": 0,
+      "value": "学部"
+    }
+  ],
+  "column.endDate": [
+    {
+      "type": 0,
+      "value": "終了日"
+    }
+  ],
+  "column.instructor": [
+    {
+      "type": 0,
+      "value": "講師"
+    }
+  ],
+  "column.name": [
+    {
+      "type": 0,
+      "value": "コース名"
+    }
+  ],
+  "column.permanentLocation": [
+    {
+      "type": 0,
+      "value": "恒久的な場所"
+    }
+  ],
+  "column.processingStatus": [
+    {
+      "type": 0,
+      "value": "処理状況"
+    }
+  ],
+  "column.registrarId": [
+    {
+      "type": 0,
+      "value": "レジストラID"
+    }
+  ],
+  "column.sectionName": [
+    {
+      "type": 0,
+      "value": "セクション"
+    }
+  ],
+  "column.serviceDesk": [
+    {
+      "type": 0,
+      "value": "Service desk"
+    }
+  ],
+  "column.startDate": [
+    {
+      "type": 0,
+      "value": "開始日"
+    }
+  ],
+  "column.status": [
+    {
+      "type": 0,
+      "value": "ステータス"
+    }
+  ],
+  "column.temporaryLocation": [
+    {
+      "type": 0,
+      "value": "一時的な場所"
+    }
+  ],
+  "column.title": [
+    {
+      "type": 0,
+      "value": "タイトル"
+    }
+  ],
+  "copyrightTracking.no": [
+    {
+      "type": 0,
+      "value": "著作権の追跡は不要"
+    }
+  ],
+  "copyrightTracking.yes": [
+    {
+      "type": 0,
+      "value": "This item requires copyright tracking:"
+    }
+  ],
+  "course": [
+    {
+      "type": 0,
+      "value": "Course"
+    }
+  ],
+  "course.pluralized": [
+    {
+      "type": 1,
+      "value": "count"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "offset": 0,
+      "options": {
+        "one": {
+          "value": [
+            {
+              "type": 0,
+              "value": "course"
+            }
+          ]
+        },
+        "other": {
+          "value": [
+            {
+              "type": 0,
+              "value": "courses"
+            }
+          ]
+        }
+      },
+      "pluralType": "cardinal",
+      "type": 6,
+      "value": "count"
+    }
+  ],
+  "courseByNumber": [
+    {
+      "type": 0,
+      "value": "Course "
+    },
+    {
+      "type": 1,
+      "value": "number"
+    }
+  ],
+  "create": [
+    {
+      "type": 0,
+      "value": "New course"
+    }
+  ],
+  "createCourse": [
+    {
+      "type": 0,
+      "value": "Create course"
+    }
+  ],
+  "crosslist": [
+    {
+      "type": 0,
+      "value": "Crosslist course"
+    }
+  ],
+  "crosslistCourse": [
+    {
+      "type": 0,
+      "value": "New course within listing"
+    }
+  ],
+  "delete": [
+    {
+      "type": 0,
+      "value": "Delete"
+    }
+  ],
+  "duplicateCourse": [
+    {
+      "type": 0,
+      "value": "Duplicate course"
+    }
+  ],
+  "duplicateCourse.duplicateCrosslistedCourses": [
+    {
+      "type": 0,
+      "value": "Duplicate all cross-listed courses"
+    }
+  ],
+  "duplicateCourse.duplicatedCourseIndicator": [
+    {
+      "type": 0,
+      "value": "Duplicate"
+    }
+  ],
+  "editCourse": [
+    {
+      "type": 0,
+      "value": "コースを編集"
+    }
+  ],
+  "editInstructor": [
+    {
+      "type": 0,
+      "value": "講師の編集"
+    }
+  ],
+  "editReserve": [
+    {
+      "type": 0,
+      "value": "予約を編集"
+    }
+  ],
+  "errors.mustBeInteger": [
+    {
+      "type": 0,
+      "value": "This value must be an integer"
+    }
+  ],
+  "field.additionalSectionsUsed": [
+    {
+      "type": 0,
+      "value": "Additional sections of this item used"
+    }
+  ],
+  "field.barcode": [
+    {
+      "type": 0,
+      "value": "バーコード"
+    }
+  ],
+  "field.callNumber": [
+    {
+      "type": 0,
+      "value": "請求記号"
+    }
+  ],
+  "field.contributor": [
+    {
+      "type": 0,
+      "value": "寄与者"
+    }
+  ],
+  "field.copy": [
+    {
+      "type": 0,
+      "value": "コピー"
+    }
+  ],
+  "field.copyrightStatusId": [
+    {
+      "type": 0,
+      "value": "著作権ステータス"
+    }
+  ],
+  "field.copyrightTrackingNeeded": [
+    {
+      "type": 0,
+      "value": "Copyright tracking needed?"
+    }
+  ],
+  "field.courseType": [
+    {
+      "type": 0,
+      "value": "コースタイプ"
+    }
+  ],
+  "field.department": [
+    {
+      "type": 0,
+      "value": "学部"
+    }
+  ],
+  "field.description": [
+    {
+      "type": 0,
+      "value": "コースの説明"
+    }
+  ],
+  "field.endDate": [
+    {
+      "type": 0,
+      "value": "終了日"
+    }
+  ],
+  "field.enumeration": [
+    {
+      "type": 0,
+      "value": "Enumeration"
+    }
+  ],
+  "field.externalId": [
+    {
+      "type": 0,
+      "value": "外部ID"
+    }
+  ],
+  "field.instructorName": [
+    {
+      "type": 0,
+      "value": "名称"
+    }
+  ],
+  "field.itemBarcode": [
+    {
+      "type": 0,
+      "value": "資料バーコード"
+    }
+  ],
+  "field.location": [
+    {
+      "type": 0,
+      "value": "場所"
+    }
+  ],
+  "field.name": [
+    {
+      "type": 0,
+      "value": "コース名"
+    }
+  ],
+  "field.number": [
+    {
+      "type": 0,
+      "value": "コースコード"
+    }
+  ],
+  "field.numberOfStudents": [
+    {
+      "type": 0,
+      "value": "Number of students"
+    }
+  ],
+  "field.patronGroup": [
+    {
+      "type": 0,
+      "value": "利用者グループ"
+    }
+  ],
+  "field.paymentBasis": [
+    {
+      "type": 0,
+      "value": "支払元"
+    }
+  ],
+  "field.percentOfPages": [
+    {
+      "type": 0,
+      "value": "使用されたページの割合（％）"
+    }
+  ],
+  "field.permanentLocation": [
+    {
+      "type": 0,
+      "value": "恒久的な場所"
+    }
+  ],
+  "field.processingStatus": [
+    {
+      "type": 0,
+      "value": "処理ステータス"
+    }
+  ],
+  "field.registrarId": [
+    {
+      "type": 0,
+      "value": "レジストラID"
+    }
+  ],
+  "field.section": [
+    {
+      "type": 0,
+      "value": "セクション"
+    }
+  ],
+  "field.serviceDesk": [
+    {
+      "type": 0,
+      "value": "Service desk"
+    }
+  ],
+  "field.startDate": [
+    {
+      "type": 0,
+      "value": "開始日"
+    }
+  ],
+  "field.status": [
+    {
+      "type": 0,
+      "value": "ステータス"
+    }
+  ],
+  "field.temporaryLoanType": [
+    {
+      "type": 0,
+      "value": "一時貸出タイプ"
+    }
+  ],
+  "field.temporaryLocation": [
+    {
+      "type": 0,
+      "value": "一時的な場所"
+    }
+  ],
+  "field.term": [
+    {
+      "type": 0,
+      "value": "ターム"
+    }
+  ],
+  "field.totalPagesInItem": [
+    {
+      "type": 0,
+      "value": "資料の総ページ数"
+    }
+  ],
+  "field.totalPagesUsed": [
+    {
+      "type": 0,
+      "value": "使用されたページの合計数"
+    }
+  ],
+  "field.urlLink": [
+    {
+      "type": 0,
+      "value": "URL/PDF link"
+    }
+  ],
+  "field.volume": [
+    {
+      "type": 0,
+      "value": "巻"
+    }
+  ],
+  "filters.copyrightStatus": [
+    {
+      "type": 0,
+      "value": "著作権ステータス"
+    }
+  ],
+  "filters.copyrightTracking": [
+    {
+      "type": 0,
+      "value": "Copyright tracking?"
+    }
+  ],
+  "filters.courses": [
+    {
+      "type": 0,
+      "value": "コース"
+    }
+  ],
+  "filters.coursetype": [
+    {
+      "type": 0,
+      "value": "コースの種類"
+    }
+  ],
+  "filters.department": [
+    {
+      "type": 0,
+      "value": "学部"
+    }
+  ],
+  "filters.location": [
+    {
+      "type": 0,
+      "value": "場所"
+    }
+  ],
+  "filters.permanentLocation": [
+    {
+      "type": 0,
+      "value": "恒久的な場所"
+    }
+  ],
+  "filters.processingstatus": [
+    {
+      "type": 0,
+      "value": "処理ステータス"
+    }
+  ],
+  "filters.reserves": [
+    {
+      "type": 0,
+      "value": "リザーブ"
+    }
+  ],
+  "filters.status": [
+    {
+      "type": 0,
+      "value": "ステータス"
+    }
+  ],
+  "filters.temporaryLocation": [
+    {
+      "type": 0,
+      "value": "一時的な場所"
+    }
+  ],
+  "filters.term": [
+    {
+      "type": 0,
+      "value": "ターム"
+    }
+  ],
+  "front.welcome": [
+    {
+      "type": 0,
+      "value": "Course Reservesへようこそ！"
+    }
+  ],
+  "headings.copyrightInformation": [
+    {
+      "type": 0,
+      "value": "著作権情報"
+    }
+  ],
+  "headings.description": [
+    {
+      "type": 0,
+      "value": "説明"
+    }
+  ],
+  "headings.endDate": [
+    {
+      "type": 0,
+      "value": "終了日"
+    }
+  ],
+  "headings.name": [
+    {
+      "type": 0,
+      "value": "名称"
+    }
+  ],
+  "headings.reserveCourses": [
+    {
+      "type": 0,
+      "value": "このアイテムが予約されているコース"
+    }
+  ],
+  "headings.startDate": [
+    {
+      "type": 0,
+      "value": "開始日"
+    }
+  ],
+  "index.courses.allFields": [
+    {
+      "type": 0,
+      "value": "すべてのフィールド"
+    }
+  ],
+  "index.courses.courseCode": [
+    {
+      "type": 0,
+      "value": "コースコード"
+    }
+  ],
+  "index.courses.courseName": [
+    {
+      "type": 0,
+      "value": "コース名"
+    }
+  ],
+  "index.courses.externalId": [
+    {
+      "type": 0,
+      "value": "外部ID"
+    }
+  ],
+  "index.courses.instructor": [
+    {
+      "type": 0,
+      "value": "講師"
+    }
+  ],
+  "index.courses.registrarId": [
+    {
+      "type": 0,
+      "value": "レジストラID"
+    }
+  ],
+  "index.courses.section": [
+    {
+      "type": 0,
+      "value": "セクション"
+    }
+  ],
+  "index.reserves.allFields": [
+    {
+      "type": 0,
+      "value": "すべてのフィールド"
+    }
+  ],
+  "index.reserves.barcode": [
+    {
+      "type": 0,
+      "value": "バーコード"
+    }
+  ],
+  "index.reserves.callNumber": [
+    {
+      "type": 0,
+      "value": "請求記号"
+    }
+  ],
+  "index.reserves.title": [
+    {
+      "type": 0,
+      "value": "タイトル"
+    }
+  ],
+  "instructor.pluralized": [
+    {
+      "type": 1,
+      "value": "count"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "offset": 0,
+      "options": {
+        "one": {
+          "value": [
+            {
+              "type": 0,
+              "value": " 講師 "
+            }
+          ]
+        },
+        "other": {
+          "value": [
+            {
+              "type": 0,
+              "value": " 講師 "
+            }
+          ]
+        }
+      },
+      "pluralType": "cardinal",
+      "type": 6,
+      "value": "count"
+    }
+  ],
+  "link": [
+    {
+      "type": 0,
+      "value": "Link"
+    }
+  ],
+  "loading": [
+    {
+      "type": 0,
+      "value": "読み込み中..."
+    }
+  ],
+  "lookUpUser": [
+    {
+      "type": 0,
+      "value": "Look up user"
+    }
+  ],
+  "meta.title": [
+    {
+      "type": 0,
+      "value": "コース"
+    }
+  ],
+  "noSource": [
+    {
+      "type": 0,
+      "value": "No source yet ..."
+    }
+  ],
+  "objectName.copyrightstatus": [
+    {
+      "type": 0,
+      "value": "著作権ステータス"
+    }
+  ],
+  "objectName.copyrightstatuses": [
+    {
+      "type": 0,
+      "value": "著作権ステータス"
+    }
+  ],
+  "objectName.coursetype": [
+    {
+      "type": 0,
+      "value": "Course Type"
+    }
+  ],
+  "objectName.coursetypes": [
+    {
+      "type": 0,
+      "value": "コースの種類"
+    }
+  ],
+  "objectName.department": [
+    {
+      "type": 0,
+      "value": "学部"
+    }
+  ],
+  "objectName.departments": [
+    {
+      "type": 0,
+      "value": "学部"
+    }
+  ],
+  "objectName.processingstatus": [
+    {
+      "type": 0,
+      "value": "Processing Status"
+    }
+  ],
+  "objectName.processingstatuses": [
+    {
+      "type": 0,
+      "value": "処理ステータス"
+    }
+  ],
+  "objectName.role": [
+    {
+      "type": 0,
+      "value": "役割"
+    }
+  ],
+  "objectName.roles": [
+    {
+      "type": 0,
+      "value": "役割"
+    }
+  ],
+  "objectName.term": [
+    {
+      "type": 0,
+      "value": "ターム"
+    }
+  ],
+  "objectName.terms": [
+    {
+      "type": 0,
+      "value": "ターム"
+    }
+  ],
+  "options.noneRequired": [
+    {
+      "type": 0,
+      "value": "(None required)"
+    }
+  ],
+  "permission.add-edit-items": [
+    {
+      "type": 0,
+      "value": "Courses: Add and edit courses' reserved items"
+    }
+  ],
+  "permission.all": [
+    {
+      "type": 0,
+      "value": "Courses: All permissions"
+    }
+  ],
+  "permission.maintain-courses": [
+    {
+      "type": 0,
+      "value": "Courses: Read, add, edit, and delete courses"
+    }
+  ],
+  "permission.maintain-items": [
+    {
+      "type": 0,
+      "value": "Courses: Add, edit, and remove courses' reserved items"
+    }
+  ],
+  "permission.maintain-settings": [
+    {
+      "type": 0,
+      "value": "Settings (Courses): Can create, edit and delete course settings"
+    }
+  ],
+  "permission.read-add-edit": [
+    {
+      "type": 0,
+      "value": "Courses: Read, add, and edit courses"
+    }
+  ],
+  "permission.read-all": [
+    {
+      "type": 0,
+      "value": "Courses: Read all"
+    }
+  ],
+  "reallyDelete": [
+    {
+      "type": 0,
+      "value": "Really delete?"
+    }
+  ],
+  "removeInstructor": [
+    {
+      "type": 0,
+      "value": "講師を削除"
+    }
+  ],
+  "removeInstructor.failure": [
+    {
+      "type": 0,
+      "value": "講師の削除に失敗しました： "
+    },
+    {
+      "type": 1,
+      "value": "message"
+    }
+  ],
+  "removeReserve": [
+    {
+      "type": 0,
+      "value": "Remove reserve"
+    }
+  ],
+  "removeReserve.failure": [
+    {
+      "type": 0,
+      "value": "Remove reserve failed: "
+    },
+    {
+      "type": 1,
+      "value": "message"
+    }
+  ],
+  "searchInputLabel": [
+    {
+      "type": 0,
+      "value": "Search courses"
+    }
+  ],
+  "settings.copyrightstatuses": [
+    {
+      "type": 0,
+      "value": "著作権ステータス"
+    }
+  ],
+  "settings.coursetypes": [
+    {
+      "type": 0,
+      "value": "コースの種類"
+    }
+  ],
+  "settings.departments": [
+    {
+      "type": 0,
+      "value": "コース学部"
+    }
+  ],
+  "settings.display.duplicateCrosslistedCourses": [
+    {
+      "type": 0,
+      "value": "Duplicate cross-listed courses"
+    }
+  ],
+  "settings.display.duplicateCrosslistedCourses.description": [
+    {
+      "type": 0,
+      "value": "If this setting is checked, when duplicating a course the \"Duplicate cross-listed courses\" checkbox in the Duplicate modal will be marked as checked by default."
+    }
+  ],
+  "settings.displaySettings": [
+    {
+      "type": 0,
+      "value": "Display settings"
+    }
+  ],
+  "settings.objectLabel": [
+    {
+      "type": 0,
+      "value": "Entries"
+    }
+  ],
+  "settings.paneTitle": [
+    {
+      "type": 0,
+      "value": "コース"
+    }
+  ],
+  "settings.processingstatuses": [
+    {
+      "type": 0,
+      "value": "処理ステータス"
+    }
+  ],
+  "settings.roles": [
+    {
+      "type": 0,
+      "value": "役割"
+    }
+  ],
+  "settings.terms": [
+    {
+      "type": 0,
+      "value": "ターム"
+    }
+  ],
+  "status.active": [
+    {
+      "type": 0,
+      "value": "アクティブ"
+    }
+  ],
+  "status.inactive": [
+    {
+      "type": 0,
+      "value": "非アクティブ"
+    }
+  ],
+  "status.pending": [
+    {
+      "type": 0,
+      "value": "保留中"
+    }
+  ]
+}

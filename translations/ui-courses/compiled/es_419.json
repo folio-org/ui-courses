@@ -1,0 +1,1250 @@
+{
+  "SENTINEL": [
+    {
+      "type": 0,
+      "value": "CENTINELA"
+    }
+  ],
+  "accordion.courseFormCrosslisting": [
+    {
+      "type": 0,
+      "value": "Información de listado cruzado"
+    }
+  ],
+  "accordion.courseFormInfo": [
+    {
+      "type": 0,
+      "value": "Información básica de curso"
+    }
+  ],
+  "accordion.courseFormInfo.help": [
+    {
+      "type": 0,
+      "value": "- "
+    }
+  ],
+  "accordion.courseFormInstructors": [
+    {
+      "type": 0,
+      "value": "Intructores del curso"
+    }
+  ],
+  "accordion.courseFormInstructors.help": [
+    {
+      "type": 0,
+      "value": " "
+    }
+  ],
+  "accordion.courseFormListing": [
+    {
+      "type": 0,
+      "value": "Información sobre listado de cursos"
+    }
+  ],
+  "accordion.courseFormListing.help": [
+    {
+      "type": 0,
+      "value": "- "
+    }
+  ],
+  "accordion.crosslistings": [
+    {
+      "type": 0,
+      "value": "Cursos transversales"
+    }
+  ],
+  "accordion.crosslistings.help": [
+    {
+      "type": 0,
+      "value": "Listado cruzado con el curso actual"
+    }
+  ],
+  "accordion.data": [
+    {
+      "type": 0,
+      "value": "Datos del curso"
+    }
+  ],
+  "accordion.data.help": [
+    {
+      "type": 0,
+      "value": "Datos principales"
+    }
+  ],
+  "accordion.developer": [
+    {
+      "type": 0,
+      "value": "Información del Desarrollador"
+    }
+  ],
+  "accordion.developer.help": [
+    {
+      "type": 0,
+      "value": "(volcado JSON del registro sin procesar)"
+    }
+  ],
+  "accordion.instructors": [
+    {
+      "type": 0,
+      "value": "Instructores"
+    }
+  ],
+  "accordion.instructors.help": [
+    {
+      "type": 0,
+      "value": "Instruyendo el curso actual"
+    }
+  ],
+  "accordion.organization": [
+    {
+      "type": 0,
+      "value": "Organización"
+    }
+  ],
+  "accordion.organization.help": [
+    {
+      "type": 0,
+      "value": "Información local"
+    }
+  ],
+  "accordion.reserves": [
+    {
+      "type": 0,
+      "value": "Ítems"
+    }
+  ],
+  "accordion.reserves.help": [
+    {
+      "type": 0,
+      "value": "Ítems reservados a este curso"
+    }
+  ],
+  "accordion.term": [
+    {
+      "type": 0,
+      "value": "Término"
+    }
+  ],
+  "accordion.term.help": [
+    {
+      "type": 0,
+      "value": "Programación para el presente curso"
+    }
+  ],
+  "actions": [
+    {
+      "type": 0,
+      "value": "Acciones"
+    }
+  ],
+  "addFastAddItem.title": [
+    {
+      "type": 0,
+      "value": "Add Fast Add item"
+    }
+  ],
+  "addFastAddItem.tooltip": [
+    {
+      "type": 0,
+      "value": "Create a new Inventory record using 'Fast Add' and add it to this course as a reserve"
+    }
+  ],
+  "addInstructor": [
+    {
+      "type": 0,
+      "value": "Añadir instructor"
+    }
+  ],
+  "addItem": [
+    {
+      "type": 0,
+      "value": "Agregar artículo"
+    }
+  ],
+  "addItem.addedItem": [
+    {
+      "type": 0,
+      "value": "Ejemplar añadido \""
+    },
+    {
+      "type": 1,
+      "value": "title"
+    },
+    {
+      "type": 0,
+      "value": "\""
+    }
+  ],
+  "addItem.duplicateItem": [
+    {
+      "type": 0,
+      "value": "Código de barras duplicado "
+    },
+    {
+      "type": 1,
+      "value": "barcode"
+    },
+    {
+      "type": 0,
+      "value": ": este ejemplar ya está reservado para este curso"
+    }
+  ],
+  "addItem.enterBarcode": [
+    {
+      "type": 0,
+      "value": "Introducir o escanear código de barras"
+    }
+  ],
+  "addItem.existing": [
+    {
+      "type": 0,
+      "value": "Add existing Inventory item as a reserve"
+    }
+  ],
+  "addItem.failure": [
+    {
+      "type": 0,
+      "value": "No se pudo agregar el ejemplar "
+    },
+    {
+      "type": 1,
+      "value": "barcode"
+    },
+    {
+      "type": 0,
+      "value": ": "
+    },
+    {
+      "type": 1,
+      "value": "message"
+    }
+  ],
+  "addItem.missingBarcode": [
+    {
+      "type": 0,
+      "value": "Ingrese un código de barras antes de seleccionar \"Añadir ejemplar\""
+    }
+  ],
+  "addItem.new": [
+    {
+      "type": 0,
+      "value": "Create new Inventory item and add it as a reserve"
+    }
+  ],
+  "appMenu.keyboardShortcuts": [
+    {
+      "type": 0,
+      "value": "Keyboard shortcuts"
+    }
+  ],
+  "boolean.no": [
+    {
+      "type": 0,
+      "value": "No"
+    }
+  ],
+  "boolean.yes": [
+    {
+      "type": 0,
+      "value": "Sí"
+    }
+  ],
+  "button.addInstructor": [
+    {
+      "type": 0,
+      "value": "Añadir instructor"
+    }
+  ],
+  "button.addItem": [
+    {
+      "type": 0,
+      "value": "Añadir ejemplar"
+    }
+  ],
+  "button.createDuplicateCourses": [
+    {
+      "type": 0,
+      "value": "Crear curso(s) duplicado(s)"
+    }
+  ],
+  "button.crosslist": [
+    {
+      "type": 0,
+      "value": "Lista cruzada"
+    }
+  ],
+  "button.duplicate": [
+    {
+      "type": 0,
+      "value": "Duplicar"
+    }
+  ],
+  "button.editReserve": [
+    {
+      "type": 0,
+      "value": "Editar reserva"
+    }
+  ],
+  "button.removeReserve": [
+    {
+      "type": 0,
+      "value": "Remover"
+    }
+  ],
+  "closeEditCourse": [
+    {
+      "type": 0,
+      "value": "Cerrar editar curso"
+    }
+  ],
+  "closeEditInstructor": [
+    {
+      "type": 0,
+      "value": "Cerrar editar instructor"
+    }
+  ],
+  "closeEditReserve": [
+    {
+      "type": 0,
+      "value": "Cerrar editar reserva"
+    }
+  ],
+  "column.barcode": [
+    {
+      "type": 0,
+      "value": "Código de barras"
+    }
+  ],
+  "column.courseName": [
+    {
+      "type": 0,
+      "value": "Nombre del curso"
+    }
+  ],
+  "column.courseNumber": [
+    {
+      "type": 0,
+      "value": "Número/código del curso"
+    }
+  ],
+  "column.department": [
+    {
+      "type": 0,
+      "value": "Departamento"
+    }
+  ],
+  "column.endDate": [
+    {
+      "type": 0,
+      "value": "Fecha de finalización"
+    }
+  ],
+  "column.instructor": [
+    {
+      "type": 0,
+      "value": "Instructor"
+    }
+  ],
+  "column.name": [
+    {
+      "type": 0,
+      "value": "Nombre del curso"
+    }
+  ],
+  "column.permanentLocation": [
+    {
+      "type": 0,
+      "value": "Ubicación permanente"
+    }
+  ],
+  "column.processingStatus": [
+    {
+      "type": 0,
+      "value": "Estado de procesamiento"
+    }
+  ],
+  "column.registrarId": [
+    {
+      "type": 0,
+      "value": "Registrar ID"
+    }
+  ],
+  "column.sectionName": [
+    {
+      "type": 0,
+      "value": "Sección"
+    }
+  ],
+  "column.serviceDesk": [
+    {
+      "type": 0,
+      "value": "Mesa de servicio"
+    }
+  ],
+  "column.startDate": [
+    {
+      "type": 0,
+      "value": "Fecha de inicio"
+    }
+  ],
+  "column.status": [
+    {
+      "type": 0,
+      "value": "Estado"
+    }
+  ],
+  "column.temporaryLocation": [
+    {
+      "type": 0,
+      "value": "Ubicación temporal"
+    }
+  ],
+  "column.title": [
+    {
+      "type": 0,
+      "value": "Título"
+    }
+  ],
+  "copyrightTracking.no": [
+    {
+      "type": 0,
+      "value": "No se requiere seguimiento de copyright"
+    }
+  ],
+  "copyrightTracking.yes": [
+    {
+      "type": 0,
+      "value": "Este ejemplar requiere seguimiento de copyright:"
+    }
+  ],
+  "course": [
+    {
+      "type": 0,
+      "value": "Curso"
+    }
+  ],
+  "course.pluralized": [
+    {
+      "type": 1,
+      "value": "count"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "offset": 0,
+      "options": {
+        "one": {
+          "value": [
+            {
+              "type": 0,
+              "value": "course"
+            }
+          ]
+        },
+        "other": {
+          "value": [
+            {
+              "type": 0,
+              "value": "courses"
+            }
+          ]
+        }
+      },
+      "pluralType": "cardinal",
+      "type": 6,
+      "value": "count"
+    }
+  ],
+  "courseByNumber": [
+    {
+      "type": 0,
+      "value": "Curso "
+    },
+    {
+      "type": 1,
+      "value": "number"
+    }
+  ],
+  "create": [
+    {
+      "type": 0,
+      "value": "Nuevo curso"
+    }
+  ],
+  "createCourse": [
+    {
+      "type": 0,
+      "value": "Crear curso"
+    }
+  ],
+  "crosslist": [
+    {
+      "type": 0,
+      "value": "Curso de lista cruzada"
+    }
+  ],
+  "crosslistCourse": [
+    {
+      "type": 0,
+      "value": "Nuevo curso dentro de la lista"
+    }
+  ],
+  "delete": [
+    {
+      "type": 0,
+      "value": "Eliminar"
+    }
+  ],
+  "duplicateCourse": [
+    {
+      "type": 0,
+      "value": "Duplicar curso"
+    }
+  ],
+  "duplicateCourse.duplicateCrosslistedCourses": [
+    {
+      "type": 0,
+      "value": "Duplicar todas las asignaturas de la lista cruzada"
+    }
+  ],
+  "duplicateCourse.duplicatedCourseIndicator": [
+    {
+      "type": 0,
+      "value": "Duplicar"
+    }
+  ],
+  "editCourse": [
+    {
+      "type": 0,
+      "value": "Editar curso"
+    }
+  ],
+  "editInstructor": [
+    {
+      "type": 0,
+      "value": "Editar instructor"
+    }
+  ],
+  "editReserve": [
+    {
+      "type": 0,
+      "value": "Editar reserva"
+    }
+  ],
+  "errors.mustBeInteger": [
+    {
+      "type": 0,
+      "value": "Este valor debe ser un número entero"
+    }
+  ],
+  "field.additionalSectionsUsed": [
+    {
+      "type": 0,
+      "value": "Secciones adicionales de este artículo utilizadas"
+    }
+  ],
+  "field.barcode": [
+    {
+      "type": 0,
+      "value": "Código de barras"
+    }
+  ],
+  "field.callNumber": [
+    {
+      "type": 0,
+      "value": "Número de clasificación"
+    }
+  ],
+  "field.contributor": [
+    {
+      "type": 0,
+      "value": "Colaborador"
+    }
+  ],
+  "field.copy": [
+    {
+      "type": 0,
+      "value": "Copia"
+    }
+  ],
+  "field.copyrightStatusId": [
+    {
+      "type": 0,
+      "value": "Estado de Copyright"
+    }
+  ],
+  "field.copyrightTrackingNeeded": [
+    {
+      "type": 0,
+      "value": "Se necesita seguimiento de Copyright?"
+    }
+  ],
+  "field.courseType": [
+    {
+      "type": 0,
+      "value": "Tipo de curso"
+    }
+  ],
+  "field.department": [
+    {
+      "type": 0,
+      "value": "Departamento"
+    }
+  ],
+  "field.description": [
+    {
+      "type": 0,
+      "value": "Descripción del curso"
+    }
+  ],
+  "field.endDate": [
+    {
+      "type": 0,
+      "value": "Fecha de finalización"
+    }
+  ],
+  "field.enumeration": [
+    {
+      "type": 0,
+      "value": "Enumeración"
+    }
+  ],
+  "field.externalId": [
+    {
+      "type": 0,
+      "value": "ID externo"
+    }
+  ],
+  "field.instructorName": [
+    {
+      "type": 0,
+      "value": "Nombre"
+    }
+  ],
+  "field.itemBarcode": [
+    {
+      "type": 0,
+      "value": "Código de barras del ítem"
+    }
+  ],
+  "field.location": [
+    {
+      "type": 0,
+      "value": "Locación"
+    }
+  ],
+  "field.name": [
+    {
+      "type": 0,
+      "value": "Nombre del curso"
+    }
+  ],
+  "field.number": [
+    {
+      "type": 0,
+      "value": "Código/Número del curso"
+    }
+  ],
+  "field.numberOfStudents": [
+    {
+      "type": 0,
+      "value": "Numero de estudiantes"
+    }
+  ],
+  "field.patronGroup": [
+    {
+      "type": 0,
+      "value": "Grupo de usuarios"
+    }
+  ],
+  "field.paymentBasis": [
+    {
+      "type": 0,
+      "value": "Pago basado en"
+    }
+  ],
+  "field.percentOfPages": [
+    {
+      "type": 0,
+      "value": "% Total de páginas usadas"
+    }
+  ],
+  "field.permanentLocation": [
+    {
+      "type": 0,
+      "value": "Locación permanente"
+    }
+  ],
+  "field.processingStatus": [
+    {
+      "type": 0,
+      "value": "Estado de procesamiento"
+    }
+  ],
+  "field.registrarId": [
+    {
+      "type": 0,
+      "value": "Registrar ID"
+    }
+  ],
+  "field.section": [
+    {
+      "type": 0,
+      "value": "Sección"
+    }
+  ],
+  "field.serviceDesk": [
+    {
+      "type": 0,
+      "value": "Mesa de servicio"
+    }
+  ],
+  "field.startDate": [
+    {
+      "type": 0,
+      "value": "Fecha de inicio"
+    }
+  ],
+  "field.status": [
+    {
+      "type": 0,
+      "value": "Estado"
+    }
+  ],
+  "field.temporaryLoanType": [
+    {
+      "type": 0,
+      "value": "Tipo de préstamo temporal"
+    }
+  ],
+  "field.temporaryLocation": [
+    {
+      "type": 0,
+      "value": "Localización temporal"
+    }
+  ],
+  "field.term": [
+    {
+      "type": 0,
+      "value": "Término"
+    }
+  ],
+  "field.totalPagesInItem": [
+    {
+      "type": 0,
+      "value": "Número total de páginas en un ítem"
+    }
+  ],
+  "field.totalPagesUsed": [
+    {
+      "type": 0,
+      "value": "Número total de páginas usadas"
+    }
+  ],
+  "field.urlLink": [
+    {
+      "type": 0,
+      "value": "Link URL/PDF"
+    }
+  ],
+  "field.volume": [
+    {
+      "type": 0,
+      "value": "Volumen"
+    }
+  ],
+  "filters.copyrightStatus": [
+    {
+      "type": 0,
+      "value": "Estado del copyright"
+    }
+  ],
+  "filters.copyrightTracking": [
+    {
+      "type": 0,
+      "value": "Rastreo del copyright?"
+    }
+  ],
+  "filters.courses": [
+    {
+      "type": 0,
+      "value": "Cursos"
+    }
+  ],
+  "filters.coursetype": [
+    {
+      "type": 0,
+      "value": "Tipo de cursos"
+    }
+  ],
+  "filters.department": [
+    {
+      "type": 0,
+      "value": "Departamento"
+    }
+  ],
+  "filters.location": [
+    {
+      "type": 0,
+      "value": "Locación"
+    }
+  ],
+  "filters.permanentLocation": [
+    {
+      "type": 0,
+      "value": "Locación permanente"
+    }
+  ],
+  "filters.processingstatus": [
+    {
+      "type": 0,
+      "value": "Estado de procesamiento"
+    }
+  ],
+  "filters.reserves": [
+    {
+      "type": 0,
+      "value": "Reservas"
+    }
+  ],
+  "filters.status": [
+    {
+      "type": 0,
+      "value": "Estado"
+    }
+  ],
+  "filters.temporaryLocation": [
+    {
+      "type": 0,
+      "value": "Localización temporal"
+    }
+  ],
+  "filters.term": [
+    {
+      "type": 0,
+      "value": "Término"
+    }
+  ],
+  "front.welcome": [
+    {
+      "type": 0,
+      "value": "Bienvenido a las reservas de curso!"
+    }
+  ],
+  "headings.copyrightInformation": [
+    {
+      "type": 0,
+      "value": " Información de Copyright"
+    }
+  ],
+  "headings.description": [
+    {
+      "type": 0,
+      "value": "Descripción"
+    }
+  ],
+  "headings.endDate": [
+    {
+      "type": 0,
+      "value": "Fecha de finalización"
+    }
+  ],
+  "headings.name": [
+    {
+      "type": 0,
+      "value": "Nombre"
+    }
+  ],
+  "headings.reserveCourses": [
+    {
+      "type": 0,
+      "value": "Los cursos a los que está reservado este artículo"
+    }
+  ],
+  "headings.startDate": [
+    {
+      "type": 0,
+      "value": "Fecha de inicio"
+    }
+  ],
+  "index.courses.allFields": [
+    {
+      "type": 0,
+      "value": "Todos los campos"
+    }
+  ],
+  "index.courses.courseCode": [
+    {
+      "type": 0,
+      "value": "Código del curso"
+    }
+  ],
+  "index.courses.courseName": [
+    {
+      "type": 0,
+      "value": "Nombre del curso"
+    }
+  ],
+  "index.courses.externalId": [
+    {
+      "type": 0,
+      "value": "ID externo"
+    }
+  ],
+  "index.courses.instructor": [
+    {
+      "type": 0,
+      "value": "Instructor"
+    }
+  ],
+  "index.courses.registrarId": [
+    {
+      "type": 0,
+      "value": "ID de registrador"
+    }
+  ],
+  "index.courses.section": [
+    {
+      "type": 0,
+      "value": "Sección"
+    }
+  ],
+  "index.reserves.allFields": [
+    {
+      "type": 0,
+      "value": "Todos los campos"
+    }
+  ],
+  "index.reserves.barcode": [
+    {
+      "type": 0,
+      "value": "Código de barras"
+    }
+  ],
+  "index.reserves.callNumber": [
+    {
+      "type": 0,
+      "value": "Número de llamada"
+    }
+  ],
+  "index.reserves.title": [
+    {
+      "type": 0,
+      "value": "Título"
+    }
+  ],
+  "instructor.pluralized": [
+    {
+      "type": 1,
+      "value": "count"
+    },
+    {
+      "type": 0,
+      "value": " "
+    },
+    {
+      "offset": 0,
+      "options": {
+        "one": {
+          "value": [
+            {
+              "type": 0,
+              "value": "instructor"
+            }
+          ]
+        },
+        "other": {
+          "value": [
+            {
+              "type": 0,
+              "value": "instructors"
+            }
+          ]
+        }
+      },
+      "pluralType": "cardinal",
+      "type": 6,
+      "value": "count"
+    }
+  ],
+  "link": [
+    {
+      "type": 0,
+      "value": "Enlace"
+    }
+  ],
+  "loading": [
+    {
+      "type": 0,
+      "value": "Cargando..."
+    }
+  ],
+  "lookUpUser": [
+    {
+      "type": 0,
+      "value": "Buscar usuario"
+    }
+  ],
+  "meta.title": [
+    {
+      "type": 0,
+      "value": "Cursos"
+    }
+  ],
+  "noSource": [
+    {
+      "type": 0,
+      "value": "Sin recursos todavía ..."
+    }
+  ],
+  "objectName.copyrightstatus": [
+    {
+      "type": 0,
+      "value": "Estado de Copyright"
+    }
+  ],
+  "objectName.copyrightstatuses": [
+    {
+      "type": 0,
+      "value": "Estados de Copyright"
+    }
+  ],
+  "objectName.coursetype": [
+    {
+      "type": 0,
+      "value": "Tipo de curso"
+    }
+  ],
+  "objectName.coursetypes": [
+    {
+      "type": 0,
+      "value": "Tipos de cursos"
+    }
+  ],
+  "objectName.department": [
+    {
+      "type": 0,
+      "value": "Departamento"
+    }
+  ],
+  "objectName.departments": [
+    {
+      "type": 0,
+      "value": "Departamentos"
+    }
+  ],
+  "objectName.processingstatus": [
+    {
+      "type": 0,
+      "value": "Estado de procesamiento"
+    }
+  ],
+  "objectName.processingstatuses": [
+    {
+      "type": 0,
+      "value": "Estados de procesamiento"
+    }
+  ],
+  "objectName.role": [
+    {
+      "type": 0,
+      "value": "Rol"
+    }
+  ],
+  "objectName.roles": [
+    {
+      "type": 0,
+      "value": "Roles"
+    }
+  ],
+  "objectName.term": [
+    {
+      "type": 0,
+      "value": "Término"
+    }
+  ],
+  "objectName.terms": [
+    {
+      "type": 0,
+      "value": "Términos"
+    }
+  ],
+  "options.noneRequired": [
+    {
+      "type": 0,
+      "value": "(Ninguno requerido)"
+    }
+  ],
+  "permission.add-edit-items": [
+    {
+      "type": 0,
+      "value": "Cursos: Añadir y editar los elementos reservados de los cursos"
+    }
+  ],
+  "permission.all": [
+    {
+      "type": 0,
+      "value": "Cursos: Todos los permisos"
+    }
+  ],
+  "permission.maintain-courses": [
+    {
+      "type": 0,
+      "value": "Cursos: leer, agregar, editar y borrar cursos"
+    }
+  ],
+  "permission.maintain-items": [
+    {
+      "type": 0,
+      "value": "Cursos: Añadir, editar y eliminar los elementos reservados de los cursos"
+    }
+  ],
+  "permission.maintain-settings": [
+    {
+      "type": 0,
+      "value": "Ajustes (Cursos): Puede crear, editar y eliminar la configuración de los cursos"
+    }
+  ],
+  "permission.read-add-edit": [
+    {
+      "type": 0,
+      "value": "Cursos: Leer, añadir y editar cursos"
+    }
+  ],
+  "permission.read-all": [
+    {
+      "type": 0,
+      "value": "Cursos: Leer todos"
+    }
+  ],
+  "reallyDelete": [
+    {
+      "type": 0,
+      "value": "¿Borrar de verdad?"
+    }
+  ],
+  "removeInstructor": [
+    {
+      "type": 0,
+      "value": "Eliminar instructor"
+    }
+  ],
+  "removeInstructor.failure": [
+    {
+      "type": 0,
+      "value": "No se pudo quitar el instructor: "
+    },
+    {
+      "type": 1,
+      "value": "message"
+    }
+  ],
+  "removeReserve": [
+    {
+      "type": 0,
+      "value": "Eliminar reserva"
+    }
+  ],
+  "removeReserve.failure": [
+    {
+      "type": 0,
+      "value": "No se pudo quitar la reserva: "
+    },
+    {
+      "type": 1,
+      "value": "message"
+    }
+  ],
+  "searchInputLabel": [
+    {
+      "type": 0,
+      "value": "Búsqueda de cursos"
+    }
+  ],
+  "settings.copyrightstatuses": [
+    {
+      "type": 0,
+      "value": "Estados de Copyright"
+    }
+  ],
+  "settings.coursetypes": [
+    {
+      "type": 0,
+      "value": "Tipos de cursos"
+    }
+  ],
+  "settings.departments": [
+    {
+      "type": 0,
+      "value": "Departamentos de los cursos"
+    }
+  ],
+  "settings.display.duplicateCrosslistedCourses": [
+    {
+      "type": 0,
+      "value": "Duplicar cursos de lista cruzada"
+    }
+  ],
+  "settings.display.duplicateCrosslistedCourses.description": [
+    {
+      "type": 0,
+      "value": "If this setting is checked, when duplicating a course the \"Duplicate cross-listed courses\" checkbox in the Duplicate modal will be marked as checked by default."
+    }
+  ],
+  "settings.displaySettings": [
+    {
+      "type": 0,
+      "value": "Configuración de la pantalla"
+    }
+  ],
+  "settings.objectLabel": [
+    {
+      "type": 0,
+      "value": "Entradas"
+    }
+  ],
+  "settings.paneTitle": [
+    {
+      "type": 0,
+      "value": "Cursos"
+    }
+  ],
+  "settings.processingstatuses": [
+    {
+      "type": 0,
+      "value": "Estados de procesamiento"
+    }
+  ],
+  "settings.roles": [
+    {
+      "type": 0,
+      "value": "Roles"
+    }
+  ],
+  "settings.terms": [
+    {
+      "type": 0,
+      "value": "Términos"
+    }
+  ],
+  "status.active": [
+    {
+      "type": 0,
+      "value": "Activo"
+    }
+  ],
+  "status.inactive": [
+    {
+      "type": 0,
+      "value": "Inactivo"
+    }
+  ],
+  "status.pending": [
+    {
+      "type": 0,
+      "value": "Pendiente"
+    }
+  ]
+}

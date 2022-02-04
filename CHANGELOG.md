@@ -3,6 +3,7 @@
 ## [5.0.0](https://github.com/folio-org/ui-courses/tree/v5.0.0) (2021-09-29)
 
 * Upgrade to Stripes v7. Fixes UICR-147.
+* Implement baseline keyboard shortcuts. UICR-124.
 
 ## [4.2.1](https://github.com/folio-org/ui-courses/tree/v4.2.1) (2021-06-17)
 
