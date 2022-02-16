@@ -8,7 +8,8 @@ import {
   Pane,
   PaneFooter,
   PaneMenu,
-  Paneset, checkScope,
+  Paneset,
+  checkScope
 } from '@folio/stripes/components';
 import { ViewMetaData } from '@folio/stripes/smart-components';
 import { AppIcon, TitleManager, withStripes } from '@folio/stripes/core';

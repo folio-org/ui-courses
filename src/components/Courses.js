@@ -9,7 +9,7 @@ import {
 import get from 'lodash/get';
 import {
   AppIcon,
-  IfPermission,
+  IfPermission
 } from '@folio/stripes/core';
 
 import {
