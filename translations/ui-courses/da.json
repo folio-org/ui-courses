@@ -51,7 +51,7 @@
     "accordion.reserves.help": "Eksemplarer forbeholdt dette kursus",
     "accordion.developer": "Developer info",
     "accordion.developer.help": "(JSON dump of raw record)",
-    "appMenu.keyboardShortcuts": "اختصارات لوحة المفاتيح",
+    "appMenu.keyboardShortcuts": "Keyboard shortcuts",
     "field.name": "Course name",
     "field.department": "Department",
     "field.number": "Course code",

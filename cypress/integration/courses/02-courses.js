@@ -319,7 +319,7 @@ describe('ui-courses: course creation, editing and deletion', () => {
       cy.get('body').type('{esc}')
     })
 
-    it('Edit a record with Ctrl + Alt +E', () => {
+    it('Edit a record with Ctrl + Alt + E', () => {
       // open an existing record
       cy.get('[data-row-index="row-0"]').click()
       cy.get('#pane-view-course').should('exist')
@@ -365,7 +365,7 @@ describe('ui-courses: course creation, editing and deletion', () => {
       cy
         .get('[id^="accordion-toggle-button"]')
         .each($accordion => {
-          // ensure each accordion is expanded
+          // ensure each accordion is collapsed
           cy.wrap($accordion).should('have.attr', 'aria-expanded', 'false')
         })
       // close pop-up

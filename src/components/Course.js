@@ -96,10 +96,10 @@ class Course extends React.Component {
     );
   }
 
-
   render() {
     const { data, isLoading, handlers, stripes, resources, mutator } = this.props;
     if (isLoading) return this.renderLoadingPane();
+
     const record = data.course;
     const hasPerm = stripes.hasPerm('course-reserves-storage.courses.item.put');
 

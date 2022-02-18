@@ -93,7 +93,6 @@ class Courses extends React.Component {
     searchPending: false,
   }
 
-
   static getDerivedStateFromProps(props) {
     return {
       recordsArePending: props.source?.pending() ?? true
