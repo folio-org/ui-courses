@@ -51,7 +51,6 @@
     "accordion.reserves.help": "Für diesen Kurs reservierte Exemplare",
     "accordion.developer": "Entwicklerinfo",
     "accordion.developer.help": "(JSON-Dump des Rohdatensatzes)",
-    "appMenu.keyboardShortcuts": "Tastenkürzel",
     "field.name": "Kursname",
     "field.department": "Fachbereich",
     "field.number": "Kurscode",
@@ -190,5 +189,6 @@
     "permission.maintain-courses": "Semesterapparate: Kurse anzeigen, hinzufügen, bearbeiten und löschen",
     "course": "Kurs",
     "course.pluralized": "{count} {count, plural, one {Kurs} other {Kurse}}",
-    "actions": "Aktionen"
+    "actions": "Aktionen",
+    "appMenu.keyboardShortcuts": "Tastenkürzel"
 }

@@ -51,7 +51,6 @@
     "accordion.reserves.help": "Items reserved to this course",
     "accordion.developer": "Developer info",
     "accordion.developer.help": "(JSON dump of raw record)",
-    "appMenu.keyboardShortcuts": "Keyboard shortcuts",
     "field.name": "Course name",
     "field.department": "Department",
     "field.number": "Идентификатор",
@@ -190,5 +189,6 @@
     "permission.maintain-courses": "Courses: Read, add, edit, and delete courses",
     "course": "Course",
     "course.pluralized": "{count} {count, plural, one {course} other {courses}}",
-    "actions": "Actions"
+    "actions": "Actions",
+    "appMenu.keyboardShortcuts": "Keyboard shortcuts"
 }

@@ -51,7 +51,6 @@
     "accordion.reserves.help": "Articles réservés à ce cours",
     "accordion.developer": "Informations développeur",
     "accordion.developer.help": "(JSON dump of raw record)",
-    "appMenu.keyboardShortcuts": "Raccourcis clavier",
     "field.name": "Nom du cours",
     "field.department": "Département/Service",
     "field.number": "Code du cours",
@@ -190,5 +189,6 @@
     "permission.maintain-courses": "Cours : lire, ajouter, modifier et supprimer des cours",
     "course": "Cours",
     "course.pluralized": "{count} {count, plural, one { cours } other { cours }}",
-    "actions": "Actions"
+    "actions": "Actions",
+    "appMenu.keyboardShortcuts": "Keyboard shortcuts"
 }

@@ -51,7 +51,6 @@
     "accordion.reserves.help": "Ítems reservados a este curso",
     "accordion.developer": "Información del Desarrollador",
     "accordion.developer.help": "(volcado JSON del registro sin procesar)",
-    "appMenu.keyboardShortcuts": "Keyboard shortcuts",
     "field.name": "Nombre del curso",
     "field.department": "Departamento",
     "field.number": "Código/Número del curso",
@@ -190,5 +189,6 @@
     "permission.maintain-courses": "Cursos: leer, agregar, editar y borrar cursos",
     "course": "Curso",
     "course.pluralized": "{count} {count, plural, one {course} other {courses}}",
-    "actions": "Acciones"
+    "actions": "Acciones",
+    "appMenu.keyboardShortcuts": "Keyboard shortcuts"
 }

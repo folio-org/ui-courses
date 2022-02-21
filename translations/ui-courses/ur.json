@@ -96,7 +96,6 @@
     "column.registrarId": "Registrar ID",
     "accordion.courseFormInstructors": "Course instructors",
     "accordion.courseFormInstructors.help": ".",
-    "appMenu.keyboardShortcuts": "Keyboard shortcuts",
     "front.welcome": "Welcome to Course Reserves!",
     "addItem": "Add an item to this course's reserves",
     "crosslistCourse": "New course within listing",
@@ -190,5 +189,6 @@
     "permission.maintain-courses": "Courses: Read, add, edit, and delete courses",
     "course": "Course",
     "course.pluralized": "{count} {count, plural, one {course} other {courses}}",
-    "actions": "Actions"
+    "actions": "Actions",
+    "appMenu.keyboardShortcuts": "Keyboard shortcuts"
 }
