@@ -51,6 +51,7 @@
     "accordion.reserves.help": "Egzemplarze zarezerwowane dla tego kursu",
     "accordion.developer": "Informacja programisty",
     "accordion.developer.help": "(Zrzut surowego rekordu w JSON)",
+    "appMenu.keyboardShortcuts": "Keyboard shortcuts",
     "field.name": "Nazwa kursu",
     "field.department": "Wydział",
     "field.number": "Kod kursu",

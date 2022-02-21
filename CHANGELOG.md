@@ -1,5 +1,9 @@
 # Change history for ui-courses
 
+## 5.1.0 (IN PROGRESS)
+
+* Implement baseline keyboard shortcuts. UICR-124.
+
 ## [5.0.0](https://github.com/folio-org/ui-courses/tree/v5.0.0) (2021-09-29)
 
 * Upgrade to Stripes v7. Fixes UICR-147.

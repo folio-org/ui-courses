@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import {
+  AccordionStatus,
+  HasCommand,
+  checkScope,
   Button,
   Icon,
   Layout,
   Pane,
   Spinner,
+  expandAllSections,
+  collapseAllSections,
 } from '@folio/stripes/components';
 import { withStripes, AppIcon, TitleManager } from '@folio/stripes/core';
 import ViewCourse from './ViewCourse';
+import { handleKeyCommand } from '../util/handleKeyCommand';
 
 
 class Course extends React.Component {
@@ -30,6 +36,8 @@ class Course extends React.Component {
     resources: PropTypes.object.isRequired,
     mutator: PropTypes.object.isRequired,
   };
+
+  accordionStatusRef = createRef();
 
   renderActionMenu = ({ onToggle }) => (
     <>
@@ -95,22 +103,58 @@ class Course extends React.Component {
     const record = data.course;
     const hasPerm = stripes.hasPerm('course-reserves-storage.courses.item.put');
 
+    const shortcuts = [
+      {
+        name: 'edit',
+        handler: handleKeyCommand(() => {
+          if (hasPerm) this.props.handlers.onEdit();
+        })
+      },
+      {
+        name: 'duplicateRecord',
+        handler: handleKeyCommand(() => {
+          if (hasPerm) this.props.handlers.onDuplicate();
+        }),
+      },
+      {
+        name: 'expandAllSections',
+        handler: (e) => expandAllSections(e, this.accordionStatusRef),
+      },
+      {
+        name: 'collapseAllSections',
+        handler: (e) => collapseAllSections(e, this.accordionStatusRef),
+      },
+      {
+        name: 'cancel',
+        shortcut: 'esc',
+        handler: handleKeyCommand(handlers.onClose),
+      },
+    ];
+
     return (
-      <Pane
-        actionMenu={hasPerm ? this.renderActionMenu : undefined}
-        appIcon={<AppIcon app="courses" />}
-        centerContent
-        defaultWidth="fill"
-        dismissible
-        id="pane-view-course"
-        onClose={handlers.onClose}
-        paneTitle={record.name}
-        paneSub={<FormattedMessage id="ui-courses.courseByNumber" values={{ number: record.courseNumber }} />}
+      <HasCommand
+        commands={shortcuts}
+        isWithinScope={checkScope}
+        scope={document.body}
       >
-        <TitleManager record={record.name}>
-          <ViewCourse data={data} resources={resources} mutator={mutator} />
-        </TitleManager>
-      </Pane>
+        <Pane
+          actionMenu={hasPerm ? this.renderActionMenu : undefined}
+          appIcon={<AppIcon app="courses" />}
+          centerContent
+          defaultWidth="fill"
+          dismissible
+          id="pane-view-course"
+          onClose={handlers.onClose}
+          paneTitle={record.name}
+          paneSub={<FormattedMessage id="ui-courses.courseByNumber" values={{ number: record.courseNumber }} />}
+        >
+          <TitleManager record={record.name}>
+            <AccordionStatus ref={this.accordionStatusRef}>
+              <ViewCourse data={data} resources={resources} mutator={mutator} />
+            </AccordionStatus>
+          </TitleManager>
+        </Pane>
+      </HasCommand>
     );
   }
 }

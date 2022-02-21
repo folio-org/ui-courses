@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import {
+  HasCommand,
   Button,
   IconButton,
   Pane,
   PaneFooter,
   PaneMenu,
   Paneset,
+  checkScope
 } from '@folio/stripes/components';
 import { ViewMetaData } from '@folio/stripes/smart-components';
 import { AppIcon, TitleManager, withStripes } from '@folio/stripes/core';
@@ -16,6 +18,7 @@ import { isEqual } from 'lodash';
 import setFieldData from 'final-form-set-field-data';
 import LoadingPaneSet from '../LoadingPaneSet';
 import { ReserveFormInfo, ReserveFormCopyright, ReserveFormCourses } from './sections';
+import { handleKeyCommand } from '../../util/handleKeyCommand';
 
 
 class ReserveForm extends React.Component {
@@ -91,7 +94,16 @@ class ReserveForm extends React.Component {
   }
 
   render() {
-    const { isLoading, handlers, data, form: { mutators }, values = {} } = this.props;
+    const {
+      isLoading,
+      handlers,
+      handleSubmit,
+      data,
+      form: { mutators },
+      values = {},
+      pristine,
+      submitting
+    } = this.props;
     if (isLoading) return <LoadingPaneSet onClose={handlers.onClose} />;
 
     const copiedItem = values.copiedItem || {};
@@ -112,24 +124,37 @@ class ReserveForm extends React.Component {
       values,   // XXX We probably don't need this
     };
 
+    const shortcuts = [
+      {
+        name: 'save',
+        handler: handleKeyCommand(handleSubmit, { disabled: pristine || submitting }),
+      },
+      {
+        name: 'cancel',
+        shortcut: 'esc',
+        handler: handleKeyCommand(handlers.onClose),
+      },
+    ];
+
     return (
-      <Paneset>
-        <Pane
-          appIcon={<AppIcon app="courses" />}
-          centerContent
-          defaultWidth="100%"
-          footer={this.renderPaneFooter()}
-          firstMenu={this.renderFirstMenu()}
-          id="pane-reserve-form"
-          paneTitle={linkToItem}
-        >
-          <TitleManager record={title}>
-            <form id="form-course">
-              <ViewMetaData metadata={values.metadata} />
-              <ReserveFormInfo {...sectionProps} />
-              <ReserveFormCopyright {...sectionProps} />
-              <ReserveFormCourses {...sectionProps} />
-              {
+      <HasCommand commands={shortcuts} isWithinScope={checkScope} scope={document.body}>
+        <Paneset>
+          <Pane
+            appIcon={<AppIcon app="courses" />}
+            centerContent
+            defaultWidth="100%"
+            footer={this.renderPaneFooter()}
+            firstMenu={this.renderFirstMenu()}
+            id="pane-reserve-form"
+            paneTitle={linkToItem}
+          >
+            <TitleManager record={title}>
+              <form id="form-course">
+                <ViewMetaData metadata={values.metadata} />
+                <ReserveFormInfo {...sectionProps} />
+                <ReserveFormCopyright {...sectionProps} />
+                <ReserveFormCourses {...sectionProps} />
+                {
                 !this.props.stripes.config.showDevInfo ? '' :
                 <>
                   <p>&nbsp;</p>
@@ -140,10 +165,11 @@ class ReserveForm extends React.Component {
                   </pre>
                 </>
               }
-            </form>
-          </TitleManager>
-        </Pane>
-      </Paneset>
+              </form>
+            </TitleManager>
+          </Pane>
+        </Paneset>
+      </HasCommand>
     );
   }
 }

@@ -51,6 +51,7 @@
     "accordion.reserves.help": "单件为本课程教参",
     "accordion.developer": "开发者信息",
     "accordion.developer.help": "（原始记录的JSON转储）",
+    "appMenu.keyboardShortcuts": "键盘快捷键",
     "field.name": "课程名称",
     "field.department": "部门/系",
     "field.number": "课程代码",

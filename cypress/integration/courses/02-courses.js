@@ -288,4 +288,118 @@ describe('ui-courses: course creation, editing and deletion', () => {
       cy.contains('Aardvark husbandry').should('not.exist')
     })
   })
+
+  describe('Keyboard shortcuts', () => {
+    it('Open shortcuts modal with Ctrl + Alt + K shortcut', () => {
+      // ensure page is loaded
+      cy.contains('button', 'Actions')
+
+      // open modal
+      cy.get('body').type('{ctrl+alt+k}')
+      cy.get('#keyboard-shortcuts-modal').should('exist')
+      cy.get('#keyboard-shortcuts-modal-close-button').click()
+    })
+
+    it('Close a modal or pop-up with Esc shortcut', () => {
+      // open modal
+      cy.get('body').type('{ctrl+alt+k}')
+      cy.get('#keyboard-shortcuts-modal').should('exist')
+
+      // close modal
+      cy.get('body').type('{esc}')
+      cy.get('#keyboard-shortcuts-modal').should('not.exist')
+    })
+
+    it('Create a new record with Alt + N shortcut', () => {
+      // open new record page
+      cy.get('body').type('{alt+n}')
+
+      cy.get('[data-test-pane-header]').should('contain.text', 'Create course')
+      // close pop-up
+      cy.get('body').type('{esc}')
+    })
+
+    it('Edit a record with Ctrl + Alt + E', () => {
+      // open an existing record
+      cy.get('[data-row-index="row-0"]').click()
+      cy.get('#pane-view-course').should('exist')
+      cy.wait(1800)
+
+      cy.get('body').type('{ctrl+alt+e}')
+      cy.get('#pane-course-form').should('exist')
+      // close pop-ups
+      cy.get('#close-course-form-button').click()
+      cy.get('button[data-test-pane-header-dismiss-button]').click()
+    })
+
+    it('Duplicate a record with Alt + C', () => {
+      // open an existing record
+      cy.get('[data-row-index="row-0"]').click()
+      cy.get('#pane-view-course').should('exist')
+      cy.wait(1800)
+
+      cy.get('body').type('{alt+c}')
+      cy.get('#duplicate-course-modal').should('exist')
+      // close pop-up
+      cy.get('body').type('{esc}')
+    })
+
+    it('Save a record with Ctrl + S', () => {
+      // open new record page
+      cy.get('body').type('{alt+n}')
+
+      cy.get('#edit-course-name').type('cypress is cool')
+      cy.get('body').type('{ctrl+s}')
+
+      cy.get('#clickable-reset-all').click()
+      cy.contains('cypress is cool')
+    })
+
+    it('Collapse all accordions with Ctrl + Alt + G', () => {
+      // open an existing record
+      cy.get('[data-row-index="row-0"]').click()
+      cy.get('#pane-view-course').should('exist')
+      cy.wait(1800)
+
+      cy.get('body').type('{ctrl+alt+g}')
+      cy
+        .get('[id^="accordion-toggle-button"]')
+        .each($accordion => {
+          // ensure each accordion is collapsed
+          cy.wrap($accordion).should('have.attr', 'aria-expanded', 'false')
+        })
+      // close pop-up
+      cy.get('body').type('{esc}')
+    })
+
+    it('Expand all accordions with Ctrl + Alt + B', () => {
+      // open an existing record
+      cy.get('[data-row-index="row-0"]').click()
+      cy.get('#pane-view-course').should('exist')
+      cy.wait(1800)
+
+      // collapse all accordions
+      cy.get('body').type('{ctrl+alt+g}')
+
+      // expand all accordions
+      cy.get('body').type('{ctrl+alt+b}')
+      cy
+        .get('[id^="accordion-toggle-button"]')
+        .each($accordion => {
+          // ensure each accordion is expanded
+          cy.wrap($accordion).should('have.attr', 'aria-expanded', 'true')
+        })
+
+      // close pop-up
+      cy.get('body').type('{esc}')
+    })
+
+    it('Go to "Search & filter" pane with Ctrl + Alt + H', () => {
+      // move focus away from Search & filter pane
+      cy.get('[data-test-pane-header-actions-button]').focus()
+
+      cy.get('body').type('{ctrl+alt+h}')
+      cy.get('[aria-label="Search courses"]').should('have.focus')
+    })
+  })
 })
