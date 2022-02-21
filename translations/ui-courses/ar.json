@@ -91,7 +91,6 @@
     "accordion.courseFormInfo.help": ".",
     "accordion.courseFormListing": "بيانات التسجيل في المقرر",
     "accordion.courseFormListing.help": ".",
-    "appMenu.keyboardShortcuts": "اختصارات لوحة المفاتيح",
     "field.instructorName": "الاسم",
     "column.sectionName": "القسم",
     "column.registrarId": "معرف المسجل",
@@ -190,5 +189,6 @@
     "permission.maintain-courses": "الكورسات: اقرأ، أضف، حرّر، واحذف الكورسات",
     "course": "المقرر",
     "course.pluralized": "{count} {count, plural, one {مقرر} other {مقرراً}}",
-    "actions": "الإجراءات"
+    "actions": "الإجراءات",
+    "appMenu.keyboardShortcuts": "Keyboard shortcuts"
 }

@@ -51,7 +51,6 @@
     "accordion.reserves.help": "Items reserved to this course",
     "accordion.developer": "開発者情報",
     "accordion.developer.help": "(JSON dump of raw record)",
-    "appMenu.keyboardShortcuts": "Keyboard shortcuts",
     "field.name": "コース名",
     "field.department": "学部",
     "field.number": "コースコード",
@@ -190,5 +189,6 @@
     "permission.maintain-courses": "Courses: Read, add, edit, and delete courses",
     "course": "Course",
     "course.pluralized": "{count} {count, plural, one {course} other {courses}}",
-    "actions": "Actions"
+    "actions": "Actions",
+    "appMenu.keyboardShortcuts": "Keyboard shortcuts"
 }

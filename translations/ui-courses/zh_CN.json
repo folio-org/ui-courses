@@ -51,7 +51,6 @@
     "accordion.reserves.help": "单件为本课程教参",
     "accordion.developer": "开发者信息",
     "accordion.developer.help": "（原始记录的JSON转储）",
-    "appMenu.keyboardShortcuts": "键盘快捷键",
     "field.name": "课程名称",
     "field.department": "部门/系",
     "field.number": "课程代码",
@@ -190,5 +189,6 @@
     "permission.maintain-courses": "课程：阅读、添加、编辑和删除课程",
     "course": "课程",
     "course.pluralized": "{count} {count, plural, one {课程} other {课程}}",
-    "actions": "操作"
+    "actions": "操作",
+    "appMenu.keyboardShortcuts": "Keyboard shortcuts"
 }

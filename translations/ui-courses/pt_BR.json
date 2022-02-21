@@ -51,7 +51,6 @@
     "accordion.reserves.help": "Itens reservados para este curso",
     "accordion.developer": "Informação para desenvolvedores",
     "accordion.developer.help": "(dump JSON dos registros)",
-    "appMenu.keyboardShortcuts": "Atalhos do teclado",
     "field.name": "Nome do curso",
     "field.department": "Departamento",
     "field.number": "Código do curso",
@@ -190,5 +189,6 @@
     "permission.maintain-courses": "Cursos: Ler, adicionar, editar e excluir cursos",
     "course": "Curso",
     "course.pluralized": "{count} {count, plural, one {curso} other {cursos}}",
-    "actions": "Ações"
+    "actions": "Ações",
+    "appMenu.keyboardShortcuts": "Keyboard shortcuts"
 }
