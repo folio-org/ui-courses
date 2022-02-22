@@ -190,5 +190,5 @@
     "course": "Cours",
     "course.pluralized": "{count} {count, plural, one { cours } other { cours }}",
     "actions": "Actions",
-    "appMenu.keyboardShortcuts": "Keyboard shortcuts"
+    "appMenu.keyboardShortcuts": "Raccourcis clavier"
 }
