@@ -18,13 +18,13 @@ on: [push, pull_request]
 jobs:
   github-actions-ci:
     env:
-      YARN_TEST_OPTIONS: <options to pass to 'yarn test'>
-      SQ_ROOT_DIR: <replace>
-      COMPILE_TRANSLATION_FILES: <boolean set 'true' or 'false'>
-      PUBLISH_MOD_DESCRIPTOR: <publish mod desc to FOLIO registry (true|false)>
+      YARN_TEST_OPTIONS: ''
+      SQ_ROOT_DIR: './src'
+      COMPILE_TRANSLATION_FILES: 'true'
+      PUBLISH_MOD_DESCRIPTOR: 'true'
       FOLIO_NPM_REGISTRY: 'https://repository.folio.org/repository/npm-folioci/'
       FOLIO_MD_REGISTRY: 'https://folio-registry.dev.folio.org'
-      NODEJS_VERSION: '12'
+      NODEJS_VERSION: '14'
       JEST_JUNIT_OUTPUT_DIR: 'artifacts/jest-junit'
       JEST_COVERAGE_REPORT_DIR: 'artifacts/coverage-jest/lcov-report/'
       BIGTEST_JUNIT_OUTPUT_DIR: 'artifacts/runTest'
@@ -69,7 +69,7 @@ jobs:
         continue-on-error: true
 
       - name: Run yarn test
-        run: xvfb-run --server-args="-screen 0 1024x768x24" yarn test $YARN_TEST_OPTIONS
+        run: xvfb-run --server-args="-screen 0 1024x768x24" yarn postinstall-and-test $YARN_TEST_OPTIONS
 
       - name: Run yarn formatjs-compile
         if: ${{ env.COMPILE_TRANSLATION_FILES == 'true' }}
