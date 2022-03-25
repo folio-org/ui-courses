@@ -21,6 +21,7 @@
     "fix": "test -f node_modules/@babel/plugin-proposal-decorators/package.json || yarn add --dev @cypress/code-coverage",
     "clean-up-nyc-output": "echo 'This is useful if you are seeing errors generating coverage reports at the end of tests' && rm -rf .nyc_output",
     "postinstall-and-test": "yarn fix && yarn test"
+    "build-mod-descriptor": "stripes mod descriptor --full --strict | jq '.[]' > module-descriptor.json ",
   },
   "stripes": {
     "actsAs": [
