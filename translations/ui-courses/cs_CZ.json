@@ -43,8 +43,8 @@
     "accordion.crosslistings.help": "Cross-listed with present course",
     "accordion.instructors": "Instructors",
     "accordion.instructors.help": "Instructing the present course",
-    "accordion.term": "Term",
-    "accordion.term.help": "Schedule for the present course",
+    "accordion.term": "Podmínka",
+    "accordion.term.help": "Rozpis aktuálního kurzu",
     "accordion.organization": "Organization",
     "accordion.organization.help": "Local information",
     "accordion.reserves": "Items",
@@ -106,7 +106,7 @@
     "column.courseName": "Course name",
     "column.title": "Title",
     "column.barcode": "Barcode",
-    "column.permanentLocation": "Permanent location",
+    "column.permanentLocation": "Trvalé umístění",
     "column.temporaryLocation": "Temporary location",
     "filters.courses": "Courses",
     "filters.reserves": "Reserves",
@@ -190,5 +190,5 @@
     "course": "Course",
     "course.pluralized": "{count} {count, plural, one {course} other {courses}}",
     "actions": "Actions",
-    "appMenu.keyboardShortcuts": "Keyboard shortcuts"
+    "appMenu.keyboardShortcuts": "Klávesové zkratky"
 }
