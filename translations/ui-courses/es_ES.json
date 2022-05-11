@@ -170,7 +170,7 @@
     "addItem.new": "Create new Inventory item and add it as a reserve",
     "addFastAddItem.title": "Agregar ítem al vuelo",
     "addFastAddItem.tooltip": "Cree un nuevo registro de inventario usando 'Agregar registro al vuelo' y agréguelo a este curso como reserva",
-    "settings.displaySettings": "Display settings",
+    "settings.displaySettings": "Configuración de pantalla",
     "settings.display.duplicateCrosslistedCourses": "Duplicate cross-listed courses",
     "settings.display.duplicateCrosslistedCourses.description": "Si esta configuración está marcada, al duplicar un curso, la casilla de verificación \"Duplicar cursos cruzados\" en el modal Duplicar se marcará como marcada de forma predeterminada.",
     "button.duplicate": "Duplicate",
