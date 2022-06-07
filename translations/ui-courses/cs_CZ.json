@@ -59,7 +59,7 @@
     "field.registrarId": "Registrar ID",
     "field.externalId": "External ID",
     "field.barcode": "Barcode",
-    "field.patronGroup": "Patron group",
+    "field.patronGroup": "Skupina čtenáře",
     "field.term": "Term",
     "field.startDate": "Start date",
     "field.endDate": "End date",
