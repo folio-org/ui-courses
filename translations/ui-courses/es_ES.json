@@ -189,6 +189,6 @@
     "permission.maintain-courses": "Courses: Read, add, edit, and delete courses",
     "course": "Course",
     "course.pluralized": "{count} {count, plural, one {course} other {courses}}",
-    "actions": "Actions",
+    "actions": "Acciones",
     "appMenu.keyboardShortcuts": "Keyboard shortcuts"
 }
