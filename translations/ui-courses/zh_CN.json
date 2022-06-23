@@ -190,5 +190,5 @@
     "course": "课程",
     "course.pluralized": "{count} {count, plural, one {课程} other {课程}}",
     "actions": "操作",
-    "appMenu.keyboardShortcuts": "Keyboard shortcuts"
+    "appMenu.keyboardShortcuts": "键盘快捷键"
 }

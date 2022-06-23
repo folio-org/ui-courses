@@ -168,11 +168,11 @@
     "reallyDelete": "¿Borrar de verdad?",
     "addItem.existing": "Add existing Inventory item as a reserve",
     "addItem.new": "Create new Inventory item and add it as a reserve",
-    "addFastAddItem.title": "Add Fast Add item",
-    "addFastAddItem.tooltip": "Create a new Inventory record using 'Fast Add' and add it to this course as a reserve",
-    "settings.displaySettings": "Display settings",
+    "addFastAddItem.title": "Agregar ítem al vuelo",
+    "addFastAddItem.tooltip": "Cree un nuevo registro de inventario usando 'Agregar registro al vuelo' y agréguelo a este curso como reserva",
+    "settings.displaySettings": "Configuración de pantalla",
     "settings.display.duplicateCrosslistedCourses": "Duplicate cross-listed courses",
-    "settings.display.duplicateCrosslistedCourses.description": "If this setting is checked, when duplicating a course the \"Duplicate cross-listed courses\" checkbox in the Duplicate modal will be marked as checked by default.",
+    "settings.display.duplicateCrosslistedCourses.description": "Si esta configuración está marcada, al duplicar un curso, la casilla de verificación \"Duplicar cursos cruzados\" en el modal Duplicar se marcará como marcada de forma predeterminada.",
     "button.duplicate": "Duplicate",
     "button.createDuplicateCourses": "Create duplicate course(s)",
     "duplicateCourse": "Duplicate course",
@@ -189,6 +189,6 @@
     "permission.maintain-courses": "Courses: Read, add, edit, and delete courses",
     "course": "Course",
     "course.pluralized": "{count} {count, plural, one {course} other {courses}}",
-    "actions": "Actions",
+    "actions": "Acciones",
     "appMenu.keyboardShortcuts": "Keyboard shortcuts"
 }
