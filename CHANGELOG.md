@@ -3,6 +3,7 @@
 ## [5.1.0](https://github.com/folio-org/ui-courses/tree/v5.1.0) (2022-03-02)
 
 * Implement baseline keyboard shortcuts. UICR-124.
+* Add additional permissions in Courses. UICR-157.
 
 ## [5.0.0](https://github.com/folio-org/ui-courses/tree/v5.0.0) (2021-09-29)
 
