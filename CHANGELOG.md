@@ -1,5 +1,9 @@
 # Change history for ui-courses
 
+## 5.2.0 IN PROGRESS
+
+* Use local notes routes instead of pointing to `/users`. Refs UICR-161.
+
 ## [5.1.0](https://github.com/folio-org/ui-courses/tree/v5.1.0) (2022-03-02)
 
 * Implement baseline keyboard shortcuts. UICR-124.

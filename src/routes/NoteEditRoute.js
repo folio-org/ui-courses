@@ -21,7 +21,7 @@ const NoteEditRoute = () => {
   const referredEntityData = getReferredEntityData(state);
 
   const navigateBack = () => {
-    const path = state ? history.goBack() : '/users';
+    const path = state ? history.goBack() : '/cr';
 
     history.push(path);
   };

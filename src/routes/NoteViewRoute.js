@@ -22,7 +22,7 @@ const NoteViewRoute = () => {
 
   const onEdit = () => {
     history.replace({
-      pathname: `/users/notes/${match.params.id}/edit`,
+      pathname: `/cr/courses/notes/${match.params.id}/edit`,
       state,
     });
   };
