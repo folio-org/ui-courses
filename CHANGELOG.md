@@ -3,6 +3,7 @@
 ## 5.2.0 IN PROGRESS
 
 * Use local notes routes instead of pointing to `/users`. Refs UICR-161.
+* Remove react-hot-loader. Refs UICR-154.
 
 ## [5.1.0](https://github.com/folio-org/ui-courses/tree/v5.1.0) (2022-03-02)
 
