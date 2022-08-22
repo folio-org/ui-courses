@@ -1,6 +1,6 @@
 {
   "name": "@folio/courses",
-  "version": "5.1.0",
+  "version": "5.2.0",
   "description": "Maintain courses and reserve items for them",
   "repository": "https://github.com/folio-org/ui-courses",
   "license": "Apache-2.0",
@@ -20,7 +20,8 @@
     "formatjs-compile": "formatjs compile-folder --ast --format simple ./translations/ui-courses ./translations/ui-courses/compiled",
     "fix": "test -f node_modules/@babel/plugin-proposal-decorators/package.json || yarn add --dev @cypress/code-coverage",
     "clean-up-nyc-output": "echo 'This is useful if you are seeing errors generating coverage reports at the end of tests' && rm -rf .nyc_output",
-    "postinstall-and-test": "yarn fix && yarn test"
+    "postinstall-and-test": "yarn fix && yarn test",
+    "build-mod-descriptor": "stripes mod descriptor --full --strict | jq '.[]' > module-descriptor.json "
   },
   "stripes": {
     "actsAs": [
@@ -149,6 +150,7 @@
           "inventory-storage.locations.collection.get",
           "inventory.items.collection.get",
           "inventory-storage.loan-types.collection.get",
+          "inventory-storage.loan-types.item.get",
           "inventory-storage.items.item.get",
           "inventory-storage.items.item.put"
         ],
@@ -194,8 +196,7 @@
     "ky": "^0.23.0",
     "lodash": "^4.17.15",
     "query-string": "^6.0.0",
-    "react-final-form": "^6.3.0",
-    "react-hot-loader": "^4.3.12"
+    "react-final-form": "^6.3.0"
   },
   "peerDependencies": {
     "@folio/plugin-find-user": "^5.0.0||^6.0.0",

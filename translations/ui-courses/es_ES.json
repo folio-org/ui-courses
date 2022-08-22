@@ -178,7 +178,7 @@
     "duplicateCourse": "Duplicate course",
     "duplicateCourse.duplicateCrosslistedCourses": "Duplicate all cross-listed courses",
     "duplicateCourse.duplicatedCourseIndicator": "Duplicate",
-    "field.numberOfStudents": "Number of students",
+    "field.numberOfStudents": "Número de estudiantes",
     "errors.mustBeInteger": "This value must be an integer",
     "permission.all": "Courses: All permissions",
     "permission.read-all": "Courses: Read all",

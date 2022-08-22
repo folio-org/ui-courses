@@ -1,8 +1,14 @@
 # Change history for ui-courses
 
+## 5.2.0 IN PROGRESS
+
+* Use local notes routes instead of pointing to `/users`. Refs UICR-161.
+* Remove react-hot-loader. Refs UICR-154.
+
 ## [5.1.0](https://github.com/folio-org/ui-courses/tree/v5.1.0) (2022-03-02)
 
 * Implement baseline keyboard shortcuts. UICR-124.
+* Adding additional permission "inventory-storage.loan-types.item.get" to "ui-courses.add-edit-items" to fix an intermittent issue with loan type display in the Courses app. UICR-157.
 
 ## [5.0.0](https://github.com/folio-org/ui-courses/tree/v5.0.0) (2021-09-29)
 
