@@ -196,8 +196,7 @@
     "ky": "^0.23.0",
     "lodash": "^4.17.15",
     "query-string": "^6.0.0",
-    "react-final-form": "^6.3.0",
-    "react-hot-loader": "^4.3.12"
+    "react-final-form": "^6.3.0"
   },
   "peerDependencies": {
     "@folio/plugin-find-user": "^5.0.0||^6.0.0",
