@@ -30,7 +30,7 @@
 * Fixed bug where term dates could be incorrectly parsed. UICR-137
 
 ## [4.1.0](https://github.com/folio-org/ui-courses/tree/v4.1.0) (2021-04-23)
-2[Full Changelog](https://github.com/folio-org/ui-courses/compare/v4.0.1...v4.1.0)
+[Full Changelog](https://github.com/folio-org/ui-courses/compare/v4.0.1...v4.1.0)
 
 * Fix visibility of permissions and canonicalize upper/lower case. Fixes UICR-122 and UICR-123.
 * Added ability to view and edit a course's `numberOfStudents` field. Fixes UICR-128
