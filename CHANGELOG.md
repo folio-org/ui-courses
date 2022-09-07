@@ -5,6 +5,7 @@
 * Use local notes routes instead of pointing to `/users`. Refs UICR-161.
 * Remove react-hot-loader. Refs UICR-154.
 * Support interface `item-storage` `10.0`. Refs UIPCIR-43.
+* Add `react-dom` to the dev-dependencies. (I'm not sure why it wasn't there already.)
 
 ## [5.1.0](https://github.com/folio-org/ui-courses/tree/v5.1.0) (2022-03-02)
 
@@ -29,7 +30,7 @@
 * Fixed bug where term dates could be incorrectly parsed. UICR-137
 
 ## [4.1.0](https://github.com/folio-org/ui-courses/tree/v4.1.0) (2021-04-23)
-[Full Changelog](https://github.com/folio-org/ui-courses/compare/v4.0.1...v4.1.0)
+2[Full Changelog](https://github.com/folio-org/ui-courses/compare/v4.0.1...v4.1.0)
 
 * Fix visibility of permissions and canonicalize upper/lower case. Fixes UICR-122 and UICR-123.
 * Added ability to view and edit a course's `numberOfStudents` field. Fixes UICR-128
