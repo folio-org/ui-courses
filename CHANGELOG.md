@@ -1,10 +1,11 @@
 # Change history for ui-courses
 
-## 5.2.0 IN PROGRESS
+## [5.2.0](https://github.com/folio-org/ui-courses/tree/v5.2.0) (2022-09-07)
 
 * Use local notes routes instead of pointing to `/users`. Refs UICR-161.
 * Remove react-hot-loader. Refs UICR-154.
 * Support interface `item-storage` `10.0`. Refs UIPCIR-43.
+* Add `react-dom` to the dev-dependencies. (I'm not sure why it wasn't there already.)
 
 ## [5.1.0](https://github.com/folio-org/ui-courses/tree/v5.1.0) (2022-03-02)
 
