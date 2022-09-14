@@ -164,7 +164,7 @@
     "addItem.failure": "Nepodařílo se přidat jednotku {barcode}: {message}",
     "instructor.pluralized": "{count} {count, plural, one {instruktor} other {instruktoři}}",
     "removeInstructor.failure": "Odebrání instruktora se nezdařilo: {message}",
-    "delete": "Vymazat",
+    "delete": "Smazat",
     "reallyDelete": "Opravdu smazat?",
     "addItem.existing": "Přidejte existující jednotku katalogu jako rezervu",
     "addItem.new": "Vytvořte novou jednotku katalogu a přidejte ji jako rezervu",
