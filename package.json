@@ -75,7 +75,15 @@
           "ui-courses.maintain-courses",
           "ui-courses.maintain-items",
           "ui-courses.maintain-settings",
-          "course-reserves-storage.all"
+          "course-reserves-storage.terms.write",
+          "course-reserves-storage.courselistings.write",
+          "course-reserves-storage.roles.write",
+          "course-reserves-storage.departments.write",
+          "course-reserves-storage.course-types.write",
+          "course-reserves-storage.processing-statuses.write",
+          "course-reserves-storage.copyright-statuses.write",
+          "course-reserves-storage.courses.write",
+          "course-reserves-storage.reserves.write"
         ],
         "visible": true
       },
