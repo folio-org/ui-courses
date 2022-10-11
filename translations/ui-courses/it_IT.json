@@ -177,7 +177,7 @@
     "button.createDuplicateCourses": "Creare corso(i) duplicato",
     "duplicateCourse": "Duplicate course",
     "duplicateCourse.duplicateCrosslistedCourses": "Duplicate all cross-listed courses",
-    "duplicateCourse.duplicatedCourseIndicator": "Duplicate",
+    "duplicateCourse.duplicatedCourseIndicator": "Duplicato",
     "field.numberOfStudents": "Number of students",
     "errors.mustBeInteger": "This value must be an integer",
     "permission.all": "Courses: All permissions",
