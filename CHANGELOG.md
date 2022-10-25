@@ -1,6 +1,8 @@
 # Change history for ui-courses
-# In progress ...
-* refactor psets away from backend ".all" permissions. Refs UICR-150.
+
+## [5.3.0](https://github.com/folio-org/ui-courses/tree/v5.3.0) (IN PROGRESS)
+
+* Refactor permission-sets away from backend `.all` permissions. Refs UICR-150.
 
 ## [5.2.0](https://github.com/folio-org/ui-courses/tree/v5.2.0) (2022-09-07)
 
