@@ -1,5 +1,9 @@
 # Change history for ui-courses
 
+## [5.4.0](https://github.com/folio-org/ui-courses/tree/v5.4.0) (IN PROGRESS)
+
+* Update `@folio/plugin-create-inventory-records` dependency version to one compatible with our Stripes version. Fixes UICR-169.
+
 ## [5.3.0](https://github.com/folio-org/ui-courses/tree/v5.3.0) (2022-10-25)
 
 * Refactor permission-sets away from backend `.all` permissions. Refs UICR-150.
