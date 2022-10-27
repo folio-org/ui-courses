@@ -238,6 +238,6 @@
     "yakbak-proxy": "^1.6.0"
   },
   "optionalDependencies": {
-    "@folio/plugin-create-inventory-records": "^2.1.0"
+    "@folio/plugin-create-inventory-records": "^3.2.0"
   }
 }
