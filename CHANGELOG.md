@@ -5,6 +5,7 @@
 * Update `@folio/plugin-create-inventory-records` dependency version to one compatible with our Stripes version. Fixes UICR-169.
 * Move `prop-types` from dev-dependency to regular dependency. Fixes UICR-168.
 * Replace `babel-eslint` with `@babel/eslint-parser`. Fixes STRIPES-742.
+* Filtering of candidate values for location filter (and other search filters) is no longer left-anchored, but matches anywhere within the candidate values, emulating the behaviour of the Inventory app. Fixes UICR-160.
 
 ## [5.3.0](https://github.com/folio-org/ui-courses/tree/v5.3.0) (2022-10-25)
 
