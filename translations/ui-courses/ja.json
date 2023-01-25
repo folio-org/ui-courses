@@ -164,7 +164,7 @@
     "addItem.failure": "Failed to add item {barcode}: {message}",
     "instructor.pluralized": "{count} {count, plural, one { 講師 } other { 講師 }}",
     "removeInstructor.failure": "講師の削除に失敗しました： {message}",
-    "delete": "Delete",
+    "delete": "削除",
     "reallyDelete": "Really delete?",
     "addItem.existing": "Add existing Inventory item as a reserve",
     "addItem.new": "Create new Inventory item and add it as a reserve",
