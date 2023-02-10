@@ -2,6 +2,7 @@
 
 ## [5.4.0](https://github.com/folio-org/ui-courses/tree/v5.4.0) (IN PROGRESS)
 
+* Upgrade from Stripes v7 to Stripes v8 (though should still work with v7). Fixes UICR-178.
 * Update `@folio/plugin-create-inventory-records` dependency version to one compatible with our Stripes version. Fixes UICR-169.
 * Move `prop-types` from dev-dependency to regular dependency. Fixes UICR-168.
 * Replace `babel-eslint` with `@babel/eslint-parser`. Fixes STRIPES-742.
