@@ -1,6 +1,6 @@
 {
   "name": "@folio/courses",
-  "version": "5.3.0",
+  "version": "5.4.0",
   "description": "Maintain courses and reserve items for them",
   "repository": "https://github.com/folio-org/ui-courses",
   "license": "Apache-2.0",
