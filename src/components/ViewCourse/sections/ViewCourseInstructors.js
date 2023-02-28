@@ -11,14 +11,13 @@ import css from './Instructors.css';
 const ViewCourseInstructors = (props) => {
   const callout = useContext(CalloutContext);
   function removeInstructor(instructorId) {
-    const oldCount = props.record.courseListingObject.instructorObjects.length;
     const clid = props.record.courseListingId;
     props.okapiKy(`coursereserves/courselistings/${clid}/instructors/${instructorId}`, {
       method: 'DELETE',
       headers: { Accept: 'text/plain' },
     })
       .text()
-      .then(() => { props.mutator.instructorCount.replace(oldCount - 1); })
+      .then(() => { props.mutator.instructorDeletionCount.replace(props.resources.instructorDeletionCount + 1); })
       .catch(exception => callout.sendCallout({
         type: 'error',
         message: <FormattedMessage id="ui-courses.removeInstructor.failure" values={{ message: exception }} />,
@@ -119,8 +118,11 @@ ViewCourseInstructors.propTypes = {
   stripes: PropTypes.shape({
     hasPerm: PropTypes.func.isRequired,
   }).isRequired,
+  resources: PropTypes.shape({
+    instructorDeletionCount: PropTypes.number.isRequired,
+  }).isRequired,
   mutator: PropTypes.shape({
-    instructorCount: PropTypes.shape({
+    instructorDeletionCount: PropTypes.shape({
       replace: PropTypes.func.isRequired,
     }).isRequired,
   }).isRequired,

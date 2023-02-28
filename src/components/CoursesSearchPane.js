@@ -27,7 +27,7 @@ let searchableIndexes;
 class CoursesSearchPane extends React.Component {
   static propTypes = {
     searchValue: PropTypes.shape({
-      query: PropTypes.string.isRequired,
+      query: PropTypes.string,
     }).isRequired,
     getSearchHandlers: PropTypes.func.isRequired,
     getFilterHandlers: PropTypes.func.isRequired,

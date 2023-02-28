@@ -42,7 +42,7 @@ class ViewCourse extends React.Component {
           <ViewCourseCrosslistings crossListed={crossListed} />
         </VCAccordion>
         <VCAccordion id="instructors">
-          <ViewCourseInstructors record={course} mutator={mutator} />
+          <ViewCourseInstructors record={course} resources={resources} mutator={mutator} />
         </VCAccordion>
         <VCAccordion id="term">
           <ViewCourseTerm record={course} />

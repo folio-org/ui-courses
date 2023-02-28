@@ -28,9 +28,9 @@ import DuplicateCourseModal from '../components/DuplicateCourseModal';
 
 class CourseRoute extends React.Component {
   static manifest = Object.freeze({
-    instructorCount: {
-      // We mutate this when we delete an instructor, to force a stripes-connect reload
-      initialValue: 9999,
+    instructorDeletionCount: {
+      // We increment this when we delete an instructor, to force a stripes-connect reload
+      initialValue: 0,
     },
     toggleVal: {
       // We mutate this when we delete an reserve, to force a stripes-connect reload
@@ -38,7 +38,7 @@ class CourseRoute extends React.Component {
     },
     course: {
       type: 'okapi',
-      path: 'coursereserves/courses/:{id}?unused=%{instructorCount}',
+      path: 'coursereserves/courses/:{id}?unused=%{instructorDeletionCount}',
     },
     crossListed: {
       type: 'okapi',
