@@ -1,5 +1,9 @@
 # Change history for ui-courses
 
+## [5.4.1](https://github.com/folio-org/ui-courses/tree/v5.4.1) (IN PROGRESS)
+
+* When removing an instructor from a course listing, the display is now always updated. Fixes UICR-177.
+
 ## [5.4.0](https://github.com/folio-org/ui-courses/tree/v5.4.0) (2023-02-24)
 
 * Upgrade from Stripes v7 to Stripes v8 (though should still work with v7). Fixes UICR-178.
