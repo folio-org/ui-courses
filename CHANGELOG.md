@@ -3,6 +3,7 @@
 ## [5.4.1](https://github.com/folio-org/ui-courses/tree/v5.4.1) (IN PROGRESS)
 
 * When removing an instructor from a course listing, the display is now always updated. Fixes UICR-177.
+* On reserving an item, show temporary location from reserve. Fixes UICR-183.
 
 ## [5.4.0](https://github.com/folio-org/ui-courses/tree/v5.4.0) (2023-02-24)
 
