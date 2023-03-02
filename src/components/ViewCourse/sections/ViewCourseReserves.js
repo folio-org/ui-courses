@@ -101,6 +101,7 @@ const ViewCourseReserves = (props) => {
           const termObject = courseListingObject.termObject || {};
           const item = itemMap[record.itemId];
           const ps = get(record, 'processingStatusObject.name') || record.processingStatusId;
+          const tloc = item?.temporaryLocation?.name ?? copiedItem?.temporaryLocationObject?.name;
           const tlt = get(record, 'temporaryLoanTypeObject.name') || record.temporaryLoanTypeId;
           const cipl = get(record, 'copiedItem.permanentLocationObject.name') || record.copiedItem.permanentLocationId ||
                 get(item, 'effectiveLocation.name');
@@ -179,7 +180,7 @@ const ViewCourseReserves = (props) => {
               </Row>
               <Row>
                 <Col xs={3}>
-                  <VCKeyValue id="temporaryLocation" value={item?.temporaryLocation?.name ?? <NoValue />} />
+                  <VCKeyValue id="temporaryLocation" value={tloc ?? <NoValue />} />
                 </Col>
                 <Col xs={3}>
                   <VCKeyValue id="temporaryLoanType" value={tlt} />
