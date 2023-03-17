@@ -59,7 +59,7 @@
     "field.registrarId": "ID registrátora",
     "field.externalId": "Externí ID",
     "field.barcode": "Čárový kód",
-    "field.patronGroup": "Skupina čtenáře",
+    "field.patronGroup": "Kategorie čtenáře",
     "field.term": "Termín",
     "field.startDate": "Datum zahájení",
     "field.endDate": "Datum ukončení",
