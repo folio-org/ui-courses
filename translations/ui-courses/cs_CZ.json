@@ -160,7 +160,7 @@
     "addItem.enterBarcode": "Zadat nebo naskenovat čárový kód",
     "addItem.missingBarcode": "Vložte čárový kód, než zvolíte „Přidat jednotku“",
     "addItem.addedItem": "Přidána jednotka \"{title}\"",
-    "addItem.duplicateItem": "Duplicitní čárový kód {barcode}: tato jednotka je již v rezervě pro tento kurz",
+    "addItem.duplicateItem": "Duplicitní čárový kód {barcode}: tato jednotka je již rezervována pro tento kurz",
     "addItem.failure": "Nepodařílo se přidat jednotku {barcode}: {message}",
     "instructor.pluralized": "{count} {count, plural, one {instruktor} other {instruktoři}}",
     "removeInstructor.failure": "Odebrání instruktora se nezdařilo: {message}",
