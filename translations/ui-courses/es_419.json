@@ -166,13 +166,13 @@
     "removeInstructor.failure": "No se pudo quitar el instructor: {message}",
     "delete": "Eliminar",
     "reallyDelete": "¿Borrar de verdad?",
-    "addItem.existing": "Add existing Inventory item as a reserve",
-    "addItem.new": "Create new Inventory item and add it as a reserve",
-    "addFastAddItem.title": "Add Fast Add item",
-    "addFastAddItem.tooltip": "Create a new Inventory record using 'Fast Add' and add it to this course as a reserve",
+    "addItem.existing": "Añadir artículo de inventario existente como reserva",
+    "addItem.new": "Crear un nuevo artículo de inventario y añadirlo como reserva",
+    "addFastAddItem.title": "Añadir ítems",
+    "addFastAddItem.tooltip": "Cree un nuevo registro de Inventario utilizando 'Crear un registro rápido' y añádalo a este curso como reserva",
     "settings.displaySettings": "Configuración de la pantalla",
     "settings.display.duplicateCrosslistedCourses": "Duplicar cursos de lista cruzada",
-    "settings.display.duplicateCrosslistedCourses.description": "If this setting is checked, when duplicating a course the \"Duplicate cross-listed courses\" checkbox in the Duplicate modal will be marked as checked by default.",
+    "settings.display.duplicateCrosslistedCourses.description": "Si esta opción está activada, al duplicar un curso la casilla de verificación \"Duplicar cursos cruzados\" del modal Duplicar se marcará como activada por defecto.",
     "button.duplicate": "Duplicar",
     "button.createDuplicateCourses": "Crear curso(s) duplicado(s)",
     "duplicateCourse": "Duplicar curso",
@@ -190,5 +190,5 @@
     "course": "Curso",
     "course.pluralized": "{count} {count, plural, one {course} other {courses}}",
     "actions": "Acciones",
-    "appMenu.keyboardShortcuts": "Keyboard shortcuts"
+    "appMenu.keyboardShortcuts": "Atajos de teclado"
 }
