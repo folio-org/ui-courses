@@ -22,9 +22,10 @@ const withOkapiKy = (WrappedComponent) => {
         prefixUrl: url,
         hooks: {
           beforeRequest: [
-            request => {
+            (request, options) => {
+              options.credentials = 'include';
               request.headers.set('X-Okapi-Tenant', tenant);
-              request.headers.set('X-Okapi-Token', token);
+              if (token) request.headers.set('X-Okapi-Token', token);
             }
           ]
         }
