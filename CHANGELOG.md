@@ -6,6 +6,7 @@
 * Update Node.js to v18 in GitHub Actions. Fixes UICR-188.
 * When removing an instructor from a course listing, the display is now always updated. Fixes UICR-177.
 * On reserving an item, show temporary location from reserve. Fixes UICR-183.
+* Leverage cookie-based authentication in all API requests. Fixes UICR-176.
 * *BREAKING* bump `react-intl` to `v6.4.4`. Refs UICR-191.
 
 ## [5.4.0](https://github.com/folio-org/ui-courses/tree/v5.4.0) (2023-02-24)
