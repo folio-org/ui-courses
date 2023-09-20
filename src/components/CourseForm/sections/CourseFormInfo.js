@@ -42,6 +42,15 @@ export default class CourseFormInfo extends React.Component {
               id="edit-course-department"
               label={<FormattedMessage id="ui-courses.field.department" />}
               name="departmentId"
+              required
+              validate={value => {
+                if (!value || value === '1') {
+                  // I have no idea why <Select> defaults to value "1" when given an empty list, but it does
+                  return <FormattedMessage id="stripes-core.label.missingRequiredField" />;
+                }
+
+                return undefined;
+              }}
             />
           </Col>
         </Row>
