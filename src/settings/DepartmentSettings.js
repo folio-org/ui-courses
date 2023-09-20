@@ -38,6 +38,10 @@ class DepartmentSettings extends React.Component {
         id="departments"
         sortby="name"
         hiddenFields={['lastUpdated', 'numberOfObjects']}
+        actionSuppressor={{
+          edit: () => !stripes.hasPerm('course-reserves-storage.departments.item.put'),
+          'delete': () => !stripes.hasPerm('course-reserves-storage.departments.item.delete'),
+        }}
       />
     );
   }

@@ -38,6 +38,10 @@ class CopyrightStatusSettings extends React.Component {
         id="copyrightstatuses"
         sortby="name"
         hiddenFields={['lastUpdated', 'numberOfObjects']}
+        actionSuppressor={{
+          edit: () => !stripes.hasPerm('course-reserves-storage.copyright-statuses.item.put'),
+          'delete': () => !stripes.hasPerm('course-reserves-storage.copyright-statuses.item.delete'),
+        }}
       />
     );
   }
