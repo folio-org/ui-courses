@@ -65,6 +65,10 @@ class TermSettings extends React.Component {
         id="terms"
         sortby="name"
         hiddenFields={['lastUpdated', 'numberOfObjects']}
+        actionSuppressor={{
+          edit: () => !stripes.hasPerm('course-reserves-storage.terms.item.put'),
+          'delete': () => !stripes.hasPerm('course-reserves-storage.terms.item.delete'),
+        }}
       />
     );
   }
