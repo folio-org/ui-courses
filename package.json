@@ -180,6 +180,21 @@
         "visible": true
       },
       {
+        "permissionName": "ui-courses.view-settings",
+        "displayName": "Settings (Courses): Can view course settings",
+        "description": "This permission allows the user to view all Course Settings",
+        "subPermissions": [
+          "settings.courses.enabled",
+          "course-reserves-storage.terms.write",
+          "course-reserves-storage.course-types.read",
+          "course-reserves-storage.departments.read",
+          "course-reserves-storage.processing-statuses.read",
+          "course-reserves-storage.copyright-statuses.read",
+          "course-reserves-storage.roles.read"
+        ],
+        "visible": true
+      },
+      {
         "permissionName": "ui-courses.maintain-settings",
         "replaces": [
           "course-reserves.maintain-settings"

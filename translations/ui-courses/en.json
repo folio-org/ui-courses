@@ -183,6 +183,7 @@
     "permission.add-edit-items": "Courses: Add and edit courses' reserved items",
     "permission.maintain-courses": "Courses: Read, add, edit, and delete courses",
     "permission.maintain-items": "Courses: Add, edit, and remove courses' reserved items",
+    "permission.view-settings": "Settings (Courses): Can view course settings",
     "permission.maintain-settings": "Settings (Courses): Can create, edit and delete course settings",
     "lookUpUser": "Look up user",
     "delete": "Delete",
