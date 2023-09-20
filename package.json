@@ -185,7 +185,8 @@
         "description": "This permission allows the user to view all Course Settings",
         "subPermissions": [
           "settings.courses.enabled",
-          "course-reserves-storage.terms.write",
+          "configuration.entries.collection.get",
+          "course-reserves-storage.terms.read",
           "course-reserves-storage.course-types.read",
           "course-reserves-storage.departments.read",
           "course-reserves-storage.processing-statuses.read",
