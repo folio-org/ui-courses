@@ -190,5 +190,6 @@
     "course": "Curso",
     "course.pluralized": "{count} {count, plural, one {curso} other {cursos}}",
     "actions": "Ações",
-    "appMenu.keyboardShortcuts": "Atalhos do teclado"
+    "appMenu.keyboardShortcuts": "Atalhos do teclado",
+    "permission.view-settings": "Configurações (Cursos): Pode visualizar as configurações do curso"
 }

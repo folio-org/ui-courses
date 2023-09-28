@@ -190,5 +190,6 @@
     "course": "Course",
     "course.pluralized": "{count} {count, plural, one {course} other {courses}}",
     "actions": "Azioni",
-    "appMenu.keyboardShortcuts": "Scorciatoie da tastiera"
+    "appMenu.keyboardShortcuts": "Scorciatoie da tastiera",
+    "permission.view-settings": "Settings (Courses): Can view course settings"
 }
