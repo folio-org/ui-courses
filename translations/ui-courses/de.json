@@ -190,5 +190,6 @@
     "course": "Kurs",
     "course.pluralized": "{count} {count, plural, one {Kurs} other {Kurse}}",
     "actions": "Aktionen",
-    "appMenu.keyboardShortcuts": "Tastenkürzel"
+    "appMenu.keyboardShortcuts": "Tastenkürzel",
+    "permission.view-settings": "Einstellungen (Semesterapparate): Kann Semesterapparate-Einstellungen anzeigen"
 }

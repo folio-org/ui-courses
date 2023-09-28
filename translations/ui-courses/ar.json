@@ -190,5 +190,6 @@
     "course": "المقرر",
     "course.pluralized": "{count} {count, plural, one {مقرر} other {مقرراً}}",
     "actions": "الإجراءات",
-    "appMenu.keyboardShortcuts": "اختصارات لوحة المفاتيح"
+    "appMenu.keyboardShortcuts": "اختصارات لوحة المفاتيح",
+    "permission.view-settings": "Settings (Courses): Can view course settings"
 }

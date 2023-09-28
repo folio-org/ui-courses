@@ -190,5 +190,6 @@
     "course": "Kurz",
     "course.pluralized": "{count} {count, plural, one {kurz} other {kurzy}}",
     "actions": "Akce",
-    "appMenu.keyboardShortcuts": "Klávesové zkratky"
+    "appMenu.keyboardShortcuts": "Klávesové zkratky",
+    "permission.view-settings": "Settings (Courses): Can view course settings"
 }
