@@ -56,7 +56,7 @@ class ViewCourse extends React.Component {
           pathToNoteCreate="notes/new"
           pathToNoteDetails="notes"
         />
-        <VCAccordion id="reserves">
+        <VCAccordion id="reserves" count={reserves.length}>
           <ViewCourseReserves course={course} reserves={reserves} items={items} resources={resources} mutator={mutator} />
         </VCAccordion>
         {

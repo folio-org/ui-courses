@@ -75,7 +75,7 @@
     "accordion.term.help": "Schedule for the present course",
     "accordion.organization": "Organization",
     "accordion.organization.help": "Local information",
-    "accordion.reserves": "Items",
+    "accordion.reserves": "{count} {count, plural, one {item} other {items}}",
     "accordion.reserves.help": "Items reserved to this course",
     "accordion.developer": "Developer info",
     "accordion.developer.help": "(JSON dump of raw record)",
