@@ -10,6 +10,7 @@
 * Leverage cookie-based authentication in all API requests. Fixes UICR-176.
 * New permission `ui-courses.view-settings` to view but not edit settings. Fixes UICR-181.
 * Required course fields department and term now perform front-end validation. Fixes UICR-93.
+* When viewing a course, show number of reserves before list. Fixes UICR-194.
 
 ## [5.4.0](https://github.com/folio-org/ui-courses/tree/v5.4.0) (2023-02-24)
 
