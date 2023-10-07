@@ -47,7 +47,7 @@
     "accordion.term.help": "Calendário para o presente curso",
     "accordion.organization": "Organização",
     "accordion.organization.help": "Informação local",
-    "accordion.reserves": "Itens",
+    "accordion.reserves": "{count} {count, plural, one {item} other {itens}}",
     "accordion.reserves.help": "Itens reservados para este curso",
     "accordion.developer": "Informação para desenvolvedores",
     "accordion.developer.help": "(dump JSON dos registros)",
