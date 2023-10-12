@@ -1,6 +1,6 @@
 {
   "name": "@folio/courses",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "description": "Maintain courses and reserve items for them",
   "repository": "https://github.com/folio-org/ui-courses",
   "license": "Apache-2.0",
@@ -254,6 +254,6 @@
     "yakbak-proxy": "^1.6.0"
   },
   "optionalDependencies": {
-    "@folio/plugin-create-inventory-records": "^3.2.0"
+    "@folio/plugin-create-inventory-records": "^4.0.0"
   }
 }

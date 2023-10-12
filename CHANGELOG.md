@@ -1,5 +1,9 @@
 # Change history for ui-courses
 
+## [6.0.1](https://github.com/folio-org/ui-courses/tree/v6.0.1) (2023-10-12)
+
+* Bump `@folio/plugin-create-inventory-records` version.
+
 ## [6.0.0](https://github.com/folio-org/ui-courses/tree/v6.0.0) (2023-10-11)
 
 * BREAKING: upgrade React to v18. Fixes UICR-187.
