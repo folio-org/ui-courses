@@ -1,6 +1,6 @@
 # Change history for ui-courses
 
-## [6.0.0](https://github.com/folio-org/ui-courses/tree/v6.0.0) (IN PROGRESS)
+## [6.0.0](https://github.com/folio-org/ui-courses/tree/v6.0.0) (2023-10-11)
 
 * BREAKING: upgrade React to v18. Fixes UICR-187.
 * *BREAKING* bump `react-intl` to `v6.4.4`. Refs UICR-191.
