@@ -1,5 +1,9 @@
 # Change history for ui-courses
 
+## [6.0.2](https://github.com/folio-org/ui-courses/tree/v6.0.2) (2023-10-13)
+
+* Bump `@folio/plugin-create-inventory-records` version.
+
 ## [6.0.1](https://github.com/folio-org/ui-courses/tree/v6.0.1) (2023-10-12)
 
 * Bump `@folio/plugin-create-inventory-records` version.
