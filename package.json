@@ -1,6 +1,6 @@
 {
   "name": "@folio/courses",
-  "version": "6.0.1",
+  "version": "6.0.2",
   "description": "Maintain courses and reserve items for them",
   "repository": "https://github.com/folio-org/ui-courses",
   "license": "Apache-2.0",
@@ -224,7 +224,7 @@
     "react-final-form": "^6.3.0"
   },
   "peerDependencies": {
-    "@folio/plugin-find-user": "^5.0.0||^6.0.0",
+    "@folio/plugin-find-user": "^5.0.0||^6.0.0||^7.0.0",
     "@folio/stripes": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
