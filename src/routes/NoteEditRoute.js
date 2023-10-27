@@ -35,7 +35,6 @@ const NoteEditRoute = () => {
       domain="courses"
       navigateBack={navigateBack}
       noteId={noteId}
-      showDisplayAsPopupOptions={false}
     />
   );
 };
