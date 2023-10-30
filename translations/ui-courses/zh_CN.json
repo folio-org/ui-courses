@@ -47,7 +47,7 @@
     "accordion.term.help": "当前课程的时间表",
     "accordion.organization": "组织",
     "accordion.organization.help": "本地信息",
-    "accordion.reserves": "单件",
+    "accordion.reserves": "{count} {count, plural, one { 单件 } other { 单件 }}",
     "accordion.reserves.help": "单件为本课程教参",
     "accordion.developer": "开发者信息",
     "accordion.developer.help": "（原始记录的JSON转储）",

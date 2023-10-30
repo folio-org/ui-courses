@@ -27,7 +27,7 @@
     "column.name": "Název kurzu",
     "column.courseNumber": "Kód kurzu",
     "column.department": "Oddělení",
-    "column.serviceDesk": "Service desk",
+    "column.serviceDesk": "Pult služeb",
     "column.startDate": "Datum zahájení",
     "column.endDate": "Datum ukončení",
     "column.instructor": "Instruktor",
@@ -47,7 +47,7 @@
     "accordion.term.help": "Rozvrh současného kurzu",
     "accordion.organization": "Organizace",
     "accordion.organization.help": "Místní informace",
-    "accordion.reserves": "Jednotky",
+    "accordion.reserves": "{count} {count, plural, one {jednotka} other {jednotky}}",
     "accordion.reserves.help": "Jednotky vyhrazené pro tento kurz",
     "accordion.developer": "Informace pro vývojáře",
     "accordion.developer.help": "(JSON výpis nezpracovaného záznamu)",
@@ -64,7 +64,7 @@
     "field.startDate": "Datum zahájení",
     "field.endDate": "Datum ukončení",
     "field.location": "Lokace",
-    "field.serviceDesk": "Service desk",
+    "field.serviceDesk": "Pult služeb",
     "field.itemBarcode": "Čárový kód jednotky",
     "field.contributor": "Autor",
     "field.permanentLocation": "Trvalá lokace",
@@ -191,5 +191,5 @@
     "course.pluralized": "{count} {count, plural, one {kurz} other {kurzy}}",
     "actions": "Akce",
     "appMenu.keyboardShortcuts": "Klávesové zkratky",
-    "permission.view-settings": "Settings (Courses): Can view course settings"
+    "permission.view-settings": "Nastavení (Kurzy): Může zobrazit nastavení kurzu"
 }
