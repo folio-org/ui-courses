@@ -1,5 +1,7 @@
 # Change history for ui-courses
 
+## [6.1.0] IN PROGRESS
+
 ## [6.0.3](https://github.com/folio-org/ui-courses/tree/v6.0.3) (2023-10-20)
 
 * Hide pop-up check box options while editing a note. Fixes UICR-189.
