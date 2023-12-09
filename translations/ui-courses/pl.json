@@ -189,7 +189,7 @@
     "permission.maintain-courses": "Courses: Read, add, edit, and delete courses",
     "course": "Course",
     "course.pluralized": "{count} {count, plural, one {course} other {courses}}",
-    "actions": "Actions",
+    "actions": "Akcje",
     "appMenu.keyboardShortcuts": "Keyboard shortcuts",
     "permission.view-settings": "Settings (Courses): Can view course settings"
 }
