@@ -65,7 +65,7 @@
     "field.endDate": "Fecha de finalización",
     "field.location": "Locación",
     "field.serviceDesk": "Mesa de servicio",
-    "field.itemBarcode": "Código de barras del ítem",
+    "field.itemBarcode": "Código de barras ítem",
     "field.contributor": "Colaborador",
     "field.permanentLocation": "Locación permanente",
     "field.callNumber": "Número de clasificación",
