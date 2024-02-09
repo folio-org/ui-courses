@@ -1,5 +1,5 @@
 {
-    "meta.title": "Kursy",
+    "meta.title": "Zajęcia",
     "settings.roles": "Role",
     "objectName.roles": "Role",
     "objectName.role": "Rola",
@@ -108,7 +108,7 @@
     "column.barcode": "Kod kreskowy",
     "column.permanentLocation": "Stała lokalizacja",
     "column.temporaryLocation": "Lokalizacja tymczasowa",
-    "filters.courses": "Kursy",
+    "filters.courses": "Zajęcia",
     "filters.reserves": "Rezerwacje",
     "button.editReserve": "Edytuj rezerwację",
     "headings.reserveCourses": "Kursy, dla których ten egzemplarz jest zarezerwowany",
@@ -132,7 +132,7 @@
     "button.removeReserve": "Usuń",
     "button.addItem": "Dodaj egzemplarz",
     "column.processingStatus": "Status procesu",
-    "settings.paneTitle": "Kursy",
+    "settings.paneTitle": "Zajęcia",
     "settings.objectLabel": "Wpisy",
     "options.noneRequired": "(Nie jest wymagane)",
     "noSource": "Nie ma jeszcze źródła...",
@@ -186,10 +186,10 @@
     "permission.add-edit-items": "Courses: Add and edit courses' reserved items",
     "permission.maintain-items": "Courses: Add, edit, and remove courses' reserved items",
     "permission.maintain-settings": "Settings (Courses): Can create, edit and delete course settings",
-    "permission.maintain-courses": "Courses: Read, add, edit, and delete courses",
+    "permission.maintain-courses": "Kursy: odczyt, dodawanie, edycja i usuwanie kursów",
     "course": "Course",
     "course.pluralized": "{count} {count, plural, one {course} other {courses}}",
     "actions": "Akcje",
-    "appMenu.keyboardShortcuts": "Keyboard shortcuts",
+    "appMenu.keyboardShortcuts": "Skróty klawiaturowe",
     "permission.view-settings": "Settings (Courses): Can view course settings"
 }
