@@ -59,7 +59,7 @@
     "field.registrarId": "Identyfikator rejestratora",
     "field.externalId": "Zewnętrzny identyfikator",
     "field.barcode": "Kod kreskowy",
-    "field.patronGroup": "Grupa czytelnika",
+    "field.patronGroup": "Grupa czytelników",
     "field.term": "Warunek",
     "field.startDate": "Data początkowa",
     "field.endDate": "Data końcowa",
