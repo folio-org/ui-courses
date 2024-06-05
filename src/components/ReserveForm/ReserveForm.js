@@ -24,7 +24,7 @@ import { handleKeyCommand } from '../../util/handleKeyCommand';
 class ReserveForm extends React.Component {
   static propTypes = {
     data: PropTypes.object,
-    handlers: PropTypes.PropTypes.shape({
+    handlers: PropTypes.shape({
       onClose: PropTypes.func.isRequired,
     }),
     handleSubmit: PropTypes.func.isRequired,
