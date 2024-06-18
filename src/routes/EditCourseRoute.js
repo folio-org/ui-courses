@@ -68,6 +68,7 @@ class EditCourseRoute extends React.Component {
       }).isRequired,
       courselisting: PropTypes.shape({
         PUT: PropTypes.func.isRequired,
+        DELETE: PropTypes.func.isRequired,
       }).isRequired,
     }).isRequired,
     stripes: PropTypes.shape({
@@ -110,9 +111,12 @@ class EditCourseRoute extends React.Component {
       .then(this.handleClose);
   }
 
-  handleDelete = () => {
+  handleDelete = (data) => {
+    const listing = data.courseListingObject;
     const { location } = this.props;
+
     this.props.mutator.course.DELETE({})
+      .then(() => this.props.mutator.courselisting.DELETE(listing))
       .then(this.props.history.push(`/cr/courses${location.search}`));
   }
 
