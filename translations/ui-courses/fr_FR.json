@@ -47,7 +47,7 @@
     "accordion.term.help": "Horaires pour ce cours",
     "accordion.organization": "Organisation",
     "accordion.organization.help": "Informations locales",
-    "accordion.reserves": "Publications/exemplaires",
+    "accordion.reserves": "{count} {count, plural, one {exemplaire} other {exemplaires}}",
     "accordion.reserves.help": "Articles réservés à ce cours",
     "accordion.developer": "Informations développeur",
     "accordion.developer.help": "(JSON dump of raw record)",
