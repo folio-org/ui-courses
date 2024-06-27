@@ -25,6 +25,9 @@ class EditCourseRoute extends React.Component {
         const rec = get(resources, 'course.records.0');
         return !rec ? null : `coursereserves/courselistings/${rec.courseListingId}`;
       },
+      DELETE: {
+        throwErrors: false,
+      },
     },
     allCoursesInListing: {
       type: 'okapi',
@@ -116,7 +119,19 @@ class EditCourseRoute extends React.Component {
     const { location } = this.props;
 
     this.props.mutator.course.DELETE({})
-      .then(() => this.props.mutator.courselisting.DELETE(listing))
+      .then(() => {
+        try {
+          // Clean up the courselisting to avoid leaving orphans
+          this.props.mutator.courselisting.DELETE(listing);
+        } catch (e) {
+          // Probably because the courselisting has other courses
+          // Nothing to be done here
+          //
+          // TODO I don't understand why this console.log and alert do not fire
+          console.log('delete courselisting failed:', e); // eslint-disable-line no-console
+          alert('delete courselisting failed:', e); // eslint-disable-line no-alert
+        }
+      })
       .then(this.props.history.push(`/cr/courses${location.search}`));
   }
 
