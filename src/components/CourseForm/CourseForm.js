@@ -114,7 +114,7 @@ class CourseForm extends React.Component {
                       buttonStyle="danger mega"
                       id="clickable-really-delete-course"
                       marginBottom0
-                      onClick={handleDelete}
+                      onClick={() => handleDelete(values)}
                     >
                       <FormattedMessage id="ui-courses.reallyDelete" />
                     </Button>
