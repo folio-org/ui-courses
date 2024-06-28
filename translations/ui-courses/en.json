@@ -188,7 +188,6 @@
     "permission.view-settings": "Settings (Courses): Can view course settings",
     "permission.maintain-settings": "Settings (Courses): Can create, edit and delete course settings",
     "lookUpUser": "Look up user",
-    "delete": "Delete",
     "reallyDelete": "Confirm deletion of course",
     "addFastAddItem.title": "Add Fast Add item",
     "addFastAddItem.tooltip": "Create a new Inventory record using 'Fast Add' and add it to this course as a reserve",
