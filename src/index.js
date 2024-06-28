@@ -107,7 +107,6 @@ class CoursesApp extends React.Component {
                   <NestedRoute path={`${path}/courses/create`} component={CreateCourseRoute} />
                   <NestedRoute path={`${path}/courses/:id`} exact component={CourseRoute} />
                   <NestedRoute path={`${path}/courses/:id/edit`} component={EditCourseRoute} />
-                  <NestedRoute path={`${path}/courses/:id/delete`} render={(props2) => <EditCourseRoute {...props2} deleteCourse />} />
                   <NestedRoute path={`${path}/courses/:id/crosslist/:clid`} component={CrosslistCourseRoute} />
                   <NestedRoute path={`${path}/courses/notes/new`} component={NoteCreateRoute} />
                   <NestedRoute path={`${path}/courses/notes/:id`} exact component={NoteViewRoute} />

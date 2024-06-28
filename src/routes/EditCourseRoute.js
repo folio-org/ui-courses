@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { injectIntl } from 'react-intl';
 import { cloneDeep, get } from 'lodash';
-import queryString from 'query-string';
 import { stripesConnect } from '@folio/stripes/core';
 import CourseForm from '../components/CourseForm';
 import NoPermissions from '../components/NoPermissions';
@@ -25,19 +24,6 @@ class EditCourseRoute extends React.Component {
         const rec = get(resources, 'course.records.0');
         return !rec ? null : `coursereserves/courselistings/${rec.courseListingId}`;
       },
-      DELETE: {
-        throwErrors: false,
-      },
-    },
-    allCoursesInListing: {
-      type: 'okapi',
-      path: 'coursereserves/courses',
-      params: (_q, _p, resources) => {
-        const rec = get(resources, 'course.records.0');
-        if (!rec) return {};
-        return { query: `courseListingId=="${rec.courseListingId}"` };
-      },
-      records: 'courses',
     },
     departments: manifest.departments,
     coursetypes: manifest.coursetypes,
@@ -47,7 +33,6 @@ class EditCourseRoute extends React.Component {
 
   static propTypes = {
     handlers: PropTypes.object,
-    deleteCourse: PropTypes.bool,
     history: PropTypes.shape({
       push: PropTypes.func.isRequired,
     }).isRequired,
@@ -62,16 +47,13 @@ class EditCourseRoute extends React.Component {
     resources: PropTypes.shape({
       course: PropTypes.object,
       departments: PropTypes.object,
-      allCoursesInListing: PropTypes.object,
     }).isRequired,
     mutator: PropTypes.shape({
       course: PropTypes.shape({
         PUT: PropTypes.func.isRequired,
-        DELETE: PropTypes.func.isRequired,
       }).isRequired,
       courselisting: PropTypes.shape({
         PUT: PropTypes.func.isRequired,
-        DELETE: PropTypes.func.isRequired,
       }).isRequired,
     }).isRequired,
     stripes: PropTypes.shape({
@@ -114,31 +96,8 @@ class EditCourseRoute extends React.Component {
       .then(this.handleClose);
   }
 
-  handleDelete = (data) => {
-    const listing = data.courseListingObject;
-    const { location } = this.props;
-
-    this.props.mutator.course.DELETE({})
-      .then(() => {
-        try {
-          // Clean up the courselisting to avoid leaving orphans
-          this.props.mutator.courselisting.DELETE(listing);
-        } catch (e) {
-          // Probably because the courselisting has other courses
-          // Nothing to be done here
-          //
-          // TODO I don't understand why this console.log and alert do not fire
-          console.log('delete courselisting failed:', e); // eslint-disable-line no-console
-          alert('delete courselisting failed:', e); // eslint-disable-line no-alert
-        }
-      })
-      .then(this.props.history.push(`/cr/courses${location.search}`));
-  }
-
   render() {
-    const { handlers, stripes, intl, location } = this.props;
-    const { allCoursesInListing } = this.props.resources;
-    const query = queryString.parse(location.search);
+    const { handlers, stripes, intl } = this.props;
 
     if (!stripes.hasPerm('course-reserves-storage.courses.item.put')) return <NoPermissions />;
 
@@ -159,10 +118,6 @@ class EditCourseRoute extends React.Component {
         initialValues={this.getInitialValues()}
         isLoading={fetchIsPending(this.props.resources)}
         onSubmit={this.handleSubmit}
-        deleteCourse={this.props.deleteCourse}
-        handleDelete={this.handleDelete}
-        nreserves={query.nreserves}
-        hasCrossListedCourses={allCoursesInListing.hasLoaded && allCoursesInListing.records.length > 1}
       />
     );
   }
