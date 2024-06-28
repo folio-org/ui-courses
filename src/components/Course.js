@@ -22,6 +22,7 @@ class Course extends React.Component {
   static propTypes = {
     data: PropTypes.shape({
       course: PropTypes.object,
+      reserves: PropTypes.array,
     }),
     isLoading: PropTypes.bool,
     handlers: PropTypes.shape({
@@ -40,7 +41,7 @@ class Course extends React.Component {
 
   accordionStatusRef = createRef();
 
-  renderActionMenu = ({ onToggle }) => (
+  renderActionMenu = ({ onToggle }, hasReserves) => (
     <>
       <Button
         buttonStyle="dropdownItem"
@@ -82,6 +83,7 @@ class Course extends React.Component {
         <Button
           buttonStyle="dropdownItem"
           id="clickable-delete-course"
+          disabled={hasReserves}
           onClick={() => {
             onToggle();
             this.props.handlers.onDelete();
@@ -153,7 +155,7 @@ class Course extends React.Component {
         scope={document.body}
       >
         <Pane
-          actionMenu={hasPerm ? this.renderActionMenu : undefined}
+          actionMenu={hasPerm ? (vars) => this.renderActionMenu(vars, data.reserves.length > 0) : undefined}
           appIcon={<AppIcon app="courses" />}
           centerContent
           defaultWidth="fill"
