@@ -34,7 +34,7 @@ class CourseRoute extends React.Component {
       initialValue: 0,
     },
     toggleVal: {
-      // We mutate this when we delete an reserve, to force a stripes-connect reload
+      // We mutate this when we delete a reserve, to force a stripes-connect reload
       initialValue: 0,
     },
     course: {
