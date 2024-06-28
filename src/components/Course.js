@@ -29,6 +29,7 @@ class Course extends React.Component {
       onCrosslist: PropTypes.func.isRequired,
       onDuplicate: PropTypes.func.isRequired,
       onEdit: PropTypes.func.isRequired,
+      onDelete: PropTypes.func.isRequired,
     }).isRequired,
     stripes: PropTypes.shape({
       hasPerm: PropTypes.func.isRequired,
@@ -75,6 +76,18 @@ class Course extends React.Component {
       >
         <Icon icon="duplicate">
           <FormattedMessage id="ui-courses.button.duplicate" />
+        </Icon>
+      </Button>
+      <Button
+        buttonStyle="dropdownItem"
+        id="clickable-delete-course"
+        onClick={() => {
+          onToggle();
+          this.props.handlers.onDelete();
+        }}
+      >
+        <Icon icon="trash">
+          <FormattedMessage id="ui-courses.button.delete" />
         </Icon>
       </Button>
     </>

@@ -5,6 +5,7 @@ import queryString from 'query-string';
 import { stripesConnect } from '@folio/stripes/core';
 import Course from '../components/Course';
 import DuplicateCourseModal from '../components/DuplicateCourseModal';
+import DeleteCourseModal from '../components/DeleteCourseModal';
 
 
 // There are two basic approaches to fetching the cross-listed courses
@@ -104,6 +105,7 @@ class CourseRoute extends React.Component {
 
   state = {
     showDuplicateCourseModal: false,
+    showDeleteCourseModal: false,
   }
 
   handleClose = () => {
@@ -148,6 +150,7 @@ class CourseRoute extends React.Component {
             onClose: this.handleClose,
             onCrosslist: this.handleCrosslist,
             onDuplicate: () => this.setState({ showDuplicateCourseModal: true }),
+            onDelete: () => this.setState({ showDeleteCourseModal: true }),
             onEdit: this.handleEdit,
           }}
           isLoading={get(resources, 'course.isPending', true)}
@@ -159,6 +162,12 @@ class CourseRoute extends React.Component {
           history={history}
           onClose={() => this.setState({ showDuplicateCourseModal: false })}
           open={this.state.showDuplicateCourseModal}
+        />
+        <DeleteCourseModal
+          data={data}
+          history={history}
+          onClose={() => this.setState({ showDeleteCourseModal: false })}
+          open={this.state.showDeleteCourseModal}
         />
       </>
     );
