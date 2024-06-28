@@ -13,7 +13,7 @@ import {
   expandAllSections,
   collapseAllSections,
 } from '@folio/stripes/components';
-import { withStripes, AppIcon, TitleManager } from '@folio/stripes/core';
+import { withStripes, AppIcon, TitleManager, IfPermission } from '@folio/stripes/core';
 import ViewCourse from './ViewCourse';
 import { handleKeyCommand } from '../util/handleKeyCommand';
 
@@ -78,18 +78,20 @@ class Course extends React.Component {
           <FormattedMessage id="ui-courses.button.duplicate" />
         </Icon>
       </Button>
-      <Button
-        buttonStyle="dropdownItem"
-        id="clickable-delete-course"
-        onClick={() => {
-          onToggle();
-          this.props.handlers.onDelete();
-        }}
-      >
-        <Icon icon="trash">
-          <FormattedMessage id="ui-courses.button.delete" />
-        </Icon>
-      </Button>
+      <IfPermission perm="course-reserves-storage.courses.item.delete">
+        <Button
+          buttonStyle="dropdownItem"
+          id="clickable-delete-course"
+          onClick={() => {
+            onToggle();
+            this.props.handlers.onDelete();
+          }}
+        >
+          <Icon icon="trash">
+            <FormattedMessage id="ui-courses.button.delete" />
+          </Icon>
+        </Button>
+      </IfPermission>
     </>
   )
 
