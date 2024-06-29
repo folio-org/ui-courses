@@ -13,7 +13,7 @@ import {
   expandAllSections,
   collapseAllSections,
 } from '@folio/stripes/components';
-import { withStripes, AppIcon, TitleManager } from '@folio/stripes/core';
+import { withStripes, AppIcon, TitleManager, IfPermission } from '@folio/stripes/core';
 import ViewCourse from './ViewCourse';
 import { handleKeyCommand } from '../util/handleKeyCommand';
 
@@ -22,6 +22,7 @@ class Course extends React.Component {
   static propTypes = {
     data: PropTypes.shape({
       course: PropTypes.object,
+      reserves: PropTypes.array,
     }),
     isLoading: PropTypes.bool,
     handlers: PropTypes.shape({
@@ -29,6 +30,7 @@ class Course extends React.Component {
       onCrosslist: PropTypes.func.isRequired,
       onDuplicate: PropTypes.func.isRequired,
       onEdit: PropTypes.func.isRequired,
+      onDelete: PropTypes.func.isRequired,
     }).isRequired,
     stripes: PropTypes.shape({
       hasPerm: PropTypes.func.isRequired,
@@ -39,7 +41,7 @@ class Course extends React.Component {
 
   accordionStatusRef = createRef();
 
-  renderActionMenu = ({ onToggle }) => (
+  renderActionMenu = ({ onToggle }, hasReserves) => (
     <>
       <Button
         buttonStyle="dropdownItem"
@@ -77,6 +79,21 @@ class Course extends React.Component {
           <FormattedMessage id="ui-courses.button.duplicate" />
         </Icon>
       </Button>
+      <IfPermission perm="course-reserves-storage.courses.item.delete">
+        <Button
+          buttonStyle="dropdownItem"
+          id="clickable-delete-course"
+          disabled={hasReserves}
+          onClick={() => {
+            onToggle();
+            this.props.handlers.onDelete();
+          }}
+        >
+          <Icon icon="trash">
+            <FormattedMessage id="ui-courses.button.delete" />
+          </Icon>
+        </Button>
+      </IfPermission>
     </>
   )
 
@@ -138,7 +155,7 @@ class Course extends React.Component {
         scope={document.body}
       >
         <Pane
-          actionMenu={hasPerm ? this.renderActionMenu : undefined}
+          actionMenu={hasPerm ? (vars) => this.renderActionMenu(vars, data.reserves.length > 0) : undefined}
           appIcon={<AppIcon app="courses" />}
           centerContent
           defaultWidth="fill"

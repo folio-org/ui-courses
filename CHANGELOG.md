@@ -2,7 +2,8 @@
 
 ## [6.1.0] IN PROGRESS
 
-* When deleting a course, try to also delete its underlying courselisting. This ensures orphan courselistings are not created. Fixes UICR-206.
+* Use standard FOLIO UX for Delete Course (in action menu). Fixes UICR-201.
+* When deleting a course that has no cross-listed courses, also delete its underlying courselisting. This ensures orphan courselistings are not created. Fixes UICR-206.
 
 ## [6.0.3](https://github.com/folio-org/ui-courses/tree/v6.0.3) (2023-10-20)
 
