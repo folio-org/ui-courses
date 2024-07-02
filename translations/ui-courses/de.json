@@ -164,7 +164,6 @@
     "addItem.failure": "Exemplar {barcode} konnte nicht hinzugefügt werden: {message}",
     "instructor.pluralized": "{count} {count, plural, one {Referent} other {Referenten}}",
     "removeInstructor.failure": "Referent/-in entfernen ist fehlgeschlagen: {message}",
-    "delete": "Löschen",
     "reallyDelete": "Wirklich löschen?",
     "addItem.existing": "Vorhandene Exemplare als Reservierung hinzufügen",
     "addItem.new": "Neuer Exemplardatensatz erstellen und als Reservierung hinzufügen",
@@ -191,5 +190,7 @@
     "course.pluralized": "{count} {count, plural, one {Kurs} other {Kurse}}",
     "actions": "Aktionen",
     "appMenu.keyboardShortcuts": "Tastenkürzel",
-    "permission.view-settings": "Einstellungen (Semesterapparate): Kann Semesterapparate-Einstellungen anzeigen"
+    "permission.view-settings": "Einstellungen (Semesterapparate): Kann Semesterapparate-Einstellungen anzeigen",
+    "button.cancel": "Cancel",
+    "button.delete": "Delete"
 }

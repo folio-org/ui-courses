@@ -164,8 +164,7 @@
     "addItem.failure": "Falha ao adicionar o item {barcode}: {message}",
     "instructor.pluralized": "{count} {count, plural, one {instrutor} other {instrutores}}",
     "removeInstructor.failure": "Falha ao remover o instrutor: {message}",
-    "delete": "Excluir",
-    "reallyDelete": "Realmente excluir?",
+    "reallyDelete": "Confirmar a exclusão do curso?",
     "addItem.existing": "Adicionar item na App de Inventário existente como uma reserva",
     "addItem.new": "Crie um novo item no registro de Inventário e adicione-o como reserva",
     "addFastAddItem.title": "Adicionar item Adicionar rápido",
@@ -191,5 +190,7 @@
     "course.pluralized": "{count} {count, plural, one {curso} other {cursos}}",
     "actions": "Ações",
     "appMenu.keyboardShortcuts": "Atalhos do teclado",
-    "permission.view-settings": "Configurações (Cursos): Pode visualizar as configurações do curso"
+    "permission.view-settings": "Configurações (Cursos): Pode visualizar as configurações do curso",
+    "button.cancel": "Cancelar",
+    "button.delete": "Excluir"
 }

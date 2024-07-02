@@ -59,7 +59,7 @@
     "field.registrarId": "ID",
     "field.externalId": "ID externe",
     "field.barcode": "Code-barres",
-    "field.patronGroup": "Groupe / Catégorie d'utilisateurs",
+    "field.patronGroup": "Groupe usagers",
     "field.term": "Terme / période",
     "field.startDate": "Date de début",
     "field.endDate": "Date de fin",
@@ -164,7 +164,6 @@
     "addItem.failure": "Échec de l'ajout de l'exemplaire {barcode} : {message}",
     "instructor.pluralized": "{count} {count, plural, one { enseignant } other { enseignants }}",
     "removeInstructor.failure": "Échec de la suppression de l'enseignant: {message}",
-    "delete": "Supprimer",
     "reallyDelete": "Vraiment supprimer?",
     "addItem.existing": "Add existing Inventory item as a reserve",
     "addItem.new": "Create new Inventory item and add it as a reserve",
@@ -191,5 +190,7 @@
     "course.pluralized": "{count} {count, plural, one { cours } other { cours }}",
     "actions": "Actions",
     "appMenu.keyboardShortcuts": "Raccourcis clavier",
-    "permission.view-settings": "Settings (Courses): Can view course settings"
+    "permission.view-settings": "Settings (Courses): Can view course settings",
+    "button.cancel": "Cancel",
+    "button.delete": "Delete"
 }

@@ -164,8 +164,7 @@
     "addItem.failure": "无法添加单件{barcode} ： {message}",
     "instructor.pluralized": "{count} {count, plural, one {教师} other {教师}}",
     "removeInstructor.failure": "移除教师失败： {message}",
-    "delete": "删除",
-    "reallyDelete": "真的删除？",
+    "reallyDelete": "确认删除课程",
     "addItem.existing": "将现有典藏单件添加为教参",
     "addItem.new": "创建新的典藏单件并将其添加为教参",
     "addFastAddItem.title": "添加快速添加单件",
@@ -191,5 +190,7 @@
     "course.pluralized": "{count} {count, plural, one {课程} other {课程}}",
     "actions": "操作",
     "appMenu.keyboardShortcuts": "键盘快捷键",
-    "permission.view-settings": "设置（课程）：可以查看课程设置"
+    "permission.view-settings": "设置（课程）：可以查看课程设置",
+    "button.cancel": "取消",
+    "button.delete": "删除"
 }
