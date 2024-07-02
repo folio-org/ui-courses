@@ -164,8 +164,7 @@
     "addItem.failure": "Nepodařílo se přidat jednotku {barcode}: {message}",
     "instructor.pluralized": "{count} {count, plural, one {instruktor} other {instruktoři}}",
     "removeInstructor.failure": "Odebrání instruktora se nezdařilo: {message}",
-    "delete": "Smazat",
-    "reallyDelete": "Opravdu smazat?",
+    "reallyDelete": "Potvrzení smazání setu kurzu",
     "addItem.existing": "Přidat existující jednotku katalogu jako rezervu",
     "addItem.new": "Vytvořit novou jednotku katalogu a přidat ji jako rezervu",
     "addFastAddItem.title": "Přidat jednotku rychle",
@@ -191,5 +190,7 @@
     "course.pluralized": "{count} {count, plural, one {kurz} other {kurzy}}",
     "actions": "Akce",
     "appMenu.keyboardShortcuts": "Klávesové zkratky",
-    "permission.view-settings": "Nastavení (Kurzy): Může zobrazit nastavení kurzu"
+    "permission.view-settings": "Nastavení (Kurzy): Může zobrazit nastavení kurzu",
+    "button.cancel": "Zrušit",
+    "button.delete": "Smazat"
 }

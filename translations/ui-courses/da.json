@@ -164,8 +164,7 @@
     "addItem.failure": "Eksemplar {barcode}: {message} kunne ikke tilføjes.",
     "instructor.pluralized": "{count} {count, plural, one {instructor} other {instructors}}",
     "removeInstructor.failure": "Remove instructor failed: {message}",
-    "delete": "Delete",
-    "reallyDelete": "Really delete?",
+    "reallyDelete": "Confirm deletion of course",
     "addItem.existing": "Tilføj eksisterende eksemplarer fra Katalogen som reserveret eksemplar",
     "addItem.new": "Opret nyt eksemplar i Katalogen, og tilføj den som reserveret",
     "addFastAddItem.title": "Tilføj kvik beskrivelse af eksemplar",
@@ -191,5 +190,7 @@
     "course.pluralized": "{count} {count, plural, one {course} other {courses}}",
     "actions": "Actions",
     "appMenu.keyboardShortcuts": "Keyboard shortcuts",
-    "permission.view-settings": "Settings (Courses): Can view course settings"
+    "permission.view-settings": "Settings (Courses): Can view course settings",
+    "button.cancel": "Cancel",
+    "button.delete": "Delete"
 }

@@ -164,8 +164,7 @@
     "addItem.failure": "Impossibile aggiungere l'elemento {barcode} : {message}",
     "instructor.pluralized": "{count} {count, plural, one {instructor} other {instructors}}",
     "removeInstructor.failure": "Remove instructor failed: {message}",
-    "delete": "Elimina",
-    "reallyDelete": "Really delete?",
+    "reallyDelete": "Confirm deletion of course",
     "addItem.existing": "Add existing Inventory item as a reserve",
     "addItem.new": "Create new Inventory item and add it as a reserve",
     "addFastAddItem.title": "Add Fast Add item",
@@ -191,5 +190,7 @@
     "course.pluralized": "{count} {count, plural, one {course} other {courses}}",
     "actions": "Azioni",
     "appMenu.keyboardShortcuts": "Scorciatoie da tastiera",
-    "permission.view-settings": "Settings (Courses): Can view course settings"
+    "permission.view-settings": "Settings (Courses): Can view course settings",
+    "button.cancel": "Cancel",
+    "button.delete": "Delete"
 }

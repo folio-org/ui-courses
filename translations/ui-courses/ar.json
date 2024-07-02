@@ -164,7 +164,6 @@
     "addItem.failure": "فشل إضافة المادة {barcode}: {message}",
     "instructor.pluralized": "{count} {count, plural, one {محاضراً} other {محاضراً}}",
     "removeInstructor.failure": "فشلت إزالة المحاضر: {message}",
-    "delete": "حذف",
     "reallyDelete": "تأكيد الحذف؟",
     "addItem.existing": "إضافة مادة المخزون الحالية كحجز",
     "addItem.new": "إنشاء مادة مخزون جديدة وإضافتها كحجز",
@@ -191,5 +190,7 @@
     "course.pluralized": "{count} {count, plural, one {مقرر} other {مقرراً}}",
     "actions": "الإجراءات",
     "appMenu.keyboardShortcuts": "اختصارات لوحة المفاتيح",
-    "permission.view-settings": "Settings (Courses): Can view course settings"
+    "permission.view-settings": "Settings (Courses): Can view course settings",
+    "button.cancel": "Cancel",
+    "button.delete": "Delete"
 }
