@@ -7,6 +7,7 @@
 * With orphan courselistings no longer remaining, it is now always possible to delete terms. Fixes UICR-203.
 * Provide local translations to ControlledVocab. Refs UICR-163.
 * Courses app: Replace collapse pane icons. Refs UICR-174.
+* App Context menu | Add new option | Courses app search. Refs UICR-166.
 
 ## [6.0.3](https://github.com/folio-org/ui-courses/tree/v6.0.3) (2023-10-20)
 

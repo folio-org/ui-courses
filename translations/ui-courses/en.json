@@ -88,6 +88,7 @@
     "accordion.courseFormListing.help": " ",
     "accordion.courseFormInstructors": "Course instructors",
     "accordion.courseFormInstructors.help": " ",
+    "appMenu.coursesAppSearch": "Courses app search",
     "appMenu.keyboardShortcuts": "Keyboard shortcuts",
     "field.name": "Course name",
     "field.description": "Course description",
