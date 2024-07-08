@@ -305,7 +305,7 @@ class Courses extends React.Component {
           (sasqParams) => {
             const { onSort, activeFilters } = sasqParams;
             return (
-              <Paneset isRoot>
+              <Paneset id="courses-paneset">
                 {this.state.filterPaneIsVisible && (
                   <CoursesSearchPane
                     {...sasqParams}
@@ -330,7 +330,6 @@ class Courses extends React.Component {
                       paneTitle={<FormattedMessage id="ui-courses.filters.courses" />}
                       paneTitleRef={this.resultsPaneTitleRef}
                       paneSub={this.renderResultsPaneSubtitle(source)}
-                      defaultWidth="100%"
                     >
                       <MultiColumnList
                         id="list-courses"
