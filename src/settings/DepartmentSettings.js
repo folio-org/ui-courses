@@ -29,7 +29,15 @@ class DepartmentSettings extends React.Component {
         baseUrl="coursereserves/departments"
         records="departments"
         label={intl.formatMessage({ id: 'ui-courses.objectName.departments' })}
-        labelSingular={intl.formatMessage({ id: 'ui-courses.objectName.department' })}
+        translations={
+          {
+            cannotDeleteTermHeader: 'ui-courses.cv.cannotDeleteTermHeader',
+            cannotDeleteTermMessage: 'ui-courses.cv.cannotDeleteTermMessage',
+            deleteEntry: 'ui-courses.cv.deleteEntry',
+            termDeleted: 'ui-courses.cv.termDeleted',
+            termWillBeDeleted: 'ui-courses.cv.termWillBeDeleted',
+          }
+        }
         objectLabel={intl.formatMessage({ id: 'ui-courses.settings.objectLabel' })}
         visibleFields={['name', 'description']}
         columnMapping={{

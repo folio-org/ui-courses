@@ -4,7 +4,8 @@ import { injectIntl, FormattedMessage } from 'react-intl';
 import { withRouter } from 'react-router';
 import get from 'lodash/get';
 import { stripesConnect } from '@folio/stripes/core'; // just for resources.query
-import { Button, Icon, Pane, SearchField } from '@folio/stripes/components';
+import { Button, Icon, Pane, SearchField, PaneMenu } from '@folio/stripes/components';
+import { CollapseFilterPaneButton } from '@folio/stripes/smart-components';
 import renderFilter from '../util/renderFilter';
 import filterString2state from '../util/filterString2state';
 import css from './Courses.css';
@@ -93,10 +94,17 @@ class CoursesSearchPane extends React.Component {
     const filters = get(resources.query, 'filters');
     const activeFilters = filterString2state(filters);
 
+    const lastMenu = (
+      <PaneMenu>
+        <CollapseFilterPaneButton onClick={toggleFilterPane} />
+      </PaneMenu>
+    );
+
     return (
       <Pane
         defaultWidth="28%"
-        onClose={toggleFilterPane}
+        lastMenu={
+          lastMenu}
         paneTitle={<FormattedMessage id="stripes-smart-components.searchAndFilter" />}
       >
         <form onSubmit={onSubmitSearch}>
