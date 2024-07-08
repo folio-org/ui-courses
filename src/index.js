@@ -90,7 +90,7 @@ class CoursesApp extends React.Component {
                 <NavList>
                   <NavListSection>
                     <NavListItem
-                      id="keyboard-shortcuts-item"
+                      id="courses-app-search-item"
                       onClick={() => {
                         this.props.history.push('/cr/courses');
                       }}
