@@ -28,7 +28,7 @@ import {
 import {
   SearchAndSortQuery,
   SearchAndSortNoResultsMessage,
-  SearchAndSortSearchButton as FilterPaneToggle,
+  ExpandFilterPaneButton as FilterPaneToggle,
   ColumnManager,
 } from '@folio/stripes/smart-components';
 
@@ -155,26 +155,17 @@ class Courses extends React.Component {
   renderResultsFirstMenu = (filters) => {
     const { filterPaneIsVisible } = this.state;
     const filterCount = filters.string !== '' ? filters.string.split(',').length : 0;
-    const hideOrShowMessageId = filterPaneIsVisible ?
-      'stripes-smart-components.hideSearchPane' : 'stripes-smart-components.showSearchPane';
 
     return (
-      <PaneMenu>
-        <FormattedMessage id="stripes-smart-components.numberOfFilters" values={{ count: filterCount }}>
-          {appliedFiltersMessage => (
-            <FormattedMessage id={hideOrShowMessageId}>
-              {hideOrShowMessage => (
-                <FilterPaneToggle
-                  visible={filterPaneIsVisible}
-                  aria-label={`${hideOrShowMessage}...s${appliedFiltersMessage}`}
-                  onClick={this.toggleFilterPane}
-                  badge={!filterPaneIsVisible && filterCount ? filterCount : undefined}
-                />
-              )}
-            </FormattedMessage>
-          )}
-        </FormattedMessage>
-      </PaneMenu>
+      filterPaneIsVisible ?
+        null
+        :
+        <PaneMenu>
+          <FilterPaneToggle
+            filterCount={filterCount}
+            onClick={this.toggleFilterPane}
+          />
+        </PaneMenu>
     );
   }
 
@@ -333,7 +324,6 @@ class Courses extends React.Component {
                   {({ renderColumnsMenu, visibleColumns }) => (
                     <Pane
                       appIcon={<AppIcon app="courses" />}
-                      defaultWidth="fill"
                       firstMenu={this.renderResultsFirstMenu(activeFilters)}
                       actionMenu={this.getActionMenu(renderColumnsMenu)}
                       padContent={false}
@@ -356,7 +346,6 @@ class Courses extends React.Component {
                         sortDirection={sortOrder.startsWith('-') ? 'descending' : 'ascending'}
                         sortOrder={sortOrder.replace(/^-/, '').replace(/,.*/, '')}
                         totalCount={count}
-                        autosize
                         virtualize
                       />
                     </Pane>
@@ -364,7 +353,6 @@ class Courses extends React.Component {
                 </ColumnManager>
 
                 { children }
-
               </Paneset>
             );
           }
