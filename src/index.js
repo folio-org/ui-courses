@@ -36,7 +36,7 @@ class CoursesApp extends React.Component {
     }).isRequired,
     actAs: PropTypes.string.isRequired,
     history: PropTypes.shape({
-      push: PropTypes.func.isRequired,
+      replace: PropTypes.func.isRequired,
     }).isRequired,
   };
 
@@ -92,7 +92,7 @@ class CoursesApp extends React.Component {
                     <NavListItem
                       id="courses-app-search-item"
                       onClick={() => {
-                        this.props.history.push('/cr/courses');
+                        this.props.history.replace('/cr');
                       }}
                     >
                       <FormattedMessage id="ui-courses.appMenu.coursesAppSearch" />
