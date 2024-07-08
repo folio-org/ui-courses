@@ -35,6 +35,9 @@ class CoursesApp extends React.Component {
       path: PropTypes.string.isRequired,
     }).isRequired,
     actAs: PropTypes.string.isRequired,
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired,
+    }).isRequired,
   };
 
   state = {
@@ -86,6 +89,14 @@ class CoursesApp extends React.Component {
               {(handleToggle) => (
                 <NavList>
                   <NavListSection>
+                    <NavListItem
+                      id="keyboard-shortcuts-item"
+                      onClick={() => {
+                        this.props.history.push('/cr/courses');
+                      }}
+                    >
+                      <FormattedMessage id="ui-courses.appMenu.coursesAppSearch" />
+                    </NavListItem>
                     <NavListItem
                       id="keyboard-shortcuts-item"
                       onClick={() => {
