@@ -52,11 +52,11 @@ class TermSettings extends React.Component {
         label={intl.formatMessage({ id: 'ui-courses.objectName.terms' })}
         translations={
           {
-            cannotDeleteTermHeader: "ui-courses.cv.patronGroup.cannotDeleteTermHeader",
-            cannotDeleteTermMessage: "ui-courses.cv.patronGroup.cannotDeleteTermMessage",
-            deleteEntry: "ui-courses.cv.patronGroup.deleteEntry",
-            termDeleted: "ui-courses.cv.patronGroup.termDeleted",
-            termWillBeDeleted: "ui-courses.cv.patronGroup.termWillBeDeleted",
+            cannotDeleteTermHeader: 'ui-courses.cv.cannotDeleteTermHeader',
+            cannotDeleteTermMessage: 'ui-courses.cv.cannotDeleteTermMessage',
+            deleteEntry: 'ui-courses.cv.deleteEntry',
+            termDeleted: 'ui-courses.cv.termDeleted',
+            termWillBeDeleted: 'ui-courses.cv.termWillBeDeleted',
           }
         }
         objectLabel={intl.formatMessage({ id: 'ui-courses.settings.objectLabel' })}
