@@ -28,8 +28,14 @@ class RoleSettings extends React.Component {
         baseUrl="coursereserves/roles"
         records="roles"
         label={intl.formatMessage({ id: 'ui-courses.objectName.roles' })}
-        labelSingular={intl.formatMessage({ id: 'ui-courses.objectName.role' })}
         objectLabel={intl.formatMessage({ id: 'ui-courses.settings.objectLabel' })}
+        translations={{
+          cannotDeleteTermHeader: "ui-courses.cv.patronGroup.cannotDeleteTermHeader",
+          cannotDeleteTermMessage: "ui-courses.cv.patronGroup.cannotDeleteTermMessage",
+          deleteEntry: "ui-courses.cv.patronGroup.deleteEntry",
+          termDeleted: "ui-courses.cv.patronGroup.termDeleted",
+          termWillBeDeleted: "ui-courses.cv.patronGroup.termWillBeDeleted",
+        }}
         visibleFields={['name', 'description']}
         columnMapping={{
           name: intl.formatMessage({ id: 'ui-courses.headings.name' }),

@@ -192,5 +192,10 @@
     "addFastAddItem.title": "Add Fast Add item",
     "addFastAddItem.tooltip": "Create a new Inventory record using 'Fast Add' and add it to this course as a reserve",
     "errors.mustBeInteger": "This value must be an integer",
-    "SENTINEL": "SENTINEL"
+    "SENTINEL": "SENTINEL",
+    "cv.patronGroup.cannotDeleteTermHeader": "Cannot delete the patron group",
+    "cv.patronGroup.cannotDeleteTermMessage": "This patron group cannot be deleted, as it is in use by one or more records.",
+    "cv.patronGroup.deleteEntry": "Delete patron group",
+    "cv.patronGroup.termDeleted": "The patron group <b>{term}</b> was successfully <b>deleted</b>",
+    "cv.patronGroup.termWillBeDeleted": "The patron group <b>{term}</b> will be <b>deleted.</b>"
 }

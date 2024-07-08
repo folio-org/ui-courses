@@ -29,7 +29,15 @@ class CourseTypeSettings extends React.Component {
         baseUrl="coursereserves/coursetypes"
         records="courseTypes"
         label={intl.formatMessage({ id: 'ui-courses.objectName.coursetypes' })}
-        labelSingular={intl.formatMessage({ id: 'ui-courses.objectName.coursetypes' })}
+        translations={
+          {
+            cannotDeleteTermHeader: "ui-courses.cv.patronGroup.cannotDeleteTermHeader",
+            cannotDeleteTermMessage: "ui-courses.cv.patronGroup.cannotDeleteTermMessage",
+            deleteEntry: "ui-courses.cv.patronGroup.deleteEntry",
+            termDeleted: "ui-courses.cv.patronGroup.termDeleted",
+            termWillBeDeleted: "ui-courses.cv.patronGroup.termWillBeDeleted",
+          }
+        }
         objectLabel={intl.formatMessage({ id: 'ui-courses.settings.objectLabel' })}
         visibleFields={['name', 'description']}
         columnMapping={{

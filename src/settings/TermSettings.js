@@ -50,7 +50,15 @@ class TermSettings extends React.Component {
         baseUrl="coursereserves/terms"
         records="terms"
         label={intl.formatMessage({ id: 'ui-courses.objectName.terms' })}
-        labelSingular={intl.formatMessage({ id: 'ui-courses.objectName.term' })}
+        translations={
+          {
+            cannotDeleteTermHeader: "ui-courses.cv.patronGroup.cannotDeleteTermHeader",
+            cannotDeleteTermMessage: "ui-courses.cv.patronGroup.cannotDeleteTermMessage",
+            deleteEntry: "ui-courses.cv.patronGroup.deleteEntry",
+            termDeleted: "ui-courses.cv.patronGroup.termDeleted",
+            termWillBeDeleted: "ui-courses.cv.patronGroup.termWillBeDeleted",
+          }
+        }
         objectLabel={intl.formatMessage({ id: 'ui-courses.settings.objectLabel' })}
         visibleFields={['name', 'startDate', 'endDate']}
         fieldComponents={fieldComponents}
