@@ -192,5 +192,11 @@
     "appMenu.keyboardShortcuts": "键盘快捷键",
     "permission.view-settings": "设置（课程）：可以查看课程设置",
     "button.cancel": "取消",
-    "button.delete": "删除"
+    "button.delete": "删除",
+    "cv.cannotDeleteTermHeader": "Cannot delete the patron group",
+    "cv.cannotDeleteTermMessage": "This patron group cannot be deleted, as it is in use by one or more records.",
+    "cv.deleteEntry": "Delete patron group",
+    "cv.termDeleted": "The patron group <b>{term}</b> was successfully <b>deleted</b>",
+    "cv.termWillBeDeleted": "The patron group <b>{term}</b> will be <b>deleted.</b>",
+    "appMenu.coursesAppSearch": "Courses app search"
 }

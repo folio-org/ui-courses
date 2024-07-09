@@ -192,5 +192,11 @@
     "appMenu.keyboardShortcuts": "Atalhos do teclado",
     "permission.view-settings": "Configurações (Cursos): Pode visualizar as configurações do curso",
     "button.cancel": "Cancelar",
-    "button.delete": "Excluir"
+    "button.delete": "Excluir",
+    "cv.cannotDeleteTermHeader": "Não é possível excluir o grupo de usuários",
+    "cv.cannotDeleteTermMessage": "Este grupo de usuários não pode ser excluído, pois está em uso por um ou mais registros.",
+    "cv.deleteEntry": "Excluir grupo de usuários",
+    "cv.termDeleted": "O grupo de usuários <b>{term}</b> foi <b>excluído</b> com sucesso",
+    "cv.termWillBeDeleted": "O grupo de usuários <b>{term}</b> será <b>excluído.</b>",
+    "appMenu.coursesAppSearch": "Busca no aplicativos de cursos"
 }
