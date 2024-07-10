@@ -92,6 +92,7 @@ class CoursesApp extends React.Component {
                     <NavListItem
                       id="courses-app-search-item"
                       onClick={() => {
+                        handleToggle();
                         this.props.history.push('/cr');
                       }}
                     >
