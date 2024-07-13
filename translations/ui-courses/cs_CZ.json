@@ -193,10 +193,10 @@
     "permission.view-settings": "Nastavení (Kurzy): Může zobrazit nastavení kurzu",
     "button.cancel": "Zrušit",
     "button.delete": "Smazat",
-    "cv.cannotDeleteTermHeader": "Cannot delete the patron group",
-    "cv.cannotDeleteTermMessage": "This patron group cannot be deleted, as it is in use by one or more records.",
-    "cv.deleteEntry": "Delete patron group",
-    "cv.termDeleted": "The patron group <b>{term}</b> was successfully <b>deleted</b>",
-    "cv.termWillBeDeleted": "The patron group <b>{term}</b> will be <b>deleted.</b>",
+    "cv.cannotDeleteTermHeader": "Nelze smazat skupinu čtenářů",
+    "cv.cannotDeleteTermMessage": "Tuto skupinu čtenářů nelze smazat, protože je používána jedním nebo více záznamy.",
+    "cv.deleteEntry": "Smazat skupinu čtenářů",
+    "cv.termDeleted": "Skupina čtenářů <b>{term}</b> byla úspěšně <b>smazána</b>",
+    "cv.termWillBeDeleted": "Skupina čtenářů <b>{term}</b> bude <b>smazána.</b>",
     "appMenu.coursesAppSearch": "Courses app search"
 }

@@ -192,7 +192,7 @@
     "appMenu.keyboardShortcuts": "Skróty klawiaturowe",
     "permission.view-settings": "Settings (Courses): Can view course settings",
     "button.cancel": "Cancel",
-    "button.delete": "Delete",
+    "button.delete": "Usuń",
     "cv.cannotDeleteTermHeader": "Cannot delete the patron group",
     "cv.cannotDeleteTermMessage": "This patron group cannot be deleted, as it is in use by one or more records.",
     "cv.deleteEntry": "Delete patron group",

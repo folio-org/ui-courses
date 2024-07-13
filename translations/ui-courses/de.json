@@ -191,12 +191,12 @@
     "actions": "Aktionen",
     "appMenu.keyboardShortcuts": "Tastenkürzel",
     "permission.view-settings": "Einstellungen (Semesterapparate): Kann Semesterapparate-Einstellungen anzeigen",
-    "button.cancel": "Cancel",
-    "button.delete": "Delete",
-    "cv.cannotDeleteTermHeader": "Cannot delete the patron group",
-    "cv.cannotDeleteTermMessage": "This patron group cannot be deleted, as it is in use by one or more records.",
-    "cv.deleteEntry": "Delete patron group",
-    "cv.termDeleted": "The patron group <b>{term}</b> was successfully <b>deleted</b>",
-    "cv.termWillBeDeleted": "The patron group <b>{term}</b> will be <b>deleted.</b>",
-    "appMenu.coursesAppSearch": "Courses app search"
+    "button.cancel": "Abbrechen",
+    "button.delete": "Löschen",
+    "cv.cannotDeleteTermHeader": "Personengruppe kann nicht gelöscht werden",
+    "cv.cannotDeleteTermMessage": "Diese Personengruppe kann nicht gelöscht werden, da diese von einem oder mehreren Datensätzen verwendet wird.",
+    "cv.deleteEntry": "Personengruppe löschen",
+    "cv.termDeleted": "Personengruppe <b>{term}</b> wurde erfolgreich <b>gelöscht</b>",
+    "cv.termWillBeDeleted": "Personengruppe <b>{term}</b> wird <b>gelöscht</b>",
+    "appMenu.coursesAppSearch": "Suche in Semesterapparate-App"
 }
