@@ -21,7 +21,7 @@ import {
 import {
   SearchAndSortQuery,
   SearchAndSortNoResultsMessage,
-  SearchAndSortSearchButton as FilterPaneToggle,
+  ExpandFilterPaneButton as FilterPaneToggle,
   ColumnManager,
 } from '@folio/stripes/smart-components';
 
@@ -128,30 +128,17 @@ class Reserves extends React.Component {
   renderResultsFirstMenu = (filters) => {
     const { filterPaneIsVisible } = this.state;
     const filterCount = filters.string !== '' ? filters.string.split(',').length : 0;
-    const hideOrShowMessageId = filterPaneIsVisible
-      ? 'stripes-smart-components.hideSearchPane'
-      : 'stripes-smart-components.showSearchPane';
 
     return (
-      <PaneMenu>
-        <FormattedMessage
-          id="stripes-smart-components.numberOfFilters"
-          values={{ count: filterCount }}
-        >
-          {appliedFiltersMessage => (
-            <FormattedMessage id={hideOrShowMessageId}>
-              {hideOrShowMessage => (
-                <FilterPaneToggle
-                  visible={filterPaneIsVisible}
-                  aria-label={`${hideOrShowMessage}...s${appliedFiltersMessage}`}
-                  onClick={this.toggleFilterPane}
-                  badge={!filterPaneIsVisible && filterCount ? filterCount : undefined}
-                />
-              )}
-            </FormattedMessage>
-          )}
-        </FormattedMessage>
-      </PaneMenu>
+      filterPaneIsVisible ?
+        null
+        :
+        <PaneMenu>
+          <FilterPaneToggle
+            filterCount={filterCount}
+            onClick={this.toggleFilterPane}
+          />
+        </PaneMenu>
     );
   }
 
