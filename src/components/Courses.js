@@ -23,6 +23,8 @@ import {
   MultiColumnList,
   NoValue,
   MenuSection,
+  TextLink,
+  DefaultMCLRowFormatter,
 } from '@folio/stripes/components';
 
 import {
@@ -115,8 +117,19 @@ class Courses extends React.Component {
     onSubmitSearch(e);
   }
 
-  onRowClick = (e, row) => {
-    this.props.history.push(`/cr/courses/${row.id}${this.props.location.search}`);
+  getRowURL(id) {
+    const {
+      match: { path },
+      location: { search },
+    } = this.props;
+
+    return `${path}/${id}${search}`;
+  }
+
+  setURL(id) {
+    this.setState({
+      selectedId: id
+    });
   }
 
   getColumnMapping = () => {
@@ -260,6 +273,7 @@ class Courses extends React.Component {
     };
 
     const resultsFormatter = {
+      name: r => <TextLink to={this.getRowURL(r.id)} onClick={() => this.setURL(r.id)}>{r.name}</TextLink>,
       registrarId: r => get(r, 'courseListingObject.registrarId'),
       department: r => get(r, 'departmentObject.name'),
       startDate: r => <FormattedDate value={get(r, 'courseListingObject.termObject.startDate')} />,
@@ -336,13 +350,14 @@ class Courses extends React.Component {
                         visibleColumns={visibleColumns}
                         columnWidths={columnWidths}
                         columnMapping={columnMapping}
+                        resultsRowClickHandlers={false}
                         formatter={resultsFormatter}
+                        resultsRowFormatter={DefaultMCLRowFormatter}
                         contentData={data.courses}
                         isEmptyMessage={this.renderIsEmptyMessage(query, source)}
                         nonInteractiveHeaders={nonInteractiveHeaders}
                         onHeaderClick={onSort}
                         onNeedMoreData={onNeedMoreData}
-                        onRowClick={this.onRowClick}
                         sortDirection={sortOrder.startsWith('-') ? 'descending' : 'ascending'}
                         sortOrder={sortOrder.replace(/^-/, '').replace(/,.*/, '')}
                         totalCount={count}

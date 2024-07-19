@@ -16,6 +16,8 @@ import {
   Pane,
   PaneMenu,
   MultiColumnList,
+  TextLink,
+  DefaultMCLRowFormatter,
 } from '@folio/stripes/components';
 
 import {
@@ -94,6 +96,21 @@ class Reserves extends React.Component {
 
   onRowClick = (e, row) => {
     this.props.history.push(`/cr/reserves/${row.courseListingId}/0/${row.id}/${row.itemId}/edit${this.props.location.search}`);
+  }
+
+  getRowURL(row) {
+    const {
+      match: { path },
+      location: { search },
+    } = this.props;
+
+    return `${path}/${row.courseListingId}/0/${row.id}/${row.itemId}/edit${search}`;
+  }
+
+  setURL(id) {
+    this.setState({
+      selectedId: id
+    });
   }
 
   getColumnMapping = () => {
@@ -195,7 +212,7 @@ class Reserves extends React.Component {
     };
 
     const resultsFormatter = {
-      title: r => get(r, 'copiedItem.title'),
+      title: r => <TextLink to={stripes.hasPerm('course-reserves-storage.reserves.item.put') ? this.getRowURL(r) : undefined} onClick={() => stripes.hasPerm('course-reserves-storage.reserves.item.put') ? this.setURL(r.id) : undefined}>{get(r, 'copiedItem.title')}</TextLink>,
       barcode: r => get(r, 'copiedItem.barcode'),
       status: r => get(r, 'processingStatusObject.name') || r.processingStatusId,
       permanentLocation: r => get(r, 'copiedItem.permanentLocationObject.name') || r.copiedItem.permanentLocationId,
@@ -243,6 +260,7 @@ class Reserves extends React.Component {
                         visibleColumns={visibleColumns}
                         columnWidths={columnWidths}
                         columnMapping={columnMapping}
+                        rowFormatter={DefaultMCLRowFormatter}
                         formatter={resultsFormatter}
                         contentData={data.reserves}
                         id="list-reserves"
@@ -250,7 +268,6 @@ class Reserves extends React.Component {
                         isEmptyMessage={this.renderIsEmptyMessage(query, source)}
                         onHeaderClick={onSort}
                         onNeedMoreData={onNeedMoreData}
-                        onRowClick={stripes.hasPerm('course-reserves-storage.reserves.item.put') ? this.onRowClick : undefined}
                         sortDirection={sortOrder.startsWith('-') ? 'descending' : 'ascending'}
                         sortOrder={sortOrder.replace(/^-/, '').replace(/,.*/, '')}
                         totalCount={count}
