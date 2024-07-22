@@ -16,8 +16,7 @@ import {
   Pane,
   PaneMenu,
   MultiColumnList,
-  TextLink,
-  DefaultMCLRowFormatter,
+  TextLink
 } from '@folio/stripes/components';
 
 import {
@@ -36,6 +35,9 @@ class Reserves extends React.Component {
   static propTypes = {
     location: PropTypes.shape({
       search: PropTypes.string.isRequired,
+    }).isRequired,
+    match: PropTypes.shape({
+      path: PropTypes.string.isRequired,
     }).isRequired,
     intl: PropTypes.object.isRequired,
     children: PropTypes.object,
@@ -105,12 +107,6 @@ class Reserves extends React.Component {
     } = this.props;
 
     return `${path}/${row.courseListingId}/0/${row.id}/${row.itemId}/edit${search}`;
-  }
-
-  setURL(id) {
-    this.setState({
-      selectedId: id
-    });
   }
 
   getColumnMapping = () => {
@@ -212,7 +208,7 @@ class Reserves extends React.Component {
     };
 
     const resultsFormatter = {
-      title: r => <TextLink to={stripes.hasPerm('course-reserves-storage.reserves.item.put') ? this.getRowURL(r) : undefined} onClick={() => stripes.hasPerm('course-reserves-storage.reserves.item.put') ? this.setURL(r.id) : undefined}>{get(r, 'copiedItem.title')}</TextLink>,
+      title: r => <TextLink to={stripes.hasPerm('course-reserves-storage.reserves.item.put') ? this.getRowURL(r) : undefined}>{get(r, 'copiedItem.title')}</TextLink>,
       barcode: r => get(r, 'copiedItem.barcode'),
       status: r => get(r, 'processingStatusObject.name') || r.processingStatusId,
       permanentLocation: r => get(r, 'copiedItem.permanentLocationObject.name') || r.copiedItem.permanentLocationId,
@@ -260,7 +256,6 @@ class Reserves extends React.Component {
                         visibleColumns={visibleColumns}
                         columnWidths={columnWidths}
                         columnMapping={columnMapping}
-                        rowFormatter={DefaultMCLRowFormatter}
                         formatter={resultsFormatter}
                         contentData={data.reserves}
                         id="list-reserves"

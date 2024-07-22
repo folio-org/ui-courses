@@ -23,8 +23,7 @@ import {
   MultiColumnList,
   NoValue,
   MenuSection,
-  TextLink,
-  DefaultMCLRowFormatter,
+  TextLink
 } from '@folio/stripes/components';
 
 import {
@@ -62,6 +61,9 @@ class Courses extends React.Component {
   static propTypes = {
     location: PropTypes.shape({
       search: PropTypes.string.isRequired,
+    }).isRequired,
+    match: PropTypes.shape({
+      path: PropTypes.string.isRequired,
     }).isRequired,
     intl: PropTypes.object.isRequired,
     children: PropTypes.object,
@@ -124,12 +126,6 @@ class Courses extends React.Component {
     } = this.props;
 
     return `${path}/${id}${search}`;
-  }
-
-  setURL(id) {
-    this.setState({
-      selectedId: id
-    });
   }
 
   getColumnMapping = () => {
@@ -273,7 +269,7 @@ class Courses extends React.Component {
     };
 
     const resultsFormatter = {
-      name: r => <TextLink to={this.getRowURL(r.id)} onClick={() => this.setURL(r.id)}>{r.name}</TextLink>,
+      name: r => <TextLink to={this.getRowURL(r.id)}>{r.name}</TextLink>,
       registrarId: r => get(r, 'courseListingObject.registrarId'),
       department: r => get(r, 'departmentObject.name'),
       startDate: r => <FormattedDate value={get(r, 'courseListingObject.termObject.startDate')} />,
@@ -352,7 +348,6 @@ class Courses extends React.Component {
                         columnMapping={columnMapping}
                         resultsRowClickHandlers={false}
                         formatter={resultsFormatter}
-                        resultsRowFormatter={DefaultMCLRowFormatter}
                         contentData={data.courses}
                         isEmptyMessage={this.renderIsEmptyMessage(query, source)}
                         nonInteractiveHeaders={nonInteractiveHeaders}
