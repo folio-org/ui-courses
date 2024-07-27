@@ -193,10 +193,10 @@
     "permission.view-settings": "Settings (Courses): Can view course settings",
     "button.cancel": "キャンセル",
     "button.delete": "削除",
-    "cv.cannotDeleteTermHeader": "Cannot delete the patron group",
-    "cv.cannotDeleteTermMessage": "This patron group cannot be deleted, as it is in use by one or more records.",
-    "cv.deleteEntry": "Delete patron group",
-    "cv.termDeleted": "The patron group <b>{term}</b> was successfully <b>deleted</b>",
-    "cv.termWillBeDeleted": "The patron group <b>{term}</b> will be <b>deleted.</b>",
+    "cv.cannotDeleteTermHeader": "利用者グループを削除できません",
+    "cv.cannotDeleteTermMessage": "この利用者グループは、1 つ以上のレコードによって使用されているため、削除できません",
+    "cv.deleteEntry": "利用者グループの削除",
+    "cv.termDeleted": "利用者グループ<b> {term} </b>が正常に<b>削除されました</b>",
+    "cv.termWillBeDeleted": "利用者グループ<b>{term} </b> は<b>削除されます</b>",
     "appMenu.coursesAppSearch": "Courses app search"
 }
