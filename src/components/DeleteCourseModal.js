@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import { useOkapiKy } from '@folio/stripes/core';
+import { useOkapiKy, CalloutContext } from '@folio/stripes/core';
 import { Button, Modal, ModalFooter } from '@folio/stripes/components';
 
 const DeleteCourseModal = ({ data, history, onClose, open }) => {
+  const callout = useContext(CalloutContext);
   const ky = useOkapiKy();
 
   const deleteCourse = async () => {
@@ -12,6 +13,10 @@ const DeleteCourseModal = ({ data, history, onClose, open }) => {
     await ky.delete(`coursereserves/courses/${data.course.id}`);
     if (data.crossListed.length === 0) {
       await ky.delete(`coursereserves/courselistings/${data.course.courseListingId}`);
+      callout.sendCallout({
+        type: 'success',
+        message: <FormattedMessage id="ui-courses.courseDeleted" values={{ name: data.course.name }} />,
+      });
     }
 
     history.push('/cr/courses/');

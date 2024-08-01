@@ -165,6 +165,7 @@
     "instructor.pluralized": "{count} {count, plural, one {instructor} other {instructors}}",
     "removeInstructor.failure": "Remove instructor failed: {message}",
     "reallyDelete": "Confirm deletion of course",
+    "courseDeleted": "The course <b>{name}</b> was deleted.",
     "addItem.existing": "Add existing Inventory item as a reserve",
     "addItem.new": "Create new Inventory item and add it as a reserve",
     "addFastAddItem.title": "Add Fast Add item",
