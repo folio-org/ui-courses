@@ -119,7 +119,7 @@ const ViewCourseReserves = (props) => {
             <FormattedMessage id="ui-courses.editReserve">
               {ariaLabel => (
                 <IconButton
-                  aria-label={ariaLabel}
+                  aria-label={typeof ariaLabel === 'string' ? ariaLabel : ariaLabel[0]}
                   icon="edit"
                   id={`clickable-edit-reserve-${index}`}
                   to={`../reserves/${record.courseListingId}/${course.id}/${record.id}/${record.itemId}/edit`}
@@ -132,7 +132,7 @@ const ViewCourseReserves = (props) => {
             <FormattedMessage id="ui-courses.removeReserve">
               {ariaLabel => (
                 <IconButton
-                  aria-label={ariaLabel}
+                  aria-label={typeof ariaLabel === 'string' ? ariaLabel : ariaLabel[0]}
                   icon="trash"
                   id={`clickable-remove-reserve-${index}`}
                   onClick={() => removeReserve(record.id)}
