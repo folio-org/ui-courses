@@ -13,8 +13,7 @@ const DeleteCourseModal = ({ data, history, onClose, open }) => {
     await ky.delete(`coursereserves/courses/${data.course.id}`);
     if (data.crossListed.length === 0) {
       await ky.delete(`coursereserves/courselistings/${data.course.courseListingId}`);
-      console.log(data.course);
-      const values = { name: data.course.name, number: data.course.courseNumber }
+      const values = { name: data.course.name, number: data.course.courseNumber };
       callout.sendCallout({
         type: 'success',
         message: <FormattedMessage id="ui-courses.courseDeleted" values={values} />,
