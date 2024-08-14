@@ -47,15 +47,17 @@ class ViewCourse extends React.Component {
         <VCAccordion id="term">
           <ViewCourseTerm record={course} />
         </VCAccordion>
-        <NotesSmartAccordion
-          id="viewCourseNotes"
-          domainName="courses"
-          entityName={course.name}
-          entityType="course"
-          entityId={course.id}
-          pathToNoteCreate="notes/new"
-          pathToNoteDetails="notes"
-        />
+        { course.id &&
+          <NotesSmartAccordion
+            id="viewCourseNotes"
+            domainName="courses"
+            entityName={course.name}
+            entityType="course"
+            entityId={course.id}
+            pathToNoteCreate="notes/new"
+            pathToNoteDetails="notes"
+          />
+        }
         <VCAccordion id="reserves" count={reserves.length}>
           <ViewCourseReserves course={course} reserves={reserves} items={items} resources={resources} mutator={mutator} />
         </VCAccordion>
