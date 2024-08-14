@@ -9,9 +9,11 @@ import {
   Button,
   Icon,
   Pane,
+  PaneMenu,
   SearchField,
 } from '@folio/stripes/components';
 
+import { CollapseFilterPaneButton } from '@folio/stripes/smart-components';
 import renderFilter from '../util/renderFilter';
 import filterString2state from '../util/filterString2state';
 import css from './Courses.css';
@@ -94,14 +96,21 @@ class ReservesSearchPane extends React.Component {
       ));
     }
 
+    const lastMenu = (
+      <PaneMenu>
+        <CollapseFilterPaneButton onClick={toggleFilterPane} />
+      </PaneMenu>
+    );
+
+
     const filters = get(resources.query, 'filters');
     const activeFilters = filterString2state(filters);
 
     return (
       <Pane
         defaultWidth="28%"
-        onClose={toggleFilterPane}
         paneTitle={<FormattedMessage id="stripes-smart-components.searchAndFilter" />}
+        lastMenu={lastMenu}
       >
         <form onSubmit={onSubmitSearch}>
           <FilterNavigation current="reserves" />

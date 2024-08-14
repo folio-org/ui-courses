@@ -29,7 +29,15 @@ class ProcessingStatusSettings extends React.Component {
         baseUrl="coursereserves/processingstatuses"
         records="processingStatuses"
         label={intl.formatMessage({ id: 'ui-courses.objectName.processingstatuses' })}
-        labelSingular={intl.formatMessage({ id: 'ui-courses.objectName.processingstatus' })}
+        translations={
+          {
+            cannotDeleteTermHeader: 'ui-courses.cv.cannotDeleteTermHeader',
+            cannotDeleteTermMessage: 'ui-courses.cv.cannotDeleteTermMessage',
+            deleteEntry: 'ui-courses.cv.deleteEntry',
+            termDeleted: 'ui-courses.cv.termDeleted',
+            termWillBeDeleted: 'ui-courses.cv.termWillBeDeleted',
+          }
+        }
         objectLabel={intl.formatMessage({ id: 'ui-courses.settings.objectLabel' })}
         visibleFields={['name', 'description']}
         columnMapping={{

@@ -191,6 +191,12 @@
     "actions": "アクション",
     "appMenu.keyboardShortcuts": "Keyboard shortcuts",
     "permission.view-settings": "Settings (Courses): Can view course settings",
-    "button.cancel": "Cancel",
-    "button.delete": "Delete"
+    "button.cancel": "キャンセル",
+    "button.delete": "削除",
+    "cv.cannotDeleteTermHeader": "利用者グループを削除できません",
+    "cv.cannotDeleteTermMessage": "この利用者グループは、1 つ以上のレコードによって使用されているため、削除できません",
+    "cv.deleteEntry": "利用者グループの削除",
+    "cv.termDeleted": "利用者グループ<b> {term} </b>が正常に<b>削除されました</b>",
+    "cv.termWillBeDeleted": "利用者グループ<b>{term} </b> は<b>削除されます</b>",
+    "appMenu.coursesAppSearch": "Courses app search"
 }

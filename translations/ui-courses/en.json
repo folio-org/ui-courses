@@ -88,6 +88,7 @@
     "accordion.courseFormListing.help": " ",
     "accordion.courseFormInstructors": "Course instructors",
     "accordion.courseFormInstructors.help": " ",
+    "appMenu.coursesAppSearch": "Courses app search",
     "appMenu.keyboardShortcuts": "Keyboard shortcuts",
     "field.name": "Course name",
     "field.description": "Course description",
@@ -189,8 +190,14 @@
     "permission.maintain-settings": "Settings (Courses): Can create, edit and delete course settings",
     "lookUpUser": "Look up user",
     "reallyDelete": "Confirm deletion of course",
+    "courseDeleted": "The course <b>{name}</b> with course number <b>{number}</b> was deleted.",
     "addFastAddItem.title": "Add Fast Add item",
     "addFastAddItem.tooltip": "Create a new Inventory record using 'Fast Add' and add it to this course as a reserve",
     "errors.mustBeInteger": "This value must be an integer",
+    "cv.cannotDeleteTermHeader": "Cannot delete the patron group",
+    "cv.cannotDeleteTermMessage": "This patron group cannot be deleted, as it is in use by one or more records.",
+    "cv.deleteEntry": "Delete patron group",
+    "cv.termDeleted": "The patron group <b>{term}</b> was successfully <b>deleted</b>",
+    "cv.termWillBeDeleted": "The patron group <b>{term}</b> will be <b>deleted.</b>",
     "SENTINEL": "SENTINEL"
 }

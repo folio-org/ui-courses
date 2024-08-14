@@ -192,5 +192,11 @@
     "appMenu.keyboardShortcuts": "Klávesové zkratky",
     "permission.view-settings": "Nastavení (Kurzy): Může zobrazit nastavení kurzu",
     "button.cancel": "Zrušit",
-    "button.delete": "Smazat"
+    "button.delete": "Smazat",
+    "cv.cannotDeleteTermHeader": "Nelze smazat skupinu čtenářů",
+    "cv.cannotDeleteTermMessage": "Tuto skupinu čtenářů nelze smazat, protože je používána jedním nebo více záznamy.",
+    "cv.deleteEntry": "Smazat skupinu čtenářů",
+    "cv.termDeleted": "Skupina čtenářů <b>{term}</b> byla úspěšně <b>smazána</b>",
+    "cv.termWillBeDeleted": "Skupina čtenářů <b>{term}</b> bude <b>smazána.</b>",
+    "appMenu.coursesAppSearch": "Courses app search"
 }

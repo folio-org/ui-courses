@@ -165,6 +165,7 @@
     "instructor.pluralized": "{count} {count, plural, one {instructor} other {instructors}}",
     "removeInstructor.failure": "Remove instructor failed: {message}",
     "reallyDelete": "Confirm deletion of course",
+    "courseDeleted": "The course <b>{name}</b> with course number <b>{number}</b> was deleted.",
     "addItem.existing": "Add existing Inventory item as a reserve",
     "addItem.new": "Create new Inventory item and add it as a reserve",
     "addFastAddItem.title": "Add Fast Add item",
@@ -192,5 +193,11 @@
     "appMenu.keyboardShortcuts": "Keyboard shortcuts",
     "permission.view-settings": "Settings (Courses): Can view course settings",
     "button.cancel": "Cancel",
-    "button.delete": "Delete"
+    "button.delete": "Delete",
+    "cv.cannotDeleteTermHeader": "Cannot delete the patron group",
+    "cv.cannotDeleteTermMessage": "This patron group cannot be deleted, as it is in use by one or more records.",
+    "cv.deleteEntry": "Delete patron group",
+    "cv.termDeleted": "The patron group <b>{term}</b> was successfully <b>deleted</b>",
+    "cv.termWillBeDeleted": "The patron group <b>{term}</b> will be <b>deleted.</b>",
+    "appMenu.coursesAppSearch": "Courses app search"
 }

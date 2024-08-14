@@ -192,5 +192,11 @@
     "appMenu.keyboardShortcuts": "اختصارات لوحة المفاتيح",
     "permission.view-settings": "Settings (Courses): Can view course settings",
     "button.cancel": "Cancel",
-    "button.delete": "Delete"
+    "button.delete": "Delete",
+    "cv.cannotDeleteTermHeader": "Cannot delete the patron group",
+    "cv.cannotDeleteTermMessage": "This patron group cannot be deleted, as it is in use by one or more records.",
+    "cv.deleteEntry": "Delete patron group",
+    "cv.termDeleted": "The patron group <b>{term}</b> was successfully <b>deleted</b>",
+    "cv.termWillBeDeleted": "The patron group <b>{term}</b> will be <b>deleted.</b>",
+    "appMenu.coursesAppSearch": "Courses app search"
 }
