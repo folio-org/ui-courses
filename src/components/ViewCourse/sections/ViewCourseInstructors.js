@@ -47,7 +47,7 @@ const ViewCourseInstructors = (props) => {
                 {
                   ['instructorName', 'barcode', 'patronGroup'].map(name => (
                     <FormattedMessage key={name} id={`ui-courses.field.${name}`}>
-                      {label => <th align="left" aria-label={label}>{label}</th>}
+                      {label => <th align="left" aria-label={typeof label === 'string' ? label : label[0]}>{label}</th>}
                     </FormattedMessage>
                   ))
                 }
@@ -66,7 +66,7 @@ const ViewCourseInstructors = (props) => {
                           <FormattedMessage id="ui-courses.editInstructor">
                             {ariaLabel => (
                               <IconButton
-                                aria-label={ariaLabel}
+                                aria-label={typeof ariaLabel === 'string' ? ariaLabel : ariaLabel[0]}
                                 icon="edit"
                                 id={`clickable-edit-instructor-${index}`}
                                 to={`/cr/instructors/${courseListingObject.id}/${record.id}/${instructor.id}/edit`}
@@ -80,7 +80,7 @@ const ViewCourseInstructors = (props) => {
                           <FormattedMessage id="ui-courses.removeInstructor">
                             {ariaLabel => (
                               <IconButton
-                                aria-label={ariaLabel}
+                                aria-label={typeof ariaLabel === 'string' ? ariaLabel : ariaLabel[0]}
                                 icon="trash"
                                 id={`clickable-remove-instructor-${index}`}
                                 onClick={() => removeInstructor(instructor.id)}
@@ -100,7 +100,7 @@ const ViewCourseInstructors = (props) => {
         <FormattedMessage id="ui-courses.addInstructor">
           {ariaLabel => (
             <Button
-              aria-label={ariaLabel}
+              aria-label={typeof ariaLabel === 'string' ? ariaLabel : ariaLabel[0]}
               id="clickable-add-instructor"
               to={`/cr/instructors/${courseListingObject.id}/${record.id}/add`}
             >
