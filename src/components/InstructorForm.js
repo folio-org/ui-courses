@@ -105,7 +105,7 @@ class InstructorForm extends React.Component {
     const title = copiedItem.title;
 
     // eslint-disable-next-line react/jsx-one-expression-per-line
-    const paneTitle = <span>Add instructor for <i>{data.course.name}</i></span>;
+    const paneTitle = <span>Add instructor for {data.course.name}</span>;
 
     return (
       <Paneset>
