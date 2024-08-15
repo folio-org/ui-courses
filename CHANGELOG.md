@@ -9,6 +9,7 @@
 * Courses app: Replace collapse pane icons. Refs UICR-174.
 * App Context menu | Add new option | Courses app search. Refs UICR-166.
 * When a course is deleted, a green success toast displays, confirming deletion. Fixes UICR-207.
+* After once having edited a reserve's start or end date, editing it again now gets a correctly initialized datepicker. Fixes UICR-205.
 
 ## [6.0.3](https://github.com/folio-org/ui-courses/tree/v6.0.3) (2023-10-20)
 
