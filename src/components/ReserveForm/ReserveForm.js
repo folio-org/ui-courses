@@ -113,7 +113,7 @@ class ReserveForm extends React.Component {
       <a rel="noopener noreferrer" target="_blank" href={href}>
         Item title:
         &nbsp;
-        <i>{title}</i>
+        {title}
       </a>
     );
 

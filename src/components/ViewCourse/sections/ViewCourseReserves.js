@@ -111,7 +111,7 @@ const ViewCourseReserves = (props) => {
             <a rel="noopener noreferrer" target="_blank" href={href}>
               Item title:
               &nbsp;
-              <i>{copiedItem.title}</i>
+              {copiedItem.title}
             </a>
           );
 
