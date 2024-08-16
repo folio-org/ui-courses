@@ -198,5 +198,6 @@
     "cv.deleteEntry": "Personengruppe löschen",
     "cv.termDeleted": "Personengruppe <b>{term}</b> wurde erfolgreich <b>gelöscht</b>",
     "cv.termWillBeDeleted": "Personengruppe <b>{term}</b> wird <b>gelöscht</b>",
-    "appMenu.coursesAppSearch": "Suche in Semesterapparate-App"
+    "appMenu.coursesAppSearch": "Suche in Semesterapparate-App",
+    "courseDeleted": "Der Kurs <b>{name}</b> mit der Nummer <b>{number}</b> wurde gelöscht."
 }

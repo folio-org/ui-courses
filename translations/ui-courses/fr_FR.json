@@ -198,5 +198,6 @@
     "cv.deleteEntry": "Supprimer le groupe d'usagers",
     "cv.termDeleted": "Ce groupe d'usagers <b>{term}</b> a été <b>supprimé</b> avec succès",
     "cv.termWillBeDeleted": "Ce groupe d'usagers <b>{term}</b> sera <b>supprimé</b>.",
-    "appMenu.coursesAppSearch": "Rechercher dans l'application Cours"
+    "appMenu.coursesAppSearch": "Rechercher dans l'application Cours",
+    "courseDeleted": "The course <b>{name}</b> with course number <b>{number}</b> was deleted."
 }
