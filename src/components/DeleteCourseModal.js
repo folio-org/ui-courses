@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import { useOkapiKy, CalloutContext } from '@folio/stripes/core';
 import { Button, Modal, ModalFooter } from '@folio/stripes/components';
 
-const DeleteCourseModal = ({ data, history, onClose, open }) => {
+const DeleteCourseModal = ({ data, history, onClose }) => {
   const callout = useContext(CalloutContext);
   const ky = useOkapiKy();
 
@@ -39,10 +39,10 @@ const DeleteCourseModal = ({ data, history, onClose, open }) => {
   return (
     <Modal
       dismissible
+      open
       id="delete-course-modal"
       label={<FormattedMessage id="ui-courses.reallyDelete" />}
       onClose={onClose}
-      open={open}
       footer={renderModalFooter()}
     >
       <p>
@@ -70,7 +70,6 @@ DeleteCourseModal.propTypes = {
   }),
   history: PropTypes.object,
   onClose: PropTypes.func.isRequired,
-  open: PropTypes.bool,
 };
 
 export default DeleteCourseModal;
