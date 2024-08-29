@@ -333,6 +333,7 @@ class Courses extends React.Component {
                 >
                   {({ renderColumnsMenu, visibleColumns }) => (
                     <Pane
+                      defaultWidth="fill"
                       appIcon={<AppIcon app="courses" />}
                       firstMenu={this.renderResultsFirstMenu(activeFilters)}
                       actionMenu={this.getActionMenu(renderColumnsMenu)}

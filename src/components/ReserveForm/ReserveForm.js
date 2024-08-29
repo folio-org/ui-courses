@@ -85,7 +85,7 @@ class ReserveForm extends React.Component {
               icon="times"
               id="close-reserve-form-button"
               onClick={this.props.handlers.onClose}
-              aria-label={ariaLabel}
+              aria-label={typeof ariaLabel === 'string' ? ariaLabel : ariaLabel[0]}
             />
           )}
         </FormattedMessage>
@@ -113,7 +113,7 @@ class ReserveForm extends React.Component {
       <a rel="noopener noreferrer" target="_blank" href={href}>
         Item title:
         &nbsp;
-        <i>{title}</i>
+        {title}
       </a>
     );
 

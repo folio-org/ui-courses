@@ -163,12 +163,13 @@ class CourseRoute extends React.Component {
           onClose={() => this.setState({ showDuplicateCourseModal: false })}
           open={this.state.showDuplicateCourseModal}
         />
-        <DeleteCourseModal
-          data={data}
-          history={history}
-          onClose={() => this.setState({ showDeleteCourseModal: false })}
-          open={this.state.showDeleteCourseModal}
-        />
+        {this.state.showDeleteCourseModal &&
+          <DeleteCourseModal
+            data={data}
+            history={history}
+            onClose={() => this.setState({ showDeleteCourseModal: false })}
+          />
+        }
       </>
     );
   }

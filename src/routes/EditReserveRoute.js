@@ -79,8 +79,16 @@ class EditReserveRoute extends React.Component {
     const courseListing = get(this.props.resources, 'crossListed.records[0].courseListingObject', {});
 
     const values = cloneDeep(reserve);
-    if (!values.startDate) values.startDate = get(courseListing, 'termObject.startDate');
-    if (!values.endDate) values.endDate = get(courseListing, 'termObject.endDate');
+    if (values.startDate) {
+      values.startDate = values.startDate.replace('T00:00:00Z', '');
+    } else {
+      values.startDate = get(courseListing, 'termObject.startDate');
+    }
+    if (values.endDate) {
+      values.endDate = values.endDate.replace('T00:00:00Z', '');
+    } else {
+      values.endDate = get(courseListing, 'termObject.endDate');
+    }
     return values;
   }
 

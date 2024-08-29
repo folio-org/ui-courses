@@ -190,6 +190,7 @@
     "permission.maintain-settings": "Settings (Courses): Can create, edit and delete course settings",
     "lookUpUser": "Look up user",
     "reallyDelete": "Confirm deletion of course",
+    "courseDeleted": "The course <b>{name}</b> with course number <b>{number}</b> was deleted.",
     "addFastAddItem.title": "Add Fast Add item",
     "addFastAddItem.tooltip": "Create a new Inventory record using 'Fast Add' and add it to this course as a reserve",
     "errors.mustBeInteger": "This value must be an integer",

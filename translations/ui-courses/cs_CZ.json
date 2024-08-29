@@ -198,5 +198,6 @@
     "cv.deleteEntry": "Smazat skupinu čtenářů",
     "cv.termDeleted": "Skupina čtenářů <b>{term}</b> byla úspěšně <b>smazána</b>",
     "cv.termWillBeDeleted": "Skupina čtenářů <b>{term}</b> bude <b>smazána.</b>",
-    "appMenu.coursesAppSearch": "Courses app search"
+    "appMenu.coursesAppSearch": "Vyhledat v aplikaci Kurzy",
+    "courseDeleted": "Kurz <b>{name}</b> s číslem kurzu <b>{number}</b> byl smazán."
 }

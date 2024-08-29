@@ -198,5 +198,6 @@
     "cv.deleteEntry": "Excluir grupo de usuários",
     "cv.termDeleted": "O grupo de usuários <b>{term}</b> foi <b>excluído</b> com sucesso",
     "cv.termWillBeDeleted": "O grupo de usuários <b>{term}</b> será <b>excluído.</b>",
-    "appMenu.coursesAppSearch": "Busca no aplicativos de cursos"
+    "appMenu.coursesAppSearch": "Busca no aplicativos de cursos",
+    "courseDeleted": "O curso <b>{name} </b> com o número de curso <b>{number} </b> foi excluído."
 }

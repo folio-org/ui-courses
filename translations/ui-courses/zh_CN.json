@@ -193,10 +193,11 @@
     "permission.view-settings": "设置（课程）：可以查看课程设置",
     "button.cancel": "取消",
     "button.delete": "删除",
-    "cv.cannotDeleteTermHeader": "Cannot delete the patron group",
-    "cv.cannotDeleteTermMessage": "This patron group cannot be deleted, as it is in use by one or more records.",
-    "cv.deleteEntry": "Delete patron group",
-    "cv.termDeleted": "The patron group <b>{term}</b> was successfully <b>deleted</b>",
-    "cv.termWillBeDeleted": "The patron group <b>{term}</b> will be <b>deleted.</b>",
-    "appMenu.coursesAppSearch": "Courses app search"
+    "cv.cannotDeleteTermHeader": "无法删除读者组",
+    "cv.cannotDeleteTermMessage": "该读者组无法删除，因为它正被一条或多条记录使用。",
+    "cv.deleteEntry": "删除读者组",
+    "cv.termDeleted": "读者组<b> {term} </b>已成功<b>删除</b>",
+    "cv.termWillBeDeleted": "读者组<b> {term} </b>将<b>删除。 </b>",
+    "appMenu.coursesAppSearch": "课程应用搜索",
+    "courseDeleted": "课程<b> {name} </b>已删除。"
 }
