@@ -16,6 +16,7 @@ import {
   Pane,
   PaneMenu,
   MultiColumnList,
+  TextLink
 } from '@folio/stripes/components';
 
 import {
@@ -34,6 +35,9 @@ class Reserves extends React.Component {
   static propTypes = {
     location: PropTypes.shape({
       search: PropTypes.string.isRequired,
+    }).isRequired,
+    match: PropTypes.shape({
+      path: PropTypes.string.isRequired,
     }).isRequired,
     intl: PropTypes.object.isRequired,
     children: PropTypes.object,
@@ -94,6 +98,15 @@ class Reserves extends React.Component {
 
   onRowClick = (e, row) => {
     this.props.history.push(`/cr/reserves/${row.courseListingId}/0/${row.id}/${row.itemId}/edit${this.props.location.search}`);
+  }
+
+  getRowURL(row) {
+    const {
+      match: { path },
+      location: { search },
+    } = this.props;
+
+    return `${path}/${row.courseListingId}/0/${row.id}/${row.itemId}/edit${search}`;
   }
 
   getColumnMapping = () => {
@@ -195,7 +208,7 @@ class Reserves extends React.Component {
     };
 
     const resultsFormatter = {
-      title: r => get(r, 'copiedItem.title'),
+      title: r => <TextLink to={stripes.hasPerm('course-reserves-storage.reserves.item.put') ? this.getRowURL(r) : undefined}>{get(r, 'copiedItem.title')}</TextLink>,
       barcode: r => get(r, 'copiedItem.barcode'),
       status: r => get(r, 'processingStatusObject.name') || r.processingStatusId,
       permanentLocation: r => get(r, 'copiedItem.permanentLocationObject.name') || r.copiedItem.permanentLocationId,
@@ -250,7 +263,6 @@ class Reserves extends React.Component {
                         isEmptyMessage={this.renderIsEmptyMessage(query, source)}
                         onHeaderClick={onSort}
                         onNeedMoreData={onNeedMoreData}
-                        onRowClick={stripes.hasPerm('course-reserves-storage.reserves.item.put') ? this.onRowClick : undefined}
                         sortDirection={sortOrder.startsWith('-') ? 'descending' : 'ascending'}
                         sortOrder={sortOrder.replace(/^-/, '').replace(/,.*/, '')}
                         totalCount={count}
