@@ -199,5 +199,5 @@
     "cv.termDeleted": "读者组<b> {term} </b>已成功<b>删除</b>",
     "cv.termWillBeDeleted": "读者组<b> {term} </b>将<b>删除。 </b>",
     "appMenu.coursesAppSearch": "课程应用搜索",
-    "courseDeleted": "课程<b> {name} </b>已删除。"
+    "courseDeleted": "课程编号为<b> {number} </b>的课程<b> {name} </b>已删除。"
 }
