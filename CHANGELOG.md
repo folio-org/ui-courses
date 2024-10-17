@@ -11,7 +11,8 @@
 * When a course is deleted, a green success toast displays, confirming deletion. Fixes UICR-207.
 * After once having edited a reserve's start or end date, editing it again now gets a correctly initialized datepicker. Fixes UICR-205.
 * Remove use of italics in three places in the UI. Fixes UICR-208.
-* * Format Courses and Reserves results to use hyperlinks in first column. Fixes UICR-164.
+* Format Courses and Reserves results to use hyperlinks in first column. Fixes UICR-164.
+* Extend limit of reserves for which status is fetched from 20 to 100. Addresses UICR-210.
 
 ## [6.0.3](https://github.com/folio-org/ui-courses/tree/v6.0.3) (2023-10-20)
 

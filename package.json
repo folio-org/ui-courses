@@ -8,6 +8,7 @@
   "scripts": {
     "test-folio-snapshot": "cypress run --config baseUrl=https://folio-snapshot.dev.folio.org",
     "start": "stripes serve --port 3001",
+    "start2": "stripes serve --port 3011 --okapi https://indexdata-test-okapi.folio.indexdata.com --tenant indexdata",
     "test-running-service": "cypress run",
     "test-new-ui": "stripes serve --okapi https://folio-snapshot-okapi.dev.folio.org --port 3001 & wait-on http://localhost:3001 && cypress run; kill $!",
     "test": "stripes serve --coverage --port 3001 --okapi http://localhost:3002 & pid1=$! && env LOGCAT=startup yakbak-proxy -i -x -n & pid2=$! && wait-on http://localhost:3001 && cypress run; kill $pid1 $pid2",
