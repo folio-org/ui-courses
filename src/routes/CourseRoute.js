@@ -68,8 +68,8 @@ class CourseRoute extends React.Component {
         const reserves = get(props.resources, 'reservesForCourse.records');
         if (!reserves || reserves.length === 0) return null;
         return {
-          limit: 20,
-          query: `id=(${reserves.slice(0, 20).map(x => `"${x.itemId}"`).join(' or ')})`
+          limit: 100,
+          query: `id=(${reserves.slice(0, 100).map(x => `"${x.itemId}"`).join(' or ')})`
         };
       },
       records: 'items',
