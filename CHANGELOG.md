@@ -1,6 +1,6 @@
 # Change history for ui-courses
 
-## [6.1.0] IN PROGRESS
+## [6.1.0](https://github.com/folio-org/ui-courses/tree/v6.1.0) (2024-10-22)
 
 * Use standard FOLIO UX for Delete Course (in action menu). Fixes UICR-201.
 * When deleting a course that has no cross-listed courses, also delete its underlying courselisting. This ensures orphan courselistings are not created. Fixes UICR-206.
