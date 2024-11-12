@@ -69,12 +69,20 @@ class ReservesRoute extends React.Component {
       perRequest: RESULT_COUNT_INCREMENT,
       path: 'coursereserves/reserves',
       params: {
-        query: makeQueryFunction(
-          'cql.allRecords=1',
-          searchableIndexes.map(index => `${index}="%{query.query}*"`).join(' or '),
-          sortMap,
-          filterConfig,
-        ),
+        query: (qp, pathComponents, rv, logger) => {
+          if (qp.query === undefined) return undefined;
+          // Is it not a strange fate that we should suffer so much fear and doubt for so small a thing?
+          const qq = qp.query.replace(/\*+$/, '');
+          const queryFunction = makeQueryFunction(
+            'cql.allRecords=1',
+            searchableIndexes.map(index => `${index}="${qq}*"`).join(' or '),
+            sortMap,
+            filterConfig,
+          );
+          const newQp = { ...qp, query: qq };
+          const newRv = { ...rv, query: newQp };
+          return queryFunction(newQp, pathComponents, newRv, logger);
+        },
         expand: '*',
       },
     },
