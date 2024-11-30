@@ -44,7 +44,7 @@
     "accordion.instructors": "Instruktoři",
     "accordion.instructors.help": "Výuka současného kurzu",
     "accordion.term": "Podmínka",
-    "accordion.term.help": "Rozvrh současného kurzu",
+    "accordion.term.help": "Plán současného kurzu",
     "accordion.organization": "Organizace",
     "accordion.organization.help": "Místní informace",
     "accordion.reserves": "{count} {count, plural, one {jednotka} other {jednotky}}",
