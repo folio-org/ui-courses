@@ -254,7 +254,6 @@ class Reserves extends React.Component {
                       paneSub={this.renderResultsPaneSubtitle(source)}
                     >
                       <MultiColumnList
-                        id="list-reserves"
                         autosize
                         visibleColumns={visibleColumns}
                         columnWidths={columnWidths}
