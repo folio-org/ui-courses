@@ -333,6 +333,8 @@ class Courses extends React.Component {
                 >
                   {({ renderColumnsMenu, visibleColumns }) => (
                     <Pane
+                      id="courses-results-pane"
+                      noOverflow
                       defaultWidth="fill"
                       appIcon={<AppIcon app="courses" />}
                       firstMenu={this.renderResultsFirstMenu(activeFilters)}
@@ -344,6 +346,7 @@ class Courses extends React.Component {
                     >
                       <MultiColumnList
                         id="list-courses"
+                        autosize
                         visibleColumns={visibleColumns}
                         columnWidths={columnWidths}
                         columnMapping={columnMapping}

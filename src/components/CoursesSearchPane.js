@@ -102,6 +102,7 @@ class CoursesSearchPane extends React.Component {
 
     return (
       <Pane
+        id="courses-search-pane"
         defaultWidth="28%"
         lastMenu={
           lastMenu}
