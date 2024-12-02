@@ -3,6 +3,7 @@
 ## [6.1.1](https://github.com/folio-org/ui-courses/tree/v6.1.1) (IN PROGRESS)
 
 * Query terms ending with one or more asterisks (wildcard characters) have these removed and replaced with a single asterisk, avoiding a bug in cql2pgsql. Fixes UICR-212.
+* Remove double scrollbar in courses and reserves results panes. Many thanks to @JohnC-80! Fixes UICR-213.
 
 ## [6.1.0](https://github.com/folio-org/ui-courses/tree/v6.1.0) (2024-10-22)
 
