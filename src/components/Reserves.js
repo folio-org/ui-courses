@@ -242,6 +242,8 @@ class Reserves extends React.Component {
                 >
                   {({ renderColumnsMenu, visibleColumns }) => (
                     <Pane
+                      id="reserves-results-pane"
+                      noOverflow
                       appIcon={<AppIcon app="courses" />}
                       defaultWidth="fill"
                       firstMenu={this.renderResultsFirstMenu(activeFilters)}

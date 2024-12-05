@@ -108,6 +108,7 @@ class ReservesSearchPane extends React.Component {
 
     return (
       <Pane
+        id="reserves-search-pane"
         defaultWidth="28%"
         paneTitle={<FormattedMessage id="stripes-smart-components.searchAndFilter" />}
         lastMenu={lastMenu}
