@@ -1,5 +1,10 @@
 # Change history for ui-courses
 
+## [6.1.1](https://github.com/folio-org/ui-courses/tree/v6.1.1) (2024-12-05)
+
+* Query terms ending with one or more asterisks (wildcard characters) have these removed and replaced with a single asterisk, avoiding a bug in cql2pgsql. Fixes UICR-212.
+* Remove double scrollbar in courses and reserves results panes. Many thanks to @JohnC-80! Fixes UICR-213.
+
 ## [6.1.0](https://github.com/folio-org/ui-courses/tree/v6.1.0) (2024-10-22)
 
 * Use standard FOLIO UX for Delete Course (in action menu). Fixes UICR-201.
