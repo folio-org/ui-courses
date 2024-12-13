@@ -193,11 +193,11 @@
     "permission.view-settings": "Instellingen (Lessen): Kan lesinstellingen bekijken",
     "button.cancel": "Annuleren",
     "button.delete": "Verwijderen",
-    "cv.cannotDeleteTermHeader": "Cannot delete the patron group",
-    "cv.cannotDeleteTermMessage": "This patron group cannot be deleted, as it is in use by one or more records.",
+    "cv.cannotDeleteTermHeader": "Kan de gebruikersgroep niet verwijderen",
+    "cv.cannotDeleteTermMessage": "Deze gebruikersgroep kan niet worden verwijderd, omdat deze in gebruik is door één of meer records.",
     "cv.deleteEntry": "Gebruikersgroep verwijderen",
-    "cv.termDeleted": "The patron group <b>{term}</b> was successfully <b>deleted</b>",
-    "cv.termWillBeDeleted": "The patron group <b>{term}</b> will be <b>deleted.</b>",
+    "cv.termDeleted": "De gebruikersgroep <b>{term}</b> is succesvol <b>verwijderd</b>",
+    "cv.termWillBeDeleted": "De gebruikersgroep <b>{term}</b> zal worden <b>verwijderd.</b>",
     "appMenu.coursesAppSearch": "Zoeken in app 'Lessen'",
     "courseDeleted": "De les <b>{name}</b> met lesnummer <b>{number}</b> is verwijderd."
 }
