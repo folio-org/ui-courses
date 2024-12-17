@@ -190,7 +190,7 @@
     "course.pluralized": "{count} {count, plural, one {課程} other {課程}}",
     "actions": "操作",
     "appMenu.keyboardShortcuts": "鍵盤快捷鍵",
-    "permission.view-settings": "設定（課程）：可檢視課程設定",
+    "permission.view-settings": "設定 ( 課程 ) : 可檢視課程設定",
     "button.cancel": "Cancel",
     "button.delete": "Delete",
     "cv.cannotDeleteTermHeader": "Cannot delete the patron group",
