@@ -1,5 +1,9 @@
 # Change history for ui-courses
 
+## [6.2.0](https://github.com/folio-org/ui-courses/tree/v6.2.0) (IN PROGRESS)
+
+* Migrate to shared CI workflows. Fixes UICR-215.
+
 ## [6.1.1](https://github.com/folio-org/ui-courses/tree/v6.1.1) (2024-12-05)
 
 * Query terms ending with one or more asterisks (wildcard characters) have these removed and replaced with a single asterisk, avoiding a bug in cql2pgsql. Fixes UICR-212.
