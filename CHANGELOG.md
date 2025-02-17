@@ -1,7 +1,8 @@
 # Change history for ui-courses
 
-## [6.2.0](https://github.com/folio-org/ui-courses/tree/v6.2.0) (IN PROGRESS)
+## [7.0.0](https://github.com/folio-org/ui-courses/tree/v7.0.0) (IN PROGRESS)
 
+* **BREAKING**: upgrade to Stripes v10. Fixes UICR-216.
 * Migrate to shared CI workflows. Fixes UICR-215.
 
 ## [6.1.1](https://github.com/folio-org/ui-courses/tree/v6.1.1) (2024-12-05)

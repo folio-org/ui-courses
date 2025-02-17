@@ -226,7 +226,7 @@
   },
   "peerDependencies": {
     "@folio/plugin-find-user": "^5.0.0||^6.0.0||^7.0.0",
-    "@folio/stripes": "^9.0.0",
+    "@folio/stripes": "^10.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-intl": "^6.4.4",
@@ -238,8 +238,8 @@
     "@babel/core": "^7.19.6",
     "@cypress/code-coverage": "^3.9.11",
     "@folio/eslint-config-stripes": "^7.0.0",
-    "@folio/stripes": "^9.0.0",
-    "@folio/stripes-cli": "^3.0.0",
+    "@folio/stripes": "^10.0.0",
+    "@folio/stripes-cli": "^4.0.0",
     "@formatjs/cli": "^6.1.3",
     "cypress": "^6.4.0",
     "eslint": "^7.32.0",
@@ -254,10 +254,7 @@
     "wait-on": "^5.0.1",
     "yakbak-proxy": "^1.6.0"
   },
-  "resolutions": {
-    "@folio/stripes-cli":"folio-org/stripes-cli#5b4700f21ccd4dac059c5ac9fbb0d554ec372c2d"
-  },
   "optionalDependencies": {
-    "@folio/plugin-create-inventory-records": "^4.0.0"
+    "@folio/plugin-create-inventory-records": "^4.0.0||^5.0.0"
   }
 }
