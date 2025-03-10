@@ -3,7 +3,7 @@
 ## [7.0.0](https://github.com/folio-org/ui-courses/tree/v7.0.0) (IN PROGRESS)
 
 * **BREAKING**: upgrade to Stripes v10. Fixes UICR-216.
-* **BREAKING**: upgrade to react-intl v7. Fixes UICR-217.
+* **BREAKING**: upgrade to react-intl v7.1.5. Fixes UICR-217.
 * Migrate to shared CI workflows. Fixes UICR-215.
 
 ## [6.1.1](https://github.com/folio-org/ui-courses/tree/v6.1.1) (2024-12-05)
