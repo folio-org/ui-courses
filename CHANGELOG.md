@@ -1,6 +1,6 @@
 # Change history for ui-courses
 
-## [7.0.0](https://github.com/folio-org/ui-courses/tree/v7.0.0) (IN PROGRESS)
+## [7.0.0](https://github.com/folio-org/ui-courses/tree/v7.0.0) (2025-03-11)
 
 * **BREAKING**: upgrade to Stripes v10. Fixes UICR-216.
 * **BREAKING**: upgrade to react-intl v7.1.5. Fixes UICR-217.
