@@ -178,7 +178,7 @@
     "duplicateCourse.duplicateCrosslistedCourses": "Powiel wszystkie kursy z listy krzyżowej",
     "duplicateCourse.duplicatedCourseIndicator": "Powiel",
     "field.numberOfStudents": "Liczba studentów",
-    "errors.mustBeInteger": "This value must be an integer",
+    "errors.mustBeInteger": "Ta wartość musi być liczbą całkowitą",
     "permission.all": "Zajęcia: wszystkie uprawnienia",
     "permission.read-all": "Zajęcia: czytanie wszystkiego",
     "permission.read-add-edit": "Zajęcia: czytanie, dodawanie i edycja zajęć",
