@@ -1,6 +1,6 @@
 # Change history for ui-courses
 
-## [7.0.1](https://github.com/folio-org/ui-courses/tree/v7.0.1) (IN PROGRESS)
+## [7.0.1](https://github.com/folio-org/ui-courses/tree/v7.0.1) (2025-03-20)
 
 * Update plugin dependencies to allow `@folio/plugin-find-user` ^8.0.0 and `@folio/plugin-create-inventory-records` ^6.0.0 (as well as previously acceptable versions). Fixes UICR-222.
 
