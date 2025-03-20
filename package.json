@@ -225,7 +225,7 @@
     "react-final-form": "^6.3.0"
   },
   "peerDependencies": {
-    "@folio/plugin-find-user": "^5.0.0||^6.0.0||^7.0.0",
+    "@folio/plugin-find-user": "^5.0.0||^6.0.0||^7.0.0||^8.0.0",
     "@folio/stripes": "^10.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -255,6 +255,6 @@
     "yakbak-proxy": "^1.6.0"
   },
   "optionalDependencies": {
-    "@folio/plugin-create-inventory-records": "^4.0.0||^5.0.0"
+    "@folio/plugin-create-inventory-records": "^4.0.0||^5.0.0||^6.0.0"
   }
 }
