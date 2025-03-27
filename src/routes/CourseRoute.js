@@ -70,7 +70,6 @@ class CourseRoute extends React.Component {
       path: 'inventory/items',
       params: (_q, _p, _r, _l, props) => {
         const reserves = get(props.resources, 'reservesForCourse.records');
-        console.log('items:path: reserves =', reserves);
         if (!reserves || reserves.length === 0) return null;
         return {
           limit: 100,
@@ -80,7 +79,6 @@ class CourseRoute extends React.Component {
       records: 'items',
       fetch: (props) => {
         const reservesHaveLoaded = props.resources?.reservesHaveLoaded;
-        console.log(`*** item:fetch: reservesHaveLoaded=${reservesHaveLoaded}, props =`, props);
         if (!reservesHaveLoaded && props.resources.reservesForCourse.hasLoaded) {
           // Reserves have become available for the first time
           // This change to the value of a local resource should trigger a refresh
