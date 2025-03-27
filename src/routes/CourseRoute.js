@@ -38,7 +38,6 @@ class CourseRoute extends React.Component {
       initialValue: 0,
     },
     reservesHaveLoaded: {
-      // We mutate this to force the `items` resource to reload
       initialValue: false,
     },
     course: {
