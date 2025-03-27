@@ -88,13 +88,6 @@ class CourseRoute extends React.Component {
         }
         return true;
       },
-      shouldRefresh: (resource, action, __other1, __other2) => {
-        console.log('*** item:shouldRefresh: resource =', resource);
-        console.log('   action =', action);
-        console.log('   __other1 =', __other1);
-        console.log('   __other2 =', __other2);
-        return true;
-      },
     },
   });
 
