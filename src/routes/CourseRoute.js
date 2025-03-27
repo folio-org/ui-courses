@@ -37,6 +37,9 @@ class CourseRoute extends React.Component {
       // We mutate this when we delete a reserve, to force a stripes-connect reload
       initialValue: 0,
     },
+    reservesHaveLoaded: {
+      initialValue: false,
+    },
     course: {
       type: 'okapi',
       path: 'coursereserves/courses/:{id}?unused=%{instructorDeletionCount}',
@@ -73,6 +76,16 @@ class CourseRoute extends React.Component {
         };
       },
       records: 'items',
+      fetch: (props) => {
+        const reservesHaveLoaded = props.resources?.reservesHaveLoaded;
+        if (!reservesHaveLoaded && props.resources.reservesForCourse.hasLoaded) {
+          // Reserves have become available for the first time
+          // This change to the value of a local resource triggers a refresh: see
+          // https://github.com/folio-org/stripes-connect/blob/ebaf0519fe4a13b852ceb8417e8e94a09f8e71c1/connect.js#L53-L55
+          props.mutator.reservesHaveLoaded.replace(true);
+        }
+        return true;
+      },
     },
   });
 

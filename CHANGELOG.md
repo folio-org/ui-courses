@@ -1,5 +1,9 @@
 # Change history for ui-courses
 
+## [7.0.2](https://github.com/folio-org/ui-courses/tree/v7.0.2) (IN PROGRESS)
+
+* When displaying details of a course, loading the reserves now forces the items to load. This fixes a race condition. Previously, the two loads would nearly always, but not always, happen in the right order; but sometimes the attempt to load items would happen first, and there would be no item-IDs available to search for. This was most easily seen by refreshing the whole app. Fixes UICR-221.
+
 ## [7.0.1](https://github.com/folio-org/ui-courses/tree/v7.0.1) (2025-03-20)
 
 * Update plugin dependencies to allow `@folio/plugin-find-user` ^8.0.0 and `@folio/plugin-create-inventory-records` ^6.0.0 (as well as previously acceptable versions). Fixes UICR-222.
