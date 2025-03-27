@@ -37,6 +37,10 @@ class CourseRoute extends React.Component {
       // We mutate this when we delete a reserve, to force a stripes-connect reload
       initialValue: 0,
     },
+    reservesHaveLoaded: {
+      // We mutate this to force the `items` resource to reload
+      initialValue: false,
+    },
     course: {
       type: 'okapi',
       path: 'coursereserves/courses/:{id}?unused=%{instructorDeletionCount}',
@@ -66,6 +70,7 @@ class CourseRoute extends React.Component {
       path: 'inventory/items',
       params: (_q, _p, _r, _l, props) => {
         const reserves = get(props.resources, 'reservesForCourse.records');
+        console.log('items:path: reserves =', reserves);
         if (!reserves || reserves.length === 0) return null;
         return {
           limit: 100,
@@ -73,6 +78,23 @@ class CourseRoute extends React.Component {
         };
       },
       records: 'items',
+      fetch: (props) => {
+        const reservesHaveLoaded = props.resources?.reservesHaveLoaded;
+        console.log(`*** item:fetch: reservesHaveLoaded=${reservesHaveLoaded}, props =`, props);
+        if (!reservesHaveLoaded && props.resources.reservesForCourse.hasLoaded) {
+          // Reserves have become available for the first time
+          // This change to the value of a local resource should trigger a refresh
+          props.mutator.reservesHaveLoaded.replace(true);
+        }
+        return true;
+      },
+      shouldRefresh: (resource, action, __other1, __other2) => {
+        console.log('*** item:shouldRefresh: resource =', resource);
+        console.log('   action =', action);
+        console.log('   __other1 =', __other1);
+        console.log('   __other2 =', __other2);
+        return true;
+      },
     },
   });
 
