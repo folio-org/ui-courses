@@ -1,5 +1,9 @@
 # Change history for ui-courses
 
+## [6.1.2](https://github.com/folio-org/ui-courses/tree/v6.1.2) (IN PROGRESS)
+
+* Since release v6.1.1, when listing all courses or reserves (as opposed to those matching a query), sorting was not performed. This is no longer the case. Fixes UICR-225.
+
 ## [6.1.1](https://github.com/folio-org/ui-courses/tree/v6.1.1) (2024-12-05)
 
 * Query terms ending with one or more asterisks (wildcard characters) have these removed and replaced with a single asterisk, avoiding a bug in cql2pgsql. Fixes UICR-212.

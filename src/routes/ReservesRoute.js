@@ -70,9 +70,8 @@ class ReservesRoute extends React.Component {
       path: 'coursereserves/reserves',
       params: {
         query: (qp, pathComponents, rv, logger) => {
-          if (qp.query === undefined) return undefined;
           // Is it not a strange fate that we should suffer so much fear and doubt for so small a thing?
-          const qq = qp.query.replace(/\*+$/, '');
+          const qq = (qp.query === undefined) ? undefined : qp.query.replace(/\*+$/, '');
           const queryFunction = makeQueryFunction(
             'cql.allRecords=1',
             searchableIndexes.map(index => `${index}="${qq}*"`).join(' or '),
