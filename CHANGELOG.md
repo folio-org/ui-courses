@@ -1,6 +1,6 @@
 # Change history for ui-courses
 
-## [6.1.2](https://github.com/folio-org/ui-courses/tree/v6.1.2) (IN PROGRESS)
+## [6.1.2](https://github.com/folio-org/ui-courses/tree/v6.1.2) (2025-03-31)
 
 * Since release v6.1.1, when listing all courses or reserves (as opposed to those matching a query), sorting was not performed. This is no longer the case. Fixes UICR-225.
 
