@@ -34,7 +34,7 @@
     "column.status": "Status",
     "loading": "Loading...",
     "editCourse": "Edit course",
-    "status.pending": "Pending",
+    "status.pending": "В очікуванні",
     "status.active": "Active",
     "status.inactive": "Inactive",
     "accordion.data": "Course data",
