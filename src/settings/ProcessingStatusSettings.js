@@ -47,6 +47,7 @@ class ProcessingStatusSettings extends React.Component {
         id="processingstatuses"
         sortby="name"
         hiddenFields={['lastUpdated', 'numberOfObjects']}
+        canCreate={stripes.hasPerm('course-reserves-storage.processing-statuses.item.post')}
         actionSuppressor={{
           edit: () => !stripes.hasPerm('course-reserves-storage.processing-statuses.item.put'),
           'delete': () => !stripes.hasPerm('course-reserves-storage.processing-statuses.item.delete'),
