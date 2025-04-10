@@ -1,5 +1,9 @@
 # Change history for ui-courses
 
+## [7.0.4](https://github.com/folio-org/ui-courses/tree/v7.0.4) (IN PROGRESS)
+
+* When a user has the permission `ui-courses.view-settings` ("Settings (Courses): Can view course settings") but not `ui-courses.maintain-settings` ("Settings (Courses): Can create, edit and delete course settings"), the **New** button is no longer displayed at the top of the settings pages for Terms, Course types, Course departments, Processing statuses and Copryright types. Fixes UICR-195.
+
 ## [7.0.3](https://github.com/folio-org/ui-courses/tree/v7.0.3) (2025-03-31)
 
 * Since release v6.1.1, when listing all courses or reserves (as opposed to those matching a query), sorting was not performed. This is no longer the case. Fixes UICR-225.

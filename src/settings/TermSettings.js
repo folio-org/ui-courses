@@ -74,6 +74,7 @@ class TermSettings extends React.Component {
         id="terms"
         sortby="name"
         hiddenFields={['lastUpdated', 'numberOfObjects']}
+        canCreate={stripes.hasPerm('course-reserves-storage.terms.item.post')}
         actionSuppressor={{
           edit: () => !stripes.hasPerm('course-reserves-storage.terms.item.put'),
           'delete': () => !stripes.hasPerm('course-reserves-storage.terms.item.delete'),

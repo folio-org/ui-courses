@@ -47,6 +47,7 @@ class CourseTypeSettings extends React.Component {
         id="coursetypes"
         sortby="name"
         hiddenFields={['lastUpdated', 'numberOfObjects']}
+        canCreate={stripes.hasPerm('course-reserves-storage.course-types.item.post')}
         actionSuppressor={{
           edit: () => !stripes.hasPerm('course-reserves-storage.course-types.item.put'),
           'delete': () => !stripes.hasPerm('course-reserves-storage.course-types.item.delete'),
