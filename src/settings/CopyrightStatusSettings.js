@@ -47,7 +47,6 @@ class CopyrightStatusSettings extends React.Component {
         id="copyrightstatuses"
         sortby="name"
         hiddenFields={['lastUpdated', 'numberOfObjects']}
-        canCreate={stripes.hasPerm('course-reserves-storage.copyright-statuses.item.post')}
         actionSuppressor={{
           edit: () => !stripes.hasPerm('course-reserves-storage.copyright-statuses.item.put'),
           'delete': () => !stripes.hasPerm('course-reserves-storage.copyright-statuses.item.delete'),
