@@ -47,7 +47,7 @@
     "accordion.term.help": "جدول المقرر الحالي",
     "accordion.organization": "المؤسسة",
     "accordion.organization.help": "بيانات محلية",
-    "accordion.reserves": "مواد",
+    "accordion.reserves": "{count} {count, plural, one {مادة} other {مادة}}",
     "accordion.reserves.help": "المواد المحجوزة لهذا المقرر",
     "accordion.developer": "بيانات المطور",
     "accordion.developer.help": "( تفريغ JSON للتسجيلة الخام)",
