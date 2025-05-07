@@ -60,7 +60,11 @@ function makeContentLink(eaList) {
   const ea = (eaList || [])[0];
   if (!ea || !ea.uri) return null;
   const text = ea.linkText || <FormattedMessage id="ui-courses.link" />;
-  return <a rel="noopener noreferrer" target="_blank" href={ea.uri} title={ea.publicNote}>{text}</a>;
+  let uri = ea.uri;
+  if (!uri.match('^[a-z]+:')) {
+    uri = 'https://' + uri;
+  }
+  return <a rel="noopener noreferrer" target="_blank" href={uri} title={ea.publicNote}>{text}</a>;
 }
 
 
