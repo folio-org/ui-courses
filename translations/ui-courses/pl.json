@@ -198,6 +198,6 @@
     "cv.deleteEntry": "Usuń grupę czytelników",
     "cv.termDeleted": "Grupa czytelnika <b>{term}</b> została pomyślnie <b>usunięta</b>",
     "cv.termWillBeDeleted": "Grupa czytelników <b>{term}</b> zostanie <b>usunięta.</b>",
-    "appMenu.coursesAppSearch": "Courses app search",
+    "appMenu.coursesAppSearch": "Wyszukiwanie w aplikacji Zajęcia",
     "courseDeleted": "The course <b>{name}</b> with course number <b>{number}</b> was deleted."
 }
