@@ -4,6 +4,7 @@
 
 * When a user has the permission `ui-courses.view-settings` ("Settings (Courses): Can view course settings") but not `ui-courses.maintain-settings` ("Settings (Courses): Can create, edit and delete course settings"), the **New** button is no longer displayed at the top of the settings pages for Terms, Course types, Course departments, Processing statuses and Copryright types. Fixes UICR-195.
 * When a user clicks on a malformed "URL/PDF link" field, do not try to display a non-existent course. Fixes UICR-184.
+* Fix `en.json` translations for maintenance of terms in settings. Fixes UICR-229.
 
 ## [7.0.3](https://github.com/folio-org/ui-courses/tree/v7.0.3) (2025-03-31)
 
