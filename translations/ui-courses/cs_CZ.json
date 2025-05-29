@@ -193,11 +193,11 @@
     "permission.view-settings": "Nastavení (Kurzy): Může zobrazit nastavení kurzu",
     "button.cancel": "Zrušit",
     "button.delete": "Smazat",
-    "cv.cannotDeleteTermHeader": "Nelze smazat skupinu čtenářů",
-    "cv.cannotDeleteTermMessage": "Tuto skupinu čtenářů nelze smazat, protože je používána jedním nebo více záznamy.",
-    "cv.deleteEntry": "Smazat skupinu čtenářů",
-    "cv.termDeleted": "Skupina čtenářů <b>{term}</b> byla úspěšně <b>smazána</b>",
-    "cv.termWillBeDeleted": "Skupina čtenářů <b>{term}</b> bude <b>smazána.</b>",
+    "cv.cannotDeleteTermHeader": "Nelze smazat tento výraz",
+    "cv.cannotDeleteTermMessage": "Tento výraz nelze smazat, protože je používán jedním nebo více záznamy.",
+    "cv.deleteEntry": "Smazat výraz",
+    "cv.termDeleted": "Výraz <b>{term}</b> byl úspěšně <b>smazán</b>",
+    "cv.termWillBeDeleted": "Výraz <b>{term}</b> bude <b>smazán.</b>",
     "appMenu.coursesAppSearch": "Vyhledat v aplikaci Kurzy",
     "courseDeleted": "Kurz <b>{name}</b> s číslem kurzu <b>{number}</b> byl smazán."
 }
