@@ -193,11 +193,11 @@
     "permission.view-settings": "Configurações (Cursos): Pode visualizar as configurações do curso",
     "button.cancel": "Cancelar",
     "button.delete": "Excluir",
-    "cv.cannotDeleteTermHeader": "Não é possível excluir o grupo de usuários",
-    "cv.cannotDeleteTermMessage": "Este grupo de usuários não pode ser excluído, pois está em uso por um ou mais registros.",
-    "cv.deleteEntry": "Excluir grupo de usuários",
-    "cv.termDeleted": "O grupo de usuários <b>{term}</b> foi <b>excluído</b> com sucesso",
-    "cv.termWillBeDeleted": "O grupo de usuários <b>{term}</b> será <b>excluído.</b>",
+    "cv.cannotDeleteTermHeader": "Não é possível excluir o termo",
+    "cv.cannotDeleteTermMessage": "Esse termo não pode ser excluído, pois está sendo usado por um ou mais registros.",
+    "cv.deleteEntry": "Excluir termo",
+    "cv.termDeleted": "O termo <b>{term}</b> foi <b>excluído</b> com sucesso",
+    "cv.termWillBeDeleted": "O termo <b>{term} </b> será <b>excluído.</b>",
     "appMenu.coursesAppSearch": "Busca no aplicativos de cursos",
     "courseDeleted": "O curso <b>{name} </b> com o número de curso <b>{number} </b> foi excluído."
 }
