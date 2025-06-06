@@ -193,11 +193,11 @@
     "permission.view-settings": "设置 : 课程 )  : 可以查看课程设置",
     "button.cancel": "取消",
     "button.delete": "删除",
-    "cv.cannotDeleteTermHeader": "无法删除读者组",
-    "cv.cannotDeleteTermMessage": "该读者组无法删除，因为它正被一条或多条记录使用。",
-    "cv.deleteEntry": "删除读者组",
-    "cv.termDeleted": "读者组<b> {term} </b>已成功<b>删除</b>",
-    "cv.termWillBeDeleted": "读者组<b> {term} </b>将<b>删除。 </b>",
+    "cv.cannotDeleteTermHeader": "无法删除条款",
+    "cv.cannotDeleteTermMessage": "该条款无法删除，因为它正被一条或多条记录使用。",
+    "cv.deleteEntry": "删除条款",
+    "cv.termDeleted": "条款<b> {term} </b>已成功<b>删除</b>",
+    "cv.termWillBeDeleted": "条款<b> {term} </b>将被<b>删除。 </b>",
     "appMenu.coursesAppSearch": "课程应用搜索",
     "courseDeleted": "课程编号为<b> {number} </b>的课程<b> {name} </b>已删除。"
 }
