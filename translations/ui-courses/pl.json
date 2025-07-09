@@ -199,5 +199,5 @@
     "cv.termDeleted": "Grupa czytelnika <b>{term}</b> została pomyślnie <b>usunięta</b>",
     "cv.termWillBeDeleted": "Grupa czytelników <b>{term}</b> zostanie <b>usunięta.</b>",
     "appMenu.coursesAppSearch": "Wyszukiwanie w aplikacji Zajęcia",
-    "courseDeleted": "The course <b>{name}</b> with course number <b>{number}</b> was deleted."
+    "courseDeleted": "Zajęcia <b>{name}</b> o numerze zajęć <b>{number}</b> zostały usunięte."
 }
