@@ -193,11 +193,11 @@
     "permission.view-settings": "Einstellungen (Semesterapparate): Kann Semesterapparate-Einstellungen anzeigen",
     "button.cancel": "Abbrechen",
     "button.delete": "Löschen",
-    "cv.cannotDeleteTermHeader": "Personengruppe kann nicht gelöscht werden",
-    "cv.cannotDeleteTermMessage": "Diese Personengruppe kann nicht gelöscht werden, da diese von einem oder mehreren Datensätzen verwendet wird.",
-    "cv.deleteEntry": "Personengruppe löschen",
-    "cv.termDeleted": "Personengruppe <b>{term}</b> wurde erfolgreich <b>gelöscht</b>",
-    "cv.termWillBeDeleted": "Personengruppe <b>{term}</b> wird <b>gelöscht</b>",
+    "cv.cannotDeleteTermHeader": "Laufzeit kann nicht gelöscht werden",
+    "cv.cannotDeleteTermMessage": "Diese Laufzeit kann nicht gelöscht werden, da diese von einem oder mehreren Datensätzen verwendet wird.",
+    "cv.deleteEntry": "Laufzeit löschen",
+    "cv.termDeleted": "Laufzeit <b>{term}</b> wurde erfolgreich <b>gelöscht</b>",
+    "cv.termWillBeDeleted": "Laufzeit <b>{term}</b> wird <b>gelöscht</b>",
     "appMenu.coursesAppSearch": "Suche in Semesterapparate-App",
     "courseDeleted": "Der Kurs <b>{name}</b> mit der Nummer <b>{number}</b> wurde gelöscht."
 }
