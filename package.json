@@ -1,4 +1,4 @@
-git{
+{
   "name": "@folio/courses",
   "version": "7.0.3",
   "description": "Maintain courses and reserve items for them",
