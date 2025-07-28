@@ -12,6 +12,7 @@ const dateFieldType = ({ fieldProps }) => (
   <Field
     {...fieldProps}
     component={Datepicker}
+    timeZone="UTC"
     marginBottom0
     fullWidth
     usePortal
