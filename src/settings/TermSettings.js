@@ -40,6 +40,10 @@ class TermSettings extends React.Component {
     this.connectedControlledVocab = props.stripes.connect(ControlledVocab);
   }
 
+  gmtDate(date) {
+    return this.props.intl.formatDate(date, { timeZone: 'UTC' });
+  }
+
   render() {
     const { stripes, intl } = this.props;
 
@@ -68,8 +72,8 @@ class TermSettings extends React.Component {
           endDate: intl.formatMessage({ id: 'ui-courses.headings.endDate' }),
         }}
         formatter={{
-          startDate: r => intl.formatDate(r.startDate),
-          endDate: r => intl.formatDate(r.endDate),
+          startDate: r => this.gmtDate(r.startDate),
+          endDate: r => this.gmtDate(r.endDate),
         }}
         id="terms"
         sortby="name"
