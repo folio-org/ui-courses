@@ -7,6 +7,7 @@
 * Fix `en.json` translations for maintenance of terms in settings. Fixes UICR-229.
 * Support interface `item-storage` `11.0`. Refs UICR-231.
 * `ui-courses.add-edit-items` permission now contains `users.collection.get`. This allows the last-edited metadata header to be displayed when editing a course reserve. Fixes UICR-235.
+* Finally ensure all dates are freed of timezone confusion. Fixes UICR-228.
 
 ## [7.0.3](https://github.com/folio-org/ui-courses/tree/v7.0.3) (2025-03-31)
 
