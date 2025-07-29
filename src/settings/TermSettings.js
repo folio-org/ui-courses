@@ -12,6 +12,7 @@ const dateFieldType = ({ fieldProps }) => (
   <Field
     {...fieldProps}
     component={Datepicker}
+    timeZone="UTC"
     marginBottom0
     fullWidth
     usePortal
@@ -38,6 +39,10 @@ class TermSettings extends React.Component {
   constructor(props) {
     super(props);
     this.connectedControlledVocab = props.stripes.connect(ControlledVocab);
+  }
+
+  formatUtcDate(date) {
+    return this.props.intl.formatDate(date, { timeZone: 'UTC' });
   }
 
   render() {
@@ -68,8 +73,8 @@ class TermSettings extends React.Component {
           endDate: intl.formatMessage({ id: 'ui-courses.headings.endDate' }),
         }}
         formatter={{
-          startDate: r => intl.formatDate(r.startDate),
-          endDate: r => intl.formatDate(r.endDate),
+          startDate: r => this.formatUtcDate(r.startDate),
+          endDate: r => this.formatUtcDate(r.endDate),
         }}
         id="terms"
         sortby="name"

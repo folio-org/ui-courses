@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage, FormattedDate } from 'react-intl';
+// We use intl.formatDate instead of <FormattedDate> as there is no way to specify a timezone for the latter
+import { useIntl, FormattedMessage } from 'react-intl';
 import { Card, Col, Row, KeyValue } from '@folio/stripes/components';
 
 const ViewCourseTerm = ({ record }) => {
+  const intl = useIntl();
   const termObject = record?.courseListingObject?.termObject || { name: '' };
 
   return (
@@ -12,13 +14,13 @@ const ViewCourseTerm = ({ record }) => {
         <Col xs={6}>
           <KeyValue
             label={<FormattedMessage id="ui-courses.field.startDate" />}
-            value={<FormattedDate value={termObject.startDate} />}
+            value={intl.formatDate(termObject.startDate, { timeZone: 'UTC' })}
           />
         </Col>
         <Col xs={6}>
           <KeyValue
             label={<FormattedMessage id="ui-courses.field.endDate" />}
-            value={<FormattedDate value={termObject.endDate} />}
+            value={intl.formatDate(termObject.endDate, { timeZone: 'UTC' })}
           />
         </Col>
       </Row>

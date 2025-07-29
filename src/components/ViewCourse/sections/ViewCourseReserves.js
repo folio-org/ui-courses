@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage, FormattedDate } from 'react-intl';
+// We use intl.formatDate instead of <FormattedDate> as there is no way to specify a timezone for the latter
+import { useIntl, FormattedMessage } from 'react-intl';
 import get from 'lodash/get';
 import { IconButton, Card, Col, Layout, NoValue, Row } from '@folio/stripes/components';
 import { withStripes, CalloutContext } from '@folio/stripes/core';
@@ -69,6 +70,7 @@ function makeContentLink(eaList) {
 
 
 const ViewCourseReserves = (props) => {
+  const intl = useIntl();
   const callout = useContext(CalloutContext);
   function removeReserve(reserveId) {
     const clid = props.course.courseListingId;
@@ -200,13 +202,13 @@ const ViewCourseReserves = (props) => {
                 <Col xs={3}>
                   <VCKeyValue
                     id="startDate"
-                    value={<FormattedDate value={record.startDate || termObject.startDate} />}
+                    value={intl.formatDate(record.startDate || termObject.startDate, { timeZone: 'UTC' })}
                   />
                 </Col>
                 <Col xs={3}>
                   <VCKeyValue
                     id="endDate"
-                    value={<FormattedDate value={record.endDate || termObject.endDate} />}
+                    value={intl.formatDate(record.endDate || termObject.endDate, { timeZone: 'UTC' })}
                   />
                 </Col>
               </Row>
