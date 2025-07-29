@@ -46,7 +46,7 @@ const ReserveFormInfo = (props) => {
                 id="edit-reserve-start-date"
                 name="startDate"
                 dateFormat="YYYY-MM-DD"
-                backendDateStandard="YYYY-MM-DD"
+                timeZone="UTC"
                 label={placeholder}
                 component={Datepicker}
                 usePortal
@@ -61,7 +61,7 @@ const ReserveFormInfo = (props) => {
                 id="edit-reserve-end-date"
                 name="endDate"
                 dateFormat="YYYY-MM-DD"
-                backendDateStandard="YYYY-MM-DD"
+                timeZone="UTC"
                 label={placeholder}
                 component={Datepicker}
                 usePortal
