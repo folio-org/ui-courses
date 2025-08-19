@@ -115,7 +115,7 @@
     "filters.department": "Факультет/підрозділ",
     "filters.coursetype": "Тип курсу",
     "filters.term": "Умова",
-    "filters.location": "Location",
+    "filters.location": "Місце розміщення",
     "filters.status": "Статус",
     "filters.processingstatus": "Статус обробки",
     "filters.copyrightTracking": "Відстеження авторського права?",
