@@ -8,6 +8,22 @@ import DuplicateCourseModal from '../components/DuplicateCourseModal';
 import DeleteCourseModal from '../components/DeleteCourseModal';
 
 
+// Here we configure the maximum number of items that we will request
+// when displaying large numbers of reserves for a course. This is
+// because the query is of the form:
+//      id=("100d10bf-2f06-4aa0-be15-0b95b2d9f9e3" or "d6f7c1ba-a237-465e-94ed-f37e91bc64bd")
+// It grows with the number of reserves, until it is too long for
+// some part of the network stack, and fails with 414 URI Too Long.
+//
+// The choice of 45 means that the query tops out at 1848 characters,
+// which gives us some headroom, even with the Okapi URL and other
+// bits of URL, to stay below 2 Kb, which is usually considered safe.
+//
+// For more details, see UICR-233 and especially the comment at
+// https://folio-org.atlassian.net/browse/UICR-233?focusedCommentId=288393
+//
+const MAX_RESERVES_TO_REQUEST = 2;
+
 // There are two basic approaches to fetching the cross-listed courses
 // as well as the main course we're interested in. Either way, we need
 // to find courses that share a courseListingId with the main course.
@@ -71,8 +87,8 @@ class CourseRoute extends React.Component {
         const reserves = get(props.resources, 'reservesForCourse.records');
         if (!reserves || reserves.length === 0) return null;
         return {
-          limit: 100,
-          query: `id=(${reserves.slice(0, 100).map(x => `"${x.itemId}"`).join(' or ')})`
+          limit: MAX_RESERVES_TO_REQUEST,
+          query: `id=(${reserves.slice(0, MAX_RESERVES_TO_REQUEST).map(x => `"${x.itemId}"`).join(' or ')})`
         };
       },
       records: 'items',
