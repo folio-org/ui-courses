@@ -22,7 +22,7 @@ import DeleteCourseModal from '../components/DeleteCourseModal';
 // For more details, see UICR-233 and especially the comment at
 // https://folio-org.atlassian.net/browse/UICR-233?focusedCommentId=288393
 //
-const MAX_RESERVES_TO_REQUEST = 2;
+const MAX_RESERVES_TO_REQUEST = 45;
 
 // There are two basic approaches to fetching the cross-listed courses
 // as well as the main course we're interested in. Either way, we need
