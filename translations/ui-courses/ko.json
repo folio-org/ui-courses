@@ -47,7 +47,7 @@
     "accordion.term.help": "현재 수업 일정",
     "accordion.organization": "공급사",
     "accordion.organization.help": "지역 정보",
-    "accordion.reserves": "항목",
+    "accordion.reserves": "{count} {count, plural, one {item} other {items}}",
     "accordion.reserves.help": "이 수업에 예약된 항목",
     "accordion.developer": "개발자 정보",
     "accordion.developer.help": "(JSON 원시 레코드 덤프)",
