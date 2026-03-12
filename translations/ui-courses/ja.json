@@ -71,7 +71,7 @@
     "field.callNumber": "請求記号",
     "field.volume": "巻",
     "field.copy": "コピー",
-    "field.enumeration": "Enumeration",
+    "field.enumeration": "列挙",
     "field.status": "ステータス",
     "field.temporaryLocation": "一時所在",
     "field.temporaryLoanType": "一時貸出タイプ",
