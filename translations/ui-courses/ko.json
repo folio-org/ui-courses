@@ -156,7 +156,7 @@
     "link": "Link",
     "copyrightTracking.no": "No copyright tracking required",
     "copyrightTracking.yes": "This item requires copyright tracking:",
-    "removeReserve.failure": "Remove reserve failed: {message}",
+    "removeReserve.failure": "예약 제거 실패: {message}",
     "addItem.enterBarcode": "Enter or scan barcode",
     "addItem.missingBarcode": "Please enter a barcode before selecting \"Add item\"",
     "addItem.addedItem": "Added item \"{title}\"",
