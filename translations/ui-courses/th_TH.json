@@ -45,7 +45,7 @@
     "accordion.instructors.help": "การสอนหลักสูตรปัจจุบัน",
     "accordion.term": "Term",
     "accordion.term.help": "Schedule for the present course",
-    "accordion.organization": "Organization",
+    "accordion.organization": "องค์กร",
     "accordion.organization.help": "Local information",
     "accordion.reserves": "{count} {count, plural, one {item} other {items}}",
     "accordion.reserves.help": "Items reserved to this course",
