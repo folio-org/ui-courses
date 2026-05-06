@@ -1,5 +1,9 @@
 # Change history for ui-courses
 
+## [7.1.1](https://github.com/folio-org/ui-courses/tree/v7.1.1) (IN PROGRESS)
+
+* Upgrade `plugin-create-inventory-records` dependency to accept v7.x as well as v4.x, v5.x and v6.x. Fixes UICR-241.
+
 ## [7.1.0](https://github.com/folio-org/ui-courses/tree/v7.1.0) (2026-04-14)
 
 * When a user has the permission `ui-courses.view-settings` ("Settings (Courses): Can view course settings") but not `ui-courses.maintain-settings` ("Settings (Courses): Can create, edit and delete course settings"), the **New** button is no longer displayed at the top of the settings pages for Terms, Course types, Course departments, Processing statuses and Copryright types. Fixes UICR-195.
