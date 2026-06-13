@@ -1,5 +1,9 @@
 # Change history for ui-courses
 
+## [7.1.2](https://github.com/folio-org/ui-courses/tree/v7.1.2) (IN PROGRESS)
+
+* Internationalize the edit-course warning banner. Fixes UICR-244.
+
 ## [7.1.1](https://github.com/folio-org/ui-courses/tree/v7.1.1) (2026-05-06)
 
 * Upgrade `plugin-create-inventory-records` dependency to accept v7.x as well as v4.x, v5.x and v6.x. Fixes UICR-241.

@@ -32,7 +32,7 @@ export default class CourseFormListing extends React.Component {
     return (
       <div data-test-course-info id={id}>
         <MessageBanner type="warning" dismissable>
-          Warning: changes made in this section will also affect all cross-listed courses.
+          <FormattedMessage id="ui-courses.editCourse.warning" />
         </MessageBanner>
         <Row>
           <Col xs={4}>
