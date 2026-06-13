@@ -56,6 +56,7 @@
     "column.temporaryLocation": "Temporary location",
     "loading": "Loading...",
     "editCourse": "Edit course",
+    "editCourse.warning": "Warning: changes made in this section will also affect all cross-listed courses.",
     "editReserve": "Edit reserve",
     "button.editReserve": "Edit reserve",
     "removeReserve": "Remove reserve",
