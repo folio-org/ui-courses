@@ -199,5 +199,6 @@
     "cv.termDeleted": "تم <b>حذف</b> مجموعة المستفيد <b>{term}</b> بنجاح",
     "cv.termWillBeDeleted": "سيتم <b>حذف</b> مجموعة المستفيد <b>{term}</b>.",
     "appMenu.coursesAppSearch": "بحث تطبيق المقررات",
-    "courseDeleted": "The course <b>{name}</b> with course number <b>{number}</b> was deleted."
+    "courseDeleted": "The course <b>{name}</b> with course number <b>{number}</b> was deleted.",
+    "editCourse.warning": "Warning: changes made in this section will also affect all cross-listed courses."
 }

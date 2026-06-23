@@ -199,5 +199,6 @@
     "cv.termDeleted": "De gebruikersgroep <b>{term}</b> is succesvol <b>verwijderd</b>",
     "cv.termWillBeDeleted": "De gebruikersgroep <b>{term}</b> zal worden <b>verwijderd.</b>",
     "appMenu.coursesAppSearch": "Zoeken in app 'Lessen'",
-    "courseDeleted": "De les <b>{name}</b> met lesnummer <b>{number}</b> is verwijderd."
+    "courseDeleted": "De les <b>{name}</b> met lesnummer <b>{number}</b> is verwijderd.",
+    "editCourse.warning": "Warning: changes made in this section will also affect all cross-listed courses."
 }

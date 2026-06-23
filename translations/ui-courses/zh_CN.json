@@ -199,5 +199,6 @@
     "cv.termDeleted": "条款<b> {term} </b>已成功<b>删除</b>",
     "cv.termWillBeDeleted": "条款<b> {term} </b>将被<b>删除。 </b>",
     "appMenu.coursesAppSearch": "课程应用搜索",
-    "courseDeleted": "课程编号为<b> {number} </b>的课程<b> {name} </b>已删除。"
+    "courseDeleted": "课程编号为<b> {number} </b>的课程<b> {name} </b>已删除。",
+    "editCourse.warning": "Warning: changes made in this section will also affect all cross-listed courses."
 }

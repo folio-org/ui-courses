@@ -199,5 +199,6 @@
     "cv.termDeleted": "The dönem <b>{term}</b> başarıyla <b>silindi</b>",
     "cv.termWillBeDeleted": "The dönem <b>{term}</b> <b>silinecektir.</b>",
     "appMenu.coursesAppSearch": "Dersler uygulama ara",
-    "courseDeleted": "Kurs <b>{name}</b> with course sayı <b>{number}</b> silindi."
+    "courseDeleted": "Kurs <b>{name}</b> with course sayı <b>{number}</b> silindi.",
+    "editCourse.warning": "Warning: changes made in this section will also affect all cross-listed courses."
 }
