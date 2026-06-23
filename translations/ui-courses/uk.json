@@ -199,5 +199,6 @@
     "cv.termDeleted": "Термін <b>{term}</b> успішно <b>видалений</b>",
     "cv.termWillBeDeleted": "Термін <b>{term}</b> буде <b>видалений.</b>",
     "appMenu.coursesAppSearch": "Пошук у додатку \"Курси\"",
-    "courseDeleted": "Курс <b>{name} </b> з номером курсу <b>{number} </b> видалено."
+    "courseDeleted": "Курс <b>{name} </b> з номером курсу <b>{number} </b> видалено.",
+    "editCourse.warning": "Warning: changes made in this section will also affect all cross-listed courses."
 }

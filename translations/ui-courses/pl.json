@@ -199,5 +199,6 @@
     "cv.termDeleted": "Grupa czytelnika <b>{term}</b> została pomyślnie <b>usunięta</b>",
     "cv.termWillBeDeleted": "Grupa czytelników <b>{term}</b> zostanie <b>usunięta.</b>",
     "appMenu.coursesAppSearch": "Wyszukiwanie w aplikacji Zajęcia",
-    "courseDeleted": "Zajęcia <b>{name}</b> o numerze zajęć <b>{number}</b> zostały usunięte."
+    "courseDeleted": "Zajęcia <b>{name}</b> o numerze zajęć <b>{number}</b> zostały usunięte.",
+    "editCourse.warning": "Warning: changes made in this section will also affect all cross-listed courses."
 }

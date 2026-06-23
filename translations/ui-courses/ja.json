@@ -199,5 +199,6 @@
     "cv.termDeleted": "利用者グループ<b> {term} </b>が正常に<b>削除されました</b>",
     "cv.termWillBeDeleted": "利用者グループ<b>{term} </b> は<b>削除されます</b>",
     "appMenu.coursesAppSearch": "コースアプリ検索",
-    "courseDeleted": "コース番号<b> {number} </b>のコース<b> {name} </b>が削除されました。"
+    "courseDeleted": "コース番号<b> {number} </b>のコース<b> {name} </b>が削除されました。",
+    "editCourse.warning": "Warning: changes made in this section will also affect all cross-listed courses."
 }

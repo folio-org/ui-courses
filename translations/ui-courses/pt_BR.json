@@ -199,5 +199,6 @@
     "cv.termDeleted": "O termo <b>{term}</b> foi <b>excluído</b> com sucesso",
     "cv.termWillBeDeleted": "O termo <b>{term} </b> será <b>excluído.</b>",
     "appMenu.coursesAppSearch": "Busca no aplicativos de cursos",
-    "courseDeleted": "O curso <b>{name} </b> com o número de curso <b>{number} </b> foi excluído."
+    "courseDeleted": "O curso <b>{name} </b> com o número de curso <b>{number} </b> foi excluído.",
+    "editCourse.warning": "Warning: changes made in this section will also affect all cross-listed courses."
 }

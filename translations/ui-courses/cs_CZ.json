@@ -199,5 +199,6 @@
     "cv.termDeleted": "Výraz <b>{term}</b> byl úspěšně <b>smazán</b>",
     "cv.termWillBeDeleted": "Výraz <b>{term}</b> bude <b>smazán.</b>",
     "appMenu.coursesAppSearch": "Vyhledat v aplikaci Kurzy",
-    "courseDeleted": "Kurz <b>{name}</b> s číslem kurzu <b>{number}</b> byl smazán."
+    "courseDeleted": "Kurz <b>{name}</b> s číslem kurzu <b>{number}</b> byl smazán.",
+    "editCourse.warning": "Warning: changes made in this section will also affect all cross-listed courses."
 }

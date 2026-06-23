@@ -199,5 +199,6 @@
     "cv.termDeleted": "Laufzeit <b>{term}</b> wurde erfolgreich <b>gelöscht</b>",
     "cv.termWillBeDeleted": "Laufzeit <b>{term}</b> wird <b>gelöscht</b>",
     "appMenu.coursesAppSearch": "Suche in Semesterapparate-App",
-    "courseDeleted": "Der Kurs <b>{name}</b> mit der Nummer <b>{number}</b> wurde gelöscht."
+    "courseDeleted": "Der Kurs <b>{name}</b> mit der Nummer <b>{number}</b> wurde gelöscht.",
+    "editCourse.warning": "Warning: changes made in this section will also affect all cross-listed courses."
 }
